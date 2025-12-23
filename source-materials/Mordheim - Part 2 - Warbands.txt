@@ -1,0 +1,2228 @@
+--- Page 1 ---
+2 22 2
+Before you begin to play you must recruit a warband to take part
+in the battle for Mordheim. The warbands are represented by a whole
+range of Citadel models available as boxed sets and blister packs. The
+boxed sets are designed to form an ideal starting point for your collection
+and further models can be added as your warband grows and thrives. 
+In this section of the book
+we take a detailed look at
+each of the warbands and
+provide the information you
+need to recruit a warband of
+that type.
+Use the lists that follow to recruit
+and equip your warband (an
+example warband has been
+included at the back of the book.)
+You have 500 gold crowns to spend. Each model
+and their equipment (if you choose to buy any) costs
+a set amount of money. As you make your choices,
+subtract the money you have “spent” from your total
+until you have bought all you can. Any unspent gold
+crowns are put into the warband’s treasury and can
+be used later or hoarded to buy something more
+expensive.
+To start with you must recruit at least three warriors
+including a leader. The weapons, armour and
+mutations you choose for your warriors must be
+represented on the models themselves. The
+exceptions are knives and daggers, which you may
+assume are tucked in boots or concealed in clothing
+if not represented on the model.
+skill tables
+and starting experience
+The warband lists also include information about the
+starting experience of the warriors and which skills
+they can choose as they progress in the game. Some
+warbands also include separate skill lists unique to
+the warband.
+The rules about experience and skills will be fully
+explained in the Campaign section, so don’t worry
+about them for now.
+Starting a warband
+2
+heroes and henchmen
+For game purposes the warriors in your warband are
+classified as Heroes and Henchmen.
+heroes
+These are exceptional individuals who have the
+potential to become legends. Heroes can be armed
+and equipped individually and may carry any special
+equipment they might pick up during the campaign.
+leader
+Every warband must have a leader. He represents you,
+the player. He makes the decisions and leads your
+warriors through the dark streets of Mordheim.
+other heroes
+Apart from its leader, your warband may include up to
+five other Heroes, who form the core of your
+warband. A warband may never include more Heroes
+of any specific type than the number given in the
+Warband list. This means that some warbands can
+only get the maximum of six Heroes by gaining
+experience with their Henchmen (see the Experience
+section).
+henchmen
+Henchmen typically fall into two groups. There are
+Henchmen such as the Brethren of the Possessed,
+Skaven Verminkin and Mercenary Swordsmen. These
+Henchmen gain experience and become better as
+time goes by. They are bought in groups of one to five
+models.
+
+
+--- Page 2 ---
+33 33 33
+The other type of Henchmen are those such as
+Warhounds and Zombies. These are too dim or too
+primitive to gain experience.
+Henchmen may never use any special equipment you
+acquire during their adventures (unless otherwise
+noted); only Heroes may do so. Henchmen can
+include potentially powerful warriors, but Heroes
+always have an edge over them with their potential to
+gain extra experience.
+All Henchmen belong to a Henchmen group , which
+usually consists of between one and five individuals.
+Henchmen groups gain experience collectively and
+gain advances together.
+weapons and armour
+Each warrior you recruit can be armed with up to two
+close combat weapons (in addition to his free
+dagger), up to two different missile weapons and any
+armour chosen from the appropriate list. For these
+purposes, a brace of pistols counts as a single missile
+weapon. Warriors may be restricted in regard to
+which types of weapons they can use. The warband’s
+equipment lists tell you exactly what equipment is
+available. Note that you may buy rare weapons and
+armour when starting a warband, as indicated by the
+list in the warband’s entry, but after playing the first
+game the only way to get further rare weapons and
+armour is to roll to see if you can locate them (see the
+Trading section). 
+You may buy additional equipment between battles,
+but your warriors can only use the weapons and
+armour listed in their warband entry. As they
+accumulate experience and gain skills, Heroes may
+learn to use weapons other than those initially
+available to them.
+Every model in each Henchman group must be armed
+and armoured in the same way. This means that if
+your Henchman group has four warriors, and you
+want to buy them swords, you must buy four swords.
+warband roster
+You’ll need a warband roster sheet to record the
+details of your warband. Blank roster sheets can be
+found printed at the back of this book, one for Heroes
+and one for Henchman groups. We suggest that you
+photocopy or copy as many sheets as you need, so
+that you can keep a neat and accurate record of your
+warband as it changes from game to game.
+When you choose a warband, take a warband roster
+sheet and write down the details of each Hero and
+Henchman group in the appropriate places. You’ll
+notice that Heroes and Henchmen have slightly
+different spaces provided to reflect the different ways
+Warbands
+3
+in which they gain experience and use weapons,
+armour and equipment.
+It is a good idea to work out the warband on a piece
+of scrap paper first, as you will have to juggle the
+weapons and fighters to get as close to the maximum
+permitted value of the warband as possible. If you
+have any cash left after choosing your warband write
+this down in the space marked as ‘Treasury’. At the
+end of the book you’ll find an example warband; you
+can use this if you want or choose your own – it’s up
+to you.
+The warband roster is a record of your brave group of
+warriors and is useful to keep beside you as you play.
+During a battle you may wish to make notes on the
+sheet itself, to record details such as extra experience,
+equipment used, etc.
+You will need to give your warband a name, and also
+name all your Heroes and each Henchman group. It’s
+up to you to invent suitable names, though you’ll find
+plenty of inspiration throughout this book.
+calculate the warband rating
+Each warband has a warband rating – the higher the
+rating, the better the warband. The warband rating is
+simply the number of warriors multiplied by 5, plus
+their accumulated experience.
+Large creatures such as Rat Ogres are worth 20 points
+plus the number of Experience points they have
+accumulated.
+ready for battle
+The warband is now ready to start its fighting career!
+
+--- Page 3 ---
+“L
+isten to me boy, there are many in Mordheim who you
+must face. Men from the lands of Middenheim to as far
+as Marienburg have staked their claim upon this forsaken city.
+Then there are the rat-men, the Walking Dead and those
+crazed Witch Hunters…
+So seeing as I’m feeling generous, I will describe them all.
+Then maybe you’ll have an idea of what you’re up against. 
+So pay attention boy, for this information just might save 
+your life!”
+Warbands
+The Cult of the Possessed
+The Possessed. The Damned. The bogeymen. These scum are the
+worst of the worst. They are dangerous creatures, perhaps more so
+than any other group in the entire city. This Chaos-worshipping
+scum consists of mutants, Beastmen and cultists, and even worse
+things called the Possessed. If you ever let them get close to you,
+you’ll be in big trouble – there are few who are a match for this
+scum in close quarters.
+Witch Hunters
+Witch Hunters will burn you and your warband if you give them the slightest reason. They are well
+armed and equipped, and show no mercy to anyone who dares to stand in their way. They are
+followed everywhere in Mordheim by a rabble of fanatics and those crazed Flagellants. One word
+from a Witch Hunter and they’ll tear you apart, burn you, decapitate you and excommunicate you
+from the grace of Sigmar.
+The Undead
+The Restless Dead plague Mordheim. Zombies, Ghouls and huge
+hellhounds prowl the streets, and woe to anyone caught by them. He’ll
+be eaten alive, or end up as one of the walking corpses himself. I lost
+my eye to one of the fanged horrors who leads the Undead. Let me tell
+you, that thing was not human. I put my sword through it and it still
+kept coming. 
+
+
+--- Page 4 ---
+Warbands
+55
+“S
+o there you have it. You’ll encounter all these motley crews in
+Mordheim sooner or later. Each has its own weaknessess but each also
+has its strengths that you must learn to deal with. Remember, it is foolish
+to rush into close combat with the Possessed scum – you’ll only get killed.
+Neither should you try to outpace the Skaven vermin, for they’re as fast as
+quicksilver. 
+If you heed nothing else, lad, remember this. Make your warband as flexible
+as possible so that you are prepared for almost anything this cursed city
+will throw at you.
+Skaven
+These are no ordinary vermin - big as a man,
+fast on their feet, and smart too, not like
+common rats. The whole city’s full of ’em
+and the worse of it is they’re waitin’ in the
+old drains and sewers, watchin’ for a chance
+to catch you on your own. Let ’em and you’re
+a dead man. 
+Sisters of Sigmar
+Don’t believe everything those Witch Hunters
+say about the Sisters. They’re no more
+heretics than I am and I’ll skewer any man
+that says different. Not that the Sisters need
+looking after – they’re mean fighters and you
+gotta be tough just to live like they do in
+that big fortress in the middle of Mordheim. 
+Reiklanders
+Ah, Reiklanders, the finest of men! Disciplined, magnificent archers and
+good, solid warriors! Reiklanders need the best leaders, so you’d better
+shape up boy! For these warriors are good at almost all the skills of war,
+and they are more likely to hold their nerve than others in Mordheim. 
+Marienburgers
+The rich boys of Marienburg. Never turn your back on them. I’ll grant
+them this: they are completely ruthless and have more money than anyone
+else – hardly surprising, as those fat leeches in the Merchant’s Guild fill
+their coffers. That’s why they have such good armour and weapons, and
+usually a few more men than most as well. Don’t let their fancy clothes
+and flash jewellery fool you, though. They’re not wearing those weapons
+just for show, they know how to use them as well!
+Middenheimers
+These Northerners are nutters, madmen, berserkers! They are as strong as
+Ogres and meaner than Orcs. Watch out for them in close quarters – the
+chances are they’ll crush your skull with a hammer or behead you with
+one of those hefty axes they carry around with them.
+
+
+--- Page 5 ---
+This is a time of
+unremitting war, civil
+strife, violence and
+famine. A time of orphan
+children and wanton
+slaughter. For warriors
+these are good times! Since
+the discovery of wyrdstone
+Mordheim has become a
+magnet for fighting men from
+all over the Empire. Nobles,
+merchants, and the Temple of
+Sigmar itself offer rich rewards for shards of the
+mysterious stone. Foremost amongst the patrons of
+mercenary warriors are the
+three most powerful contenders for the Emperor’s
+throne: the Grand Prince of Reikland, the Count of
+Middenheim, and Lady Magritta of Marienburg –
+favourite of the merchant guilds.
+As a mercenary warband you must decide which of
+the three contenders for Sigmar’s throne you are
+fighting for. Warbands from different places will vary
+in many respects, offering different benefits as well as
+having a unique appearance and character. 
+Reikland
+Reikland lies at the heart of the Empire and its
+greatest city is Altdorf, home of the Grand Theogonist
+and seat of the Temple of Sigmar. Reiklanders are
+devout followers of Sigmar, the founder, first
+Emperor, and patron god of the Empire. The Grand
+Prince of Reikland (as Siegfried, the ruler of Reikland,
+styles himself) is supported in his claim to the throne
+by the Grand Theogonist and opposed most strongly
+by the Count of Middenheim and the Priests of Ulric. 
+Throughout the Empire Reiklanders are commonly
+supposed to embody the discipline and loyalty of the
+professional warrior. Brave and well-versed in the
+arts of war, Reiklanders disdain fashionable clothing
+in favour of well-made and practical wargear.
+In battle they often wear coloured ribbons as
+marks of identification or authority. They are
+justly proud of their dynamic and ambitious
+Grand Prince and contemptuous of other claimants
+to the throne, especially the Count of Middenheim,
+Mannfred Todbringer, whom they sneeringly call the
+‘lap-dog of Ulric’. 
+special rules
+Reikland Mercenaries are accustomed to the
+demands of military discipline and have a strongly
+developed loyalty between officers and men. To
+represent this, fighters may use their Captain’s
+Leadership if within 12" rather than the usual 6". 
+A strong tradition of martial training is also
+responsible for the high standards of archery
+amongst the people of Reikland. All Marksmen
+therefore add +1 to their Ballistic Skill,
+whether they are recruited when the warband
+is first formed or added later.
+Mercenaries
+6
+
+--- Page 6 ---
+Middenheim
+Middenheim stands on a mountain pinnacle
+surrounded by dark forest in the centre of
+Middenland, and is also known as the City of the
+White Wolf after Ulric, the old god of wolves and
+winter. The Priesthood of Ulric is still strong in
+Middenheim where Ulric is venerated as the patron of
+the city. The tradition of rivalry between Middenheim
+and Reikland goes back hundreds of years, and the
+Count of Middenheim, Mannfred Todbringer, is one
+of the chief contenders for the Emperor’s throne. As a
+result there has always been a great deal of friction
+between Middenheimers and the Temple of Sigmar. 
+Middenheimers are typically large, strongly built men
+with a well deserved reputation for ferocity. Many
+wear wolf pelts which custom decrees to be the mark
+of those who have slain a wolf with their own hands.
+These grim warriors are famously contemptuous of
+danger. They frequently go into battle bare-headed,
+scoffing at those who choose, for reasons of good
+sense, to wear helmets. As Middenheimers favour
+long hair and beards their lack of headgear makes
+them look especially fierce when they charge upon
+their enemies howling their brutal battle-cries. 
+special rules
+The men of Middenheim are famous for their physical
+prowess. To represent their advantage in size and
+bulk, the Champions and Captains of a Middenheim
+warband start with Strength 4 instead of Strength 3.
+Marienburg
+Marienburg is the largest and most prosperous
+trading city in the Old World. Many call it the City of
+Gold which alone conveys a good idea of the wealth
+of this sprawling cosmopolitan city. Nowhere else can
+be found the vast array of shops selling goods from as
+far away as the Elven kingdoms of Ulthuan in the west
+and distant Cathay in the east. The city’s craftsmen
+represent every skill known to man, and a few others
+beside, so that it is said in Marienburg there is no
+activity that cannot be quickly turned to profit. 
+Many mercantile guilds have their headquarters in
+Marienburg, most important of all the secretive High
+Order of Honourable Freetraders which represents
+the elite amongst mercantile society. This large, rich,
+and ambitious body of men feel themselves shackled
+by the old order and are eager to seize power for
+themselves. Their champion for the Emperor’s throne
+is the Lady Magritta. Thanks to the unseen influence
+of Freetraders throughout the Empire all the minor
+Electors were persuaded to support the Lady
+Magritta’s claim. It was only the Grand
+Theogonist’s refusal to crown her that denied
+77
+Marienburg the throne driving a wedge between the
+City of Gold and the Temple of Sigmar.
+Warbands sent to Mordheim are sumptuously dressed
+and armed. Though Marienburgers are often
+ridiculed as foppish and effete, their skill at arms and
+complete ruthlessness has earned them grudging
+respect. Their chief skills lie in duelling and in the use
+of poisons and other clandestine fighting methods.
+Richer individuals dress flamboyantly and wear
+jewellery. However, the bulk of most warbands are
+recruited from the dockland thugs, ships’ crews, and
+stevedores who favour a simpler appearance: leather
+coats, bandanas and short swords that are easy to
+conceal.
+special rules
+As natural traders with contacts in the merchant
+guilds Marienburg warbands receive a +1 bonus
+when attempting to find rare items (see the Trading
+section for rules).
+To reflect their enormous wealth Marienburgers start
+off with an extra 100 gold crowns (600 in total) when
+fighting in a campaign. In a one-off game they are
+permitted an extra 20% gold crowns when recruiting
+a warband. For example, in a 1,000 gold crown game
+a Marienburger warband will have 1,200gc.
+Choice of warriors
+A Mercenary warband must include a minimum of
+three models. You have 500 gold crowns available to
+spend. The maximum number of warriors in the
+warband may never exceed 15.
+Captain: Each Mercenary warband must have
+one Captain: no more, no less!
+Champions: Your warband may include up to two
+Champions.
+Youngbloods: Your warband may include up to two
+Youngbloods.
+Warriors: Your warband may include any number of
+Warriors.
+Marksmen: Your warband may include no more
+than seven Marksmen.
+Swordsmen: Your warband may include no
+more than five Swordsmen.
+Starting experience
+The Captain starts with 20 experience.
+Champions start with 8 experience.
+Youngbloods start with 0 experience.
+Henchmen start with 0 experience.
+Mercenaries
+7
+
+--- Page 7 ---
+8 8
+Mercenaries
+Hand-to-hand Combat Weapons
+Dagger  . . . . . . . . . . . . . . . 1st free/2 gc
+Mace  . . . . . . . . . . . . . . . . 3 gc
+Hammer . . . . . . . . . . . . . . 3 gc
+Axe . . . . . . . . . . . . . . . . . . 5 gc
+Sword  . . . . . . . . . . . . . . . 10 gc
+Morning star . . . . . . . . . . . 15 gc
+Double-handed weapon  . . 15 gc
+Spear  . . . . . . . . . . . . . . . . 10 gc
+Halberd  . . . . . . . . . . . . . . 10 gc
+Missile Weapons
+Crossbow  . . . . . . . . . . . . . 25 gc
+Pistol  . . . . . . . . . . . . . . . . 15 gc (30 for a brace)
+Duelling pistol  . . . . . . . . . 25 gc (50 for a brace)
+Bow  . . . . . . . . . . . . . . . . . 10 gc
+Armour
+Light armour  . . . . . . . . . . 20 gc
+Heavy armour . . . . . . . . . . 50 gc
+Shield . . . . . . . . . . . . . . . . 5 gc
+Buckler  . . . . . . . . . . . . . . 5 gc
+Helmet  . . . . . . . . . . . . . . .10 gc
+MARKSMAN EQUIPMENT LIST
+This list is for Marksmen only
+Hand-to-hand Combat Weapons
+Dagger  . . . . . . . . . . . . . . . 1st free/2 gc
+Mace  . . . . . . . . . . . . . . . . 3 gc
+Hammer . . . . . . . . . . . . . . 3 gc
+Axe . . . . . . . . . . . . . . . . . . 5 gc
+Sword  . . . . . . . . . . . . . . . 10 gc
+Missile Weapons
+Crossbow  . . . . . . . . . . . . . 25 gc
+Pistol  . . . . . . . . . . . . . . . . 15 gc (30 for a brace)
+Bow  . . . . . . . . . . . . . . . . . 10 gc
+Long bow  . . . . . . . . . . . . . 15 gc
+Blunderbuss . . . . . . . . . . . 30 gc
+Handgun  . . . . . . . . . . . . . 35 gc
+Hunting rifle  . . . . . . . . . . 200 gc
+Armour
+Light armour  . . . . . . . . . . 20 gc
+Shield . . . . . . . . . . . . . . . . 5 gc
+Helmet  . . . . . . . . . . . . . . . 10 gc
+Mercenary equipment lists
+The following lists are used by Mercenary warbands to pick their weapons:
+8
+Mercenary skill tables
+REIKLAND MERCENARIES
+Combat Shooting Academic Strength Speed
+Mercenary Captain 
+Champion  
+Youngblood  
+MIDDENHEIM MERCENARIES
+Combat Shooting Academic Strength Speed
+Mercenary Captain 
+Champion  
+Youngblood  
+MARIENBURG MERCENARIES
+Combat Shooting Academic Strength Speed
+Mercenary Captain 
+Champion  
+Youngblood  
+
+--- Page 8 ---
+Henchmen
+(Bought in groups of 1-5)
+Warriors
+25 gold crowns to hire
+These dogs of war are grim, seasoned fighters,
+fearing no man as long as they have their weapons
+and armour. They form the core of any Mercenary
+warband.
+Profile M WS BS S T W I A Ld
+433331317
+Weapons/Armour: Warriors may be equipped with
+weapons and armour chosen from the Mercenary
+Equipment list.
+0-7 Marksmen
+25 gold crowns to hire
+The archers and hunters of the Old World are famed
+for their skill, and it is said that they can hit a coin
+from 300 paces with a long bow. In the savage street
+fights of Mordheim they snipe at the enemy from the
+windows of ruined buildings and pick out enemy
+leaders with their arrows.
+Profile M WS BS S T W I A Ld
+433331317
+Weapons/Armour Marksmen may be equipped with
+weapons and armour chosen from the Marksman
+Equipment list.
+0-5 Swordsmen
+35 gold crowns to hire
+Swordsmen are professional warriors, experts at
+taking on and beating several opponents at once.
+They are much sought after by warband leaders, as
+their skills are ideally suited for fighting in Mordheim.
+Profile M WS BS S T W I A Ld
+443331317
+Weapons/Armour: Swordsmen may be equipped
+with weapons and armour chosen from the
+Mercenary Equipment list.
+SPECIAL RULES
+Expert Swordsmen: Swordsmen are so skilled with
+their weapons that they may re-roll any failed hits
+when charging. Note that this only applies when they
+are armed with normal swords, and not with double-
+handed swords or any other weapons.
+99
+Heroes
+1 Mercenary captain
+60 gold crowns to hire
+A Mercenary Captain is a tough professional warrior,
+a man who will fight for anyone or against anything so
+long as the price is right. Mordheim offers such a man
+the chance to become rich beyond his dreams,
+though at great risk. But as ruthlessness and lack of
+mercy and pity are the hallmarks of a successful
+Mercenary Captain, it is no wonder that they flock to
+Mordheim.
+Profile M WS BS S T W I A Ld
+444331418
+Weapons/Armour: A Mercenary Captain may be
+equipped with weapons and armour chosen from the
+Mercenary Equipment list.
+SPECIAL RULES
+Leader: Any warrior within 6" of the Mercenary
+Captain may use his Leadership characteristic when
+taking Leadership tests.
+0-2 Champions
+35 gold crowns to hire
+In any Mercenary warband there is one warrior who is
+bigger, stronger (and often uglier) than his comrades.
+These men are called Champions (or berserkers, first
+swordsmen and various other names). Champions are
+amongst the toughest and the best fighters in the
+warband. They often answer challenges issued to the
+warband and, after the Captain, they get the pick of
+any equipment and loot.
+Profile M WS BS S T W I A Ld
+44333131  7
+Weapons/Armour: Champions may be equipped
+with weapons and armour chosen from the
+Mercenary Equipment list.
+0-2 Youngbloods
+15 gold crowns to hire
+These are young fighters who are still inexperienced,
+but eager to win their spurs in the savage fighting in
+and around the ruins of Mordheim.
+Profile M WS BS S T W I A Ld
+422331316
+Weapons/Armour: Youngbloods may be equipped
+with weapons and armour chosen from the
+Mercenary Equipment list.
+9
+Mercenaries
+
+
+--- Page 9 ---
+There is never
+any shortage of men willing
+to risk their lives for a chance
+of real power: men whose
+ambitions lie beyond the scope
+of their birthright, or whose
+sorcerous skills or physical
+deformities place them in constant
+danger of persecution. What do such men
+have to lose if they pledge their souls to the
+dark gods of Chaos! In the aftermath of the
+destruction of Mordheim all manner of mutants have
+appeared whilst many hitherto unblemished folk feel
+the stirring of strange powers, the first awakenings of
+magical gifts destined to bring them to a fiery death at
+the hands of the Witch Hunters.
+Now a leader has appeared, a new Dark Emperor,
+who claims lordship of the City of the Damned. He is
+called the Shadowlord, Master of the Possessed, and
+followers of the cults of Chaos gather from all over
+the Empire to pledge their souls to him. Though none
+know whether he is man or Daemon all proclaim him
+their saviour and eagerly seek to do his bidding. 
+As all students of the dark arts know, it is by the power
+of magic that creatures such as Daemons and spirits
+are able to stalk the mortal world. The wyrdstone that
+proliferates in Mordheim grants unnatural life to
+many vile things that by all natural rights should never
+exist. The Possessed were once men but by
+surrendering themselves wholly to the dark gods they
+have allowed Daemons to possess their bodies. Their
+appearance is horrific – corrupted from within, their
+flesh is twisted into a new and monstrous form. 
+With the power of the Possessed behind them the
+followers of the Shadowlord have grown powerful in
+Mordheim. In the Massacre of Silver Street the Cult of
+the Possessed ambushed and destroyed a large force
+sent in to hunt them down. Now the streets of
+Mordheim belong to the Shadowlord and his
+servants. The contaminated air does not affect them at
+all or, more likely, it nourishes their inner corruption.
+Men who venture into Mordheim alone are hunted
+down and sacrificed to the dark gods. All warbands of
+the Possessed gather wyrdstone for the Shadowlord
+who remains hidden in the Pit where he is said to be
+guarded by titanic Possessed the size of houses. A few
+shards of the precious stone are kept by the warbands
+and used to create more of the Possessed.
+Cult of the possessed
+The leaders of cult warbands are called Magisters and
+each leads a group of cultists: minions of the dark
+gods of Chaos. These are men whose hunger for
+power knows no bounds, who willingly give their
+bodies over to possession. All take part in the blood
+sacrifices, dark rituals, and worship of Daemons –
+nothing is too base for them! These degenerate
+humans are joined by other creatures as vile as they –
+things half-man half-beast that call themselves Gors,
+and which men refer to as Beastmen. 
+There are few sights as horrific as a cult warband.
+Deranged warriors smeared with blood and dirt wave
+jagged weapons and chant blasphemous rites as they
+throw themselves upon their foes. Many are hardly
+recognisable as human, their bodies are so scarred
+and disfigured. The stigmata of mutation is borne by
+most, but the most unsettling of all are the Possessed
+themselves – melded flesh made of men, beasts, and
+metal driven by the implacable will of a Daemon. 
+Choice of warriors
+A Possessed warband must include a minimum of
+three models. You have 500 gold crowns to recruit
+your initial warband. The maximum number of
+warriors in the warband may never exceed 15.
+Magister: Each Possessed warband must have one
+Magister: no more, no less!
+Possessed: Your warband may include up
+to two Possessed.
+Mutants: Your warband may include up to
+two Mutants. 
+Darksouls: Your warband may include up to five
+Darksouls.
+Brethren: Any number of models may be Brethren.
+Beastmen: Your warband may include up to three
+Beastmen Gors.
+Starting experience
+A Magister starts with 20 experience.
+Possessed start with 8 experience.
+Mutants starts with 0 experience.
+Henchmen start with 0 experience.
+10
+
+
+--- Page 10 ---
+Possessed equipment lists
+The following lists are used by Possessed warbands to pick their equipment.
+Cult of the possessed
+11
+Hand-to-hand Combat Weapons
+Dagger . . . . . . . . . . . . . . . . . . . . . . . . . . . 1st free/2 gc
+Mace  . . . . . . . . . . . . . . . . . . . . . . . . . 3 gc
+Hammer  . . . . . . . . . . . . . . . . . . . . . . 3 gc
+Axe  . . . . . . . . . . . . . . . . . . . . . . . . . . 5 gc
+Sword  . . . . . . . . . . . . . . . . . . . . . . . . 10 gc
+Double-handed weapon  . . . . . . . . . . 15 gc
+Spear  . . . . . . . . . . . . . . . . . . . . . . . . . 10 gc
+Missile Weapons
+Bow  . . . . . . . . . . . . . . . . . . . . . . . . . . 15 gc
+Short bow . . . . . . . . . . . . . . . . . . . . . . 10 gc 
+Armour
+Light armour . . . . . . . . . . . . . . . . . . . . 20 gc
+Heavy armour  . . . . . . . . . . . . . . . . . . . 50 gc
+Shield  . . . . . . . . . . . . . . . . . . . . . . . . . 5 gc
+Helmet  . . . . . . . . . . . . . . . . . . . . . . . . 10 gc
+DARKSOULS EQUIPMENT LIST
+This list is for Darksouls and Beastmen only
+Hand-to-hand Combat Weapons: 
+Dagger . . . . . . . . . . . . . . . . . . . . . . . . . . . 1st free/2 gc
+Mace  . . . . . . . . . . . . . . . . . . . . . . . . . 3 gc
+Hammer  . . . . . . . . . . . . . . . . . . . . . . 3 gc
+Axe  . . . . . . . . . . . . . . . . . . . . . . . . . . 5 gc
+Sword  . . . . . . . . . . . . . . . . . . . . . . . . 10 gc 
+Double-handed weapon  . . . . . . . . . . 15 gc
+Flail  . . . . . . . . . . . . . . . . . . . . . . . . . . 15 gc
+Missile Weapons
+None
+Armour
+Light armour . . . . . . . . . . . . . . . . . . . . 20 gc
+Heavy armour  . . . . . . . . . . . . . . . . . . . 50 gc
+Shield  . . . . . . . . . . . . . . . . . . . . . . . . . 5 gc 
+Helmet  . . . . . . . . . . . . . . . . . . . . . . . . 10 gc
+W
+hen you are facing an enemy that is really
+scary like the living dead or creatures of
+Chaos, always shoot at them. Never attack them in
+close combat if you have the option. 
+I’ve seen many powerful warriors losing precious
+seconds trying to overcome their fear and charge
+these monsters. 
+And when they did it, it was often too late…
+Possessed skill table
+Combat Shooting Academic Strength Speed
+Magister 
+Possessed  
+Mutant 
+
+
+--- Page 11 ---
+1 Magister
+70 gold crowns to hire
+Magisters lead the covens of the Possessed. They have
+been granted magical powers by their patron gods.
+They are fanatical followers of the Dark gods, utterly
+dedicated to bringing Chaos to the world.
+Profile M WS BS S T W I A Ld
+444331318
+Weapons/Armour: The Magister may be equipped
+with weapons and armour chosen from the Possessed
+Equipment list.
+SPECIAL RULES
+Leader: Any models in the warband within 6" of the
+Magister may use his Leadership instead of their own.
+Wizard: The Magister is a wizard and uses Chaos
+Rituals. See the Magic section for details.
+0-2 The possessed
+90 gold crowns to hire
+(+ the cost of mutations)
+The Possessed have committed the greatest of
+heresies: they have given their bodies to Daemons. As
+a result, they are nightmarish creatures, a melding of
+flesh, metal and black magic. Inside them lives a
+supernatural thing of evil, a Daemon from the dark
+reaches of the Realm of Chaos.
+The powerful spirit of a Daemon can meld several
+creatures together, be they men or animals, into a
+multi-faceted horror. These monstrous Possessed are
+perhaps the most dangerous of the creatures of
+Mordheim, and certainly the most loathsome and
+dreadful.
+Profile M WS BS S T W I A Ld
+540442427
+Weapons/Armour: None. The Possessed never use
+weapons or armour.
+SPECIAL RULES
+Fear: The Possessed are terrifying, twisted creatures
+and therefore cause fear. See the Psychology section
+for details.
+Mutations: Possessed may start the game with one or
+more mutations each. See the Mutations list over the
+page for costs.
+0-2 Mutants
+25 gold crowns to hire 
+(+ the cost of mutations)
+Mutants are revered as the favoured ones of the Dark
+gods, their physical disfigurements marking out the
+vileness of their soul. They come in many shapes
+and sizes, each more bizarre than the next.
+Profile M WS BS S T W I A Ld
+433331317
+Weapons/Armour: Mutants may
+be equipped with weapons and
+armour chosen from the
+Possessed Equipment list.
+SPECIAL RULES
+Mutations: Mutants must start
+the game with one or more
+mutations each. See the
+Mutations list over the page for
+the cost.
+12
+Heroes
+Cult of the possessed
+
+
+--- Page 12 ---
+Henchmen (Bought in groups of 1-5)
+Cult of the possessed
+0-3 Beastmen
+45 gold crowns to hire
+Beastmen are mutated monstrosities that infest
+the forests of the Empire: massive horned creatures
+with an inhuman resistance to pain. The destruction
+of Mordheim brought many Beastmen into the ruined
+city to prey upon the survivors. They readily ally with
+the Magisters of the Possessed warbands.
+Profile M WS BS S T W I A Ld
+44 3 3 4 2 3 17
+Weapons/Armour: Beastmen may be equipped with
+weapons and armour chosen from the Darksouls
+Equipment list.
+0-5 Darksouls
+35 gold crowns to hire
+Darksouls are men who have been driven insane by
+the daemonic possession which became all too
+common after the destruction of Mordheim. The
+Daemons have left the bodies of these men, but their
+minds have been scarred by the horror of the
+experience. 
+Their insane strength makes Darksouls dangerous
+fighters. The Cultists regard them as holy men, and let
+them work out their unreasoning rage in battle. In
+their tortured minds the Darksouls believe
+themselves to be Daemons. They wear leering
+daemonic masks and garb themselves in armour and
+clothing resembling the scaled skin of Daemons.
+Profile M WS BS S T W I A Ld
+42 2 4 3 1 3 16
+Weapons/Armour: Darksouls may be equipped with
+weapons and armour chosen from the Darksouls
+Equipment list.
+SPECIAL RULES
+Crazed: Darksouls have been driven insane by
+daemonic possession and know no fear. They
+automatically pass any Leadership tests they are
+required to take.
+Brethren
+25 gold crowns to hire
+Brethren are the crazed human followers of the cults
+of the dark gods, eager to descend into damnation.
+Their vile deeds and unspeakable acts have driven
+them to the brink of insanity.
+Profile M WS BS S T W I A Ld
+43 3 3 3 1 3 17
+Weapons/Armour: The Brethren may be equipped
+with weapons and armour chosen
+from the Possessed Equipment
+list.
+13
+
+
+--- Page 13 ---
+Mutations
+Cult of the possessed
+Mutations may be bought for a Mutant or a Possessed
+warrior only when they are recruited; you may not
+buy new mutations for a model after recruitment. Any
+Mutant or Possessed may have one or more
+mutations. The first mutation is bought at the price
+indicated, but second and subsequent mutations
+bought for the same model cost double.
+Those who dwell in Mordheim soon develop horrible
+mutations, and the Cult of the Possessed seem to be
+especially susceptible. In addition, Mordheim attracts
+mutants from all over the Empire, who are always
+quick to join the Chaos covens. Most mutations are
+simply inconvenient or hideous, but some make their
+bearers extremely dangerous in combat.
+daemon soul
+A Daemon lives within the mutant’s soul. This gives
+him a 4+ save against the effects of spells or prayers.
+Cost: 20 gold crowns.
+great claw
+One of the mutant’s arms ends in a great, crab-like
+claw. He may carry no weapons in this arm, but gains
+an extra attack in hand-to-hand combat with a +1
+Strength bonus.
+Cost: 50 gold crowns.
+cloven hoofs
+The warrior gains +1
+Movement.
+Cost: 40 gold
+crowns
+tentacle
+One of the mutant’s arms ends in a tentacle. He may
+grapple his opponent in close combat to reduce his
+attacks by -1, down to a minimum of 1. The mutant
+may decide which attack his opponent loses.
+Cost: 35 gold crowns
+blackblood
+If the model loses a wound in close combat, anyone
+in base contact with the model suffers a Strength 3 hit
+(no critical hits) from the spurting corrosive blood.
+Cost: 30 gold crowns
+spines
+Any model in base contact with the mutant suffers an
+automatic Strength 1 hit at the beginning of each
+close combat phase. Spines will never cause critical
+hits.
+Cost: 35 gold crowns
+scorpion tail
+The mutant has a long barbed tail with a venomed tip,
+allowing him to make an extra Strength 5 attack in
+each hand-to-hand combat phase. If the model hit by
+the tail is immune to poison, the Strength of
+the hit is reduced to 2.
+Cost: 40 gold crowns
+extra arm
+The mutant may use any single-handed weapon
+in the extra arm, giving him +1 attack when fighting
+in hand-to-hand combat. Alternatively, he may carry a
+shield or a buckler in the extra arm. If a Possessed
+chooses to do this, he gains an extra attack but still
+cannot carry a weapon.
+Cost: 40 gold crowns
+hideous
+The mutant causes fear. See the Psychology section
+for details.
+Cost: 40 gold crowns
+14
+
+--- Page 14 ---
+Witch Hunters
+15
+vicious warhounds which the Witch Hunters employ
+to track and bring down fugitives. 
+As men accustomed to fighting Witch Hunters are
+well-armed and sturdy individuals. They favour
+hooded cloaks and headgear which conceal their
+appearance from the overly curious. Some wear
+chains about their throats to remind them of fallen
+comrades and old rivalries and also, so it is said, so
+that the iron might serve as protection against
+witchcraft. 
+The followers of the Witch Hunters, the rabble that
+accompany  them to Mordheim, are a far more dire
+sight indeed – crazed and self-mutilated men who
+have lost or surrendered all their worldly goods and,
+most likely, their reason as well. 
+Choice of warriors
+A Witch Hunter warband must include a minimum of
+three models. You have 500 gold crowns which you
+can use to recruit your initial warband. The maximum
+number of warriors in the warband may never exceed
+12.
+Witch Hunter Captain: Each Witch Hunter warband
+must have one Witch Hunter Captain.
+Warrior-Priest: Your warband may
+include a single Warrior-Priest.
+Witch Hunters: Your warband may
+include up to three Witch Hunters.
+Zealots: Any number of models may
+be Zealots.
+Flagellants: Your warband may
+include up to five Flagellants.
+Warhounds: Your warband may include up to five
+Warhounds.
+Starting experience
+A Witch Hunter Captain starts with 20 experience.
+Witch Hunters start with 8 experience.
+A Warrior-Priest starts with 12 experience.
+Henchmen start with 0 experience.
+Witch hunters
+he Order of the Templars of Sigmar, universally
+known as the Witch Hunters, is an organisation
+dedicated to the eradication of heretics, be they
+warlocks, witches, sorcerers, fortune-tellers,
+necromancers, worshippers of the dark gods,
+deviants, mutants, blasphemers, sinners, utterers of
+profanities, servants of Daemons, or composers of
+corrupting music. Indeed, there are few who
+altogether escape the suspicions of the Witch Hunters
+with the possible exception of other Witch Hunters. 
+It is wise to remember that the practice of magic in all
+its forms is deemed a most heinous crime in the
+Empire. Death by fire is the proscribed punishment
+for this particular heresy. Many of the Witch Hunters’
+victims treacherously avoid their fate by perishing
+under torture before making a full confession. In
+these troubled times the Witch Hunters are kept busy
+as more and more men turn to the dark arts. The most
+dangerous of all these heretics are the followers of the
+Chaos gods. These depraved individuals practise
+Daemon worship and (it is claimed) even offer human
+sacrifices in the name of their vile masters. Of all the
+enemies of Sigmar they are the most abhorrent! 
+The destruction of Mordheim has fired the Witch
+Hunters with a new and irresistible sense of purpose.
+In the light of events the Grand Theogonist has
+proclaimed Sigmar’s punishment on the City of the
+Damned. The Witch Hunters rejoice that their crusade
+against widespread corruption has been vindicated.
+Now they are ready to complete Sigmar’s holy
+purpose by destroying his enemies within the ruins of
+the city itself. The Grand Theogonist has commanded
+the Witch Hunters to go unto that place and recover
+the wyrdstone for Sigmar’s temple. Their crusade also
+pits them into the same arena as their old enemies the
+so-called Sisters of Sigmar – those loathsome
+Daemon-worshipping she-heretics whose very
+existence is a vile affront to the majesty of Sigmar. 
+Witch Hunters are charismatic rabble-rousers who can
+soon turn a crowd to their own ends. They are
+universally dreaded, for everyone has something or
+someone to hide, and there are countless individuals
+who would willingly and enthusiastically hunt down
+and burn their own kin were a Witch Hunter
+to command them to do so. Bands of Witch
+Hunters are often accompanied by
+zealous citizens, Flagellants, and even
+holy Priests of Sigmar as well as the huge
+T
+15
+
+
+--- Page 15 ---
+16
+Witch Hunters
+Witch hunter equipment lists
+The following lists are used by Witch Hunter warbands to pick their equipment.
+16
+Hand-to-hand Combat Weapons
+Dagger  . . . . . . . . . . . . . . . . . . . . . . 1st free/2 gc
+Mace  . . . . . . . . . . . . . . . . . . . . . . . 3 gc
+Hammer . . . . . . . . . . . . . . . . . . . . . 3 gc
+Axe . . . . . . . . . . . . . . . . . . . . . . . . . 5 gc
+Sword  . . . . . . . . . . . . . . . . . . . . . . 10 gc 
+Double-handed weapon  . . . . . . . . . 15 gc
+Missile Weapons
+Crossbow  . . . . . . . . . . . . . . . . . . . . 25 gc
+Pistol  . . . . . . . . . . . . . . . . . . . . . . . 15 gc
+(30 for a brace)
+Crossbow pistol  . . . . . . . . . . . . . . . 35 gc
+Armour
+Light armour  . . . . . . . . . . . . . . . . . 20 gc
+Heavy armour  . . . . . . . . . . . . . . . . 50 gc
+Shield . . . . . . . . . . . . . . . . . . . . . . . 5 gc
+Buckler  . . . . . . . . . . . . . . . . . . . . . 5 gc
+Helmet  . . . . . . . . . . . . . . . . . . . . . . 10 gc
+FLAGELLANT EQUIPMENT LIST
+This list is for Flagellants only
+Hand-to-hand Combat Weapons
+Flail . . . . . . . . . . . . . . . . . . . . . . . . . . . . 15 gc
+Morning star  . . . . . . . . . . . . . . . . . . . . . 15 gc
+Double-handed weapon  . . . . . . . . . . . . 15 gc
+Missile Weapons . . . . . . . . . . . . . . . . None
+Armour . . . . . . . . . . . . . . . . . . . . . . . . None
+ZEALOT EQUIPMENT LIST
+This list is for Zealots only
+Hand-to-hand Combat Weapons
+Dagger  . . . . . . . . . . . . . . . . . . . . . . 1st free/2 gc
+Mace  . . . . . . . . . . . . . . . . . . . . . . . 3 gc
+Hammer . . . . . . . . . . . . . . . . . . . . . 3 gc
+Axe . . . . . . . . . . . . . . . . . . . . . . . . . 5 gc
+Sword  . . . . . . . . . . . . . . . . . . . . . . 10 gc
+Double-handed weapon  . . . . . . . . . 15 gc
+Spear  . . . . . . . . . . . . . . . . . . . . . . . 10 gc
+Missile Weapons
+Bow  . . . . . . . . . . . . . . . . . . . . . . . . 10 gc
+Short bow  . . . . . . . . . . . . . . . . . . . 5 gc 
+Armour
+Light armour  . . . . . . . . . . . . . . . . . 20 gc
+Shield . . . . . . . . . . . . . . . . . . . . . . . 5 gc
+Helmet  . . . . . . . . . . . . . . . . . . . . . . 10 gc
+Witch hunter skill table
+Combat Shooting Academic Strength Speed
+Witch Hunter Captain    
+Witch Hunter   
+Warrior-Priest  
+
+
+--- Page 16 ---
+17
+Heroes
+1 Witch hunter captain
+60 gold crowns to hire
+Driven by fanaticism, Witch Hunter Captains are
+obsessed with cleansing Mordheim and bringing the
+justice of Sigmar to all. Carrying the edict of the
+Grand Theogonist himself, they have the divine right
+to judge and execute warlocks, witches, Chaos
+worshippers… in fact all who dare to oppose them.
+Profile M WS BS S T W I A Ld
+44 4 3 3 1 4 18
+Weapons/Armour: A Witch Hunter Captain may be
+equipped with weapons and armour chosen from the
+Witch Hunter Equipment list.
+SPECIAL RULES
+Leader: Any warrior within 6" of the Witch
+Hunter Captain may use his Leadership value
+when taking Leadership tests.
+0-3 Witch hunters
+25 gold crowns to hire
+Witch Hunters are members of the grim Order of
+Witch Hunters, dedicated to eradicating Chaos and all
+its minions. Usually they prowl the Old World
+individually trying and executing the enemies of
+Sigmar, but the situation in Mordheim requires them
+to band together.
+Profile M WS BS S T W I A Ld
+43 3 3 3 1 3 17
+Weapons/Armour: Witch Hunters may be equipped
+with weapons and armour chosen from the Witch
+Hunter Equipment list.
+SPECIAL RULE
+Burn the Witch!: Witch Hunters hate all models who
+can cast spells.
+0-1 Warrior-priest
+40 gold crowns to hire
+Many powerful fighting men have come from the
+ranks of the faithful. The Priests of Sigmar are no
+exception, and the military wing of the cult is feared
+and respected throughout the Empire.
+The Grand Theogonist himself has granted the
+Warrior-Priests an edict to cleanse Mordheim of Chaos
+filth. With fire burning in their eyes, the Warrior-
+Priests stride into battle, chanting aloud the Deus
+Sigmar, the praise of the patron god of the Empire.
+Profile M WS BS S T W I A Ld
+4 33 331318
+Weapons/Armour: A Warrior-Priest may be
+equipped with weapons and armour
+chosen from the Witch Hunter Equipment
+list.
+SPECIAL RULES
+Prayers: A Warrior-Priest is a servant of
+Sigmar and may use the Prayers of
+Sigmar as detailed in the Magic
+section. 
+Witch Hunters
+Burn the Witch!: 
+A Witch Hunter
+Captain hates
+all models 
+who can
+cast
+spells.
+17
+
+--- Page 17 ---
+18
+Henchmen (Bought in groups of 1-5)
+0-5 Warhounds
+15 gold crowns to buy
+Witch Hunters often keep packs of ferocious hunting
+dogs. With their huge jaws and powerful bite, they are
+perfect for hunting down (and tearing apart) any
+heretics, mutants, deviants and witches.
+Profile M WS BS S T W I A Ld
+640 431415
+Weapons/Armour: Jaws and brutality! Warhounds
+never use or need weapons and armour.
+SPECIAL RULES
+Animals: Warhounds are animals and thus do not
+gain experience.
+0-5 Flagellants
+40 gold crowns to hire
+Flagellants are fanatics and madmen obsessed with
+the end of the world. They are often men who have
+lost their families to war or the ravages of nature, and
+have also lost their minds. With insane persistence,
+they travel the length and breadth of the Empire,
+preaching their view of the end of the world. With
+their rousing speeches, Witch Hunters can muster
+these dangerous lunatics to fight in the streets of
+Mordheim, where no sane man dares tread.
+Flagellants are extremely dangerous opponents in
+close combat, for they have the strength of madmen,
+and their bodies have become inured to pain because
+of self-mutilation.
+Profile M WS BS S T W I A Ld
+43 3 4 4 1 3 1 1 0
+Weapons/Armour: Flagellants may be equipped with
+weapons and armour chosen from the Flagellant
+Equipment list. Flagellants never use missile
+weapons, even if they gain an Advance roll which
+would otherwise allow them to do so.
+SPECIAL RULES
+Fanatical: Flagellants are convinced that the end of
+the world is nigh, and nothing in this world holds any
+terror for them. Flagellants automatically pass all
+Leadership-based tests they are required to take. A
+Flagellant may never become a warband leader.
+Zealots
+20 gold crowns to hire
+When a man loses his family, home and all he cared
+for, religion is often the last refuge left to him. Such
+men become wandering pilgrims, bitter and
+dangerous fanatics who are prepared to avenge their
+loss at any cost. These men are called Zealots. 
+Zealots have forsaken their former lives and exist only
+to destroy evil and the minions of Chaos. Whilst they
+might have been peasants and craftsmen before, and
+thus may not be as dangerous in a fight as seasoned
+mercenaries, their determination and fanaticism
+should not be underestimated. Witch Hunters find
+ready allies in their ranks, and many a band of Zealots
+is led by Witch Hunters.
+Profile M WS BS S T W I A Ld
+422 331317
+Weapons/Armour: Zealots may be equipped with
+weapons and armour chosen from the Zealot
+Equipment list.
+18
+Witch Hunters
+
+--- Page 18 ---
+19
+The Sisters of Sigmar
+or centuries the nobility of the Empire has sent
+its wayward or troublesome daughters to the
+Holy Convent of the Order of Merciful Sisters of
+Sigmar in Mordheim to be initiated into the only
+order of priestesses dedicated to the Empire’s patron
+god. The Sisters of Sigmar, as they are commonly
+called, have traditionally travelled the Empire
+administering to the sick and poor, tending to the
+needs of orphans, curing the diseased and mending
+broken bodies. As well as the healing arts, which they
+practise with expert knowledge of herb-lore and
+prayer, their advice is frequently sought by those
+about to make an important decision, for the Sisters
+of Sigmar are famed for their ability to predict the
+fickle course of fate. 
+Though once much loved by the common people, the
+Sisters have seen their popularity wane in recent
+years. Rabble-rousing Witch Hunters have denounced
+them as witches and heretics, so that even in the
+countryside they are attacked and driven away by the
+very peasants they seek to help. Many of Sigmar’s
+priests wish to disband the order altogether, claiming
+that women have no right to teach the holy word of
+Sigmar. Even the Grand Theogonist, ostensibly the
+chief authority over the order, has cooled towards the
+sisterhood, denying the throne to Magritta of
+Marienburg who was brought up by the Sisters and
+said to be sympathetic to their cause. These days the
+Sisters of Sigmar have retreated to their convent
+situated high on the craggy island of Sigmar’s Rock in
+the river Stir in Mordheim. 
+Of all the inhabitants of Mordheim only the Sisters of
+Sigmar were prepared for its destruction. Seeress
+Cassandora foretold of the disaster and at their
+nightly vigil the Maidens of Sigmar heard the voice of
+Sigmar speaking in their dreaming minds. Thus they
+knew that they would be safe in their fortress high
+above the city, raised as it is above the polluted
+vapours, if only they were prepared to survive the fire
+of Sigmar’s Fury. 
+While the rest of Mordheim fell under a spell of
+madness the Sisters of Sigmar offered prayer after
+prayer, scourging themselves to drive out all thoughts
+of sin, fervently accepting a punishing penitential
+regime to harden their minds against the wantonness
+running rampant outside their walls. When the blow
+finally came the Sisters gathered beneath the great
+temple dome of their convent which, well built and
+fortified as it was by the prayers of the Sisters,
+protected them from the fire and heat of their
+master’s ire. 
+The Sisters believe they have a holy mission, a task
+that they have been set by Sigmar himself and to
+which they must submit themselves body and soul.
+Their sacred duty is to gather up the shards of
+wyrdstone and hide it deep beneath Sigmar’s Rock in
+the vaults of their convent where, shielded by a great
+depth of solid granite and guarded by the eternal
+prayers of the sisterhood, it will cause no harm to
+Sigmar’s people. It is a nigh hopeless task, for there
+are few Sisters and countless shards of stone. Worse
+still, there are many who want the stone for
+themselves, to take it from Mordheim and spread its
+contagion amongst the cities of the Empire.  
+The warbands of the sisterhood are led by tough
+Matriarchs, each accompanied by a body of warrior
+sisters. The training and harsh discipline of the
+convent includes mastery of martial as well as
+ecclesiastic skills, for mastery of the body is but the
+first step towards the mastery of the soul. Their
+favoured weapon is the warhammer, the instrument
+of Sigmar, seen as his holy symbol, alongside the twin-
+tailed comet. 
+Choice of warriors
+A Sisters of Sigmar warband must include a minimum
+of three models. You have 500 gold crowns to recruit
+your initial warband. The maximum number of
+warriors in the warband may never exceed 15.
+Sigmarite Matriarch: Each Sisters of Sigmar
+warband must have one Matriarch to lead it:
+no more, no less.
+Sister Superior: Your warband may
+include up to 3 Sister Superiors.
+Augur: Your warband may include a
+single Augur.
+Novices: Your warband may include up to 10
+Novices.
+Sisters: Any number of models may be Sisters.
+Starting experience
+A Matriarch starts with 20 experience.
+Sisters Superior start with 8 experience.
+An Augur starts with 0 experience.
+Henchmen start with 0 experience.
+F
+19
+
+--- Page 19 ---
+Special skills
+The Sisters of Sigmar may use the following skill list instead of the standard skill lists.
+Sisters of Sigmar
+Sign of Sigmar
+The Sister is favoured by the great god Sigmar.
+Possessed or Undead opponents lose their first attack
+against the Priestess in the first round of hand-to-hand
+combat (down to a minimum of 1).
+Protection of Sigmar
+The Sister has been blessed by the High Matriarch.
+Any spell which would affect her is nullified on a D6
+roll of 4+. Note that if the spell is nullified it will not
+affect any other models either.
+Utter Determination
+Only the Matriarch may have this skill, which allows
+her to re-roll any failed Rout tests.
+Righteous Fury
+The Sister feels cold fury and utter contempt towards
+any evil that pollutes the soil of the holy Empire with
+its presence. The model hates all Skaven, Undead or
+Possessed warbands and all models in them.
+Absolute Faith
+The Sister puts her faith in Sigmar, and faces dangers
+unflinchingly. She may re-roll any Fear tests and does
+not have to test if she is fighting alone against several
+opponents.
+Hand-to-hand Combat Weapons
+Dagger  . . . . . . . . . . . . . . . . . . . . . . 1st free/2 gc
+Mace  . . . . . . . . . . . . . . . . . . . . . . . 3 gc
+Hammer . . . . . . . . . . . . . . . . . . . . . 3 gc
+Sigmarite warhammer  . . . . . . . . . . 15 gc
+Flail  . . . . . . . . . . . . . . . . . . . . . . . . 15 gc
+Steel whip  . . . . . . . . . . . . . . . . . . . 10 gc
+Double-handed weapon  . . . . . . . . . 15 gc
+Missile Weapons
+Sling . . . . . . . . . . . . . . . . . . . . . . . . 2 gc
+Armour
+Light armour  . . . . . . . . . . . . . . . . . 20 gc
+Heavy armour  . . . . . . . . . . . . . . . . 50 gc
+Shield . . . . . . . . . . . . . . . . . . . . . . . 5 gc
+Buckler  . . . . . . . . . . . . . . . . . . . . . 5 gc
+Helmet  . . . . . . . . . . . . . . . . . . . . . . 10 gc
+Miscellaneous Equipment 
+(Heroines only)
+Holy tome  . . . . . . . . . . . . . . . . . . . 120 gc
+Blessed water  . . . . . . . . . . . . . . . . . 10 gc
+Holy relic  . . . . . . . . . . . . . . . . . . . . 15 gc
+Sisters of Sigmar equipment lists
+The following lists are used by the Sisters of Sigmar to pick their equipment. 
+20
+Sisters of Sigmar skill table
+Combat Shooting Academic Strength Speed Special
+Matriarch    
+Sister Superior    
+Augur  
+
+--- Page 20 ---
+21
+1 Sigmarite matriarch
+70 gold crowns (dowry to the temple)
+The Sigmarite Matriarchs, of whom there is an inner
+circle of twelve, are answerable to the High Matriarch
+of the temple. Each must lead a warband of Sisters in
+frequent searches of the city in order to purge the
+ruins. Matriarchs are driven by a zealous devotion to
+the Cult of Sigmar and a relentless determination to
+redeem the Sisterhood in His eyes.
+Profile M WS BS S T W I A Ld
+444331418
+Weapons/Armour: The Sigmarite Matriarch may be
+equipped with weapons and armour chosen from the
+Sisters of Sigmar Equipment list.
+SPECIAL RULES
+Leader: Any warband member within 6" of the
+Sigmarite Matriarch may use her Leadership
+characteristic when taking any Leadership tests.
+Prayers of Sigmar: The Matriarch has studied the
+Prayers of Sigmar. See the Magic section.
+Sisters of Sigmar
+Heroines
+0-3 Sister superior
+35 gold crowns (dowry to the temple)
+Each of the Sisters Superior is a long-serving priestess
+of the Cult of Sigmar, well versed in the rituals of the
+temple and an example to the younger Sisters and
+Novices. The Sisters Superior are entrusted with
+maintaining the faith and fervour of the order. Any
+peril or foe that may lurk in the ruins of Mordheim is
+as nothing compared to the wrath of a Sister Superior.
+Profile M WS BS S T W I A Ld
+443331317
+Weapons/Armour: A Sister Superior may be
+equipped with weapons and armour chosen from the
+Sisters of Sigmar Equipment list.
+0-1 Augur
+25 gold crowns (dowry to the temple)
+The blind Augurs of the Sisterhood are blessed
+beyond their comrades. By giving up their sight they
+have gained something far more, second sight – a gift
+from their patron god. Only a very few are marked
+this way, and they are greatly revered by the
+Sisterhood. Unlike the rest of the priestesses, they
+shave their heads, save for a single long braid.
+Profile M WS BS S T W I A Ld
+422331317
+Weapons/Armour: The Augurs may be equipped with
+weapons chosen from the Sisters of Sigmar
+Equipment list. They never wear armour.
+SPECIAL RULES
+Blessed Sight: An Augur can re-roll any failed
+characteristic tests (climbing, resisting spells or any
+other reason), and any rolls to hit in close combat or
+shooting. You must accept the second result. 
+In addition, an Augur can use her Blessed Sight to
+help the Sisterhood when they are searching the
+city for wyrdstone. If the Augur is not put out of
+action in the battle, you may roll two dice for
+her in the exploration phase and pick either
+dice as the result.
+21
+
+--- Page 21 ---
+22
+0-10 Novices
+15 gold crowns (dowry to the temple)
+By tradition, the Sisters draw their recruits only from
+the most noble houses of the Empire, and families
+consider it a great honour to have their daughter
+accepted into the order. Only maidens of noble
+lineage can be relied upon to have the devotion to
+duty and innate sense of honour. Few though the
+recruits may be, they must endure several years as
+Novices during which time their devotion will be
+tested to the full. All are eager to prove themselves
+worthy to be the handmaidens of Sigmar.
+Profile M WS BS S T W I A Ld
+422331316
+Weapons/Armour: The Novices may be equipped
+with weapons and armour chosen from the Sisters of
+Sigmar Equipment list.
+Henchmen (bought in groups of 1-5)
+22
+Special weapons
+Sigmarite sister
+25 gold crowns (dowry to the temple)
+Sigmarite Sisters know that their entire order is
+shamed in the eyes of their Lord Sigmar. Every one of
+them is sworn upon His altar to pacify the city and
+thereby redeem themselves. Whatever the perils and
+horrors that stand in their way, they will be overcome!
+Profile M WS BS S T W I A Ld
+433331317
+Weapons/Armour: The Sigmarite Sisters may be
+equipped with weapons and armour chosen from the
+Sisters of Sigmar Equipment list.
+sigmarite warhammer
+15 gold crowns
+Availability: Common (Sisters of Sigmar only).
+One of the traditional weapons of the
+Sisterhood, the warhammer echoes Ghal-Maraz,
+the great hammer of Sigmar himself.
+Range Strength Special rules
+Close Com As user+1 Concussion, Holy
+SPECIAL RULES
+Concussion: Warhammers are excellent at
+striking people senseless. When using a
+warhammer in close combat a roll of 2-4 is
+treated as stunned when rolling on the Injury
+chart.
+Holy Weapon: Each warhammer is blessed by
+the High Matriarch herself before it is handed to
+the Sisters. The warhammer has a +1 bonus on
+all to wound rolls against any Possessed or
+Undead models. Note that you will still need to
+score a 6 before any modifiers in order to cause
+a critical hit. Only Matriarchs and Sister
+Superiors may carry two Sigmarite
+warhammers.
+steel whip
+10 gold crowns
+Availability: Common (Sisters of Sigmar only).
+Another weapon unique to the Sisterhood is the
+steel whip, made from barbed steel chains. 
+Range Strength Special rules
+Close Com As user Cannot be parried, whipcrack
+SPECIAL RULES
+Cannot be parried: The steel whip is a flexible
+weapon and the Priestesses use it with great
+expertise. Attempts to parry its strikes are futile.
+A model attacked by a steel whip may not make
+parries with swords or bucklers.
+Whipcrack: when the wielder charges they gain
++1A for that turn. This bonus attack is added
+after any other modifications. When the wielder
+is charged they gain +1A that they may only use
+against the charger. This additional attack will
+‘strike first’. If the wielder is simultaneously
+charged by two or more opponents they will
+still only receive a total of +1A. If the wielder is
+using two whips at the same time then they get
++1A for the additional hand weapon, but only
+the first whip gets the whipcrack +1A.
+Sisters of Sigmar
+
+
+--- Page 22 ---
+2323 2323 23
+Count Vlad von Carstein
+and his wife Isabella have
+ruled the province of
+Sylvania for as long as anyone can
+remember – peasants whisper of
+some dark secret, Witch Hunters revile
+them, and the Priests of Sigmar shun their
+court. Indeed, Sylvania has the most dire
+reputation of all the provinces of the Empire. Few
+men sent to spy on the rulers of Sylvania have ever
+returned from those dark Sylvanian forests, and then
+rarely with their sanity intact.
+In the dimly-lit chamber of the Drakenhof castle, on a
+throne of black obsidian, sits Vlad von Carstein, the
+ruler of Sylvania. He waits in shadows, having set
+himself apart from the politics and bickering of the
+Empire. For he holds a terrible secret: he, and all the
+ruling aristocracy of his province are Vampires,
+undying monsters from beyond the grave. Here he
+patiently waits, drinking the blood of maidens from
+gold goblets.
+For many long years Vlad has gathered his strength
+and mustered his Undead legions in secrecy. One day
+soon he will march from the forests of
+Sylvania at the head of an army of
+restless dead. The pieces of magic
+stone that lie scattered among
+the ruins of Mordheim
+can give the Count
+the power to
+challenge the nobles
+of the Empire and
+enslave the men of the
+Old World.
+Wyrdstone holds enough captured magical energy to
+unleash a great spell of doom to rival that of Nagash
+the Black. If the Count is successful, he will raise all
+the dead between the Worlds Edge Mountains and the
+borders of Stirland, and go to war against the divided
+rulers of the Empire. His plans laid out, Vlad sends his
+thralls, the immortal Vampires, to do his bidding.
+During dark, moonless nights, black coaches arrive at
+the gates of Mordheim carrying coffins. Ghouls scuttle
+from their hiding places to greet them, and corpses
+are stirred by a command which the living cannot
+hear. Following the commands of the Vampire, they
+hunt for shards of wyrdstone.
+The night belongs to the Undead, and in Mordheim it
+is always night.
+Choice of warriors
+An Undead warband must include a minimum of
+three models. You have 500 gold crowns to recruit
+your warband. The maximum number of warriors in
+the warband may never exceed 15.
+Vampire: Each Undead warband must have one
+Vampire: no more, no less!
+Necromancer: Your warband may include a single
+Necromancer if you wish.
+Dregs: Your warband may include up to three Dregs.
+Zombies: Your warband may include any number of
+Zombies.
+Ghouls: Your warband may include any number of
+Ghouls.
+Dire Wolves: Your warband may include up to five
+Dire Wolves.
+Starting experience
+A Vampire starts with 20 experience.
+A Necromancer starts with 8 experience.
+Dregs start with 0 experience.
+Henchmen start with 0 experience.
+23
+The Undead
+
+--- Page 23 ---
+24 2424
+The undead
+24
+Undead equipment lists
+The following lists are used by Undead warbands to pick their equipment. 
+Hand-to-hand Combat Weapons
+Dagger  . . . . . . . . . . . . . . . . . . . . . . 1st free/2 gc
+Mace  . . . . . . . . . . . . . . . . . . . . . . . 3 gc
+Hammer . . . . . . . . . . . . . . . . . . . . . 3 gc
+Axe . . . . . . . . . . . . . . . . . . . . . . . . . 5 gc
+Sword  . . . . . . . . . . . . . . . . . . . . . . 10 gc
+Double-handed weapon  . . . . . . . . . 15 gc
+Spear  . . . . . . . . . . . . . . . . . . . . . . . 10 gc
+Halberd  . . . . . . . . . . . . . . . . . . . . . 10 gc
+Missile Weapons
+Bow  . . . . . . . . . . . . . . . . . . . . . . . . 10 gc
+Short bow  . . . . . . . . . . . . . . . . . . . 5 gc
+Armour
+Light armour  . . . . . . . . . . . . . . . . . 20 gc
+Heavy armour  . . . . . . . . . . . . . . . . 50 gc
+Shield . . . . . . . . . . . . . . . . . . . . . . . 5 gc 
+Helmet  . . . . . . . . . . . . . . . . . . . . . . 10 gc
+Undead skill tables
+Combat Shooting Academic Strength Speed
+Vampire  
+Necromancer 
+Dreg   
+“‘All who profit from the spoils of Chaos shalt be
+doomed.’ So quoth Grand Theogonist Vilgrim the
+Third,” Marius said vehemently. “I am not a looter
+or a thief!”
+“It’s been three weeks now, Marius!” Hensel
+argued bitterly. “We’ve run out of money. We need
+more men, we need new weapons. For Sigmar’s
+sake, Marius, we’ll all starve!” Hensel paused for a
+moment, and a sly look entered his dark brown
+eyes. “That broken vault is there, and someone will
+find it. Others, less righteous than us, will be
+looking for it. Would you see the wealth of the
+Empire stolen by wicked creatures or men of no
+moral virtue. At least we’ll be spending it to
+further our noble cause!”
+As the two spoke, Enderlin, one of Lapzig’s men,
+came around the corner, clearly excited.
+“We’ve found the merchant’s house. The vault is
+there, alright!” he told them with a grin. “We better
+be quick, and grab the hoard before there’s any
+trouble.” With that he hurried off again, the Witch
+Hunter and Hensel following.
+Enderlin led them down a narrow alleyway,
+choked with debris. At the far end, where the alley
+opened onto a wider street, a skeleton hung from a
+gibbet, its rusted metal creaking as the cadaver
+swung in the stale wind. A corner of a nearby
+building had broken through its foundations and
+within the dark confines of the exposed cellar gold
+glinted in the dim light.
+“We’ll be taking that!” a voice called out, and from
+the shadows stepped a dozen men, some carrying
+crossbows, the others wielding swords and spears.
+They were all well dressed, in the manner of
+Marienburgers.
+“Dare not oppose me!” cried Marius, pulling forth
+his own blade. “I am sent here by Sigmar himself.
+Cross my path and be forever damned. The world
+around us is in turmoil, Chaos gnaws upon the
+bones of our lands, foul creatures lurk in our once
+proud cities. Men should not fight men in these
+troubled times, for have we not a common foe to
+fight against?”
+“All the same, that gold is ours!” their leader
+replied, signalling his men to advance.
+“Then so be it, you shall be in the arms of
+damnation before the sun sets!” Marius snarled
+back, leaping to the attack.
+
+--- Page 24 ---
+2525 2525 25
+0-1 Necromancer
+35 gold crowns to hire
+Necromancers are evil wizards, studying the corrupt
+art of Necromancy. Many of them are acolytes and
+servants of Vlad von Carstein, and follow the agents of
+their master to the city of the Damned. Others are
+recruited from amongst wizards and warlocks who
+have come under the suspicion of the various agents
+of Sigmar and have fled to Mordheim to avoid
+persecution.
+Profile M WS BS S T W I A Ld
+43 3 3 3 1 3 17
+Weapons/Armour: Necromancers may be armed with
+weapons and armour chosen from the Undead
+Equipment list.
+SPECIAL RULES
+Wizard: Necromancers are wizards and so are able to
+use Necromantic magic. See the Magic section for
+details.
+0-3 Dregs
+20 gold crowns to hire
+Dregs are the most miserable human
+survivors of the demise of Mordheim.
+They are deformed and rejected
+individuals, shunned even by the other men and
+women who still live in the ruins and catacombs of
+the city.
+Vampires often recruit Dregs as their servants and
+treat them with surprising kindness. As a result, Dregs
+are often fanatically loyal to their Undead overlords
+and will do anything to protect and serve them.
+Dregs are very useful to their masters as they can be
+sent to buy equipment, weapons and supplies from
+the settlements around Mordheim which would often
+not welcome Necromancers or where Vampires
+would fall under the suspicion of the Witch Hunters.
+They can also do the bidding of their vampiric master
+during daylight, when the Vampires must rest in their
+coffins.
+Profile M WS BS S T W I A Ld
+42 2 3 3 1 3 17
+Weapons/Armour: Dregs may be
+armed with weapons and armour
+chosen from the Undead
+Equipment list.
+1 Vampire
+110 gold crowns to hire
+Vampires lead the Undead in their search for the
+magical stones that will give their master the power to
+conquer the Empire. 
+Although but pale shadows when compared to the
+dread Vampire Lords, the immortal servants of Vlad
+are still some of the most powerful creatures who
+fight in Mordheim. Most of them serve the undying
+count of Sylvania, but some have found the city to
+their liking, and have become independent.
+Profile M WS BS S T W I A Ld
+64 4 4 4 2 5 28
+Weapons/Armour: Vampires may be armed with
+weapons and armour chosen from the Undead
+Equipment list.
+SPECIAL RULES
+Leader: Any models in the warband within 6" of the
+Vampire may use his Leadership instead of their own.
+Cause Fear: Vampires are terrifying Undead creatures
+and therefore cause fear.
+Immune to Psychology: Vampires are not
+affected by psychology (such as fear) and
+never leave combat.
+Immune to
+Poison:
+Vampires are
+not affected
+by any
+poison.
+No Pain:
+Vampires
+treat a
+‘stunned’
+result on
+the Injury
+chart as
+‘knocked
+down’.
+The undead
+Heroes
+25
+
+
+--- Page 25 ---
+26 2626
+The undead
+26
+Henchmen
+SPECIAL RULES
+Cause Fear: Ghouls are twisted and repulsive
+creatures and therefore cause fear.
+0-5 Dire wolves
+50 gold crowns to hire
+Dire Wolves are slavering Undead hounds, the
+animated remains of the giant wolves of the Worlds
+Edge Mountains. Their chilling howls can strike fear
+into the hearts of even the bravest warriors or most
+ruthless Dwarf mercenaries. They prowl the streets of
+Mordheim like shadows, and many men have died
+with the cold jaws of a Dire Wolf around their neck.
+Profile M WS BS S T W I A Ld
+9 3 043121 4
+Weapons/Armour: None.
+SPECIAL RULES
+Charge: Dire Wolves are slavering creatures that
+overpower their opponents when they charge. Dire
+Wolves fight with 2 attacks instead of 1 during the
+turn they charge.
+May not Run: Dire Wolves are slow to react and may
+not run (but may charge normally).
+Cause Fear: Dire Wolves are terrifying Undead
+creatures and therefore cause fear.
+Immune to Psychology:Dire Wolves are not affected
+by psychology and never leave combat.
+Immune to Poison: Dire Wolves are not
+affected by any poison.
+Unliving: Dire Wolves do not
+gain experience. You can’t
+teach an old dog new tricks!
+No Pain: Dire
+Wolves treat a
+‘stunned’ result
+on the Injury chart
+as ‘knocked down’.
+Zombies
+15 gold crowns to hire
+Zombies are the most common of the Undead:
+creatures animated by the will of their Necromantic
+masters.
+Profile M WS BS S T W I A Ld
+42 0 3 3 1 1 15
+Weapons/Armour: Zombies may not have any
+weapons or armour and suffer no penalties for this.
+SPECIAL RULES
+Cause Fear: Zombies are terrifying Undead creatures
+and therefore cause fear.
+May not run: Zombies are slow Undead creatures
+and may not run (but may charge normally).
+Immune to Psychology: Zombies are not affected by
+psychology and never leave combat.
+Immune to Poison: Zombies are not affected by any
+poison.
+No Pain: Zombies treat a stunned result on the Injury
+chart as knocked down.
+No Brain: Zombies never gain experience. They do
+not learn from their mistakes. What did you expect?
+Ghouls
+40 gold crowns to hire 
+(bought in groups of 1-5 models)
+Ghouls are the descendants of evil and insane men
+who ate the flesh of the dead. When the lean and
+hungry times of famine come upon the Old World, the
+most depraved and destitute took to feasting on
+corpses to survive. 
+Driven by their unspeakable craving for the meat of
+their fellow men, these creatures have given up their
+human life and dwell near graveyards, crypts and
+tombs, digging up the rotting corpses of the recently
+buried and consuming the cold flesh with their bare
+teeth and claws. 
+The destruction of Mordheim attracted many Ghoul
+clans from the north, and now they have taken up
+permanent residence in the crypts and cemeteries of
+the ruined city. 
+Profile M WS BS S T W I A Ld
+42 2 3 4 1 3 25
+Weapons/Armour: Ghouls never carry any
+equipment, apart from a few bones which they use
+as primitive weapons.
+
+
+--- Page 26 ---
+2727 27
+upon mankind. For centuries they have been content
+to feed upon his ruins, to seed plague in his cities,
+and spread contagion amongst his lands. At least they
+were content to wait and watch, for now everything
+has suddenly changed. Now the destruction of
+Mordheim has created new opportunities in the
+secret war against mankind. 
+Since ancient times the Skaven have searched the
+world for the stones of power that men in their
+ignorance call wyrdstone but which Skaven have long
+since known as warpstone, blackstone, or seerstone.
+It was as a result of gnawing upon this magic stone in
+ages past that commonplace rats began the slow
+process of mutation that spawned the Skaven race.
+Wyrdstone is quite literally in their blood, for they
+feed upon it and make use of it in their foul sorceries.
+Until now the ratmen’s search for wyrdstone has been
+difficult and time-consuming as the stone has grown
+increasingly rare, but now a new and abundant
+source has appeared – a dark blessing from the skies! 
+For the Skaven of Clan Eshin, this is an especially
+opportune time for such a thing to happen, for, just
+as the Empire is divided, so the Skaven race is divided
+amongst itself. Clan fights clan the world over, each
+struggling for domination of the Council of Thirteen
+whose masters rule the Skaven race. Mordheim’s
+secret is not yet revealed to all the clans, or else the
+City of the Damned would already be overrun with
+ratmen. The Nightmaster of Clan Eshin is keen to
+guard this secret, and for this reason has not sent his
+multitudinous armies into Mordheim. Instead, he has
+sent small warbands of Skaven skittering through
+secret tunnels into the city to gather up the shining
+stones and bring them back to the clan nests.
+The Skaven of Clan Eshin are supremely adapted to
+their task. Masters of the art of bringing silent death to
+their foes, they are skilled in the use of poison and
+trained in the thousand secrets of the assassin.
+Since birth Skaven warriors practise martial crafts in
+the ruinous temples of the Horned Rat, their ever-
+hungering and hideous god. There are none better
+amongst their verminous kind to gather up the
+treasure of Mordheim, but they must be silent, swift
+and efficient. Were rival Skaven clans to discover
+the secret of Mordheim there would come not
+hundreds, not thousands, but millions upon
+millions to contend for the wyrdstone in the City
+of the Damned.
+Unbeknownst to man,
+for thousands of years he has
+shared his world with another
+and altogether different race.
+There have always been signs
+for those who cared to see
+them: a scurrying black
+shadow, an inhuman scream
+from the sewer, scuttling
+shapes at the back of the cellar.
+All these years these creatures have worked
+away in secret, burrowing beneath the world of man,
+undermining his great cities, infiltrating his sewers
+and cellars, and joining all up into a vast world-
+spanning labyrinth of tunnels and nests. These
+creatures call themselves Skaven and they are
+ratmen, the mutant spawn of an older age of
+chaos and mutation. 
+Doubtless one day the
+Skaven will be ready to
+emerge from their
+tunnels and wage
+open war
+27
+Skaven
+
+--- Page 27 ---
+28 2828
+Choice of warriors
+A Skaven warband must include a minimum of three
+models. You have 500 gold crowns (representing
+your resources) which you can use to
+recruit and equip your initial warband.
+The maximum number of warriors in
+the warband may never exceed 20.
+Assassin Adept: Each Skaven
+warband must have one Assassin
+Adept: no more, no less!
+Eshin Sorcerer: Your warband may include a single
+Eshin Sorcerer.
+Black Skaven: Your warband may include up to two
+Black Skaven.
+Night Runners: Your warband may include up to two
+Night Runners.
+Verminkin: Any number of models may be
+Verminkin.
+Giant Rats: Your warband may include any number
+of Giant Rats.
+Rat Ogre: Your warband may include a single 
+Rat Ogre.
+Skaven equipment lists
+The following lists are used by the Skaven to pick their equipment. 
+Skaven
+Starting experience
+An Assassin Adept starts with 20 experience.
+Eshin Sorcerers and
+Black Skaven start
+with 8 experience.
+Night Runners start
+with 0 experience.
+Henchmen start
+with 0
+experience.
+HEROES EQUIPMENT LISTS
+Hand-to-hand Combat Weapons
+Dagger  . . . . . . . . . . . . . . . . . . . . . . 1st free/2 gc
+Sword  . . . . . . . . . . . . . . . . . . . . . . 10 gc
+Flail  . . . . . . . . . . . . . . . . . . . . . . . . 15 gc 
+Spear  . . . . . . . . . . . . . . . . . . . . . . . 10 gc
+Halberd  . . . . . . . . . . . . . . . . . . . . . 10 gc
+Weeping Blades  . . . . . . . . . . . . . . . 50 gc
+Fighting Claws  . . . . . . . . . . . . . . . . 35 gc
+Missile Weapons
+Sling . . . . . . . . . . . . . . . . . . . . . . . . 2 gc
+Throwing stars  . . . . . . . . . . . . . . . . 15 gc
+Blowpipe  . . . . . . . . . . . . . . . . . . . . 25 gc
+Warplock pistol  . . . . . . . . . . . . . . . 35 gc
+(70 for a brace)
+Armour
+Light armour  . . . . . . . . . . . . . . . . . 20 gc
+Buckler  . . . . . . . . . . . . . . . . . . . . . 5 gc 
+Helmet  . . . . . . . . . . . . . . . . . . . . . . 10 gc
+HENCHMEN EQUIPMENT LIST
+Hand-to-hand Combat Weapons
+Dagger  . . . . . . . . . . . . . . . . . . . . . . 1st free/2 gc
+Club  . . . . . . . . . . . . . . . . . . . . . . . . 3 gc
+Sword  . . . . . . . . . . . . . . . . . . . . . . 10 gc
+Spear  . . . . . . . . . . . . . . . . . . . . . . . 10 gc
+Missile Weapons
+Sling . . . . . . . . . . . . . . . . . . . . . . . . 2 gc
+Armour
+Light armour  . . . . . . . . . . . . . . . . . 20 gc
+Shield . . . . . . . . . . . . . . . . . . . . . . . 5 gc
+Helmet  . . . . . . . . . . . . . . . . . . . . . . 10 gc
+28
+
+
+--- Page 28 ---
+2929 29
+blowpipe
+25 gold crowns
+Availability: Rare 7, Skaven only
+The blowpipe is a short hollow tube which can be
+used to shoot poisoned darts. While the darts by
+themselves are too small to cause significant damage,
+the poison used by the Skaven can cause searing
+agony and eventual death.
+The other advantage of a blowpipe is that it is silent,
+and a well-hidden shooter can fire the darts
+undetected.
+Range Strength Save modifier Special rules
+8" 1 +1 Poison, Stealthy
+SPECIAL RULES
+Poison: The needles fired by
+a blowpipe are coated in a
+venom very similar in its
+effects to the Black Lotus (if
+you roll a 6 on the To Hit
+roll, the victim is
+automatically wounded). A blowpipe cannot cause
+critical hits. This weapon has a positive armour save
+modifier, so a model that normally has a save of 5+
+will get a save of 4+ against a blowpipe dart. Even
+models that normally do not have an armour save
+will get a 6+ save to take into account protection
+offered by clothes, fur or the like.
+Stealthy: A Skaven armed with a blowpipe can fire
+while hidden without revealing his position to the
+enemy. The target model can take an Initiative test in
+order to try to spot the firing Skaven. If the test is
+successful, the Skaven no longer counts as hidden.
+warplock pistol
+35 gold crowns (70 for a brace)
+Availability: Rare 11, Skaven only
+Warplock pistols are terrifying weapons, testimony to
+the mad genius of Clan Skryre engineers. Warplock
+pistols shoot ammunition made of magically treated
+warpstone and wounds caused by warplock pistols
+are horrible to behold and often cause infections.
+Range Strength Save modifier Special rules
+8" 5 -3 Fire every other
+turn
+This equipment is only available to Skaven, and no other warbands may purchase it. See the Trading
+section for full rules on acquiring rare items.
+Skaven
+Skaven special equipment
+fighting claws
+35 gold crowns per pair
+Availability: Rare 7, Skaven only
+The martial arts practised by Clan Eshin employ many
+unusual weapons. The most famous of these are the
+Eshin Fighting Claws: sharp metal blades attached to
+the paws of a Skaven warrior. It takes a real expert to
+use them effectively, but an adept of Clan Eshin is a
+fearsome opponent when armed this way.
+Save 
+Range Strength modifier Special rules
+Close Com. As user - Pair, Climb, Parry, 
+Cumbersome
+SPECIAL RULES
+Pair: Fighting Claws are traditionally used in pairs,
+one in each hand. A warrior armed with Fighting
+Claws gets an additional attack.
+Climb: A Skaven equipped with Fighting Claws can
+add +1 to his Initiative when making Climbing tests.
+Parry: A Skaven armed with Fighting Claws may parry
+blows and can re-roll a failed attempt once, in the
+same way as a model armed with a sword and buckler.
+Cumbersome. A model armed with Fighting Claws
+may not use any other weapons in the entire battle.
+weeping blades
+50 gold crowns (per pair)
+Availability: Rare 9, Skaven only
+The adepts of Clan Eshin use weapons called Weeping
+Blades, murderous swords constructed with a small
+amount of warpstone in their structure. A Weeping
+Blade constantly sweats a deadly corrosive venom.
+Range Strength Special rules
+Close Com. As user Pair, Venomous, Parry
+Pair: Weeping Blades are traditionally used in pairs,
+one in each hand. A warrior armed with Weeping
+Blades gets an additional attack.
+Venomous: The venom of Weeping Blades will enter
+the blood of the victim and ravage his organs and
+muscles. These weapons count as being permanently
+coated in black lotus (see the Equipment section). No
+additional poison may be applied to Weeping Blades.
+Parry: Weeping Blades are swords and can be used
+for parrying.
+29
+
+--- Page 29 ---
+30 3030
+Skaven special skills
+Skaven
+30
+Skaven Heroes may choose to use the
+following Skill list instead of any of the standard Skill tables available to them.
+black hunger
+The Skaven can draw upon the dreaded Black Hunger, the fighting frenzy which gives him
+unnatural strength and speed but can ravage him from inside. The Skaven Hero may
+declare at the beginning of his turn that he is using this skill. The Hero may add +1
+attack and +D3" to the total move to his profile for the duration of his own turn
+but will suffer D3 S3 hits with no armour save possible at the end of the
+turn.
+tail fighting
+The Skaven may wield a shield, knife or a sword with its tail. The
+model gains an extra attack with the appropriate weapon or a +1
+bonus to its armour save.
+wall runner
+The Skaven does not need to take an Initiative test when
+climbing up walls and other sheer surfaces.
+infiltration
+A Skaven with this skill is always placed on the battlefield
+after the opposing warband and can be placed anywhere
+on the table as long as it is out of sight of the opposing
+warband and more than 12" away from any enemy model. 
+If both players have models which infiltrate, roll a D6 for
+each, and the lowest roll sets up first.
+art of silent death
+The Skaven has patiently mastered the deadly art of
+open-hand fighting, as taught by the mystics of Cathay in
+the temples of the far East. In hand-to-hand combat, the
+Skaven can fight with his bare paws without any
+penalties and counts as having two weapons (ie, +1
+attack). In addition, a Skaven Hero with this skill will
+cause a critical hit on a To Wound roll of 5-6 instead of
+just 6. This skill may be used in conjunction with the
+Eshin Fighting Claws (+2 Attacks instead of +1).
+Skaven skill tables
+Combat Shooting Academic Strength Speed Special
+Adept   
+Black Skaven   
+Eshin Sorcerer  
+Night Runners   
+
+
+--- Page 30 ---
+3131 31
+0-2 Black skaven
+40 gold crowns to hire
+Black Skaven are the most powerful fighters of Clan
+Eshin: black-furred killers trained in the martial arts of
+their clan. In Mordheim they excel at ambushing and
+assassinating man-things.
+Profile M WS BS S T W I A Ld
+64 3 4 3 1 5 16
+Weapons/Armour: A Black Skaven may be armed
+with weapons and armour chosen from the Skaven
+Heroes Equipment list.
+0-1 Eshin sorcerer
+45 gold crowns to hire
+The Sorcerers of Clan Eshin are black magicians who
+manufacture the enchanted weapons of the Assassins.
+Though their power is slight compared to the
+Warlocks of Clan Skryre or the mighty Grey Seer, their
+black sorcery is still potent.
+Profile M WS BS S T W I A Ld
+53 3 3 3 1 4 16
+Weapons/Armour: A Skaven Eshin Sorcerer may be
+armed with weapons and armour chosen from the
+Skaven Heroes Equipment list.
+SPECIAL RULES
+Wizard: An Eshin Sorcerer is a wizard and uses the
+Magic of the Horned Rat. See the Magic section for
+details.
+0-2 Night runners
+20 gold crowns to hire
+Night Runners are the young apprentices of Clan
+Eshin. Recently initiated into the secrets of the clan,
+they make up for their lack of knowledge with their
+ambition and energy. 
+Profile M WS BS S T W I A Ld
+6 23 331414
+Weapons/Armour: Night Runners may be armed
+with weapons and armour chosen from the Skaven
+Henchmen Equipment list.
+Heroes
+1 Assassin adept
+60 gold crowns to hire
+The Nightmaster of Clan Eshin has sent the Assassin
+to collect precious wyrdstone. Success means many
+breeders, wealth and a better position amongst the
+clan. Failure, on the other hand, is best not
+contemplated…
+Profile M WS BS S T W I A Ld
+64 4 4 3 1 5 17
+Weapons/Armour: An Assassin Adept may be armed
+with weapons and armour chosen from the Skaven
+Heroes Equipment list.
+SPECIAL RULES
+Leader: Any warrior within 6" of the Assassin Adept
+may use his Leadership instead of his own.
+Perfect Killer: An Assassin Adept always has an extra
+-1 modifier to any armour save the enemy has to take
+against wounds they inflicted (both with shooting and
+close combat weapons).
+Skaven
+31
+
+--- Page 31 ---
+32 3232
+Henchmen (bought in groups of 1-5)
+Verminkin
+20 gold crowns to hire 
+Verminkin are the Clanrats of Clan Eshin. The
+strongest amongst them are initiated into the secrets
+of the clans and begin their training to become
+Assassins, the most feared warriors of the Skaven
+warbands. All the Clanrats of Clan Eshin dream of
+rising to the status of an Assassin one day.
+Profile M WS BS S T W I A Ld
+53 3 3 3 1 4 15
+Weapons/Armour: Verminkin may be armed with
+weapons and armour chosen from the Skaven
+Henchmen Equipment list.
+Giant rats
+15 gold crowns to buy
+Giant Rats are creations of the twisted genius of the
+Skaven. They are mutated monstrosities the size of
+dogs. They fight alongside the Skaven, overpowering
+any opponents by sheer weight of numbers. 
+Profile M WS BS S T W I A Ld
+62 0 3 3 1 4 14
+Weapons/Armour: None. Giant Rats never use any
+armour or weapons.
+SPECIAL RULES
+Pack size: You can recruit as many Giant Rats as
+you wish.
+Skaven
+32
+0-1 Rat ogre
+210 gold crowns to buy
+These horrible monsters are much in demand as
+bodyguards to important Skaven. 
+Profile M WS BS S T W I A Ld
+63 3 553434
+Weapons/Armour: Jaws, claws and brute force! Rat
+Ogres can never use weapons or armour.
+SPECIAL RULES
+Fear: Rat Ogres are so frightening they cause fear.
+Stupidity: A Rat Ogre is subject to stupidity unless a
+Skaven Hero is within 6" of it.
+Experience: Rat Ogres do not gain experience.
+Large Target: Rat Ogres are Large Targets as defined
+in the shooting rules.
+Experience: Giant Rats
+are animals and do not
+gain experience.

@@ -1,0 +1,3493 @@
+--- Page 1 ---
+77
+Warbands
+travel to the City
+of the Damned from
+all over the Old World.
+They come from many races
+and for many reasons but
+ultimately they must all face the
+dangers of the dim alleys and twisting,
+winding streets of Mordheim.
+Although it is great fun to fight individual battles, part
+of the challenge of Mordheim is to build your
+warband into a force to be reckoned with. A campaign
+gives your warband the chance to gain experience and
+new skills, as well as the opportunity to hire extra
+warriors as its fame and fortune increases.
+starting a campaign
+To start a campaign you’ll need at least two players,
+preferably three or more. Players may have more than
+one warband, but most people prefer to run one at a
+time, as this allows them to devote more of their
+attention to painting, modelling and playing with
+their favourite warband.
+You can start a campaign as soon as two players have
+recruited their warbands. New players can join the
+campaign any time after that. Although the new 
+warbands will be less experienced
+they will soon learn new skills.
+Fighting other, more powerful,
+warbands will allow them
+to develop more
+quickly.
+playing a campaign game
+To start the campaign, the two players select one of
+the scenarios to fight (see the Scenarios section). At
+the end of each game the players work out how
+much experience their warriors have earned and
+how much wyrdstone the warband has
+collected before returning to its
+encampment.
+Experience is expressed as Experience points which
+Heroes and Henchmen groups receive for surviving
+each game. This is covered later in the Experience
+section. When a Hero or a group of Henchmen has
+sufficient Experience points they receive an advance.
+An advance might improve a warrior’s characteristics
+profile, adding to his WS, BS, S etc, or he might gain
+a special skill such as Mighty Blow or Acrobat.
+After each game the warriors collect wyrdstone. This
+is recorded on the warband’s roster sheet, and can
+later be sold for gold, used for trading, etc. You can
+recruit more warriors or buy new weapons from
+traders. All this is explained in the Income and
+Trading sections, later.
+warband rating
+Each warband has a warband rating – the
+higher the rating the better the warband. The
+warband rating is simply the number of warriors in it
+multiplied by 5, plus their accumulated experience.
+Large creatures such as Rat Ogres are worth 20 points
+plus the number of Experience points they have
+accumulated.
+The warband’s rating changes after each game,
+because surviving warriors will gain extra experience,
+warriors may have been killed, new ones added, etc.
+Hopefully your warband rating will go up, signifying
+your increase in power!
+post battle sequence
+After the battle is over, both players work their way
+through the following sequence. You do not have
+to work through it all at once (try to do the first
+three parts straight after the battle – you may
+wish to consider further purchases later) but
+any dice rolls must be seen by both players or
+a neutral third party.
+Campaigns
+77
+
+
+--- Page 2 ---
+78
+death of 
+a leader
+If the leader of the warband is slain, the Hero with the
+next highest Leadership value takes command. He
+then gains the Leader ability (although he must
+continue to use his original Skill list) and can use the
+Equipment list available to the leader. If there is more
+than one Hero eligible to assume command, the
+warrior with the most Experience points becomes the
+leader. In the case of a tie roll a D6 to decide the new
+leader. Note that you may not hire a new leader for
+your warband. 
+In the case of Undead warbands, the death of the
+Vampire means that the warband’s Necromancer must
+take over. If the warband doesn’t include one, the
+spells that hold the restless dead together unravel,
+and the warband collapses into a pile of bones. You
+can buy a Vampire after the next game, at which point
+the Necromancer will step down (whether he wants
+to or not) and lose the Leader skill.
+If the leader of a Sisters of Sigmar, Possessed or
+Carnival of Chaos warband dies then their successor
+will be entitled to learn to use magic in their stead.
+The new leader may roll for a  prayer/spell from the
+appropriate list, instead of rolling on the Advance
+table, the first time they are eligible for an advance.
+After this they are considered to be a wizard/use
+prayers as appropriate for their warband and use the
+Advance table as normal. 
+Campaigns
+1 Injuries. Determine the extent of injuries for
+each warrior who is out of action at the end of
+the game. See the Serious Injuries, on page 118.
+2 Allocate experience. Heroes and Henchmen
+groups gain experience for surviving battles. See
+the Experience and Scenarios sections for details.
+3 Roll on the Exploration chart. See the Income
+section for details.
+4 Sell Wyrdstone. This can only be done once per
+post battle sequence.
+5 Check available veterans. Roll to see how much
+Experience worth of veterans is available for hire.
+You don’t have to commit to hiring any at this
+point. 
+6 Make rarity rolls and buy rare items. Make
+rolls for any rare items you intend to buy and pay
+for them. These items go into the warband’s
+stash.
+7 Look for Dramatis Personae. If you want to hire
+any.
+8 Hire new recruits & buy common items. New
+recruits come equipped with their free dagger
+and may be bought common items. This is done
+in any order and may be done several times. Note
+that newly hired recruits cannot buy rare items.
+They can, however, be equipped with rare items
+if there are any in the warband’s stash in stage 9.
+9 Reallocate equipment. Swap equipment
+between models as desired (provided they are
+eligible to use it). 
+10 Update your warband rating. You are now
+ready to fight again.
+disbanding warbands
+You may disband your old warband at the end of any
+game and start again with a new one. All the warriors
+in the original warband and any equipment and other
+benefits they acquired are lost. You can also dismiss
+any warrior in your warband at any time.
+death of 
+a warrior
+When a warrior is killed (Hero or Henchman) all his
+weapons and equipment are lost. This is very
+important, so be clear about it from the start. It is not
+possible to reallocate a warrior’s weapons or
+equipment once he is dead.
+78
+
+
+--- Page 3 ---
+79
+Campaigns
+buying new equipment 
+between games
+As explained in the Trading section, warriors may
+purchase new equipment and armaments using the
+warband’s treasury. Warriors can also swap equipment
+between themselves. Alternatively, old equipment can
+be hoarded and re-used at a later date.
+Weapons and armour purchased, swapped or taken
+from storage for your warband must be of an
+appropriate type for the warrior, as indicated by the
+warband lists. Record any changes to the warrior’s 
+equipment on
+the roster
+sheet. 
+serious injuries
+During a game some warriors will be taken out of
+action and removed from play. At that time it doesn’t
+matter whether the warrior is dead, unconscious,
+injured or just playing dead – in game terms he is no
+longer capable of fighting in the battle which is all that
+matters. 
+When you are playing a campaign it matters a great
+deal what happens to warriors who are taken out of
+action! They might recover completely and be ready
+to fight in the next battle, or they might have
+sustained injuries. Worst of all they might die, or be so
+badly injured that they have to retire.
+When a Henchman receives a serious injury this is
+treated differently than if a Hero received one (this is
+to represent the greater effect that losing a Hero
+would have on your warband). Working out the
+extent of a Henchman’s injuries is very simple. You
+will need to roll on the chart opposite to determine
+what has happened to your Hero. The chart covers a
+whole range of injuries and random things that might
+befall your warrior. Bear in mind that only Heroes
+who are taken out of action are obliged to roll on this
+chart.
+HENCHMEN WITH SERIOUS INJURIES
+Henchmen who are out of action at the
+end of the battle are removed
+permanently from the roster sheet
+on a D6 roll of 1-2. They have
+either suffered severe injuries,
+died of their wounds, or
+decided to quit the warband.
+On a roll of 3-6 they can fight
+in the next battle as normal.
+HEROES WITH 
+SERIOUS INJURIES
+After a battle some of
+your Heroes may be
+taken out of action.
+You will need to
+determine the extent
+of their injuries before
+the next game.
+To use the Heroes’
+Serious Injuries chart
+opposite, roll two D6.
+The first dice roll
+represents ‘tens’ and
+the second ‘units’, so
+that a roll of 1 and 5
+is 15, a roll of 3 and
+6 is 36, etc. This type
+of dice roll is
+referred to as a 
+‘D66 roll’.
+79
+
+--- Page 4 ---
+41-55 FULL RECOVERY
+The warrior has been knocked unconscious, or
+suffers a light wound from which he makes a full
+recovery.
+56 BITTER ENMITY
+The warrior makes a full physical recovery, but is
+psychologically scarred by his experience. From now
+on the warrior hates the following (roll a D6):
+D6 Result
+1-3 The individual who caused the injury. If it was
+a Henchman, he hates the enemy leader
+instead.
+4 The leader of the warband that caused the
+injury.
+5 The entire warband of the warrior responsible
+for the injury.
+6 All warbands of that type.
+61 CAPTURED
+The warrior regains consciousness and finds himself
+held captive by the other warband.
+He may be ransomed at a price set by the captor or
+exchanged for one of their warband who is being held
+captive.
+Captives may be sold to slavers at a price of D6x5 gc.
+Undead may kill their captive and gain a new Zombie.
+The Possessed may sacrifice the prisoner. The leader
+of the warband will gain +1 Experience if they do so.
+Captives who are exchanged or ransomed retain all
+their weapons, armour and equipment; if captives are
+sold, killed or turned to Zombies, their weaponry, etc,
+is retained by their captors.
+62-63 HARDENED
+The warrior survives and becomes inured to the
+horrors of Mordheim. From now on he is immune to
+fear.
+64 HORRIBLE SCARS
+The warrior causes fear from now on.
+65 SOLD TO THE PITS
+The warrior wakes up in the infamous fighting pits of
+Cutthroat’s Haven and must fight against a Pit Fighter.
+See the Hired Swords section for full rules for Pit
+Fighters.
+Roll to see which side charges, and fight the battle as
+normal. If the warrior loses, roll to see whether he is
+dead or injured (ie, a D66 roll of 11-35). If he is not
+dead, he is thrown out of the fighting pits without his
+armour and weapons and may re-join his warband. 
+If the warrior wins he gains 50 gc, +2 Experience and
+is free to rejoin his warband with all his weapons and
+equipment.
+66 SURVIVES AGAINST THE ODDS 
+The warrior survives and rejoins his warband. He
+gains +1 Experience.
+11-15 DEAD
+The warrior is dead and his body is abandoned in the
+dark alleys of Mordheim, never to be found again. All
+the weapons and equipment he carried are lost.
+Remove him from the warband’s roster.
+16-21 MULTIPLE INJURIES
+The warrior is not dead but has suffered a lot of
+wounds. Roll D6 times on this table. Re-roll any
+‘Dead’, ‘Captured’ and further ‘Multiple Injuries’
+results.
+22 LEG WOUND
+The warrior’s leg is broken. He suffers a -1 Movement
+characteristic penalty from now on.
+23 ARM WOUND
+Roll again: 1 = Severe arm wound. The arm must be
+amputated. The warrior may only use a single one-
+handed weapon from now on. 2-6 = Light wound.
+The warrior must miss the next game.
+24 MADNESS
+Roll a D6. On a 1-3 the warrior suffers from stupidity;
+on 4-6 the warrior suffers from frenzy  from now on
+(see the Psychology section for details). 
+25 SMASHED LEG
+Roll again: 1 = The warrior may not run any more but
+he may still charge. 2-6 = The warrior misses the next
+game.
+26 CHEST WOUND
+The warrior has been badly wounded in the chest. He
+recovers but is weakened by the injury so his
+Toughness is reduced by -1.
+31 BLINDED IN ONE EYE
+The warrior survives but loses the sight in one eye;
+randomly determine which. A character that loses an
+eye has his Ballistic Skill reduced by -1. If the warrior
+is subsequently blinded in his remaining good eye he
+must retire from the warband.
+32 OLD BATTLE WOUND
+The warrior survives, but his wound will prevent him
+from fighting if you roll a 1 on a D6 at the start of any
+battle. Roll at the start of each battle from now on.
+33 NERVOUS CONDITION
+The warrior’s nervous system has been damaged. His
+Initiative is permanently reduced by -1.
+34 HAND INJURY
+The warrior’s hand is badly injured. His Weapon Skill
+is permanently reduced by -1.
+35 DEEP WOUND
+The warrior has suffered a serious wound and must
+miss the next D3 games while he is recovering. He
+may do nothing at all while recovering.
+36 ROBBED
+The warrior manages to escape, but all his weapons,
+armour and equipment are lost.
+Heroes’ serious injuries chart (roll D66)
+80
+Campaigns
+
+--- Page 5 ---
+Campaigns
+81
+As warriors take part in
+battles, those who survive
+become more experienced,
+and improve their battle
+skills. This is represented in
+campaigns by Experience
+points.
+Warriors earn Experience
+points when they take part in
+a battle. Once a warrior has
+enough points he gains an
+advance. This takes the form of an 
+increased characteristic or a new skill. Warriors who
+survive long enough may progress to become great
+Heroes, with many skills that they have picked up
+during their long and glorious fighting career.
+When warriors are recruited, some of them already
+have some experience. The warband lists detail how
+many Experience points different warriors begin
+with. Record these on your warband roster sheet by
+ticking the right number of boxes. No extra advances
+are gained for this
+experience. It simply
+represents the
+experience the
+warriors have
+accumulated
+before the
+warband is
+formed.
+earning experience
+The Experience points warriors earn depend on the
+scenario. Different scenarios have different objectives
+and consequently warriors can earn experience in
+slightly different ways.
+Extra Experience points are always added to the
+fighter’s total after the game is over, though it is a
+good idea to keep a record of the opponents your
+warrior puts out of action during the battle, as this
+often affects the experience they gain.
+If you look through the scenarios you will notice that
+warriors always earn +1 Experience point for
+surviving a battle. They earn this even if they are
+injured – so long as they live to fight again!
+The Scenarios section includes details of how many
+Experience points are earned for each scenario.
+experience advances
+As warriors earn more Experience points they are
+entitled to make Advance rolls . The warband roster
+sheet shows how much experience a Hero or a
+Henchman group must accumulate before making a
+further roll. When the accumulated experience
+reaches a box that has thick borders, the warrior may
+make an Advance roll. The roll(s) must be taken
+immediately after the game in which the advance was
+earned, while both players are present to witness the
+result. Note that Henchmen gain experience as a
+group, and consequently all the warriors in one
+group gain the same advance.
+underdogs
+When a warband fights against an enemy warband
+with a higher rating, its warriors earn extra
+Experience points as shown on the table below. The
+higher the opposing warband’s rating the more
+points the underdog earns.
+Difference in
+Warband rating Experience Bonus
+0-50 None
+51-75 +1
+76-100 +2
+101-150 +3
+151-300 +4
+301+ +5
+81
+Experience
+
+
+--- Page 6 ---
+82
+advance rolls
+Make Advance rolls straight after the battle so both
+players can witness the result. Roll 2D6 and consult the
+appropriate tables below.
+Heroes
+2D6 Result
+2-5 New Skill. Select one of the Skill tables
+available to the Hero and pick a skill. If he is a
+wizard he may choose to randomly generate a
+new spell instead of a skill. See the Magic
+section.
+6 Characteristic Increase. 
+Roll again: 1-3 = +1 Strength; 4-6 = +1 Attack.
+7 Characteristic Increase.
+Choose either +1 WS or +1 BS.
+8 Characteristic Increase.
+Roll again: 1-3 = +1 Initiative; 
+4-6 = +1 Leadership.
+9 Characteristic Increase.
+Roll again: 1-3 = +1 Wound; 
+4-6 = +1 Toughness.
+10-12 New Skill. Select one of the Skill tables
+available to the Hero and pick a skill. If he is a
+wizard he may choose to randomly generate a
+new spell instead of a skill. 
+Henchmen
+Henchmen never add more than +1 point to any of their
+initial characteristics. If the dice roll indicates an increase
+in a characteristic which has already been increased (or
+is at its racial maximum), roll again until an unincreased
+charateristic is rolled. All warriors in the group gain the
+same advance.
+2D6 Result
+2-4 Advance . +1 Initiative.
+5 Advance. +1 Strength.
+6-7 Advance . Choose either +1 BS or +1WS.
+8 Advance. +1 Attack.
+9 Advance. +1 Leadership.
+10-12 The lad’s got talent. One model in the group
+becomes a Hero. If you already have the
+maximum number of Heroes, roll again. The
+new Hero remains the same Henchman type (eg,
+a Ghoul stays as a Ghoul) and starts with the
+same experience the Henchman had, with all his
+characteristic increases intact. You may choose
+two skill lists available to Heroes in your
+warband. These are the skill types your new
+Hero can choose from when he gains new skills.
+He can immediately make one roll on the Heroes
+Advance table. The remaining members of the
+Henchmen group, if any, roll again for the
+advance that they have earned, re-rolling any
+results of 10-12.
+new skills
+There are several types of skill and each has a separate
+list. You may not choose the same skill twice for the
+same warrior. The skills a Hero may have are
+restricted by the warband he belongs to and what
+type of Hero he is. 
+To select a new skill for a Hero, pick the type of skill
+you want from those available, then choose which
+skill has been learned.
+characteristic increase
+Characteristics for certain warriors may not be
+increased beyond the maximum limits shown on the
+following profiles. If a characteristic is at its
+maximum, take the other option or roll again if you
+can only increase one characteristic. If both are
+already at their racial maximum, you may increase any
+other (that is not already at its racial maximum) by +1
+instead. Note that this is the only way to gain the
+maximum Movement for some races. Remember that
+Henchmen can only add +1 to any characteristic.
+HUMAN (Witch Hunters, Flagellants, Mercenaries,
+Dregs, Freelancers, Warlocks, Pit Fighters, Magisters,
+Darksouls, Mutants, Brethren, Warrior Priests,
+Zealots, Sisters of Sigmar, etc.)
+Profile M WS BS S T W I A Ld
+Human 4 66443649
+ELF (Elf Ranger Hired Sword)
+Profile M WS BS S T W I A Ld
+E l f 57744394 1 0
+DWARF (Troll Slayer Hired Sword)
+Profile M WS BS S T W I A Ld
+D w a r f 37645354 1 0
+OGRE (Ogre Bodyguard Hired Sword)
+Profile M WS BS S T W I A Ld
+Ogre 6 65555659
+HALFLING (Halfling Scout Hired Sword)
+Profile M WS BS S T W I A Ld
+Halfling 4 5733394 1 0
+BEASTMAN
+Profile M WS BS S T W I A Ld
+G o r 476454649
+POSSESSED
+Profile M WS BS S T W I A Ld
+Possessed 6 8066475 1 0
+VAMPIRE
+Profile M WS BS S T W I A Ld
+Vampire 6 8676494 1 0
+SKAVEN
+Profile M WS BS S T W I A Ld
+Skaven 6 66443747
+GHOUL
+Profile M WS BS S T W I A Ld
+Ghoul 5 52453557
+Campaigns
+82
+
+--- Page 7 ---
+83
+Campaigns
+83
+Skill lists
+The Skill lists are used to pick skills earned as advances. Your warrior is restricted to specific Skill lists
+depending upon his warband type and what kind of warrior he is. Each warband entry includes a list
+of skills available to the Heroes of that particular warband.
+All warbands have their own strengths and weaknesses which relate to the skills available to them.
+For example, the Possessed are good fighters and very strong, but they are not very academically
+minded.
+Some warbands also have access to a unique Skill list, which is clearly indicated in their entry.
+combat skills
+Strike to Injure. The warrior can land his blows with
+uncanny accuracy. Add +1 to all injury rolls caused by
+the model in hand-to-hand combat.
+Combat Master. The warrior is able to take on
+several opponents at once. If he fights against more
+than one enemy at a time, he gains an extra Attack in
+each hand-to-hand combat phase as long as he is
+fighting two or more enemy models. In addition, the
+warrior is immune to ‘All Alone’ tests.
+Weapons Training. A warrior with this skill is adept
+at using many different weapons. He may use any
+hand-to-hand combat weapon he comes across, not
+just those in his equipment options. 
+Web of Steel. Few can match the ability of this
+warrior. He fights with great skill, weaving a web of
+steel around him. The model gains +1 to all his rolls
+on Critical Hit tables in hand-to-hand combat.
+Expert Swordsman. This warrior has been expertly
+taught in the art of swordsmanship. He may re-roll all
+missed attacks if he is using a sword in the hand-to-
+hand phase of the turn that he charges. Note that this
+only applies when they are armed with normal
+swords or weeping blades, and not with double-
+handed swords or any other weapons. 
+Step Aside. The warrior has a natural ability to avoid
+injury in combat. Each time he suffers a wound in
+close combat he may make an additional saving throw
+of 5+. This save is never modified and is taken after
+all other armour saves.
+shooting skills
+Quick Shot. The warrior may shoot twice per turn
+with a bow or crossbow (but not a crossbow pistol).
+Pistolier. The warrior is an expert at using all kinds
+of pistols. If he is equipped with a brace of pistols of
+any type (including crossbow pistols), he may fire
+twice in the Shooting phase (though note that normal
+reloading rules apply). If he has a single pistol then he
+may fire it in the same turn it was reloaded. 
+Eagle Eyes. The warrior’s sight is exceptionally keen.
+He adds +6" to the range of any missile weapon he is
+using.
+Weapons Expert. The warrior has been trained to
+use some of the more unusual weapons of the known
+world. He may use any missile weapon he comes
+across, not just the weapons available from his
+warband’s list.
+Nimble. The warrior may move and fire with
+weapons that are normally only used if the firer has
+not moved. Note that this skill cannot be combined
+with the Quick Shot skill.
+Trick Shooter. The warrior can shoot through the
+tiniest gap without it affecting his aim. He ignores all
+modifiers for cover when using missile weapons.
+Hunter. The warrior is an expert at getting his
+weapon loaded and ready. He may fire each turn with
+a handgun or Hochland long rifle.
+Knife-Fighter. The warrior is an unrivalled expert at
+using throwing knives and throwing stars. He can
+throw a maximum of three of these missiles in his
+shooting phase and may divide his shots between any
+targets within range as he wishes. Note that this skill
+cannot be combined with the Quick Shot skill.
+
+--- Page 8 ---
+84
+Campaigns
+84
+academic skills
+Battle Tongue. This skill may only be chosen by a
+leader. The warrior has drilled his warband to follow
+short barked commands. This increases the range of
+his Leader ability by 6". Note that Undead leaders may
+not use this skill.
+Sorcery. This skill may only be taken by Heroes
+capable of casting spells. A warrior with this skill gains
++1 to his rolls to see whether he can cast spells
+successfully or not. Note that Sisters of Sigmar and
+Warrior-Priests may not use this skill.
+Streetwise. A warrior with this skill has good contacts
+and knows where to purchase rare items. He may add
++2 to the roll that determines his chances of finding
+such items (see the Trading section).
+Haggle. The warrior knows all the tricks of
+bargaining and haggling. He may deduct 2D6 gold
+crowns from the price of any single item (to a
+minimum cost of 1gc) once per post battle sequence.
+Arcane Lore. Witch Hunters, Sisters of Sigmar and
+Warrior-Priests may not have this skill. Any warrior
+with this skill may learn Lesser Magic if he owns a
+Tome of Magic.
+Wyrdstone Hunter. The warrior has an uncanny
+ability to find hidden shards of wyrdstone. If a Hero
+with this skill is searching the ruins in the exploration
+phase you may re-roll one dice when rolling on the
+Exploration chart. The second result stands.
+Warrior Wizard. This skill may only be taken by
+spellcasters. The mental powers of the wizard allow
+him to wear armour and cast spells.
+strength skills
+Mighty Blow. The warrior knows how to use his
+strength to maximum effect and has a +1 Strength
+bonus in close combat (excluding pistols). As his
+Strength is used for close combat weapons, the bonus
+applies to all such weapons.
+Pit Fighter. The warrior has learned how to fight in
+enclosed spaces from his time in the dangerous
+fighting pits of the Empire. He is an expert at fighting
+in confined areas and adds +1 to his WS and +1 to
+his Attacks if he is fighting inside buildings or ruins.
+It’s a good idea to define which bits of your terrain
+collection count as ‘buildings or ruins’ at the start of
+a battle to avoid confusion later. 
+Resilient. The warrior is covered in battle scars.
+Deduct -1 Strength from all hits against him in close
+combat. This does not affect armour save modifiers.
+Fearsome. Such is the reputation and physique of the
+model that he causes fear in opposing models.
+Strongman. The warrior is capable of great feats of
+strength. He may use a double-handed weapon
+without the usual penalty of always striking last. Work
+out order of battle as you would with other weapons.
+Unstoppable Charge. When he charges, the warrior
+is almost impossible to halt. He adds +1 to his
+Weapon Skill when charging.
+speed skills
+Leap. The warrior may leap D6" in the movement
+phase in addition to his normal movement. He may
+move and leap, run and leap, or charge and leap, but
+he can only leap once per turn.
+A leaping warrior may jump over opposing man-sized
+models, including enemies, and obstacles 1" high,
+without penalty.
+The leap may also be used to leap over gaps, but in
+this case you must commit the warrior to making the
+leap before rolling the dice to see how far he jumps.
+If he fails to make it all the way across, he falls
+through the gap (see page 28).
+Sprint. The warrior may triple his Movement rate
+when he runs or charges, rather than doubling it as
+normal.
+Acrobat. The warrior is incredibly supple and agile.
+He may fall or jump from a height of up to 12"
+without taking any damage if he passes a single
+Initiative test, and can re-roll failed Diving Charge
+rolls. He can still only make a diving charge from a
+height of up to 6".
+Lightning Reflexes. If the warrior is charged he will
+‘strike first’ against those that charged that turn. As
+the charger(s) will also normally ‘strike first’ (for
+charging), the order of attack between the charger(s)
+and the warrior with this skill will be determined by
+comparing Initiative values. 
+Jump Up. The warrior can regain his footing in an
+instant, springing to his feet immediately if he is
+knocked down. The warrior may ignore knocked
+down results when rolling for injuries, unless he is
+knocked down because of a successful save from
+wearing a helmet or because he has the No Pain
+special rule.
+Dodge. A warrior with this skill is nimble and as fast
+as quicksilver. He can avoid any hits from a missile
+weapon on a D6 roll of 5+. Note that this roll is taken
+against missiles as soon as a hit is scored to see
+whether the warrior dodges it or not, before rolling to
+wound, and before any effects from other skills or
+equipment (such as lucky charms).
+Scale Sheer Surfaces. A warrior with this skill can
+scale even the highest wall or fence with ease. He can
+climb up or down a height equal to twice his normal
+Movement, and does not need to make Initiative tests
+when doing so.
+
+--- Page 9 ---
+Scenarios
+8585 8585
+pre-battle sequence
+Although you can simply decide with your opponent
+which scenario you want to play, most players prefer
+to generate their scenarios randomly. To do this, work
+your way through the following sequence before the
+battle. 
+1 The player with the lowest warband rating rolls
+on the Scenario table to determine which
+scenario is played. In the scenarios where there
+is an attacker and a defender, the same player
+may choose which he is.
+2 Roll for warriors with old battle wounds to see
+whether they can take part or
+not.
+3 Set up the terrain and warbands
+according to the rules for the
+scenario you are playing. The more buildings
+the better, so you should place all the terrain
+you have.
+scenario table
+2D6 Result
+2 The player with the lower warband rating
+may choose which scenario is played.
+3 Play Scenario 5: Street Fight.
+4 Play Scenario 7: Hidden Treasure.
+5 Play Scenario 3: Wyrdstone Hunt.
+6 Play Scenario 8: Occupy.
+7 Play Scenario 2: Skirmish.
+8 Play Scenario 4: Breakthrough.
+9 Play Scenario 9: Surprise Attack.
+10 Play Scenario 6: Chance Encounter.
+11 Play Scenario 1: Defend the Find.
+12 The player with the lower warband rating
+may choose which scenario is played.
+Starting the game
+
+
+--- Page 10 ---
+86 8686
+Scenarios
+starting the game
+The attacker has the first turn.
+ending the game
+If at the end of the defender’s turn the
+attacker has more standing models within 6" of the
+objective than the defender, the attacker wins.
+Alternatively, when one of the warbands fails its Rout
+test the game ends.
+experience
++1 Survives. If a Hero or Henchman group survives
+the battle they gain +1 Experience.
++1 Winning Leader. The leader of the winning
+warband gains +1 extra Experience.
++1 Per Enemy Out of Action. Any Hero earns +1
+Experience for each enemy he puts out of action.
+wyrdstone
+One shard of wyrdstone for each Hero of either
+warband who is inside the objective building at the
+end of the game (up to a maximum of three shards
+per warband).
+Often a warband finds a building with a hoard of
+wyrdstone or other treasure inside, only to be
+challenged by a rival warband. This usually leads to
+conflict as it is unlikely that either side will be willing
+to give up the wealth easily.
+terrain
+Each player takes it in turn to place a piece of terrain,
+either a ruined building, tower, or other similar item.
+We suggest that the terrain is set up within an area
+roughly 4' x 4'. The first building should be placed in
+the centre of the table, and the objective of the
+scenario is to take control of this building.
+warbands
+The warband with the lowest number of warriors in it
+is automatically the defender. If both sides are equal,
+roll to decide.
+The defender is deployed first inside or within 6" of
+the objective building. The attacking warband is
+deployed within 6" of any table edge. Note that you
+can split the warband to enter from different edges if
+you wish.
+In the vastness of the Mordheim ruins there is always
+the risk of running into a rival warband. While two
+groups sometimes pass each other without a fight,
+more often than not there is a vicious battle amongst
+the ruins. If a warband can drive their rivals away, they
+will have a larger area in which to search for
+wyrdstone.
+terrain
+Each player takes it in turn to place a piece of terrain,
+either a ruined building, tower, or other similar item.
+We suggest that the terrain is set up within an area
+roughly 4' x 4'.
+warbands
+Each player rolls a dice. Whoever rolls highest
+chooses who sets up first. The first player then
+chooses which table edge to set up on, placing all his
+warriors within 8" of that edge. His opponent then
+sets up within 8" of the opposite edge. 
+starting the game
+Both players roll a D6. The higher scoring player takes
+the first turn.
+ending the game
+When one of the warbands fails its Rout test, the game
+ends. The routing warband loses and their opponents
+win.
+experience
++1 Survives. If a Hero or a Henchman group survives
+the battle they gain +1 Experience.
++1 Winning Leader. The leader of the winning
+warband gains +1 extra Experience.
++1 Per Enemy Out of Action . Any Hero earns +1
+Experience for each enemy model he puts out of
+action.
+Scenario 1: defend the find
+Scenario 2: skirmish
+
+
+--- Page 11 ---
+8787 87
+Scenarios
+87
+Scattered in the ruins of Mordheim are innumerable
+tiny shards of priceless wyrdstone. It often happens
+that two warbands come upon the same area and only
+a battle can determine who will pick the spoils.
+In this scenario, warbands encounter each other
+while scavenging in the same ruined warehouse,
+vault, temple or other such potentially rich building.
+terrain
+Each player takes it in turn to place a piece of terrain,
+either a ruined building, tower, or other similar item.
+We suggest that the terrain is set up within an area
+roughly 4' x 4'.
+special rules
+Once you have placed the terrain, put some
+Wyrdstone counters on the tabletop to represent
+where the shards are. There will be D3+1 counters in
+total.
+Each player takes it in turn to place a counter. Roll a
+D6 to see which player goes first. The counters must
+be placed more than 10" from the edge of the table
+and at least 6" away from each other. Note that
+counters are placed before deciding which edge the
+warbands will play from, so it is a good idea to put
+counters towards the middle of the table. Warriors
+can pick up the counters simply by moving into
+contact with them. A warrior can carry any
+amount of wyrdstone without any penalty.
+Warriors cannot transfer their wyrdstone to
+another warrior. If the warrior who is
+carrying a counter is taken out of action ,
+place the counter on the table where he fell.
+warbands
+Both players roll a D6 to see who deploys
+first. Whoever rolls highest sets up first,
+within 8" of the table edge of his choice. His
+opponent then sets up within 8" of the
+opposite edge.
+starting the game
+Both players roll a D6. The highest scoring
+player takes the first turn.
+ending the game
+The game ends when one warband fails its
+Rout test. The routers automatically lose.
+experience
++1 Survives. If a Hero or a Henchman
+group survives the battle they gain +1
+Experience.
++1 Winning Leader. The leader of the
+winning warband gains +1 Experience.
++1 per Wyrdstone Counter. If a Hero or
+Henchman is carrying a Wyrdstone counter
+at the end of the battle he receives +1
+Experience.
++1 Per Enemy Out of Action. Any Hero
+earns +1 Experience for each enemy he puts
+out of action.
+wyrdstone
+Your warriors earn one shard of wyrdstone
+for each counter still in their possession at
+the end of the battle.
+Scenario 3: wyrdstone hunt
+
+
+--- Page 12 ---
+88 8888
+Scenarios
+88
+When news of a huge deposit of wyrdstone starts
+circulating, warbands will mount expeditions to
+unearth the wealth. However, their rivals often try to
+block them, eager to claim all the wyrdstone for
+themselves.
+terrain
+Each player takes it in turn to place a piece of terrain,
+either a ruined building, tower, or other similar item.
+We suggest that the terrain is set up within an area
+roughly 4' x 4'.
+warbands
+Each player rolls a dice. Whoever scores higher
+decides which table edge the attacker sets up on.
+The attacker sets up first, within 8" of his table edge.
+The defender sets up anywhere on the table as long as
+all his warriors are at least 14" away from any attacker.
+starting the game
+The attacker has the first turn.
+ending the game
+If one of the warbands fails a Rout test, the game ends
+immediately and the routing warband loses. 
+If the attacker manages to move two or more standing
+warriors to within 2" of the defender’s table edge,
+they have broken through and he wins the game.
+experience
++1 Survives. If a Hero or a Henchman group survives
+the battle, they gain +1 Experience.
++1 Winning Leader. The leader of the winning
+warband gains +1 Experience.
++1 Per Enemy Out of Action. Any Hero earns +1
+Experience for each enemy he puts out of action.
++1 Breaking Through. Any warrior earns +1
+Experience for breaking through enemy lines. If the
+warrior is a Henchman, then the whole group gains
++1 Experience.
+Scenario 5: street fight
+Often two warbands will come face to face with each
+other in the narrow streets of Mordheim. Sometimes
+they pass each other without incident but more often
+the meeting ends in bloodshed. 
+terrain
+Set up all the buildings into a single street, with no
+gaps along the sides. Behind the buildings are
+impassable ruins, although the buildings themselves
+are still accessible. The only way out is along the
+street. The street may be as winding as you like and
+should not be too narrow to fight in, but can have
+narrow bottlenecks at some points. We suggest that
+the terrain is set up within an area roughly 4' x 4'.
+set-up
+Both players roll a D6 to see who sets up first.
+Whoever rolls highest chooses whether to deploy first
+or second. The warbands are deployed within 6" of
+opposite ends of the street.
+special rules
+Neither warband can backtrack down the street to
+leave the battlefield via their own edge.
+starting the game
+Roll a D6 to see who has the first turn.
+ending the game
+When one of the warbands manages to move all its
+remaining warriors out of the street via the opposing
+edge, the game ends and that player is victorious.
+Alternatively a warband which fails a Rout test loses
+the game.
+experience
++1 Survives. If a Hero or a Henchman group survives
+the battle they gain +1 Experience.
++1 Winning Leader. The leader of the winning
+warband gains +1 Experience.
++1 Per Enemy Out of Action. Any Hero earns +1
+Experience for each enemy he puts out of action.
++1 Escaping. The first Hero from either side (not
+both!) who exits via the opposing table edge gains
++1 Experience.
+Scenario 4: breakthrough
+
+
+--- Page 13 ---
+8989 89
+Scenarios
+89
+Both warbands have completed their daily search of
+the ruins and are on their way back to their
+encampment when they run into each other. Neither
+side was expecting a fight, and the warband that
+reacts the quickest has the advantage.
+terrain
+Each player takes it in turn to place a piece of terrain,
+either a ruined building, tower, or other similar item.
+We suggest that the terrain is set up within an area
+roughly 4' x 4'.
+set-up
+1. Each player rolls a D6. The player with the higher
+score can choose to deploy first or second.
+2. The first player to deploy sets up his entire
+warband in deployment zone A as shown below. 
+He may choose which quarter
+of the table to nominate as
+deployment zone A.
+3. The second warband
+can then be set up in
+deployment zone B,
+but no model
+may be set up
+within 14" of
+any enemy
+model.
+starting the game
+Each player rolls a D6 and adds the normal Initiative
+of their leader. The player with the higher score goes
+first.
+special rules
+Each warband is carrying D3 shards of wyrdstone at
+the beginning of the battle. Mark down the number
+each warband has. 
+ending the game
+The battle ends when one warband fails a Rout test.
+The routing warband loses.
+experience
++1 Survives. If a Hero or a Henchman group survives
+the battle then they gain +1 Experience.
++1 Winning Leader. The leader of the winning
+warband gains +1 Experience.
++1 Per Enemy Out of Action. Any Hero earns +1
+Experience for each enemy he puts out of action.
+wyrdstone
+Both warbands gain all the wyrdstone they were
+carrying at the beginning of the battle, minus the
+number of their own Heroes that were taken out of
+action during the game, down to a minimum of zero.
+In addition, they gain one extra shard of wyrdstone
+for each enemy Hero they take out of action, up to 
+the maximum number of shards the
+opposing warband was carrying at the
+beginning of the battle. 
+Scenario 6: chance encounter
+
+
+--- Page 14 ---
+90 9090
+Scenarios
+There is a rumour that one of the ruined buildings
+has a concealed cellar with a treasure chest hidden in
+it. Two rival warbands have heard about the cellar and
+are now searching the area. Who knows what they will
+find?
+terrain
+Each player takes it in turn to place a piece of terrain,
+either a ruined building, tower, or other similar item.
+We suggest that the terrain is set up within an area
+roughly 4' x 4'.
+set-up
+Both players roll a D6 and whoever rolls highest
+chooses which warband sets up first. This warband is
+deployed within 8" of any table edge the player
+chooses. His opponent sets up within 8" of the
+opposite side.
+special rules
+All the warriors (not animals!) in each warband know
+roughly what they are looking for and must inspect
+the buildings to find the treasure. Each time a warrior
+enters a building which has not been previously
+searched by either side roll 2D6. On a score of 12, he
+has found the treasure.  Buildings in the deployment
+zones are not searched (since they have already
+been thoroughly ransacked) and each building
+may only be searched once. 
+If you have not scored 12 with any roll when
+there is only one building left to search, the
+treasure will automatically be found there. After
+finding the treasure chest, the warrior must then
+take it to safety via his own table edge. Carrying
+the treasure chest will slow the warrior carrying
+it to half speed. Two or more models may carry
+the chest without any penalty. You may use the
+treasure chest model to represent the chest. If
+the carrier is put out of action, place the treasure
+chest at the spot where he fell. Any man-sized
+model may pick it up by moving into base
+contact with it. 
+Whoever recovers the chest may roll on the
+following chart after the game to see what the
+chest contains. Note that you roll for each item
+separately, apart from the gold crowns, which are
+always automatically found. For example, roll to
+see if you find any wyrdstone – you need a 5+ to
+find it. Then roll to see if you find the armour,
+and so on. This can make the chest a very
+valuable acquisition – however, it could also
+mean that your warband has risked death for
+only three gold crowns!
+ITEMS D6 ROLL REQUIRED TO FIND
+3D6 gc Automatic
+D3 pieces of wyrdstone 5+
+Suit of light armour 4+
+Sword 3+
+D3 gems worth 10 gc each 5+
+starting the game
+Roll a D6. The player rolling highest has the first turn.
+ending the game
+When one warband gets the treasure to safety, or a
+warband fails a Rout test, the game ends. The
+victorious warband then gains the treasure chest.
+experience
++1 Survives. If a Hero or a Henchman group survives
+the battle they gain +1 Experience.
++1 Winning Leader. The leader of the winning
+warband gains +1 Experience.
++1 Per Enemy Out of Action. Any Hero earns +1
+Experience for each enemy he puts out of action.
++2 For Finding the Chest. If a Hero finds the
+treasure chest he earns +2 Experience.
+Scenario 7: hidden treasure
+90
+
+--- Page 15 ---
+9191 91
+Scenarios
+This scenario takes place in a part of Mordheim where
+the buildings are bursting with shards of wyrdstone
+and other wealth. Taking and holding these buildings
+means that your warband gains rich pickings.
+Unfortunately, your opponent has the same idea.
+terrain
+Each player takes it in turn to place a piece of terrain,
+either a ruined building, tower, or other similar item.
+We suggest that the terrain is set up within an area
+roughly 4' x 4'.
+warbands
+Each player rolls a D6. The player with the highest
+score decides which warband sets up first. The first
+player chooses the table edge he wants to set up on,
+and places all his warriors within 8" of it. His
+opponent then sets up within 8" of the opposite edge.
+starting the game
+Both players roll a D6. The player with the higher
+score takes the first turn.
+special rules
+The objective is to capture
+D3+2 of the buildings on
+the tabletop. Mark these
+buildings, starting with the
+one closest to the centre of
+the table, working your way
+outwards to the next nearest
+building. A building is
+occupied if at least one of
+your standing models is
+inside and no enemy models
+are inside the building.
+ending the game
+There is no need to take any
+Rout tests – as the game lasts
+for a maximum of eight
+turns. If one warband
+voluntarily routs, the game
+ends and the winning
+warband is considered to
+occupy all of the buildings
+on the table.
+experience
++1 Survives. If a Hero or a
+Henchman group survives
+they gain +1 Experience.
++1 Winning Leader. The
+leader of the warband who
+controls the highest number
+of buildings at the end of the
+battle gains +1 Experience. 
+If both sides occupy the
+same number of buildings,
+then the battle is considered
+to be a draw and neither
+leader gains this bonus.
++1 Per Enemy Out of
+Action. Any Hero earns +1
+Experience for each enemy
+he puts out of action.
+Scenario 8: occupy
+91
+
+--- Page 16 ---
+929292
+Scenarios
+One warband is out searching the ruins of Mordheim
+for loot when it is attacked by an enemy warband. The
+defenders are spread thinly and must muster a
+defence quickly to drive off their attackers.
+terrain
+Starting with the attacker, each player takes it in turn
+to place a piece of terrain, either a ruined building,
+tower, or other similar item. We suggest that the
+terrain is set up within an area roughly 4' x 4'.
+set-up
+1. The defending player rolls a D6 for each Hero
+and Henchman group in his warband, in any
+order he chooses. On a 1-3, they are elsewhere in
+the ruins and turn up later as reinforcements. On
+a 4-6 they are deployed at the start of the game.
+Note that at least one Hero or Henchmen group
+will be present at the start. If all roll 1-3, the last
+Hero or Henchmen group will automatically be
+deployed at the start of the battle.
+2. The defender deploys his available Heroes and
+Henchmen on the table. No model may be closer
+than 8" to another model, as the warband is
+spread out wide to search the ruins. No model
+may be deployed closer than 8" to a table edge.
+3. The attacker deploys his whole warband within 8"
+of a random table edge, as shown below. He may
+choose which edge to nominate as ‘1’ before
+rolling to see where he deploys.
+starting the game
+The attacker always
+gets the first
+turn.
+special rules
+The defender, at the start of his second and
+subsequent turns, may roll a D6 for each of his
+Henchmen groups or Heroes not yet on the table. On
+a 4+ they move on in the movement phase from a
+random table edge as shown below – roll a D6. All
+reinforcements for that turn arrive from the same
+edge and may charge on the turn in which they arrive.
+ending the game
+The game ends when one warband fails a Rout test.
+The routing warband loses.
+experience
++1 Survives. If a Hero or a Henchman group survives
+the battle they gain +1 Experience.
++1 Winning Leader. The leader of the winning
+warband gains +1 Experience.
++1 Per Enemy Out of
+Action. A Hero earns
++1 Experience for
+each enemy he
+puts out of
+action.
+Scenario 9: surprise attack
+92
+
+--- Page 17 ---
+Income
+9393 9393
+At the end of each
+battle, a warband may roll
+on the Exploration chart.
+This is done as soon as a game
+is over so that players can
+witness each other’s dice rolls. As
+you can see from the chart, a
+warband that is just starting out has little chance of
+finding the more obscure places in Mordheim.
+However, a warband will make more discoveries as it
+goes along thanks to its better equipment and
+accumulated skills.
+Roll a D6 for each Hero in your warband who survives
+without going out of action . This represents the
+warband’s efforts to unearth wyrdstone. Do not roll
+for any Heroes who went out of action during the
+battle; they are taken back to the warband’s
+encampment to recuperate instead. So, for example,
+if your warband includes four Heroes who all survived
+the last battle, you can roll four dice. If you won your
+last game, you may roll one extra dice. Add the results
+of the dice together and consult the Exploration chart
+to see how many shards of wyrdstone your warband
+has found.
+Do not roll for Henchmen. This does not mean that
+they don’t search the ruins, but instead represents the
+efforts of the Heroes in coordinating the search
+parties. In addition, some Henchmen like Zombies or
+Warhounds (for obvious reasons) are not particularly
+useful when it comes to looking for wyrdstone.
+rolling multiples
+As well as finding shards of wyrdstone, the warband
+can come across unusual places or encounter
+inhabitants of the ruined city. If you roll two or more
+of the same number while searching, you have found
+an unusual building or encountered something out of
+ordinary. Consult the chart and refer to the
+appropriate entry in the Exploration results.
+For example, you might roll two 3’s or three 5’s, in
+which case you should refer to the chart. Choose the
+most numerous multiples if you score more than one
+set of multiples. So, if you rolled a double 3 and a
+triple 5, only look up the triple 5 on the Exploration
+chart. In the case of two doubles or triples look up the
+highest result. For example, if you rolled double 1
+and double 3, look up the double 3 result.
+Income
+Any money or loot you find in these locations is
+added straight to the warband’s treasury. Any shards
+of wyrdstone you find can be sold as normal.
+exploration procedure
+1. Roll 1D6 for each of your Heroes who survived
+the battle and one extra dice if you won, plus any
+extra dice allowed by skills or equipment. Note,
+however, that you must pick a maximum of six
+dice out of all the dice you roll, even if you are
+allowed to roll seven dice or more.
+2. Some things, such as skills and equipment, (like
+the Mordheim Map) may allow you to re-roll dice.
+If your warband includes an Elf Ranger, you may
+modify one dice by +1 or -1.
+3. If you rolled any doubles, triples, etc, you have
+found an unusual location in Mordheim. Consult
+the Exploration chart on the next page to see
+what you find. Refer to the appropriate entry on
+the following pages and follow the instructions
+given there.
+4. Add the results together and consult the chart on
+the next page to see how many shards of
+wyrdstone you have found. Mark down the
+amount of wyrdstone on your warband’s roster
+sheet.
+NUMBER OF WYRDSTONE SHARDS FOUND
+Dice Result Shards Found
+1-5 1
+6-11 2
+12-17 3
+18-24 4
+25-30 5
+31-35 6
+36+ 7
+Example: The Sellswords, a Reiklander warband, have just
+won a battle. Three of their Heroes survived and the warband
+discovered the Entrance to the Catacombs in an earlier battle.
+This means that the warband may roll four dice and re-roll
+one of them. The player rolls 5, 5, 1 and 3. He then picks one of
+the dice (the 1) and re-rolls it. He scores a 4. His warband also
+includes an Elf Ranger, so he can modify one of the dice rolls
+by +1/-1. The player decides to turn the 4 into a 5, giving him
+a grand total of 5, 5, 5 and 3. This means that the warband has
+found four shards of wyrdstone (5+5+5+3=18 which
+according to the table above gives the warband four shards)
+and the three 5’s produce a ‘Market Hall’ result on the
+Exploration chart.
+
+--- Page 18 ---
+94 9494
+Income
+94
+Exploration chart
+DOUBLES
+1 1. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . Well
+2 2 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . Shop
+3 3 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . Corpse
+4 4 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . Straggler
+5 5 . . . . . . . . . . . . . . . . . . . . . . . Overturned Cart
+6 6. . . . . . . . . . . . . . . . . . . . . . . . . Ruined Hovels
+TRIPLES
+1 1 1 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . Tavern
+2 2 2 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . Smithy
+3 3 3 . . . . . . . . . . . . . . . . . . . . . . . . . . . Prisoners
+4 4 4 . . . . . . . . . . . . . . . . . . . . . . . . . . . . Fletcher
+5 5 5 . . . . . . . . . . . . . . . . . . . . . . . . . Market Hall
+6 6 6. . . . . . . . . . . . . . . . . . . . Returning a Favour
+FOUR OF KIND
+1 1 1 1 . . . . . . . . . . . . . . . . . . . . . . . . . Gunsmith
+2 2 2 2 . . . . . . . . . . . . . . . . . . . . . . . . . . . . Shrine
+3 3 3 3 . . . . . . . . . . . . . . . . . . . . . . . . Townhouse
+4 4 4 4 . . . . . . . . . . . . . . . . . . . . . . . . . Armourer
+5 5 5 5 . . . . . . . . . . . . . . . . . . . . . . . . . Graveyard
+6 6 6 6 . . . . . . . . . . . . . . . . . . . . . . . . Catacombs
+FIVE OF KIND
+1 1 1 1 1 . . . . . . . . . . . . . . Moneylender’s House
+2 2 2 2 2 . . . . . . . . . . . . . . Alchemist’s Laboratory
+3 3 3 3 3 . . . . . . . . . . . . . . . . . . . . . . . Jewelsmith
+4 4 4 4 4 . . . . . . . . . . . . . . . . . Merchant’s House
+5 5 5 5 5 . . . . . . . . . . . . . . . . . Shattered Building
+6 6 6 6 6 . . . . . . . . . . Entrance to the Catacombs
+SIX OF KIND
+1 1 1 1 1 1 . . . . . . . . . . . . . . . . . . . . . . . . The Pit
+2 2 2 2 2 2 . . . . . . . . . . . . . . . . . Hidden Treasure
+3 3 3 3 3 3 . . . . . . . . . . . . . . . . . . . Dwarf Smithy
+4 4 4 4 4 4 . . . . . . . . . . . . . Slaughtered Warband
+5 5 5 5 5 5. . . . . . . . . . . . . . . . . . . Fighting Arena
+6 6 6 6 6 6 . . . . . . . . . . . . . . . . . . . . Noble’s Villa
+T
+he Necromancer dropped the crushed
+wyrdstone into the burning brazier causing
+the roaring flames to leap up and light the room
+in greens and blues. His spies had told him that
+a Witch Hunter had come to Mordheim to run
+him down and end his unholy work. 
+Thinking of it made the evil Necromancer laugh
+aloud. The stupid fool did not know what
+dangers he was dealing with. Enemies might be
+killed, riches might be won, but nobody could
+defeat this city. Mordheim no longer belonged
+to the normal mortal world. The stones
+themselves were steeped in the very stuff of
+chaos.
+“Perhaps he will kill me. He will be young,
+brash, naive. He is full of pride and noble self-
+sacrifice. He believes he can defeat this place!”
+He told his Zombies with a bitter laugh, as they
+waited dumbly around him, their unseeing eyes
+clouded over, the flesh hanging limply off their
+rotting bones.
+“It doesn’t matter any more. For I have the
+power now, I have the means to continue the
+great quest for all eternity. Isn’t that right,
+Hensel?” he asked the nearest of the Zombies,
+which leant on the haft of a battered, old
+halberd. The creature slowly turned its head
+towards him, its broken jaw lolling open to
+issue an unintelligible moan.
+“He thinks he knows what the truth is, doesn’t
+he? Well, he will learn.” mused Marius Dire.
+“He will learn…”
+
+
+--- Page 19 ---
+9595 95
+Income
+95
+(1 1) Well
+The public wells, of which there were several in
+Mordheim, were covered by rooves raised up
+on pillars and adorned with carvings and
+fountains. The city was proud of its water
+system. Unfortunately, like all the other wells,
+this one is in a parlous state and undoubtedly
+polluted with wyrdstone.
+Choose one of your Heroes and roll a D6. If the
+result is equal to or lower than his Toughness, he
+finds one shard of wyrdstone at the bottom of the
+well. If he fails, the Hero swallows tainted water
+and must miss the next game through sickness.
+(2 2) Shop
+The Merchants Guild shop has been thoroughly
+ransacked. Even so, there are still items
+scattered around the single, long room,
+mingled in with the rubble. Some are useful,
+such as cast iron pots and pans and rolls of
+fine cloth. All manner of smaller items are
+lying about – the sort of frippery which no
+longer has a use in a devastated city with few
+inhabitants.
+After a thorough search you find loot worth D6 gc.
+If you roll a 1 you will also find a Lucky Charm (see
+the Equipment section, page 53).
+(3 3) Corpse
+You find a still-warm corpse. A chipped dagger
+sticks out of his back. Surprisingly, his
+possessions have not been looted.
+To see what you find when you search the corpse,
+roll a D6:
+D6 Result
+1-2 D6 gc
+3 Dagger
+4 Axe
+5 Sword
+6 Suit of light armour
+(4 4) Straggler
+Your warband encounters one of the survivors
+of Mordheim, who has lost his sanity along
+with all his worldly possessions.
+Skaven warbands can sell the straggler to agents of
+Clan Eshin (who will use the man for food or
+slavery) and gain 2D6 gc.
+Possessed warbands can sacrifice the unfortunate
+individual for the glory of the Chaos gods. The
+leader of the warband will gain +1 Experience.
+Undead warbands can kill the man and gain a
+Zombie for no cost.
+Any other warband can interrogate the man and
+gain insight into the city. Next time you roll on the
+Exploration chart, roll one dice more than is
+usually allowed, and discard any one dice. (For
+example, if you have three Heroes, roll four dice
+and pick any three).
+(5 5) Overturned Cart
+Stuck in a ruined gateway is an overturned
+wagon – the covered type that nobles travel in
+from the city to their estates in the country.
+Since anyone important fled a long time ago,
+what is it doing here? The horses have broken
+their traces, or did someone cut them free?
+Roll a D6 to see what you find:
+D6 Result
+1-2 Mordheim Map (see Equipment)
+3-4 A purse with 2D6 gc
+5-6 Jewelled sword and dagger. These can be
+kept or sold at twice the value of a normal
+sword and dagger, but note that the
+normal selling price is half the actual cost
+(see the Trading section for rules on
+selling items), so the jewelled sword will
+sell for 10gc, for instance.
+(6 6) Ruined Hovels
+The street consists of ruined hovels, which are
+leaning over at alarming angles. Not much
+worth looting here.
+You find loot worth D6 gc amidst the ruins.
+Doubles
+
+
+--- Page 20 ---
+96 9696
+Income
+96
+(1 1 1) Tavern
+The ruin of a tavern is recognisable by its sign
+still hanging on the wall. The upper part of the
+building is ruined, but the cellars are cut into
+rock and are still full of barrels. There are
+broken flagons and tankards everywhere.
+You could easily sell the barrels for a good price.
+Unfortunately your men are also interested in the
+contents! The warband’s leader must take a
+Leadership test. If he passes, the warband gains
+4D6 gc worth of wines and ales which can be sold
+immediately.
+If he fails, the men drink most of the alcohol
+despite their leader’s threats and curses. You have
+D6 gc worth of alcohol left when the warband
+reaches their encampment.
+Undead, Witch Hunter and Sisters of Sigmar
+warbands automatically pass this test, as they are
+not tempted by such worldly things as alcohol.
+(2 2 2) Smithy
+The furnace and toppled anvil make it obvious
+what work was done here. Most of the iron and
+the tools have been looted long ago. Coal and
+slag litter the floor but there may still be
+weapons to be found among the debris.
+Roll a D6 to determine what you find inside:
+D6 Result
+1 Sword
+2 Double-handed weapon
+3 Flail
+4 D3 Halberds
+5 Lance
+6 2D6 gc worth of metal
+(add the value to your treasury).
+(3 3 3) Prisoners
+A muffled sound comes from one of the
+buildings. Inside you find a group of finely
+dressed people who have been locked in a
+cellar. Perhaps they are prisoners taken by
+cultists, ready to be sacrificed during
+Geheimnisnacht.
+Possessed warbands can sacrifice the victims
+(undoubtedly finishing the job of the captors).
+They gain D3 Experience which is distributed
+amongst the Heroes of the warband.
+Undead warbands can callously kill the prisoners
+and gain D3 Zombies at no cost.
+Skaven can sell the prisoners into slavery for 3D6
+gc.
+Other warbands can escort the prisoners out of the
+city. For their trouble, they are rewarded with 2D6
+gc. In addition, one of the prisoners decides he
+wishes to join the warband. If you can afford to
+equip the new recruit with weapons and armour,
+you may add a new Henchman to any of your
+human Henchman groups (with the same stats as
+the rest of the group, even if they have already
+accumulated experience).
+(4 4 4) Fletcher
+This hovel was once the workshop of a fletcher
+– a maker of bows and arrows. There are
+bundles of yew staves and willow rods
+everywhere.
+Roll a D6 to see what you find:
+D6 Result
+1-2 D3 Short bows
+3 D3 Bows
+4 D3 Long bows
+5 Quiver of hunting arrows
+6 D3 Crossbows
+(5 5 5) Market Hall
+The market hall was raised up on
+pillars, with the timbered corn
+exchange above the open market
+place. The upper storey has been
+badly damaged, but the covered market still
+offers a good deal of shelter. The remains of the
+last market day are still lying around on the
+cobbles. Most of this is broken pottery and iron
+pots.
+You find several items worth 2D6 gc in total.
+(6 6 6) Returning a Favour
+As you are returning to your encampment, you
+meet one of your old acquaintances. He has
+come to repay an old favour or debt.
+You gain the services of any one Hired Sword
+(choose from those available to your warband) for
+the duration of the next battle, free of charge. After
+the battle he will depart, or you may continue to
+pay for his upkeep as normal. See the Hired
+Swords section on page 105.
+Triples
+
+
+--- Page 21 ---
+9797 97
+(1 1 1 1) Gunsmith
+You find the workshop of a Dwarf gunsmith. Its
+doors have been broken down and the rooms
+raided, but some of the iron strongboxes have
+survived intact.
+Roll a D6 to see what you find:
+D6 Result
+1 Blunderbuss
+2 Brace of pistols
+3 Brace of duelling pistols
+4 D3 Handguns
+5 D3 Flasks of superior blackpowder
+6 Hochland long rifle
+(2 2 2 2) Shrine
+Your warband stumbles across a ruined shrine,
+which is so badly damaged that it is difficult to
+tell which god was once worshipped within its
+walls. A few images remain on the painted
+plaster walls but they have been defaced by
+heretics. Fragments of smashed statues lie
+among the ruins. Some items appear to be
+covered in gold leaf, most of which has been
+torn off. 
+Your warband may strip the shrine and gain 3D6 gc
+worth of loot.
+Sisters of Sigmar or Witch Hunter warbands may
+save some of the shrine’s holy relics. They will gain
+3D6 gc from their patrons, and a blessing from the
+gods. One of their weapons (chosen by the player)
+will now be blessed and will always wound any
+Undead or Possessed model on a to wound roll of
+2+. 
+(3 3 3 3) Townhouse
+This three-storey house was once part of a
+tenement block overlooking a narrow
+alleyway. The street is now in ruins, but this
+house remains largely intact. Exploring it you
+find that the garret leans over so far that you
+can step out of the window into the attic of the
+house opposite.
+Your warband finds 3D6 gc worth of loot.
+(4 4 4 4) Armourer
+A breastplate hanging from a pole drew your
+attention to this place, obviously too high up to
+be easily looted. The workshop is ruined and
+the forge has been smashed. Rooting about in
+the soot, you find various half-finished items of
+armour.
+Roll a D6 to see what you find:
+D6 Result
+1-2 D3 Shields or bucklers (choose which)
+3 D3 Helmets
+4 D3 Suits of light armour
+5 D3 Suits of heavy armour
+6 Suit of Ithilmar armour
+(5 5 5 5) Graveyard
+You find an old graveyard, crammed with
+sepulchres that are overgrown with ivy. The
+monuments to the dead are grotesque and
+decorated with sculpted gargoyles. The
+ironwork has been ripped from some of the
+tombs, and stones have toppled off. It looks as
+if some of the crypts have already been broken
+into by tomb robbers.
+Any warband apart from Witch Hunters and Sisters
+of Sigmar may loot the crypts and graves and gains
+D6x10 gc worth of loot.
+If you loot the graveyard, the next time you play
+against Sisters of Sigmar or Witch Hunters, the
+entire enemy warband will hate all the models in
+your warband. Make a note of this on your
+warband roster sheet.
+Witch Hunters and Sisters of Sigmar may seal the
+graves. They will be rewarded for their piety by D6
+Experience points distributed amongst the Heroes
+of the warband.
+(6 6 6 6) Catacombs
+You find an entrance to the catacombs and
+tunnels below Mordheim.
+You can use the new tunnels you found in the next
+battle you play. Position up to three fighters (not
+Rat Ogres or the Possessed) anywhere on the
+battlefield at ground level. They are set up at the
+end of the player’s first turn and cannot be placed
+within 8" of any enemy models. 
+This represents the warriors making their way
+through the tunnels, infiltrating enemy lines and
+emerging suddenly from below ground.
+Income
+97
+Four of a kind
+
+--- Page 22 ---
+98 9898
+(4 4 4 4 4) Merchant’s House
+The merchant’s house stands by the waterfront.
+It has a vaulted stone undercroft which is still
+stacked with barrels and bales of cloth. The
+foodstuffs have been looted or eaten long ago
+and huge rats infest the rotting bales. Up the
+stairs are the dwelling quarters, solidly built of
+timber, although badly damaged you think you
+can still get up to them but you’ll need to tread
+with care!
+Inside you find several valuable objects which can
+be sold for 2D6x5 gc. If you roll a double, instead
+of finding money you find the symbol of the Order
+of Freetraders. A Hero in possession of this gains
+the Haggle skill.
+(5 5 5 5 5) Shattered Building
+The comet destroyed this building almost
+completely, making it unsafe for all but the
+most daring to explore. But places such as this
+are the best for searching for wyrdstone shards.
+You find D3 shards of wyrdstone amongst the
+ruins. In addition take a Leadership test against the
+warband leader’s Leadership value. If passed a
+wardog that was guarding the building joins the
+warband. 
+(6 6 6 6 6) Entrance to the Catacombs
+You find a well-hidden entrance to the dark
+catacombs which extend for miles beneath the
+city of Mordheim. Although the entrance looks
+foreboding the tunnels will take hours off your
+searches of the city.
+You can use these tunnels to explore Mordheim
+more efficiently. From now on, you may re-roll one
+dice when you roll on the Exploration chart. Make
+a note of this in your warband’s roster sheet.
+Second and subsequent catacomb entrances you
+find do not grant you any additional re-rolls,
+although you may find further re-rolls from other
+sources.
+Income
+98
+(1 1 1 1 1) Moneylender’s House
+A grand mansion, that is strongly built from
+stone, has survived the cataclysm remarkably
+well. A carved coat of arms adorns the lintel
+above the doorway although it has been
+defaced by raiders and the symbols are now
+unrecognisable. The door itself, has been
+smashed open with axes and hangs open on its
+hinges.
+Inside, hidden amongst the debris, you find D6x10
+gc to add to your treasury.
+(2 2 2 2 2) Alchemist’s Laboratory
+A narrow stairway leads down into a crypt-like
+dwelling which was once an alchemist’s
+workshop. The sign still hangs from one hinge
+above the entrance. It looks as if this was a very
+old building which has remained in use for
+centuries although it did not survive the
+comet’s destruction too well. The stone floor
+has strange symbols on it and there are charts
+and astrological symbols painted onto the
+walls.
+In the ruins you find loot worth 3D6 gc and a
+battered old notebook. One of your Heroes may
+study the Alchemist’s notebook, and the extra
+wisdom he gains will enable him to choose from
+Academic skills whenever he gains a new skill in
+addition to those skills normally available to him.
+(3 3 3 3 3) Jewelsmith
+The houses in the jewellers’ quarter have all
+been well and truly looted long ago. Even the
+rubble has been picked over many times for
+fragments of gold and gems. But still, some
+small but valuable items may have been
+overlooked.
+Roll a D6 to see what you find:
+D6 Result
+1-2 Quartz stones worth D6x5 gc 
+3-4 Amethyst worth 20 gc
+5 Necklace worth 50 gc
+6 A ruby worth D6x15 gc
+If your warband does not sell the gems, one of
+your Heroes may keep them and displays them
+proudly. He will gain +1 to the rolls for locating
+rare items as merchants flock to such an obviously
+wealthy warrior.
+Five of a kind
+
+--- Page 23 ---
+9999 99
+(1 1 1 1 1 1) The Pit
+You have come within sight of the Pit, the huge
+crater created by the comet. A black cloud still
+rises from it but you can see glowing wyrdstone
+everywhere. This is the domain of the Shadow
+Lord, the lord of the Possessed, and no-one is
+welcome here – even his own followers! 
+If you wish, you can send one of your Heroes to
+search for any wyrdstone hidden here. Roll a D6.
+On a roll of 1 the Hero is devoured by the
+guardians of the Pit and never seen again. On a roll
+of 2 or more he returns with D6+1 shards of
+wyrdstone.
+(2 2 2 2 2 2) Hidden Treasure
+In the depths of Mordheim, you come across a
+hidden chest, bearing the coat-of-arms of one of
+the noble families of the town.
+When you open the chest you find the following
+items. Roll for every item on the list separately
+(apart from the gold crowns) to see whether you
+have found it. For example, on a roll of a 4+ you
+find the wyrdstone.
+Items D6 Result Needed
+D3 Pieces of wyrdstone 4+
+5D6x5 gc Auto
+Holy relic 5+
+Suit of heavy armour 5+
+D3 Gems worth 10 gc each 4+
+Elven cloak 5+
+Holy tome 5+
+Magical artefact 5+
+(3 3 3 3 3 3) Dwarf Smithy
+You find a solidly built stone workshop. A runic
+inscription indicates that this may have been a
+Dwarf smithy.
+Roll a D6 to see what you find:
+D6 Result
+1 D3 Double-handed axes 
+2 D3 Suits of heavy armour 
+3 Gromril axe 
+4 Gromril hammer 
+5 Double-handed gromril axe
+6 Gromril armour 
+(4 4 4 4 4 4) Slaughtered Warband 
+You find the remains of an entire warband.
+Broken bodies lay scattered among the ruins,
+torn apart by some monstrous creature. You see
+a huge shape, which looks like an immense
+Possessed creature, shambling away. 
+After giving the dead their final rites (Sisters of
+Sigmar or Witch Hunters), eating them (Skaven or
+Undead) or looting them (anyone else!) you find
+the following items. Roll for every item separately
+(apart from the gold coins and daggers) to see if
+you find it. For example, on a roll of 4+ you will
+find the suits of light armour.
+Item D6 Result Needed
+3D6x5 gc Auto
+D3 Suits of light armour 4+
+Suit of heavy armour 5+
+D6 Daggers Auto
+Mordheim Map (see p55) 4+
+D3 Halberds 5+
+D3 Swords 3+
+D3 Shields 2+
+D3 Bows 4+
+D3 Helmets 2+
+(5 5 5 5 5 5) Fighting Arena
+During better times, Mordheim was famous for
+its duellists and pit fighters. You have found
+one of the areas used to train these warriors.
+The place is filled with training equipment and
+practice weapons.
+You find a training manual, which you can either
+sell for 100 gc or let one of your Heroes read. The
+extra knowledge your Hero gleans from reading
+the manual entitles him to choose from Combat
+skills whenever he gains a new skill, and his WS
+may now be increased by an extra point above his
+normal racial maximum (for example, a Human
+who has the book would now have a maximum
+Weapon Skill of 7).
+(6 6 6 6 6 6) Noble’s Villa
+You find a fine house which is partially ruined.
+It has been thoroughly ransacked and all the
+furniture has been stripped of its fine fabrics.
+Shards of broken pottery of the finest quality
+are scattered over the floor.
+Roll a D6. If you roll 1-2, you find D6x10 gc worth
+of items and money to add to your treasury. On a
+roll of 3-4, you find D6 vials of Crimson Shade. On
+a roll of 5-6 you find a hidden magical artefact
+carefully concealed in a hidden cellar or behind a
+secret door. Roll on the Magical Artefacts table. 
+Income
+99
+Six of a kind
+
+--- Page 24 ---
+100 100100
+Income
+magical artefacts table
+Roll a D6 and use this table to determine which item you find when a result in the Exploration
+chart indicates that you have found a magical artefact. In a campaign none of these items can
+appear more than once, so if you find a magic item which is already in someone else’s possession
+roll again – even if the warrior carrying it has been killed.
+1 The Boots and Rope of Pieter
+Pieter, the master thief of the Guild of Shadows, was the
+most famous of all the cat burglars of Mordheim. He
+earned the nickname ‘Spider’ for his daring robberies.
+The secret of his success was a pair of enchanted boots
+and a magical rope which he had acquired from far-off
+Araby.
+A model wearing these boots may move normally
+(including running, charging, etc) on any kind of terrain,
+including vertical surfaces. When moving the model,
+simply adds the distances moved horizontally to that
+moved vertically, with no Initiative test needed (except to
+jump across gaps). 
+2 The Count of Ventimiglia’s Misericordia
+This dagger was used by the notorious Tilean
+gentleman-pirate known as the ‘Black Corsair’. It is
+claimed that he found it in ancient Elven ruins and
+legend also has it that the dagger’s blade cannot be
+damaged in any way. 
+The dagger is treated as a sword. Opponents wounded
+by it are stunned on a result of 1-3 (Undead are knocked
+down as normal) and put out of action on a 4-6. 
+3 Att’la’s Plate Mail
+This armour was given as a present by the Dwarf Lord
+Kurgan to the warlord Att’la in the time of Sigmar
+Heldenhammer. 
+Att’la’s Plate Mail is a suit of gromril armour with the
+following three runes inscribed on it: 
+Rune of Spell Eating: The Hero wearing this armour
+is immune to all spells.
+Rune of Passage: The Hero can move through solid
+objects, like walls (this does not mean that he can see
+through them).
+Rune of Fortitude : The Hero has an extra wound.
+Note that this may take his total Wounds above his
+race’s maximum.
+4 Bow of Seeking
+This bow was a gift to Count Steinhardt from the Elf
+lords of the Forest of Shadows.
+Any arrow shot using this magic bow will pursue the
+target and hit it even if the target is behind cover. Treat
+this as an Elven bow that always hits on a 2+, regardless
+of any to hit modifier. Such is its deadly precision that all
+the arrows shot with this weapon count as Hunting
+Arrows (+1 on all Injury rolls). 
+Pick any enemy model in range, not just the closest, but
+the shooter must be able to see the target (even the tip of
+a target’s weapon is enough – as long as the shooter is
+aware of the presence and position of the target, he can
+shoot). In addition, if any Dwarf is an eligible target, the
+arrows will always deviate from their intended target and
+try to hit the Dwarf instead. For obvious reasons this bow
+cannot be used to shoot at Elves. 
+5 Executioner’s Hood
+Recovered from a shipwrecked Dark Elf vessel, this hood
+carries evil glowing runes which fill the wearer with
+unreasoning rage.
+A warrior wearing this becomes subject to and always will
+be frenzied even if he is knocked down or stunned. He
+also adds +1 to his Strength in close combat, such is the
+power of his fury. The wearer never leaves combat under
+any circumstances, and will always attack opponents in
+base contact until they are taken out of action.
+If there are any stunned or knocked down models within
+the wearer’s charge range at the beginning of his turn, he
+will charge and attack the closest one, even if they are
+members of his own warband! Fight the hand-to-hand
+combat until one of the warriors is taken out of action.
+6 All-seeing Eye of Numas
+This jewel was recovered from the ruins of Numas far in
+the south. It gives its wielder horrific nightmares that
+predict his future.
+The bearer of the All-seeing Eye can see all models on the
+table top, even if they are hidden or out of sight. He can
+guide his fellow warband members through the ruins
+(this allows you to roll two dice for the bearer after battle
+when rolling on the Exploration chart). The bearer also
+has an additional 6+ save (which is not modified by
+Strength or weapon modifiers) against all shooting
+attacks and strikes in close combat, as he can sense the
+attacks before they are made.
+All animals (such as wardogs, horses, etc) will be
+affected by frenzy when fighting against the bearer of
+the All-seeing Eye.
+100
+
+--- Page 25 ---
+101101 101101 101
+selling wyrdstone
+Wyrdstone is tremendously valuable and is in
+constant demand by Imperial nobles. This means that
+finding buyers for your warband’s wyrdstone is not
+difficult. You do not have to sell all your wyrdstone
+immediately after the battle – you may want to hoard
+it and sell it later, as selling wyrdstone in smaller
+quantities will increase demand and raise the price.
+Unfortunately, the demands of running a warband
+often mean that you will have to sell most of your
+wyrdstone as soon as you find it.
+The warband must spend a large portion of its income
+on basic necessities such as food, drink, repair of
+weapons, and new arrows and ammunition, as well as
+celebrating! A warband leader is also expected to
+share any profits made by selling wyrdstone between
+his men which means that the more money the
+warband makes from such sales, the bigger the share
+for the men.
+The more models there are in the warband, the more
+it costs to maintain and the higher the level of any
+profits made that must be shared between the men.
+The number indicated on the following chart is the
+profit in gold crowns earned after deducting the
+warband’s maintenance costs. The profit is added to
+warband’s treasury.
+Number of Warriors in Warband 
+1-3 4-6 7-9 10-12 13-15 16+
+1 45 40 35 30 30 25
+2 60 55 50 45 40 35
+3 75 70 65 60 55 50
+4 90 80 70 65 60 55
+5 110 100 90 80 70 65
+6 120 110 100 90 80 70
+7 145 130 120 110 100 90
+8+ 155 140 130 120 110 100
+Income
+sisters of sigmar and income
+Worldly possessions mean little to the Sisters, but
+their holy mission to purify
+Mordheim of the influence of
+Chaos requires supplies and
+weaponry, and these are much
+in demand. Thus the warbands of
+the Sisterhood compete with
+each other to gain the best
+weapons and equipment from
+the temple’s armoury.
+To measure their success, the more
+wyrdstone the Sisters bring to be kept under lock and
+key in the Vault of Vindication in the temple at
+Sigmar’s Rock, the more aid they will receive from the
+temple.
+Thus all gold crowns in the possession of a Sisters of
+Sigmar warband represent the resources that the High
+Matriarch will put at their disposal. It does not
+represent money in a literal sense, so you may like to
+think of it as faith, piety, dedication, etc.
+skaven and undead
+Neither of these warbands puts much value on gold,
+but they send all the wyrdstone they find to their
+superiors and receive aid and resources in return.
+Skaven use their own currency for trading, while the
+Undead are somewhat beyond petty concepts of
+wealth. For Skaven, the gold crowns in the warband’s
+treasury represent the warp tokens which the Skaven
+use for currency, while for the Undead it represents
+the favour they enjoy in the eyes of their master, Vlad
+von Carstein of Sylvania.
+spending income
+You can spend any accumulated money on weapons,
+armour, hiring new warriors, buying new
+equipment or simply save the money for a
+bigger purchase. See the Trading section
+for details.
+No. of Shards Sold
+101
+
+--- Page 26 ---
+102 102102 102102
+Every
+settlement
+around the city of
+Mordheim has at
+least one trading
+post, shop or
+merchant’s
+guildhouse
+where the
+local traders
+sell their wares
+and buy wyrdstone 
+and other items that have been scavenged from the
+ruins. In a large village such a place might cover a
+substantial area with many traders and merchants
+offering their goods and services. Small settlements
+are served by travelling traders.
+All warbands are able to get new equipment one way
+or another. The most unscrupulous merchants
+actively trade with the Possessed Cultists, and
+creatures such as the Skaven have their own network
+of contacts, while Vampires can send the Dregs that
+serve them into the less salubrious settlements
+around Mordheim, such as Cutthroats’ Haven.
+spending cash
+After every game, a warband can collect income from
+exploration, etc, and sell any wyrdstone and treasures
+they have acquired. Cash can be spent on recruiting
+new warriors, or on new equipment for the warband.
+The price of wyrdstone varies according to current
+demand. See the Income section for details.
+new recruits
+New warriors are recruited in the same way as the
+original warband with the notable exception of
+equipment. After the start of a campaign, a new
+hireling can only buy Common items from his
+warband’s equipment chart freely. He may only be
+given Rare items from his warband’s equipment chart
+if the warband can obtain them via the normal trading
+rules. 
+Warbands may recruit whatever type of warriors the
+player wishes, but the usual restrictions apply
+regarding the number of Heroes, Henchmen, wizards,
+etc. For example, no warband may recruit a second
+leader, and no Mercenary warband can have more
+than two Champions.
+recruiting hired swords
+Players may hire mercenary warriors known as ‘Hired
+Swords’ for the warband if they wish. See the Hired
+Swords section starting on page 147.
+new recruits and 
+existing henchmen groups
+You may add new recruits to existing Henchman
+groups. If the group is relatively inexperienced, you
+will have no difficulty in finding raw recruits to add to
+their numbers. But more experienced gnarled
+veterans are not so keen on letting novice warriors
+join them – and quite rightly so! Between each battle,
+roll 2D6: this represents the experience of the
+warriors currently available for hire. You can hire as
+many warriors as you wish, as long as their combined
+Experience does not exceed your dice roll. For
+example, if you rolled 7, you could add a single
+warrior to a Henchman group with 7 Experience
+points, or two warriors to a Henchman group with 3
+Experience points, or any combination thereof.
+Disregard any excess Experience points.
+As with other new Henchmen, you must pay for all
+their weapons and armour, and in addition you must
+add 2 gold crowns to their cost for each extra
+Experience point they add to the warband’s total.
+New Henchmen must be armed and equipped in the
+same way as existing members of the group.
+weapons
+If a player wants to buy new weapons or other
+equipment for existing warriors, refer to the Price
+chart that follows. The chart lists all the equipment
+available in Mordheim, not just the common weapons
+included in the Recruitment charts. Rare items and
+weapons are not always available and vary in price.
+Remember that your warriors lack the skill to use any
+weapons other than the ones listed in the
+Recruitment charts. You may still want to buy rare
+items offered to you, as your warriors may be able to
+use them as they gain in experience.
+Players should preferably complete any recruiting and
+trading after the battle is over, making the appropriate
+dice rolls whilst both players are present.
+However, some players may prefer to wait until the
+heat of battle has cooled and they are able to consider
+Trading
+
+
+--- Page 27 ---
+103103 103103
+Trading
+purchases more carefully. Determine which rare items
+are offered for sale while both players are together.
+The players can work out what they will buy later.
+trading
+Trade items are divided into two sections: common
+and rare items. Common items can be bought quite
+readily in any of the numerous trading posts and
+settlements around Mordheim. Players may purchase
+as many of these items as they want. The price of
+common items is fixed, so players always pay the
+same rate for them.
+Rare items are hard or even impossible to come by.
+Only occasionally do such items
+turn up for sale and the price asked
+is often way above the true value.
+These items are often offered only to
+the most famous warbands, or those
+with the most money.
+availability
+The Price chart has a column
+marked ‘Availability’. Common items
+are always available, and can be
+bought in any quantity. Items
+marked ‘rare’ are more difficult to
+find. A rare item’s availability is
+indicated by a number, for example
+‘Rare 9’.
+Whenever a Hero wants to buy a rare
+item, roll 2D6 and compare the
+result to the number stated. If the
+roll is equal or greater, the item is
+available. For example, you need to
+roll 9 or more to acquire an item
+marked ‘Rare 9’. You can only buy
+one rare item for each successful
+roll. You may also only make one
+roll for each Hero looking for rare
+items. For example, if your warband
+has four Heroes, you may make four
+rolls to locate rare items. Warriors
+taken out of action during the last
+battle may not look for rare items.
+selling
+A player may trade in weapons and
+equipment at the same time he buys
+new ones. After all, as warbands
+become more powerful they often
+abandon their earlier armament in
+favour of something better.
+However, the second-hand value of
+equipment is not high due to the
+considerable wear and tear inflicted
+on it by your warriors.
+Warriors can automatically sell equipment for half its
+listed price. In the case of rare equipment and
+weapons which have a variable price, the warband
+receives half of the basic cost only (merchants are far
+better at haggling than your warriors).
+Alternatively, weapons, armour and equipment may
+be hoarded for future use (make a note on the
+warband roster) or swapped around the warband
+from one fighter to another (though not between
+warbands). As a weapon’s value is low compared to
+the cost of equipping any new recruits you may get, a
+warband can usually find a use for its cast-off
+armaments.
+103
+
+
+--- Page 28 ---
+104 104104 104104 104
+Trading
+104
+Price chart
+The following chart indicates the cost of items available for sale at trading posts. The cost
+of rare items is included, but such items cannot be bought unless they are available, as
+already described. In some cases the price is variable, and includes a basic cost plus a
+variable extra amount, for example 20+3D6 gold crowns. For these items the extra
+variable cost reflects the rarity of the item – the premium which must be paid to buy it.
+HAND-TO-HAND COMBAT WEAPONS
+Item Cost Availability
+Axe 5 gc Common
+Club, Mace or Hammer 3 gc Common
+Dagger 1st free/2 gc Common
+Double-Handed Weapon 15 gc Common
+Flail 15 gc Common
+Gromril Weapon 4 x Price Rare 11
+Halberd 10 gc Common
+Ithilmar Weapon 3 x Price Rare 9
+Lance 40 gc Rare 8
+Morning Star 15 gc Common
+Spear 10 gc Common
+Sword 10 gc Common
+MISSILE WEAPONS
+Item Cost Availability
+Bow 10 gc Common
+Blunderbuss 30 gc Rare 9
+Crossbow 25 gc Common
+Crossbow Pistol 35 gc Rare 9
+Duelling Pistol/brace 30 gc/60 gc Rare 10
+Elf Bow 35 +3D6 gc Rare 12
+Handgun 35 gc Rare 8
+Hunting Rifle 200 gc Rare 11
+Long Bow 15 gc Common
+Pistol/brace 15 gc/30 gc Rare 8
+Repeater Crossbow 40 gc Rare 8
+Sling 2 gc Common
+Short Bow 5 gc Common
+Throwing Knives/Stars 15 gc Rare 5
+ARMOUR
+Item Cost Availability
+Barding 80 gc Rare 8
+Buckler 5 gc Common
+Gromril Armour 150 gc Rare 11
+Heavy Armour 50 gc Common
+Helmet 10 gc Common
+Ithilmar Armour 90 gc Rare 11
+Light Armour 20 gc Common
+Shield 5 gc Common
+MISCELLANEOUS
+Item Cost Availability
+Black Lotus 10+D6 gc Rare 9
+(Not available to Witch Hunters, Warrior-Priests or
+Sisters of Sigmar. Rare 7 for Skaven)
+Blessed Water 10+3D6 gc Rare 6
+(Common for Warrior-Priests and Sisters of Sigmar;
+May not be bought by Undead)
+Bugman’s Ale 50+3D6 gc Rare 9
+Cathayan Silk Clothes 50+2D6 gc Rare 9
+Crimson Shade 35+D6 gc Rare 8
+Dark Venom 30+2D6 gc Rare 8
+(Not available to Witch Hunters, Warrior-Priests, or
+Sisters of Sigmar)
+Elven Cloak 100+D6x10 gc Rare 12
+Garlic 1 gc Common
+(May not be bought by Undead)
+Halfling Cookbook 30+3D6 gc Rare 7
+Healing Herbs 20+2D6 gc Rare 8
+Holy (Unholy) Relic 15+3D6 gc Rare 8
+(Rare 6 for Warrior-Priests and Sisters of Sigmar)
+Holy Tome 100+D6x10 gc Rare 8
+(Only available to Warrior-Priests and Sisters of
+Sigmar)
+Horse 40 gc Rare 8
+(Only available to Humans)
+Hunting Arrows 25+D6 gc Rare 8
+Lantern 10 gc Common
+Lucky Charm 10 gc Rare 6
+Mad Cap Mushrooms 30+3D6 gc Rare 9
+Mandrake Root 25+D6 gc Rare 8
+Mordheim Map 20+4D6 gc Rare 9
+Net 5 gc Common
+Rope & Hook 5gc Common
+Superior Blackpowder 30 gc Rare 11 
+Tears of Shallaya 10+2D6 gc Rare 7
+(Not available to Possessed or Undead)
+Tome of Magic 200+D6x25 gc Rare 12
+(Not available to Witch Hunters or Sisters of
+Sigmar)
+Warhorse 80 gc Rare 11
+(Only available to Humans)
+Wardog 25+2D6 gc Rare 10
+(Not available to Skaven)
+
+--- Page 29 ---
+Hired swords
+105
+recruiting hired swords
+This section introduces Hired Swords – professional
+mercenaries – to Mordheim campaign games. Taverns
+in the settlements and shanty towns around
+Mordheim are good recruitment centres for warriors
+who do not belong to any particular warband or
+retinue, but instead hire out their services to the
+highest bidder.
+A player can recruit Hired Swords when he creates his
+warband, or during the campaign phase after a game.
+Hired Swords do not count towards the maximum
+number of warriors or Heroes a warband may have on
+its roster and don’t affect your income from selling
+wyrdstone. However, Hired Swords do count as part
+of the warband for purposes of Rout tests, etc whilst
+in battle. A player cannot buy extra weapons or
+equipment for a Hired Sword, and he
+cannot sell the Hired Sword’s weapons
+or equipment. To reflect their rarity,
+you can only have one of each type
+of Hired Sword in your warband.
+You may not use the Leadership of
+any of the Hired Swords for Rout
+tests.
+hire fee
+When a warband recruits a Hired
+Sword, you must must pay his hire
+fee. Subsequently, after each battle
+he fights, including the first, you
+must pay his upkeep fee if you want
+him to remain with the warband. If
+the Hired Sword is killed, or you no
+longer require his services, you
+don’t have to pay any upkeep!
+These costs are indicated in the
+entries for each Hired Sword. 
+The money paid to Hired Swords
+comes from the warband’s treasury
+in the same way as buying new
+weapons or recruiting new
+warriors. If you don’t have enough
+gold to pay for the Hired Sword, or
+want to spend it on other things, he
+leaves the warband. Any experience
+he has gained will be lost, even if
+you hire a new Henchman of the
+same type.
+injuries
+If a Hired Sword goes out of action during the game,
+roll for his injuries as you would roll for a Henchman
+after a battle (i.e, 1-2 = Lost; 3-6 = Survives).
+hired swords and experience
+Hired Swords gain experience in exactly the same way
+as Henchmen. Refer to the scenarios to find out how
+much experience Hired Swords gain after each game.
+Write the name and profile of a Hired Sword on your
+roster sheet in one of the Henchman group slots.
+Once the Hired Sword gains enough experience for
+an advance, roll on the Heroes Advancement table (as
+opposed to Henchmen) to determine which advance 
+he gains. Skills available to the Hired Swords are
+listed under their entries.
+Hired Swords
+105
+
+--- Page 30 ---
+Pit fighter
+30 gold crowns to hire +15 gold crowns upkeep
+Pit Fighters are dangerous men who make their
+living in the illegal fighting pits of the Empire. Many
+of them are slaves and prisoners but some are free
+men who earn their living from savage pit fights in
+settlements like Cutthroat’s Haven or Black Pit. Even
+though pit fights are banned in many provinces, they
+are very popular and a great deal of money is
+wagered on the outcome. Thus many authorities
+turn a blind eye to these bloodsports.
+When not in the pits, Pit Fighters offer their services
+to the highest bidders, and they readily find
+employment in warbands intent on exploring the
+ruins of Mordheim. Pit Fighters are powerful and
+dangerous fighters, and their unique weaponry gives
+them an advantage against almost any opponent.
+May be Hired: Any warband apart from Undead and
+Skaven may hire a Pit Fighter.
+Rating: A Pit Fighter increases the warband’s rating
+by +22 points, plus 1 point for each Experience point
+he has.
+Profile M WS BS S T W I A Ld
+P i t  F i g h t e r 443441427
+Equipment: Morning star, spiked gauntlet and
+helmet. The spiked gauntlet counts as an additional
+hand weapon and a buckler. And no, your Heroes
+cannot learn to use it!
+Skills: A Pit Fighter may choose from Combat, 
+Speed and Strength skills when he gains a new skill.
+Ogre bodyguard
+80 gold crowns to hire +30 gold crowns upkeep
+Ogres are large, brutish creatures, standing some ten
+feet tall, and all of it bone and muscle. For this
+reason they are much in demand as bodyguards and
+mercenaries, despite their lack of brains. A warband
+backed up by an Ogre makes a fearsome enemy,
+since Ogres are extremely dangerous fighters and a
+terrifying sight to behold when enraged. They happily
+accept any employer, as they are notoriously
+unbothered about who they fight for.
+May be Hired: Any warband except Skaven may hire
+an Ogre Bodyguard.
+Rating: An Ogre Bodyguard increases the warband’s
+rating by +25 points, plus 1 point for each
+Experience point he has.
+Profile M WS BS S T W I A Ld
+Ogre 6 32443327
+Weapons/Armour: Either two swords, axes or clubs
+(or any mix of them), or a double-handed weapon
+(you may choose which). Ogres wear light armour.
+SPECIAL RULES
+Fear: Ogres are large, threatening creatures that
+cause fear. See the Psychology section for details.
+Large Target: Ogres are Large Targets as defined in
+the shooting rules. 
+Skills: An Ogre may choose from Combat and
+Strength skills when he gains new skills.
+Hired swords
+
+
+--- Page 31 ---
+Halfling scout
+15 gold crowns to hire +5 gold crowns upkeep
+Halflings are diminutive creatures, generally more
+concerned with the timing of their next meal (or two)
+than with military pursuits. They range from three to
+four feet tall, and are neither very strong nor tough,
+but are naturally good shots and steadfast in the
+face of danger. Some Halflings are more adventurous
+than others, however, and these bold spirits are
+much sought after by mercenary bands, for they are
+splendid archers, and excellent cooks to boot.
+May be Hired: Any warband except Skaven, Undead
+and the Possessed may hire a Halfling Scout.
+Rating: A Halfling Scout increases the warband’s
+rating by +5 points plus 1 point for each Experience
+point he has.
+Profile M WS BS S T W I A Ld
+Halfling 4 24221418
+Equipment: Bow, dagger and a cooking pot (counts
+as a helmet).
+SPECIAL RULES:
+Cook: Halflings are renowned for their cooking skills.
+A warband with a Halfling Scout may increase its
+maximum size by +1, as warriors from all around are
+attracted by the smell of great food! Note that this
+does not increase the maximum number of Heroes
+you may have.
+Skills: A Halfling may choose from Speed and
+Shooting skills when he gains a new skill.
+Warlock
+30 gold crowns to hire +15 gold crowns upkeep
+Wizards, shamans, mystics, all these and more are
+associated with men who can wield the power of
+magic. All magic is potentially dangerous and
+originates from Chaos, so those blessed (or cursed)
+with the power of sorcery are hated and feared.
+Still, it is not difficult to find employment if you are
+a wizard, for many are willing to take the risk of
+persecution. But hiring a Warlock does not only
+mean that you lose your gold – if the teachings of the
+Cult of Sigmar are to be believed, your soul is at risk
+as well...
+May be Hired: Any warband except Witch Hunters
+and Sisters of Sigmar may hire a Warlock.
+Rating: A Warlock increases the warband’s rating by
++16 points plus 1 point for each Experience point he
+has.
+Profile M WS BS S T W I A Ld
+Warlock 4 22331418
+Equipment: A Warlock carries a staff.
+SPECIAL RULES:
+Wizard: Warlocks are magicians and have two spells
+generated at random from the Lesser Magic list. See
+the Magic section for details.
+Skills: Warlocks may choose skills from the Academic
+skills list, or they may randomly determine a new
+spell from the Lesser Magic spell list.
+Hired swords
+
+
+--- Page 32 ---
+108 108
+Hired swords
+Freelancer
+50 gold crowns to hire +20 gold crowns upkeep
+Just as warriors of the lower social orders can
+become mercenaries, squires or nobles may offer
+their skills for hire by becoming a Freelancer or
+‘robber knight’. Freelancers are often the younger
+sons of nobles, who have inherited little but their
+weapons, horse and armour. Having become
+disillusioned with their lot in life they have taken the
+only road available to them: that of a Hired Sword.
+Financial considerations take precedence over the
+dictates of honour and chivalry. Many Freelancers
+have drifted to the shanty towns surrounding
+Mordheim, and offer their considerable strength to
+the highest bidders.
+May be Hired: Mercenaries and Witch Hunters may
+hire Freelancers.
+Rating: A Freelancer increases the warband’s rating
+by +21 points plus 1 point for each Experience point
+he has.
+Profile M WS BS S T W I A Ld
+Freelancer 4 43431417
+Warhorse 8 30331315
+Equipment: Heavy armour, shield, lance and sword.
+If you are using the optional rules for mounted
+models, a Freelancer rides a warhorse (and has the
+Ride Warhorse skill from the Blazing Saddles article).
+When mounted, the Freelancer has an armour saving
+throw of 3+. On foot his save is 4+.
+Skills: A Freelancer may choose from Combat and
+Strength skills when he gains a new skill.
+Elf ranger
+40 gold crowns to hire +20 gold crowns upkeep
+Elves are a wondrous race: lithe, tall, beautiful, long-
+lived and magical. For the most part they are feared
+and distrusted by humans, though some live in the
+cities amongst men and offer their services as
+minstrels and archers in return for a high fee.
+Though Elves become rarer in the Old World each
+year, there are still some roaming on the trackless
+paths of the Drakwald Forest and the Forest of
+Shadows.
+Elves sensibly tend to avoid the ruins of Mordheim,
+for in the City of the Damned there is little to attract
+that fey and strange race, but sometimes they are
+hired by treasure hunters, for few can match their
+skill with a bow, or their inhuman quickness and
+agility. The senses of an Elf are much keener than
+any human’s, and they make excellent scouts.
+May be Hired: Mercenaries and Witch Hunters may
+hire Elf Rangers. Warbands which include Dwarfs may
+hire Elf Rangers, but must pay 40 gold crowns after
+each battle instead of 20.
+Rating: An Elf Ranger increases the warband’s rating
+by 12 points plus 1 point for each Experience point
+he has.
+Profile M WS BS S T W I A Ld
+Elf Ranger 5 45331618
+Equipment: Elf bow, sword and Elven cloak.
+Skills: An Elf Ranger may choose from Shooting and
+Speed skills when he gains a new skill. In addition,
+there are several skills unique to Elf Rangers as
+detailed below, which he can choose instead of
+normal skills. Note that these special skills can only be
+acquired through experience. They are not possessed
+by a new recruit.
+SPECIAL RULES
+Seeker. When rolling on the Exploration chart, the
+Elf Ranger allows you to modify one dice roll by 
+-1/+1.
+Excellent Sight. Elves have eyesight unmatched by
+mere humans. The Elf Ranger spots Hidden enemies
+from two times as far away as other warriors (ie, twice
+his Initiative value in inches).
+ELVEN SKILLS
+Fey. Hostile magic spells will not affect the Elf on a D6
+roll of 4+.
+Luck. The Elf Ranger is blessed by Lileath, the Elven
+goddess of luck. Once per game he may re-roll any
+dice roll he makes (but not one made by other
+members of the warband).
+108
+
+--- Page 33 ---
+109
+Hired swords
+Dwarf troll slayer
+25 gold crowns to hire +10 gold crowns upkeep
+Troll Slayers are members of the morbid Dwarf cult
+whose followers are obsessed with seeking an
+honourable death in combat. Having committed
+some unforgivable crime or been dishonoured in an
+irredeemable way, a Dwarf will forsake his home
+and wander off to die fighting the enemies of
+Dwarfkind.
+Troll Slayers are insanely dangerous individuals,
+psychopathic and violent. However, there are few
+better fighters, so they are much sought after when
+warriors are needed. 
+Known as ‘Hired Axes’, Troll Slayers who come to
+Mordheim find plenty of opportunity to indulge their
+deathwish. 
+May be Hired: Mercenaries and Witch Hunters may
+hire a Dwarf Troll Slayer. Warbands that include Elves
+may hire Slayers, but must pay 20 gold crowns after
+each battle instead of 10 gold crowns. Dwarfs won’t
+put up with weak pointy-eared folk unless they have to,
+or are adequately compensated for their sufferance.
+Rating: A Dwarf Troll Slayer increases the warband’s
+rating by 12 points plus 1 point for each Experience
+point he has.
+Profile M WS BS S T W I A Ld
+Troll Slayer 3 43341219
+Weapons/Armour: T wo axes or a double-handed axe
+(the hiring player may choose).
+Skills: A Troll Slayer may choose from Combat and
+Strength skills when he gains a new skill. In
+addition, there are several skills unique to Dwarf
+Troll Slayers which he can have instead of normal
+skills when he gains a new skill.
+SPECIAL RULES
+Deathwish. Troll
+Slayers seek an
+honourable
+death in
+combat. They
+are
+completely
+immune to
+all
+psychology
+and will
+never need
+to test if
+they are
+fighting
+alone.
+Hard to Kill. Troll Slayers are tough, resilient
+individuals who can only be taken out of action on a
+D6 roll of 6 instead of 5-6 when rolling on the Injury
+chart. Treat a roll of 5 as stunned.
+Hard Head. Troll Slayers ignore the special rules for
+maces, clubs etc. They are not very easy individuals to
+knock out! 
+TROLL SLAYER SKILLS
+Ferocious Charge. The Dwarf may double his attacks
+on the turn in which he charges. He will suffer a -1 to
+hit penalty on that turn.
+Monster Slayer. The Troll Slayer always wounds any
+opponent on a D6 roll of 4+, regardless of
+Toughness, unless his own Strength (with weapon
+modifiers) would mean that a lower result than this is
+needed.
+Berserker. The Dwarf may add +1 to his to hit rolls
+during the turn in which he
+charges.
+109
+
+--- Page 34 ---
+Dramatis personae
+111 111
+T
+his section details some of the strangest and
+most famous (or infamous) characters to be
+found in Mordheim and the outlying settlements.
+Occasionally, these warriors join forces with a
+warband (usually demanding wyrdstone or a bag of
+gold in payment).
+The following characters (known as ‘special
+characters’) are hard to find and expensive to hire –
+you must be lucky and wealthy to attract their
+attention. 
+This list does not, by any means, include all the
+famous warriors and cold-hearted killers you could
+encounter in Mordheim. There are famous
+Dwarf gold hunters, Burgomeisters of the
+Merchants’ Guild, Theodor, the
+marksman of Hochland,
+and many others. In fact
+we hope that the
+characters detailed
+here will inspire
+players to
+invent
+special
+characters
+of their
+own.
+You can only ever have one of a particular special
+character in your warband. A warband may employ as
+many special characters as it likes – if it can afford
+them!
+looking for special characters
+After a battle, you can send any number of your
+Heroes to look for a special character. Only Heroes
+can look (Henchmen are rarely trustworthy enough).
+Heroes who went out of action in the last battle are
+unable to join the search because they are recovering
+from their wounds. 
+Heroes who are looking for a special character cannot
+look for rare items. Decide which special character
+you are seeking, and how many Heroes have been
+sent to look for him. Roll a D6 for each searcher. If any
+of the searchers rolls under his Initiative he has
+located the special character. You can, of course, only
+find one of a particular special character, no matter
+how many searchers roll under their Initiative. 
+hire fee
+The warband must pay the hire fee for the special
+character when he is recruited, and after each battle
+he fights, including the first, you must pay an upkeep
+fee. These fees are indicated in the entries. This
+money comes from the warband’s treasury in the
+same way as buying new weapons or recruiting new
+warriors. If you don’t have enough gold to pay for the
+special character he leaves the warband.
+experience, 
+injuries and equipment
+Special characters have their own equipment. Only
+they may use this equipment; it can’t be given to
+other warriors. Furthermore, you cannot buy
+extra weapons or equipment for a special
+character. 
+Special characters do not earn Experience
+points, although they suffer serious injuries,
+just like Heroes, if they are taken out of
+action.
+Each special character’s description tells
+you how much to add to your
+warband’s rating for including them
+(taking into account their
+experience and abilities).
+Dramatis personae
+111
+
+--- Page 35 ---
+112112
+SPECIAL RULES
+Invincible Swordsman. Aenur always hits his
+opponents on a roll of 2+ in hand-to-hand combat.
+Wanderer. Aenur only ever stays with a warband for
+the duration of the battle. A warband who used Aenur
+in their last battle may not seek him out
+until they have fought at least one
+battle without him.
+Ienh-Khain (the Hand of
+Khaine). Ienh-Khain is an
+incredibly long single-
+edged sword, which
+Aenur uses with
+consummate skill.
+This sword allows
+Aenur to parry,
+adds +1 to his
+Strength and
+causes a
+critical hit
+on a roll
+of 5-6
+when
+rolling
+to
+wound.
+Dramatis personae
+Aenur, the sword of twilight
+M
+any famous swordsmen have come to
+Mordheim to make their fortune, but few can
+match the terrifying reputation of the Elf swordsman
+Aenur. This mighty warrior was responsible for
+slaying the entire Possessed warband of Karl
+Zimmeran, and single-handedly cleansed the Rat
+Hole, a settlement that had been overrun by
+Beastmen.
+Rumours about Aenur’s origin abound. Elves usually
+avoid human settlements, and Mordheim in
+particular, but for some reason the tall, pale
+swordsman has stayed in the proximity of the ruined
+city for months.
+Some say Aenur comes from beyond the Great Ocean,
+from the fabled Elven kingdoms, and that he is the
+captain of the legendary Order of Swordmasters.
+Others claim that he is a Wood Elf prince in exile.
+Aenur himself says little about his past and those
+who are wise do not question him.
+Whenever a warband prepares an expedition to
+explore the inner city, there is a chance they may
+hear a sharp rap at the gate of their encampment –
+their unexpected visitor will be Aenur, offering his
+services to their leader. 
+If, indeed, Aenur seeks something in the grim ruins of
+Mordheim, no-one knows what this might be. Some
+say that he wishes to explore the Pit itself, and slay
+the enigmatic Shadow Lord, though such a task must
+surely be above even this mighty warrior. 
+Aenur is tall even for an Elf, and beneath his finely
+woven Elven cloak he wears armour of gleaming
+ithilmar. He carries a sword of immense size which is
+rumoured to have arcane properties. Certainly no-
+one who has been struck by it has ever lived to tell
+the tale.
+Hire Fee: 150 gold crowns to hire.
+May be Hired: Any warband except Skaven, Undead
+and the Possessed may hire Aenur.
+Rating: Aenur increases the warband’s rating by
++100 points.
+MW S B S S T W I A L d
+Aenur 5 8 4 4 3 2 7 3 8
+Weapons/Armour: Aenur wears ithilmar armour, an
+Elven cloak and carries an enormous sword known as
+Ienh-Khain.
+Skills: Aenur has the following skills: Strike to Injure,
+Expert Swordsman, Step Aside, Sprint, Lightning
+Reflexes, Dodgeand Mighty Blow.
+112
+
+--- Page 36 ---
+113 113
+Dramatis personae
+Johann the knife
+“G
+et your hands off me, brute! Let go of me, and
+I’ll tell you what I know. So, you seek Johann
+the Knife! Take my advice, friend, do not speak his
+name out loud. He does not like people talking about
+him in the street. What do you seek him for anyway?
+So, you’ve got a job for him! Well, why didn’t you say
+so before? I cannot say where you might find him,
+because I do not know myself. Who does? Anyway, no
+matter. When he hears word, he will find you soon
+enough! Ha! ha! It will cost you though, for he likes
+gold, does Johann. He knows this city – what’s left of
+it – like the back of his hand. If he can’t find
+someone, no-one can. He is like a shadow, he can go
+in and out of anywhere, unseen. He can also fight his 
+way out of anywhere. No-
+one can catch him.
+As quick as lightning
+with a knife, he is!
+No traces, all very
+neat and
+tidy. All I
+need from
+you is the
+gold, and the
+name. Johann
+will do the
+rest.”
+Conversation
+overheard in
+Mordheim
+Of the many cutthroats and assassins for hire that
+infest the settlements around Mordheim, Johann the
+Knife is the most famous. He exhibits his vocation as
+hired knife-fighter and assassin extraordinaire by the
+various lethal-looking daggers hanging from his belt,
+and the mean glint of his eyes. Johann wears dark
+leather gear, slightly out of fashion, which has never
+been washed (or so the barmaids say). His long face
+bears the scars of many a fight, and his unkempt hair
+is lank and greasy.
+Johann’s purse is always heavy with gold, and he takes
+no trouble to hide it, since only a fool would try to
+steal it from him. Many have tried, and all have died…
+very quickly. The craftsmanship and quality of
+Johann’s daggers is beyond compare, as he has taken
+them from the bodies of the many wealthy, but
+unskilful, opponents he has despatched in vicious
+duels.
+Hire Fee: 70 gold crowns to hire; +30 gold crowns
+upkeep cost. Johann is addicted to Crimson Shade, so
+you may hire him for one portion of Crimson Shade if
+you wish.
+May be Hired: Any warband except Skaven, Undead
+and the Possessed may hire Johann.
+Rating: Johann the Knife increases a warband’s rating
+by +60 points.
+MW S B S S T W I A L d
+Johann 4 3 6 4 3 2 6 1 7
+Weapons/Armour: Johann is armed with countless
+throwing knives and several long daggers (he always
+counts as having two swords in close combat). His
+weapons are always coated with Black Lotus and he
+may take Crimson Shade before a battle if you want
+him to.
+SKILLS
+Johann has the following skills: Dodge, Scale Sheer
+Surfaces, Quick Shot, Eagle Eyes and Knife Fighter. 
+SPECIAL RULES
+Knife Fighter Extraordinaire: Johann has a
+deserved reputation for being the greatest knife-
+fighter in whole of the Empire. Unlike normal
+warriors, he can combine the Knife Fighter and
+Quick Shot skills (yes, he can throw six
+throwing knives in one turn if he does not
+move!).
+113
+
+--- Page 37 ---
+114114
+Dramatis personae
+Y
+ears ago, Bertha sought refuge in the strict
+discipline and devotions of the Sisters of Sigmar.
+Only the warrior god of the Empire was worthy of
+her esteem. Only He was constant and faithful. And
+had not holy Sigmar, in truth, chosen her to be one of
+his handmaidens? 
+The pure blood of the Unberogens runs in Bertha’s
+veins, as evinced by her long golden plaits and fierce
+blue eyes, which can freeze a Goblin at twenty paces
+with an icy glare. Even her voice commands
+authority, turning strong, hairy-thewed men into
+trembling wretches. 
+The Sisters look up to Bertha as an example of holy
+womanhood. She rose rapidly through the ranks of
+the Sisterhood, and on her deathbed the revered
+Matriarch Cassandra named Bertha her successor,
+new High Matriarch, and Abedissa of Sigmar’s Rock. 
+Sometimes, as Bertha straps on her Gromril armour
+in the light of dawn, she reflects on the lost innocence
+of her youth. Then, angrily, she tightens the studded
+leather straps tightly over her iron-hard limbs and
+strides outside to spend hours practising with her
+great warhammers, preparing herself, as a bride of
+Sigmar should, for the day of battle.
+Extract from the Tome of Heroes
+Hire Fee: None. Bertha will come to the aid of any
+Sisters of Sigmar warband if they send one or more of
+their Heroines to look for her in the normal manner,
+rolling under their Initiative (representing their
+efforts to gain audience with the High Matriarch). If
+she does grant an audience, she might decide that her
+personal help is needed in the forthcoming battle.
+She will only come to the aid of a Sisters of Sigmar
+warband if their enemy has a higher warband rating.
+Consult the table below, and roll a D6 to see whether
+Bertha will aid the warband. A request for Bertha to
+aid the warband must be made for each battle you
+wish her to help the warband.
+Difference in
+Warband Rating Dice roll required
+0-49 Nil
+50-99 6+
+100-149 5+
+150-199 4+
+200+ 3+
+MW S B S S T W I A L d
+Bertha 4 5 3 44243 1 0
+May be Hired: Bertha Bestraufrung will
+only join Sisters of Sigmar warbands.
+Rating: Bertha increases a warband’s
+rating by +105 points.
+Weapons/Armour: Bertha is armed with two
+Sigmarite warhammers, wears gromril armour, and
+carries a vial of blessed water and a holy relic.
+SKILLS
+Bertha has the following skills: Mighty Blow,
+Unstoppable Charge and Righteous Fury.
+PRAYERS OF SIGMAR
+Bertha knows all six Prayers of Sigmar.
+SPECIAL RULES
+High Matriarch. As the High Matriarch of the Sisters
+of Sigmar’s Mercy, Bertha will automatically
+be the leader of any warband she
+joins. 
+Sigmar’s Handmaiden.
+Bertha is favoured above all
+other Sisters in the eyes of
+Sigmar. She gains +2 to
+all her rolls to see
+whether her Prayers
+of Sigmar are
+granted.
+114
+Bertha Bestraufrung, high matriarch of the sisterhood
+
+--- Page 38 ---
+115 115
+“I
+t killed us all! We couldn’t stop it, our weapons
+broke against its body... It was black, like a
+shadow, and it was moving so fast, cutting men to
+shreds left and right. We fought, yes we fought hard,
+and old Marcus even tried his trick with the oil flask.
+It was engulfed by flames and for a moment we
+thought we’d stopped it. No way, it came out of the
+fire, still ablaze. It was as if it didn’t care! That was
+too much and those left of us ran for it. Still it
+followed us, on and on, relentless and merciless.
+There was no escaping, no hiding, its red eye could
+always spot you. Oh that eye... that eye...”
+Last words of Fritz Huber at the Inn of the Red Moon,
+Veskit was already a talented
+clan Eshin Assassin when
+he was entrusted with his
+most difficult mission.
+He was hired by Clan
+Skryre to free one of
+their oldest and most
+experienced
+Warlocks who was
+being held hostage
+by a rival clan.
+Dramatis personae
+Veskit, high executioner of clan eshin
+Veskit managed to take the prisoner back, fighting his
+way through the guards, but at a very high cost. He
+suffered terrible wounds and would have certainly
+died, but the Nightmaster of Clan Eshin made a pact
+with the Warlock Engineers. The Skaven scientist-
+sorcerers replaced various parts of Veskit’s body with
+their part technological, part magical implants and
+made him into a walking arsenal of deadly weapons.
+Veskit is now more a machine than a living thing, and
+his thirst for killing has become almost
+uncontrollable.
+When news of the wyrdstone came to the hidden
+fortress of Clan Eshin, the Nightmaster sent Veskit to
+Mordheim to deter the man-things from exploring the
+city, which rightfully belonged to the Skaven. From
+that day on, many adventurers have met their end in
+the dark allies of Mordheim. Veskit’s unblinking eye
+misses nothing, and those he hunts on the streets of
+Mordheim never return to the Gargoyle Gate.
+Hire Fee: 80 gold crowns to hire; +35 gold crowns
+upkeep cost.
+May be Hired: Veskit may only be hired by Skaven
+warbands.
+Rating: Veskit increases the warband’s rating by +70
+points.
+MW S B S S T W I A L d
+Veskit 5 5 4 4 4 2 5 4 8
+Weapons/Armour: Eshin Fighting Claws (the extra
+attack is included in his profile). Each Fighting Claw
+incorporates an in-built warplock pistol, so Veskit can
+shoot in every turn, and he fights in close combat with
+Strength 5 and a save modifier of -3 (note that he
+can still parry twice with his claws!).
+SPECIAL RULES
+Unfeeling. Veskit is a cold, calculating
+killing machine, and feels few of the
+emotions that living things do. He is
+therefore immune to all psychology.
+No Pain. Veskit ignores knocked down and
+stunned results on the Injury chart. He
+must lose his last wound and be taken
+out of action before he is removed
+from battle.
+Unblinking Eye. Thanks to the
+sorcerous devices built by the Warlock
+Engineers of Clan Skryre, Veskit can spot
+hidden enemies within twice his Initiative
+value in inches.
+Metallic Body. These give Veskit his high
+Toughness and a 3+ armour save.  
+115
+
+--- Page 39 ---
+Optional rules
+116116 116
+T
+his section includes a variety of rules that add
+an extra dimension to your battles in
+Mordheim. As they are additions to the basic rules
+they are not an essential part of the game, and you
+should agree with your opponent beforehand
+whether you are going to use any of them.
+We recommend that new players ignore this section
+to begin with, at least until you are familiar with the
+way the game works. If you consider yourself to be an
+experienced gamer then you’ll have no problem
+incorporating these elements. Some of these
+additional rules alter the game quite dramatically, and
+you are under no obligation to use any of them. They
+have simply been included for players who want to
+explore different aspects of
+the game.
+New critical hit charts
+Depending on what weapon your warrior is using,
+you may roll on one of the following Critical Hit
+charts. For example, if your warrior is using a sword,
+roll on the Bladed Weapons chart. All the rules
+governing critical hits given in the main rules also
+apply to these tables.
+missile weapons
+(Bows, crossbows, 
+blackpowder weapons, throwing knives etc.)
+1-2 Hits a Weak Spot. The missile penetrates its
+target’s armour. Ignore all armour saves.
+3-4 Ricochet. If there are any other models within
+6", the closest enemy model is also hit. Roll to
+wound and take any saves as normal for both
+targets.
+5-6 Master Shot. The missile hits an eye, the
+throat, or some other vulnerable part. The
+target suffers 2 wounds instead of 1. There is
+no armour save.
+bludgeoning weapons
+(Clubs, maces, hammers, 
+flails, double-handed hammers etc.)
+1-2 Hammered. The target is knocked off
+balance. Your opponent may not fight this
+turn if he hasn’t already fought.
+3-4 Clubbed. The hit ignores armour saves and
+saves from helmets.
+5 Wild Sweep. Your opponent’s weapon is
+knocked from his hand. If he is carrying two
+weapons, roll to see which one he loses. He
+must fight with whatever back-up weapon he
+has in his equipment for the rest of this
+combat (or fight unarmed if he has no other
+weapons). Roll to wound and take armour
+saves as normal.
+6 Bludgeoned. The victim automatically goes
+out of action if he fails his armour
+save. Even if he has several wounds
+remaining, he will be taken out of
+action by this attack.
+Optional rules
+116
+
+
+--- Page 40 ---
+bladed weapons
+(Swords, axes, double-handed swords etc.)
+1-2 Flesh Wound. This attack hits an unprotected
+area, so there is no armour save.
+3-4 Bladestorm. The warrior unleashes a virtual
+hail of blows. The attack causes 2 wounds
+instead of 1. Take armour saves separately for
+each wound. Remember that, as with other
+critical hits, if an attack causes multiple
+wounds for other reasons as well, you choose
+the highest number of wounds.
+5-6 Sliced! The strike ignores armour
+saves, causes 2 wounds, and your
+warrior gains +2 to any Injury rolls.
+unarmed combat
+(Wardogs, warhorses, 
+Zombies, Possessed, animals etc.)
+1-2 Body Blow. Your opponent staggers, allowing
+you to seize the initiative and make an
+additional attack. Immediately roll to hit and
+to wound. Any saves are taken as normal.
+3-4 Crushing Blow. The blow lands with
+tremendous force. You gain +1 to the Injury
+roll if your opponent fails his save.
+5-6 Mighty Blow. With a mighty punch or flying
+kick, you send your opponent sprawling to
+the ground. The attack ignores armour saves
+and you gain +2 to any Injury rolls.
+thrusting weapons
+(Spears, halberds, lances etc.)
+1-2 Stab. With a quick strike, you penetrate your
+opponent’s defences. You gain +1 to any
+Injury rolls. Armour saves are taken as normal.
+3-4 Thrust. The thrust lands with great force and
+the target is knocked down. Take armour
+saves as normal and see whether the model
+suffers a wound.
+5-6 Kebab! The thrust knocks the target back with
+titanic force, ripping apart armour and
+puncturing flesh. The attack ignores armour
+saves and you gain +2 to any Injury rolls. The
+victim is knocked backwards D6" and the
+attacker follows, staying in base contact. Any
+other models involved in the combat are
+separated and only the model which struck
+the blow and his target are still considered
+to be in combat. If the target collides with
+another model, the other model is hit once
+at S3.
+117 117117
+Optional rules
+Escaping from combat
+Warriors that are engaged in hand-to-hand combat at
+the start of their own turn may try to escape from
+combat during their movement phase. Such fighters
+are assumed to have realised that the odds are against
+them and decided that it is just too dangerous for
+them to continue.
+Declare which of your warriors will try to escape from
+combat at the start of your movement phase, at the
+same time as you declare charges. Turn the models
+around to show this.
+Take a Leadership test for each warrior trying to
+escape from combat. This represents his efforts to
+find the right time to escape. If he passes, the warrior
+can move up to double his normal Movement rate
+away from combat and the enemy he was fighting, in
+any direction.
+If he fails, his opponent is allowed to make 1
+automatic hit against the warrior who is trying to
+escape, and the fleeing warrior (provided he survives)
+will run 2D6" directly away from combat. He will have
+to take a Leadership test at the beginning of his next
+turn. 
+If successful he will stop, but may not do anything
+else during that turn. If the test is failed, he will
+continue to run 2D6" towards the closest table edge
+and must test again the following turn if he is still on
+the table.
+If a warrior is charged whilst he is fleeing, the 
+charger is moved into base contact with
+him as normal, but the fleeing warrior
+will then immediately run a
+further 2D6"
+towards the table
+edge, before any
+blows can be
+struck.
+117
+
+--- Page 41 ---
+118118 118
+7-8 Mutation. The warrior develops a severe
+mutation. Roll a D6. On a roll of 1 you lose
+a single point from one of your warrior’s
+characteristics (chosen by you), due to
+atrophy, or some such degrading mutation.
+On a roll of 2 or more you may choose
+which one of the mutations listed in the
+Cult of the Possessed Warbands section
+your warrior has been rewarded with.
+9-10 Chaos Armour. The
+warrior’s body becomes
+encrusted with an arcane, all-
+enveloping suit of armour. This
+confers a basic 4+ save, but does
+not affect the model’s ability to
+cast spells or move in any way.
+11 Daemon Weapon. The
+warrior receives  a weapon with
+a bound Daemon inside it. This
+weapon adds +1 to his Strength
+in close combat, grants a +1
+bonus on all to hit rolls using it.
+The user may choose the
+weapon’s form (a sword, an axe,
+etc), though it will not have any
+of the special abilities normally
+associated with common
+weapons of that type. An axe
+with a bound Daemon, for
+example, will not
+benefit from the
+usual extra save
+modifier.
+12 Possessed! A Daemon
+takes over the soul and body of
+the warrior. He immediately
+gains +1 Weapon Skill, +1
+Strength, +1 Attacks and +1
+Wounds. These increases do not
+count towards his maximum
+characteristics. The warrior loses
+D3 of his skills (chosen by the
+player) and may no longer use
+weapons or armour, except for
+Chaos Armour or Daemon
+weapons.
+Rewards of the shadowlord
+When a Magister or Mutant from a Possessed warband has accumulated enough 
+experience, instead of picking a skill, he may roll on the Rewards table below. This 
+represents the pilgrimage of the Mutant or Magister to the Pit, where he can beseech 
+a favour from the Shadowlord himself. Roll 2D6.
+2 Wrath of the Shadowlord! The warrior is
+mutated beyond recognition and vanishes
+into the ruins, joining the many other
+horrors that roam Mordheim.
+3-6 Nothing Happens. The
+capricious Shadowlord
+ignores the pleas of his
+servant.
+118
+
+
+--- Page 42 ---
+Optional rules
+119 119119
+Horses are rare and expensive in Mordheim, but they do allow warriors to move
+quickly, so as long as the steed stays on the streets and does not venture into the
+ruined buildings, where it could easily stumble and fall. By using the following rules,
+you can include mounted Heroes in your games. 
+mounted models in mordheim
+A warrior and his horse are treated in all respects as a
+single model. Should the rider be taken out of action,
+then the entire model is removed from the battle.
+Mounted warriors use the rider’s Leadership value for
+all Leadership-based tests. When the warrior is
+attacked, use the rider’s Toughness and Wounds. 
+Mounted warriors automatically have an armour save
+of 6+, even if the rider is wearing no armour. This
+represents the extra protection afforded by the horse.
+If the rider is wearing armour his armour save will be
++1 better than it would be if he were on foot.
+In close combat, a warhorse can make 1 attack, but a
+normal horse has no Attacks characteristic and
+therefore does not attack in close combat.
+Armour, called barding, may be purchased for a
+warhorse, (refer to the Trading chart). It adds a further
++1 bonus to the model’s armour save, but subtracts
+one from its Movement. A normal horse may not wear
+barding. A barded warhorse is only killed on a serious
+injury roll of ‘1’ if the model goes out of action.
+A horse increases a warband’s rating by +3
+points, and a warhorse by +5 points.
+mounted models
+and movement
+Mounted models may not move into
+buildings. This limits their movement to
+relatively flat surfaces such as streets.
+A horse or warhorse may jump over an
+obstacle up to 2" in height with no
+movement penalty.
+shooting at 
+mounted warriors
+Because of the size of a mounted warrior,
+any shooter may always pick one as a target,
+even if there are enemies closer. 
+mounting/dismounting
+A mounted warrior may dismount during his
+movement phase. He loses half his movement
+and may not charge or run during that turn.
+Mounted warriors
+A cavalryman who has dismounted is considered to be
+followed by his steed wherever he goes and may
+mount it again whenever he wishes, provided he is
+not inside a building or in any other place where the
+mount could not be used (such as on a roof). The
+warrior loses half his movement when remounting
+and may not charge or run during that turn.
+Replace a mounted warrior with a model that is on
+foot if dismounting, and vice versa.
+mounts and campaigns
+If a mounted warrior is taken out of action, roll a D6
+after the battle. On a 1-2, the mount is killed and
+removed from the warband roster.
+119
+
+--- Page 43 ---
+D
+uring the period in which Mordheim is set, the
+technology needed to make blackpowder
+weapons was still rare, and pistols, handguns,
+blunderbusses, etc were prone to malfunctions, jams
+and misfires.
+The following rules were not included in the
+Shooting section, as they would have slowed down
+the game, but if you want to create more realistic
+games, feel free to use the Misfire rules below. 
+If you do use these rules, you might want to reduce
+the cost of the weapons (we suggest by 20%) to keep
+the balance of the game fair.
+misfires
+Each time you roll a 1 when rolling to hit with a
+blackpowder weapon (handgun, pistol, blunderbuss,
+warplock pistol, etc), roll a D6 and consult the chart
+below.
+BLACKPOWDER WEAPON MISFIRES
+1 BOOM! The weapon explodes with a
+deafening roar! The shooter suffers an S4 hit
+(this does not cause critical hits) and the
+weapon is destroyed.
+2 Jammed. The weapon is jammed and useless
+for the remainder of the battle. You may use
+it as normal in the next battle.
+3 Phut . The weapon fails to fire and you must
+remove the shot. This means that the shooter
+must wait one extra turn before he can fire
+this weapon again.
+4-5 Click. The weapon fails to fire, but there is
+no additional effect.
+6 KA-BOOM! The weapon roars and spits a
+cloud of black smoke and flame! The shot
+hits the intended target and counts as having
++1 Strength. 
+Blackpowder weapons
+120
+
+--- Page 44 ---
+Optional rules
+121 121121
+O
+ne thing we discovered during playtesting
+Mordheim was that after a while very
+experienced warbands became virtually unbeatable
+when fighting against novice warbands.
+Whilst this might be amusing for the player with the
+experienced warband, it will result in a very one-
+sided battle, where the inexperienced
+warband is swiftly crushed, without even a
+chance to put up a decent fight. Although the
+underdogs system balances this out somewhat, it is
+often much more fun to play with roughly equal
+forces, especially when introducing new players to
+the game.
+The following rules allow both players to pick
+warbands up to an agreed equal value, say 1,000 gold
+crowns. This will make the game much more even, as
+the two forces will be roughly similar in strength. 
+Use the Warband lists to recruit and equip your
+warband. The lists tell you which Heroes, Henchmen
+and equipment your warband is allowed to use. The
+limitations of the list ensure that the warbands are
+reasonably balanced. 
+You must recruit at least three warriors, including a
+leader, and you may either follow the limitations for
+the maximum size of a warband given in the list or
+agree a maximum size with your opponent.
+weapons & armour
+Each Hero you recruit may be armed with one or
+more weapons and any armour chosen from the
+appropriate list. Different types of Hero are restricted
+to different types of weapon. The Equipment lists for
+the individual warbands tell you exactly what
+equipment is available. You may buy rare weapons
+and armour. Pay the appropriate prices for these as
+given in the Trading charts. 
+Every model in each Henchman group must take
+exactly the same weapons and armour. This means
+that if your Henchman group has four warriors, and
+you want to buy them swords, you must buy four
+swords. 
+The weapons you choose for your warriors must be
+represented on the models. This way your opponent
+will know what he is facing (and he will not be
+shocked to discover in the middle of the game that
+the warrior who looks like a Halfling with a bow is in
+fact an Ogre with a club!). 
+The exceptions to this rule are knives and daggers,
+which you may assume are tucked in boots or
+concealed in their clothes, if not actually represented
+on the model.
+upgrading heroes
+In a campaign game, you must earn statistic increases,
+but in one-off games they can be bought beforehand.
+You may increase the starting characteristics of your
+Heroes by paying the cost in gold crowns given below. 
+Note that all races have maximum statistics values.
+These can be found in the Experience section of this
+rulebook.
+Movement +15gc per point.
+Weapon Skill +15gc per point.
+Ballistic Skill +15gc per point.
+Strength +25gc for the first increase/+35gc
+for each additional increase.
+Toughness +30gc for the first increase/+45gc
+for each additional increase.
+Wounds +20gc for the first increase/+30gc
+for each additional increase.
+Initiative +10gc per point.
+Attacks +25 GC for the first increase/+35gc
+for each additional increase.
+Leadership +15gc per point.
+Skills: +40gc for each skill. You may
+choose one skill at this price for
+each characteristic increase you
+take. Choose from the skills
+normally available to your
+warrior.
+ready for battle
+The warband is now ready to fight against
+your opponent.
+Fighting individual battles
