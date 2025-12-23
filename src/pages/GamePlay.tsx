@@ -1,12 +1,21 @@
 // Game Play Page
 
-import { Show, For, createSignal, createMemo } from 'solid-js';
+import { Show, For, createSignal, createMemo, createEffect } from 'solid-js';
 import { useNavigate } from '@solidjs/router';
 import { gameStore, gameState } from '../stores/gameStore';
 import { Card, Button } from '../components/common';
-import { PhaseIndicator, StatusBadge, DiceRoller } from '../components/game';
+import {
+  PhaseIndicator,
+  StatusBadge,
+  DiceRoller,
+  ShootingPanel,
+  CombatPanel,
+  CombatResolutionModal,
+  RoutTestModal
+} from '../components/game';
 import { WarriorCard } from '../components/warband';
-import type { GameWarrior, AvailableAction } from '../types';
+import type { GameWarrior, ShootingModifiers } from '../types';
+import type { AvailableAction } from '../logic/gameState';
 
 export default function GamePlay() {
   const navigate = useNavigate();
@@ -20,6 +29,19 @@ export default function GamePlay() {
   const selectedWarriorId = () => gameState.selectedWarrior;
   const pendingUndo = () => gameState.pendingUndo;
   const pendingAction = () => gameState.pendingAction;
+
+  // Shooting phase state
+  const shootingModifiers = () => gameState.shootingModifiers;
+  const showResolutionModal = () => gameState.showResolutionModal;
+  const currentResolution = () => gameState.currentResolution;
+
+  // Combat phase state
+  const strikeOrder = () => gameState.strikeOrder;
+  const currentFighterIndex = () => gameState.currentFighterIndex;
+
+  // Rout test state
+  const showRoutModal = () => gameState.showRoutModal;
+  const pendingRoutTest = () => gameState.pendingRoutTest;
 
   // Get selected warrior object
   const selectedWarrior = createMemo(() => {
@@ -44,6 +66,49 @@ export default function GamePlay() {
   // Check if recovery phase is complete
   const isRecoveryComplete = createMemo(() => {
     return gameStore.checkRecoveryComplete();
+  });
+
+  // Shooting phase computed values
+  const shootingWarriors = createMemo(() => {
+    const warriors = currentWarband()?.warriors ?? [];
+    return warriors.filter(w =>
+      w.gameStatus === 'standing' &&
+      !w.hasRun &&
+      !w.hasCharged &&
+      !w.combatState.inCombat &&
+      w.equipment?.ranged?.length > 0
+    );
+  });
+
+  const shootingTargets = createMemo(() => {
+    const id = selectedWarriorId();
+    if (!id) return [];
+    return gameStore.getShootingTargets(id);
+  });
+
+  // Combat phase computed values
+  const currentFighter = createMemo(() => {
+    return gameStore.getCurrentFighter();
+  });
+
+  const meleeTargets = createMemo(() => {
+    const fighter = currentFighter();
+    if (!fighter) return [];
+    return gameStore.getMeleeTargets(fighter.warriorId);
+  });
+
+  // Build strike order when entering combat phase
+  createEffect(() => {
+    if (game()?.phase === 'combat' && strikeOrder().length === 0) {
+      gameStore.buildStrikeOrder();
+    }
+  });
+
+  // Get rout test warband
+  const routTestWarband = createMemo(() => {
+    const idx = pendingRoutTest();
+    if (idx === null || !game()) return null;
+    return game()!.warbands[idx];
   });
 
   // Check if warrior can act in current phase
@@ -168,6 +233,52 @@ export default function GamePlay() {
     gameStore.clearPendingAction();
   };
 
+  // Shooting phase handlers
+  const handleShootingModifierToggle = (key: keyof ShootingModifiers) => {
+    gameStore.setShootingModifier(key, !shootingModifiers()[key]);
+  };
+
+  const handleShoot = (targetId: string) => {
+    const shooterId = selectedWarriorId();
+    if (!shooterId) return;
+    gameStore.shootWarrior(shooterId, targetId);
+  };
+
+  const handleSkipShooting = (warriorId: string) => {
+    gameStore.skipShooting(warriorId);
+  };
+
+  // Combat phase handlers
+  const handleMeleeAttack = (targetId: string, weaponKey?: string) => {
+    const fighter = currentFighter();
+    if (!fighter) return;
+    gameStore.executeMeleeAttack(fighter.warriorId, targetId, weaponKey);
+  };
+
+  const handleNextFighter = () => {
+    gameStore.nextFighter();
+  };
+
+  const getWarriorWeapons = (warriorId: string): string[] => {
+    const result = gameStore.getWarriorById(warriorId);
+    if (!result) return ['sword'];
+    return result.warrior.equipment?.melee || ['sword'];
+  };
+
+  // Resolution modal handlers
+  const handleCloseResolution = () => {
+    gameStore.closeResolutionModal();
+  };
+
+  // Rout test handlers
+  const handleRoutTest = () => {
+    return gameStore.executeRoutTest();
+  };
+
+  const handleCloseRoutModal = () => {
+    gameStore.closeRoutModal();
+  };
+
   return (
     <div class="page game-play">
       <Show when={!game()}>
@@ -273,6 +384,34 @@ export default function GamePlay() {
               </div>
             </Show>
           </Card>
+        </Show>
+
+        {/* Shooting Phase */}
+        <Show when={game()!.phase === 'shooting'}>
+          <ShootingPanel
+            warriors={shootingWarriors()}
+            selectedWarrior={selectedWarrior()}
+            targets={shootingTargets()}
+            modifiers={shootingModifiers()}
+            onSelectWarrior={handleSelectWarrior}
+            onSelectTarget={handleShoot}
+            onToggleModifier={handleShootingModifierToggle}
+            onSkipShooting={handleSkipShooting}
+          />
+        </Show>
+
+        {/* Combat Phase */}
+        <Show when={game()!.phase === 'combat'}>
+          <CombatPanel
+            strikeOrder={strikeOrder()}
+            currentFighterIndex={currentFighterIndex()}
+            currentFighter={currentFighter()}
+            meleeTargets={meleeTargets()}
+            currentPlayerIndex={game()!.currentPlayer - 1}
+            onAttack={handleMeleeAttack}
+            onNextFighter={handleNextFighter}
+            getWarriorWeapons={getWarriorWeapons}
+          />
         </Show>
 
         <div class="game-area">
@@ -445,6 +584,21 @@ export default function GamePlay() {
           isOpen={showDice()}
           onClose={() => setShowDice(false)}
           title="Roll Dice"
+        />
+
+        {/* Combat Resolution Modal */}
+        <CombatResolutionModal
+          isOpen={showResolutionModal()}
+          resolution={currentResolution()}
+          onClose={handleCloseResolution}
+        />
+
+        {/* Rout Test Modal */}
+        <RoutTestModal
+          isOpen={showRoutModal()}
+          warband={routTestWarband()}
+          onRollTest={handleRoutTest}
+          onClose={handleCloseRoutModal}
         />
       </Show>
     </div>

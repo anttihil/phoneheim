@@ -792,3 +792,697 @@ th {
 .warrior-game-status.positioned {
   border-left: 4px solid var(--success-color);
 }
+
+/* ================================
+   SHOOTING PANEL STYLES
+   ================================ */
+
+.shooting-panel {
+  border-left: 4px solid #2196f3;
+}
+
+.shooting-section {
+  margin-bottom: 1rem;
+}
+
+.shooting-section h4 {
+  color: var(--secondary-color);
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.shooter-list {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.shooter-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem;
+  background-color: var(--background-color);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.shooter-card:hover {
+  border-color: var(--secondary-color);
+}
+
+.shooter-card.selected {
+  border-color: var(--primary-color);
+  background-color: rgba(139, 69, 19, 0.2);
+}
+
+.shooter-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.shooter-name {
+  font-weight: bold;
+}
+
+.shooter-weapon {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.shooter-bs {
+  color: #2196f3;
+  font-size: 0.85rem;
+}
+
+/* Modifiers */
+.modifiers-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+  background-color: var(--background-color);
+  border-radius: 4px;
+}
+
+.modifier-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.modifier-toggle input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--primary-color);
+}
+
+/* Target list */
+.target-list {
+  margin-top: 1rem;
+}
+
+.target-list h5 {
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+  font-size: 0.85rem;
+}
+
+.target-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem;
+  background-color: var(--background-color);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  margin-bottom: 0.25rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.target-card:hover {
+  border-color: var(--danger-color);
+  background-color: rgba(244, 67, 54, 0.1);
+}
+
+.target-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.target-name {
+  font-weight: bold;
+}
+
+.target-badge {
+  padding: 0.15rem 0.4rem;
+  border-radius: 3px;
+  font-size: 0.7rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.target-badge.cover {
+  background-color: #2196f3;
+  color: white;
+}
+
+.target-badge.knocked-down {
+  background-color: var(--warning-color);
+  color: black;
+}
+
+.target-badge.stunned {
+  background-color: var(--danger-color);
+  color: white;
+}
+
+.target-hit {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.hit-needed {
+  color: var(--secondary-color);
+  font-weight: bold;
+}
+
+.no-targets {
+  color: var(--text-muted);
+  font-style: italic;
+  text-align: center;
+  padding: 1rem;
+}
+
+.all-done {
+  color: var(--success-color);
+  font-weight: bold;
+  text-align: center;
+  padding: 0.5rem;
+}
+
+.unavailable {
+  opacity: 0.7;
+}
+
+.unavailable-list {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.unavailable-warrior {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.unavailable-warrior .reason {
+  font-size: 0.8rem;
+  font-style: italic;
+}
+
+/* ================================
+   COMBAT PANEL STYLES
+   ================================ */
+
+.combat-panel {
+  border-left: 4px solid var(--danger-color);
+}
+
+.strike-order-section {
+  margin-bottom: 1rem;
+}
+
+.strike-order-section h4 {
+  color: var(--secondary-color);
+  margin-bottom: 0.5rem;
+}
+
+.strike-order-list {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.strike-order-entry {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  background-color: var(--background-color);
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.strike-order-entry.current {
+  background-color: rgba(139, 69, 19, 0.3);
+  border: 1px solid var(--primary-color);
+}
+
+.strike-order-entry.completed {
+  opacity: 0.5;
+  text-decoration: line-through;
+}
+
+.order-number {
+  color: var(--text-muted);
+  min-width: 24px;
+}
+
+.order-badge {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 0.7rem;
+  font-weight: bold;
+}
+
+.order-badge.charged {
+  background-color: var(--success-color);
+  color: white;
+}
+
+.order-badge.stood-up {
+  background-color: var(--warning-color);
+  color: black;
+}
+
+.fighter-name {
+  flex: 1;
+  font-weight: bold;
+}
+
+.fighter-stats {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}
+
+.player-badge {
+  padding: 0.15rem 0.4rem;
+  border-radius: 3px;
+  font-size: 0.7rem;
+  font-weight: bold;
+}
+
+.player-badge.player-1 {
+  background-color: #2196f3;
+  color: white;
+}
+
+.player-badge.player-2 {
+  background-color: #e91e63;
+  color: white;
+}
+
+.current-marker {
+  padding: 0.15rem 0.4rem;
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: 3px;
+  font-size: 0.7rem;
+  font-weight: bold;
+}
+
+.current-fighter-section h4 {
+  color: var(--secondary-color);
+  margin-bottom: 0.5rem;
+}
+
+.attacks-remaining {
+  font-weight: normal;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.opponent-turn-notice {
+  color: var(--warning-color);
+  font-style: italic;
+  padding: 0.5rem;
+  background-color: rgba(255, 193, 7, 0.1);
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+.melee-targets h5 {
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+  font-size: 0.85rem;
+}
+
+.melee-target-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem;
+  background-color: var(--background-color);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  margin-bottom: 0.25rem;
+}
+
+.target-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.combat-complete {
+  text-align: center;
+  padding: 1rem;
+  color: var(--success-color);
+  font-weight: bold;
+}
+
+.no-combat {
+  text-align: center;
+  color: var(--text-muted);
+  font-style: italic;
+  padding: 1rem;
+}
+
+/* ================================
+   COMBAT RESOLUTION MODAL STYLES
+   ================================ */
+
+.resolution-modal {
+  max-width: 450px;
+  width: 100%;
+}
+
+.resolution-content {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.resolution-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.attacker-name {
+  color: var(--success-color);
+  font-weight: bold;
+}
+
+.attack-arrow {
+  color: var(--text-muted);
+}
+
+.defender-name {
+  color: var(--danger-color);
+  font-weight: bold;
+}
+
+.weapon-info {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.resolution-step {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  background-color: var(--background-color);
+  border-radius: 4px;
+}
+
+.step-icon {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: 50%;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.step-label {
+  font-weight: bold;
+  min-width: 90px;
+}
+
+.step-roll {
+  color: var(--secondary-color);
+}
+
+.step-needed {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.step-result {
+  margin-left: auto;
+  padding: 0.2rem 0.5rem;
+  border-radius: 3px;
+  font-weight: bold;
+  font-size: 0.85rem;
+}
+
+.step-result.success {
+  background-color: var(--success-color);
+  color: white;
+}
+
+.step-result.fail {
+  background-color: var(--danger-color);
+  color: white;
+}
+
+.step-result.auto-hit {
+  background-color: var(--warning-color);
+  color: black;
+}
+
+.step-result.no-save {
+  background-color: var(--danger-color);
+  color: white;
+}
+
+.step-result.injury-knockedDown {
+  background-color: var(--warning-color);
+  color: black;
+}
+
+.step-result.injury-stunned {
+  background-color: #e91e63;
+  color: white;
+}
+
+.step-result.injury-outOfAction {
+  background-color: #333;
+  color: #f44336;
+}
+
+.critical-hit {
+  background-color: #9c27b0;
+  color: white;
+  padding: 0.2rem 0.5rem;
+  border-radius: 3px;
+  font-weight: bold;
+  font-size: 0.85rem;
+}
+
+.parry-step {
+  border-left: 3px solid #2196f3;
+}
+
+.critical-step {
+  border-left: 3px solid #9c27b0;
+}
+
+.critical-type {
+  color: #9c27b0;
+  font-weight: bold;
+}
+
+.resolution-outcome {
+  padding: 1rem;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.outcome-neutral {
+  background-color: rgba(100, 100, 100, 0.2);
+}
+
+.outcome-wounded {
+  background-color: rgba(255, 152, 0, 0.2);
+}
+
+.outcome-critical {
+  background-color: rgba(244, 67, 54, 0.2);
+}
+
+.outcome-label {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.outcome-text {
+  font-size: 1.5rem;
+  font-weight: bold;
+  display: block;
+  margin: 0.25rem 0;
+}
+
+.outcome-target {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.resolution-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+
+/* ================================
+   ROUT TEST MODAL STYLES
+   ================================ */
+
+.rout-modal {
+  max-width: 400px;
+  width: 100%;
+}
+
+.rout-content {
+  display: grid;
+  gap: 1rem;
+}
+
+.rout-warband-info {
+  text-align: center;
+}
+
+.rout-warband-info .warband-name {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: var(--secondary-color);
+}
+
+.rout-warband-info .warband-type {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.rout-casualty-info {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  text-align: center;
+}
+
+.casualty-stat {
+  padding: 0.5rem;
+  background-color: var(--background-color);
+  border-radius: 4px;
+}
+
+.casualty-stat .stat-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  display: block;
+}
+
+.casualty-stat .stat-value {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.casualty-stat .stat-value.critical {
+  color: var(--danger-color);
+}
+
+.rout-explanation {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  text-align: center;
+  padding: 0.5rem;
+  background-color: rgba(255, 152, 0, 0.1);
+  border-radius: 4px;
+}
+
+.rout-test-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  background-color: var(--background-color);
+  border-radius: 4px;
+}
+
+.rout-test-info .test-label {
+  color: var(--text-muted);
+}
+
+.rout-test-info .test-value {
+  color: var(--secondary-color);
+  font-weight: bold;
+}
+
+.rout-actions {
+  display: flex;
+  justify-content: center;
+}
+
+.rout-result {
+  text-align: center;
+  padding: 1rem;
+  border-radius: 4px;
+}
+
+.rout-result.passed {
+  background-color: rgba(76, 175, 80, 0.2);
+}
+
+.rout-result.failed {
+  background-color: rgba(244, 67, 54, 0.2);
+}
+
+.result-dice {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.result-dice .dice-label {
+  color: var(--text-muted);
+}
+
+.result-dice .dice-value {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--secondary-color);
+}
+
+.result-dice .dice-vs {
+  color: var(--text-muted);
+}
+
+.result-dice .dice-needed {
+  font-weight: bold;
+}
+
+.result-outcome {
+  margin-bottom: 0.5rem;
+}
+
+.outcome-passed {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: var(--success-color);
+}
+
+.outcome-failed {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: var(--danger-color);
+}
+
+.outcome-text {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}

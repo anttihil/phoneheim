@@ -1,6 +1,7 @@
 // Mordheim Core Game Rules Logic
 
 import { getCloseCombatToHit, getWoundRoll, BS_TO_HIT } from '../data/characteristics';
+import { MELEE_WEAPONS, RANGED_WEAPONS } from '../data/equipment';
 import type { DiceResult, GameWarrior } from '../types';
 
 // Position type for distance calculations
@@ -426,4 +427,190 @@ export function recoveryPhase(warband: WarbandWithStatus): RecoveryAction[] {
   }
 
   return actions;
+}
+
+// =====================================
+// WEAPON AND MODIFIER FUNCTIONS
+// =====================================
+
+// Calculate shooting modifiers total
+export function calculateShootingModifiers(modifiers: ShootingModifiers): number {
+  let total = 0;
+  if (modifiers.cover) total += 1;        // -1 to hit (harder)
+  if (modifiers.longRange) total += 1;    // -1 to hit
+  if (modifiers.moved) total += 1;        // -1 to hit
+  if (modifiers.largeTarget) total -= 1;  // +1 to hit (easier)
+  return total;
+}
+
+// Calculate armor save modifier from strength
+export function calculateArmorSaveModifier(strength: number): number {
+  // Strength 4+ gives -1 save per point above 3
+  if (strength <= 3) return 0;
+  return -(strength - 3);
+}
+
+// Get weapon special rules
+export function getWeaponRules(weaponKey: string): string[] {
+  const melee = MELEE_WEAPONS[weaponKey as keyof typeof MELEE_WEAPONS];
+  if (melee) return melee.rules || [];
+
+  const ranged = RANGED_WEAPONS[weaponKey as keyof typeof RANGED_WEAPONS];
+  if (ranged) return ranged.rules || [];
+
+  return [];
+}
+
+// Check if weapon has specific rule
+export function weaponHasRule(weaponKey: string, rule: string): boolean {
+  return getWeaponRules(weaponKey).includes(rule);
+}
+
+// Get weapon strength value (resolves 'user+X' format)
+export function getWeaponStrength(weaponKey: string, userStrength: number, isFirstRound: boolean = false): number {
+  const melee = MELEE_WEAPONS[weaponKey as keyof typeof MELEE_WEAPONS];
+  if (melee) {
+    let baseStrength = userStrength;
+    const strengthValue = melee.strength;
+
+    if (typeof strengthValue === 'number') {
+      baseStrength = strengthValue;
+    } else if (strengthValue === 'user') {
+      baseStrength = userStrength;
+    } else if (strengthValue === 'user+1') {
+      baseStrength = userStrength + 1;
+    } else if (strengthValue === 'user+2') {
+      baseStrength = userStrength + 2;
+    } else if (strengthValue === 'user-1') {
+      baseStrength = userStrength - 1;
+    }
+
+    // Handle first-round-only bonuses (flail, morningstar)
+    if (melee.rules?.includes('heavy') && !isFirstRound) {
+      // Remove the bonus on subsequent rounds
+      if (strengthValue === 'user+1') baseStrength = userStrength;
+      if (strengthValue === 'user+2') baseStrength = userStrength;
+    }
+
+    return Math.max(1, baseStrength);
+  }
+
+  const ranged = RANGED_WEAPONS[weaponKey as keyof typeof RANGED_WEAPONS];
+  if (ranged) {
+    const strengthValue = ranged.strength;
+    if (typeof strengthValue === 'number') {
+      return strengthValue;
+    } else if (strengthValue === 'user') {
+      return userStrength;
+    }
+    return userStrength;
+  }
+
+  return userStrength;
+}
+
+// Get weapon's additional armor save modifier
+export function getWeaponArmorModifier(weaponKey: string): number {
+  const rules = getWeaponRules(weaponKey);
+
+  // Cutting edge (axes) give extra -1
+  if (rules.includes('cuttingEdge')) return -1;
+
+  // Check for saveModifier rules
+  for (const rule of rules) {
+    if (rule.startsWith('saveModifier')) {
+      const match = rule.match(/saveModifier(-?\d+)/);
+      if (match) return parseInt(match[1]);
+    }
+  }
+
+  return 0;
+}
+
+// Get weapon's enemy armor bonus (daggers give +1 to enemy save)
+export function getWeaponEnemyArmorBonus(weaponKey: string): number {
+  if (weaponHasRule(weaponKey, 'enemyArmorSaveBonus')) {
+    return 1;
+  }
+  return 0;
+}
+
+// Check if weapon can parry
+export function canWeaponParry(weaponKey: string): boolean {
+  return weaponHasRule(weaponKey, 'parry');
+}
+
+// Check if weapon causes concussion
+export function weaponCausesConcussion(weaponKey: string): boolean {
+  return weaponHasRule(weaponKey, 'concussion');
+}
+
+// Check if weapon strikes last
+export function weaponStrikesLast(weaponKey: string): boolean {
+  return weaponHasRule(weaponKey, 'strikeLast');
+}
+
+// Check if weapon strikes first
+export function weaponStrikesFirst(weaponKey: string): boolean {
+  return weaponHasRule(weaponKey, 'strikeFirst');
+}
+
+// Get ranged weapon range
+export function getRangedWeaponRange(weaponKey: string): number {
+  const weapon = RANGED_WEAPONS[weaponKey as keyof typeof RANGED_WEAPONS];
+  return weapon?.range ?? 24;
+}
+
+// Check if weapon requires move-or-fire
+export function weaponMoveOrFire(weaponKey: string): boolean {
+  return weaponHasRule(weaponKey, 'moveOrFire');
+}
+
+// Get weapon accuracy bonus
+export function getWeaponAccuracyBonus(weaponKey: string): number {
+  const rules = getWeaponRules(weaponKey);
+  for (const rule of rules) {
+    if (rule.startsWith('accuracy')) {
+      const match = rule.match(/accuracy\+?(-?\d+)/);
+      if (match) return parseInt(match[1]);
+    }
+  }
+  return 0;
+}
+
+// Parry with re-roll option (for sword + buckler combo)
+export interface ExtendedParryResult {
+  success: boolean;
+  roll: number;
+  rerolled?: boolean;
+  rerollRoll?: number;
+  needed: number;
+}
+
+export function attemptParryWithReroll(opponentHighestRoll: number, canReroll: boolean): ExtendedParryResult {
+  // Cannot parry a natural 6
+  if (opponentHighestRoll === 6) {
+    return { success: false, roll: 0, needed: 7 };
+  }
+
+  const needed = opponentHighestRoll + 1;
+  const roll = rollD6();
+
+  if (roll > opponentHighestRoll) {
+    return { success: true, roll, needed };
+  }
+
+  // If can reroll (has sword AND buckler), try again
+  if (canReroll) {
+    const rerollRoll = rollD6();
+    return {
+      success: rerollRoll > opponentHighestRoll,
+      roll,
+      rerolled: true,
+      rerollRoll,
+      needed
+    };
+  }
+
+  return { success: false, roll, needed };
 }

@@ -1,7 +1,26 @@
 // Game State Management
 
 import { SCENARIOS } from '../data/scenarios';
-import { leadershipTest } from './gameRules';
+import { RANGED_WEAPONS } from '../data/equipment';
+import {
+  leadershipTest,
+  rollToHitShooting,
+  rollToHitMelee,
+  rollToWound,
+  rollArmorSave,
+  rollInjury,
+  rollCriticalHit,
+  rollD6,
+  calculateShootingModifiers,
+  calculateArmorSaveModifier,
+  getWeaponStrength,
+  getWeaponArmorModifier,
+  getWeaponEnemyArmorBonus,
+  canWeaponParry,
+  weaponCausesConcussion,
+  attemptParryWithReroll,
+  getWeaponAccuracyBonus
+} from './gameRules';
 import type {
   GameState,
   GameWarband,
@@ -12,7 +31,13 @@ import type {
   RecoveryActionType,
   Warband,
   Scenario,
-  WarriorCombatState
+  WarriorCombatState,
+  ShootingModifiers,
+  CombatResolution,
+  ShootingTarget,
+  StrikeOrderEntry,
+  MeleeTarget,
+  RoutTestResult
 } from '../types';
 
 // Create a new game state
@@ -1073,4 +1098,714 @@ export function findWarrior(gameState: GameState, warriorId: string): { warrior:
     }
   }
   return null;
+}
+
+// =====================================
+// SHOOTING PHASE FUNCTIONS
+// =====================================
+
+// Check if warrior can shoot
+export function canWarriorShoot(gameState: GameState, warrior: GameWarrior): boolean {
+  // Must be standing
+  if (warrior.gameStatus !== 'standing') return false;
+
+  // Cannot shoot if already shot
+  if (warrior.hasShot) return false;
+
+  // Cannot shoot if ran or charged
+  if (warrior.hasRun || warrior.hasCharged) return false;
+
+  // Cannot shoot if in combat
+  if (warrior.combatState.inCombat) return false;
+
+  // Must have ranged weapon
+  if (!warrior.equipment?.ranged || warrior.equipment.ranged.length === 0) return false;
+
+  return true;
+}
+
+// Get available shooting targets
+export function getShootingTargets(
+  gameState: GameState,
+  shooterId: string
+): ShootingTarget[] {
+  const shooterResult = findWarrior(gameState, shooterId);
+  if (!shooterResult) return [];
+
+  const { warrior: shooter, warbandIndex } = shooterResult;
+  const opponentIndex = warbandIndex === 0 ? 1 : 0;
+  const opponentWarband = gameState.warbands[opponentIndex];
+
+  // Get shooter's ranged weapon (use first ranged weapon)
+  const weaponKey = shooter.equipment?.ranged?.[0];
+  if (!weaponKey) return [];
+
+  const weapon = RANGED_WEAPONS[weaponKey as keyof typeof RANGED_WEAPONS];
+  const weaponRange = weapon?.range ?? 24;
+  const halfRange = weaponRange / 2;
+
+  const targets: ShootingTarget[] = [];
+
+  for (const target of opponentWarband.warriors) {
+    // Cannot shoot at out of action warriors
+    if (target.gameStatus === 'outOfAction') continue;
+
+    // Cannot shoot at hidden warriors (unless within detection range)
+    if (target.isHidden) continue;
+
+    // Cannot shoot into combat
+    if (target.combatState.inCombat) continue;
+
+    // Determine if in cover and long range (for now, use stored state - user toggles)
+    const inCover = target.combatState.inCover;
+
+    // Calculate to-hit needed
+    const ballisticSkill = shooter.profile.BS;
+    const modifiers: ShootingModifiers = {
+      cover: inCover,
+      longRange: false, // Will be toggled by user
+      moved: shooter.hasMoved,
+      largeTarget: false // Could be derived from target's special rules
+    };
+
+    // Get weapon accuracy bonus
+    const accuracyBonus = getWeaponAccuracyBonus(weaponKey);
+
+    // Calculate base to-hit
+    const modTotal = calculateShootingModifiers(modifiers);
+    const baseNeeded = ballisticSkill <= 1 ? 6 : (7 - ballisticSkill);
+    const toHitNeeded = Math.max(2, Math.min(6, baseNeeded + modTotal - accuracyBonus));
+
+    targets.push({
+      targetId: target.id,
+      targetName: target.name || target.type,
+      targetStatus: target.gameStatus,
+      inCover,
+      longRange: false,
+      toHitNeeded
+    });
+  }
+
+  return targets;
+}
+
+// Execute a shooting attack
+export function executeShot(
+  gameState: GameState,
+  shooterId: string,
+  targetId: string,
+  modifiers: ShootingModifiers
+): { action: GameAction; resolution: CombatResolution } {
+  const shooterResult = findWarrior(gameState, shooterId);
+  const targetResult = findWarrior(gameState, targetId);
+
+  if (!shooterResult || !targetResult) {
+    throw new Error('Shooter or target not found');
+  }
+
+  const { warrior: shooter, warbandIndex: shooterWarbandIndex } = shooterResult;
+  const { warrior: target, warbandIndex: targetWarbandIndex } = targetResult;
+
+  // Get weapon
+  const weaponKey = shooter.equipment?.ranged?.[0] || 'bow';
+  const weapon = RANGED_WEAPONS[weaponKey as keyof typeof RANGED_WEAPONS];
+  const weaponStrength = getWeaponStrength(weaponKey, shooter.profile.S);
+  const weaponName = weapon?.name || weaponKey;
+
+  // Build resolution
+  const resolution: CombatResolution = {
+    attackerId: shooterId,
+    attackerName: shooter.name || shooter.type,
+    defenderId: targetId,
+    defenderName: target.name || target.type,
+    weapon: weaponName,
+    weaponStrength,
+    toHitRoll: 0,
+    toHitNeeded: 0,
+    hit: false,
+    finalOutcome: 'miss'
+  };
+
+  // Store previous state
+  const previousState: Partial<GameWarrior> = {
+    hasShot: shooter.hasShot
+  };
+
+  // Roll to hit
+  const accuracyBonus = getWeaponAccuracyBonus(weaponKey);
+  const hitResult = rollToHitShooting(shooter.profile.BS, {
+    cover: modifiers.cover,
+    longRange: modifiers.longRange,
+    moved: modifiers.moved,
+    largeTarget: modifiers.largeTarget,
+    accuracy: accuracyBonus
+  });
+
+  resolution.toHitRoll = hitResult.roll;
+  resolution.toHitNeeded = hitResult.needed;
+  resolution.hit = hitResult.success;
+
+  // If miss, we're done
+  if (!hitResult.success) {
+    resolution.finalOutcome = 'miss';
+    shooter.hasShot = true;
+
+    const action = createShootingAction(gameState, shooterWarbandIndex, shooter, targetWarbandIndex, target, previousState, resolution);
+    return { action, resolution };
+  }
+
+  // Roll to wound
+  const woundResult = rollToWound(weaponStrength, target.profile.T);
+  resolution.toWoundRoll = woundResult.roll ?? undefined;
+  resolution.toWoundNeeded = woundResult.needed;
+  resolution.wounded = woundResult.success;
+  resolution.criticalHit = woundResult.criticalHit;
+
+  if (!woundResult.success) {
+    resolution.finalOutcome = 'noWound';
+    shooter.hasShot = true;
+
+    const action = createShootingAction(gameState, shooterWarbandIndex, shooter, targetWarbandIndex, target, previousState, resolution);
+    return { action, resolution };
+  }
+
+  // Handle critical hit
+  if (woundResult.criticalHit) {
+    const critResult = rollCriticalHit();
+    resolution.criticalType = critResult.type;
+    resolution.criticalDescription = critResult.description;
+
+    // Apply critical effects
+    if (critResult.ignoresArmor) {
+      resolution.noArmorSave = true;
+    }
+  }
+
+  // Roll armor save (if allowed)
+  if (!resolution.noArmorSave) {
+    const baseArmor = getWarriorArmorSave(target);
+    if (baseArmor <= 6) {
+      const strengthMod = calculateArmorSaveModifier(weaponStrength);
+      const weaponMod = getWeaponArmorModifier(weaponKey);
+      const enemyBonus = getWeaponEnemyArmorBonus(weaponKey);
+
+      const saveResult = rollArmorSave(baseArmor, {
+        strengthMod,
+        weaponMod,
+        enemyBonus
+      });
+
+      resolution.armorSaveRoll = saveResult.roll ?? undefined;
+      resolution.armorSaveNeeded = saveResult.needed;
+      resolution.armorSaved = saveResult.success;
+
+      if (saveResult.success) {
+        resolution.finalOutcome = 'saved';
+        shooter.hasShot = true;
+
+        const action = createShootingAction(gameState, shooterWarbandIndex, shooter, targetWarbandIndex, target, previousState, resolution);
+        return { action, resolution };
+      }
+    }
+  }
+
+  // Apply wound to target
+  const previousTargetState: Partial<GameWarrior> = {
+    woundsRemaining: target.woundsRemaining,
+    gameStatus: target.gameStatus
+  };
+
+  target.woundsRemaining -= 1;
+
+  // If still has wounds, no injury roll needed
+  if (target.woundsRemaining > 0) {
+    resolution.finalOutcome = 'knockedDown'; // Indicates wound taken
+    shooter.hasShot = true;
+
+    const action = createShootingAction(gameState, shooterWarbandIndex, shooter, targetWarbandIndex, target, previousState, resolution);
+    return { action, resolution };
+  }
+
+  // Roll for injury
+  const injuryMods: { concussion?: boolean; injuryBonus?: number } = {};
+  if (resolution.criticalType === 'masterStrike') {
+    injuryMods.injuryBonus = 2;
+  }
+
+  const injuryResult = rollInjury(injuryMods);
+  resolution.injuryRoll = injuryResult.roll;
+  resolution.injuryResult = injuryResult.result;
+  resolution.finalOutcome = injuryResult.result;
+
+  // Apply injury to target
+  applyInjuryResult(gameState, targetWarbandIndex, target, injuryResult.result);
+
+  shooter.hasShot = true;
+
+  const action = createShootingAction(gameState, shooterWarbandIndex, shooter, targetWarbandIndex, target, previousState, resolution);
+  return { action, resolution };
+}
+
+// Helper to create shooting action
+function createShootingAction(
+  gameState: GameState,
+  shooterWarbandIndex: number,
+  shooter: GameWarrior,
+  targetWarbandIndex: number,
+  target: GameWarrior,
+  previousState: Partial<GameWarrior>,
+  resolution: CombatResolution
+): GameAction {
+  const action: GameAction = {
+    id: generateActionId(),
+    type: 'shoot',
+    timestamp: new Date().toISOString(),
+    turn: gameState.turn,
+    phase: gameState.phase,
+    player: gameState.currentPlayer,
+    warriorId: shooter.id,
+    warbandIndex: shooterWarbandIndex,
+    targetId: target.id,
+    targetWarbandIndex,
+    previousState,
+    description: `${shooter.name || shooter.type} shoots ${target.name || target.type} - ${resolution.finalOutcome}`
+  };
+
+  gameState.actionHistory.push(action);
+  addLog(gameState, action.description);
+
+  return action;
+}
+
+// Get warrior's armor save value
+function getWarriorArmorSave(warrior: GameWarrior): number {
+  // Check armor equipment
+  const armor = warrior.equipment?.armor || [];
+
+  let baseSave = 7; // No armor = cannot save
+
+  if (armor.includes('gromrilArmor')) {
+    baseSave = 4;
+  } else if (armor.includes('heavyArmor')) {
+    baseSave = 5;
+  } else if (armor.includes('lightArmor')) {
+    baseSave = 6;
+  }
+
+  // Shield adds +1
+  if (armor.includes('shield')) {
+    baseSave -= 1;
+  }
+
+  return baseSave;
+}
+
+// =====================================
+// COMBAT PHASE FUNCTIONS
+// =====================================
+
+// Build strike order for combat phase
+export function buildStrikeOrder(gameState: GameState): StrikeOrderEntry[] {
+  const entries: StrikeOrderEntry[] = [];
+
+  // Collect all warriors in combat from both warbands
+  for (let warbandIndex = 0; warbandIndex < 2; warbandIndex++) {
+    const warband = gameState.warbands[warbandIndex];
+    for (const warrior of warband.warriors) {
+      // Only standing warriors in combat participate
+      if (warrior.combatState.inCombat && warrior.gameStatus === 'standing') {
+        entries.push({
+          warriorId: warrior.id,
+          warriorName: warrior.name || warrior.type,
+          warbandIndex,
+          initiative: warrior.profile.I,
+          charged: warrior.hasCharged,
+          stoodUp: warrior.strikesLast,
+          attacks: warrior.profile.A
+        });
+      }
+    }
+  }
+
+  // Sort by strike order rules
+  entries.sort((a, b) => {
+    // 1. Chargers strike first
+    if (a.charged && !b.charged) return -1;
+    if (!a.charged && b.charged) return 1;
+
+    // 2. Those who stood up strike last
+    if (a.stoodUp && !b.stoodUp) return 1;
+    if (!a.stoodUp && b.stoodUp) return -1;
+
+    // 3. Higher initiative goes first
+    if (a.initiative !== b.initiative) {
+      return b.initiative - a.initiative;
+    }
+
+    // 4. Equal initiative - roll off (we'll use random for now)
+    return Math.random() - 0.5;
+  });
+
+  return entries;
+}
+
+// Get melee targets for a warrior
+export function getMeleeTargets(gameState: GameState, attackerId: string): MeleeTarget[] {
+  const attackerResult = findWarrior(gameState, attackerId);
+  if (!attackerResult) return [];
+
+  const { warrior: attacker, warbandIndex: attackerWarbandIndex } = attackerResult;
+  const targets: MeleeTarget[] = [];
+
+  for (const targetId of attacker.combatState.engagedWith) {
+    const targetResult = findWarrior(gameState, targetId);
+    if (targetResult) {
+      const { warrior: target, warbandIndex } = targetResult;
+      targets.push({
+        targetId: target.id,
+        targetName: target.name || target.type,
+        targetStatus: target.gameStatus,
+        warbandIndex
+      });
+    }
+  }
+
+  return targets;
+}
+
+// Execute a single melee attack
+export function executeMeleeAttack(
+  gameState: GameState,
+  attackerId: string,
+  defenderId: string,
+  weaponKey: string = 'sword'
+): { action: GameAction; resolution: CombatResolution } {
+  const attackerResult = findWarrior(gameState, attackerId);
+  const defenderResult = findWarrior(gameState, defenderId);
+
+  if (!attackerResult || !defenderResult) {
+    throw new Error('Attacker or defender not found');
+  }
+
+  const { warrior: attacker, warbandIndex: attackerWarbandIndex } = attackerResult;
+  const { warrior: defender, warbandIndex: defenderWarbandIndex } = defenderResult;
+
+  // Check if first round of combat (for flail/morningstar)
+  const isFirstRound = attacker.hasCharged;
+
+  // Get weapon strength
+  const weaponStrength = getWeaponStrength(weaponKey, attacker.profile.S, isFirstRound);
+  const weaponName = weaponKey;
+
+  // Build resolution
+  const resolution: CombatResolution = {
+    attackerId,
+    attackerName: attacker.name || attacker.type,
+    defenderId,
+    defenderName: defender.name || defender.type,
+    weapon: weaponName,
+    weaponStrength,
+    toHitRoll: 0,
+    toHitNeeded: 0,
+    hit: false,
+    finalOutcome: 'miss'
+  };
+
+  // Store previous states
+  const previousState: Partial<GameWarrior> = {};
+  const previousDefenderState: Partial<GameWarrior> = {
+    woundsRemaining: defender.woundsRemaining,
+    gameStatus: defender.gameStatus
+  };
+
+  // Check if auto-hit (knocked down or stunned target)
+  if (defender.gameStatus === 'knockedDown' || defender.gameStatus === 'stunned') {
+    resolution.autoHit = true;
+    resolution.hit = true;
+    resolution.toHitRoll = 0;
+    resolution.toHitNeeded = 0;
+  } else {
+    // Roll to hit
+    const hitResult = rollToHitMelee(attacker.profile.WS, defender.profile.WS);
+    resolution.toHitRoll = hitResult.roll;
+    resolution.toHitNeeded = hitResult.needed;
+    resolution.hit = hitResult.success;
+
+    // Check for parry if hit
+    if (hitResult.success) {
+      const defenderWeapons = defender.equipment?.melee || [];
+      const hasParryWeapon = defenderWeapons.some(w => canWeaponParry(w));
+      const hasBuckler = (defender.equipment?.armor || []).includes('buckler');
+      const canParry = hasParryWeapon || hasBuckler;
+      const canReroll = hasParryWeapon && hasBuckler; // Sword + buckler = reroll
+
+      if (canParry) {
+        resolution.parryAttempted = true;
+        const parryResult = attemptParryWithReroll(hitResult.roll, canReroll);
+        resolution.parryRoll = parryResult.roll;
+        resolution.parrySuccess = parryResult.success;
+
+        if (parryResult.success) {
+          resolution.hit = false;
+          resolution.finalOutcome = 'parried';
+
+          const action = createMeleeAction(gameState, attackerWarbandIndex, attacker, defenderWarbandIndex, defender, previousState, resolution);
+          return { action, resolution };
+        }
+      }
+    }
+
+    if (!hitResult.success) {
+      resolution.finalOutcome = 'miss';
+
+      const action = createMeleeAction(gameState, attackerWarbandIndex, attacker, defenderWarbandIndex, defender, previousState, resolution);
+      return { action, resolution };
+    }
+  }
+
+  // Roll to wound
+  const woundResult = rollToWound(weaponStrength, defender.profile.T);
+  resolution.toWoundRoll = woundResult.roll ?? undefined;
+  resolution.toWoundNeeded = woundResult.needed;
+  resolution.wounded = woundResult.success;
+  resolution.criticalHit = woundResult.criticalHit;
+
+  if (!woundResult.success) {
+    resolution.finalOutcome = 'noWound';
+
+    const action = createMeleeAction(gameState, attackerWarbandIndex, attacker, defenderWarbandIndex, defender, previousState, resolution);
+    return { action, resolution };
+  }
+
+  // Handle critical hit
+  if (woundResult.criticalHit) {
+    const critResult = rollCriticalHit();
+    resolution.criticalType = critResult.type;
+    resolution.criticalDescription = critResult.description;
+
+    if (critResult.ignoresArmor) {
+      resolution.noArmorSave = true;
+    }
+  }
+
+  // Knocked down/stunned targets: wound + failed save = out of action immediately
+  if (resolution.autoHit && (defender.gameStatus === 'knockedDown' || defender.gameStatus === 'stunned')) {
+    // For stunned targets, any wound = out of action
+    if (defender.gameStatus === 'stunned') {
+      resolution.finalOutcome = 'outOfAction';
+      applyInjuryResult(gameState, defenderWarbandIndex, defender, 'outOfAction');
+
+      const action = createMeleeAction(gameState, attackerWarbandIndex, attacker, defenderWarbandIndex, defender, previousState, resolution);
+      return { action, resolution };
+    }
+
+    // For knocked down, roll armor save first
+    if (!resolution.noArmorSave) {
+      const baseArmor = getWarriorArmorSave(defender);
+      if (baseArmor <= 6) {
+        const strengthMod = calculateArmorSaveModifier(weaponStrength);
+        const weaponMod = getWeaponArmorModifier(weaponKey);
+        const enemyBonus = getWeaponEnemyArmorBonus(weaponKey);
+
+        const saveResult = rollArmorSave(baseArmor, {
+          strengthMod,
+          weaponMod,
+          enemyBonus
+        });
+
+        resolution.armorSaveRoll = saveResult.roll ?? undefined;
+        resolution.armorSaveNeeded = saveResult.needed;
+        resolution.armorSaved = saveResult.success;
+
+        if (saveResult.success) {
+          resolution.finalOutcome = 'saved';
+
+          const action = createMeleeAction(gameState, attackerWarbandIndex, attacker, defenderWarbandIndex, defender, previousState, resolution);
+          return { action, resolution };
+        }
+      }
+    }
+
+    // Knocked down + wound + failed save = out of action
+    resolution.finalOutcome = 'outOfAction';
+    applyInjuryResult(gameState, defenderWarbandIndex, defender, 'outOfAction');
+
+    const action = createMeleeAction(gameState, attackerWarbandIndex, attacker, defenderWarbandIndex, defender, previousState, resolution);
+    return { action, resolution };
+  }
+
+  // Standard armor save for standing targets
+  if (!resolution.noArmorSave) {
+    const baseArmor = getWarriorArmorSave(defender);
+    if (baseArmor <= 6) {
+      const strengthMod = calculateArmorSaveModifier(weaponStrength);
+      const weaponMod = getWeaponArmorModifier(weaponKey);
+      const enemyBonus = getWeaponEnemyArmorBonus(weaponKey);
+
+      const saveResult = rollArmorSave(baseArmor, {
+        strengthMod,
+        weaponMod,
+        enemyBonus
+      });
+
+      resolution.armorSaveRoll = saveResult.roll ?? undefined;
+      resolution.armorSaveNeeded = saveResult.needed;
+      resolution.armorSaved = saveResult.success;
+
+      if (saveResult.success) {
+        resolution.finalOutcome = 'saved';
+
+        const action = createMeleeAction(gameState, attackerWarbandIndex, attacker, defenderWarbandIndex, defender, previousState, resolution);
+        return { action, resolution };
+      }
+    }
+  }
+
+  // Apply wound
+  defender.woundsRemaining -= 1;
+
+  // If still has wounds, no injury roll
+  if (defender.woundsRemaining > 0) {
+    resolution.finalOutcome = 'knockedDown'; // Took a wound but still up
+
+    const action = createMeleeAction(gameState, attackerWarbandIndex, attacker, defenderWarbandIndex, defender, previousState, resolution);
+    return { action, resolution };
+  }
+
+  // Roll injury
+  const injuryMods: { concussion?: boolean; injuryBonus?: number } = {};
+  if (weaponCausesConcussion(weaponKey)) {
+    injuryMods.concussion = true;
+  }
+  if (resolution.criticalType === 'masterStrike') {
+    injuryMods.injuryBonus = 2;
+  }
+
+  const injuryResult = rollInjury(injuryMods);
+  resolution.injuryRoll = injuryResult.roll;
+  resolution.injuryResult = injuryResult.result;
+  resolution.finalOutcome = injuryResult.result;
+
+  // Apply injury
+  applyInjuryResult(gameState, defenderWarbandIndex, defender, injuryResult.result);
+
+  const action = createMeleeAction(gameState, attackerWarbandIndex, attacker, defenderWarbandIndex, defender, previousState, resolution);
+  return { action, resolution };
+}
+
+// Helper to create melee action
+function createMeleeAction(
+  gameState: GameState,
+  attackerWarbandIndex: number,
+  attacker: GameWarrior,
+  defenderWarbandIndex: number,
+  defender: GameWarrior,
+  previousState: Partial<GameWarrior>,
+  resolution: CombatResolution
+): GameAction {
+  const action: GameAction = {
+    id: generateActionId(),
+    type: 'meleeAttack',
+    timestamp: new Date().toISOString(),
+    turn: gameState.turn,
+    phase: gameState.phase,
+    player: gameState.currentPlayer,
+    warriorId: attacker.id,
+    warbandIndex: attackerWarbandIndex,
+    targetId: defender.id,
+    targetWarbandIndex: defenderWarbandIndex,
+    previousState,
+    description: `${attacker.name || attacker.type} attacks ${defender.name || defender.type} - ${resolution.finalOutcome}`
+  };
+
+  gameState.actionHistory.push(action);
+  addLog(gameState, action.description);
+
+  return action;
+}
+
+// Apply injury result to target
+function applyInjuryResult(
+  gameState: GameState,
+  warbandIndex: number,
+  target: GameWarrior,
+  injury: 'knockedDown' | 'stunned' | 'outOfAction'
+): void {
+  target.gameStatus = injury;
+
+  if (injury === 'outOfAction') {
+    gameState.warbands[warbandIndex].outOfActionCount++;
+    // Disengage from combat
+    disengageWarriorInternal(gameState, warbandIndex, target.id);
+  }
+}
+
+// Internal disengage (doesn't create action)
+function disengageWarriorInternal(
+  gameState: GameState,
+  warbandIndex: number,
+  warriorId: string
+): void {
+  const warband = gameState.warbands[warbandIndex];
+  const warrior = warband.warriors.find(w => w.id === warriorId);
+
+  if (!warrior) return;
+
+  // Remove from all engaged enemies
+  for (const enemyId of warrior.combatState.engagedWith) {
+    for (const enemyWarband of gameState.warbands) {
+      const enemy = enemyWarband.warriors.find(w => w.id === enemyId);
+      if (enemy) {
+        enemy.combatState.engagedWith = enemy.combatState.engagedWith.filter(id => id !== warriorId);
+        if (enemy.combatState.engagedWith.length === 0) {
+          enemy.combatState.inCombat = false;
+        }
+      }
+    }
+  }
+
+  // Clear warrior's combat state
+  warrior.combatState.inCombat = false;
+  warrior.combatState.engagedWith = [];
+}
+
+// =====================================
+// ROUT TEST FUNCTIONS
+// =====================================
+
+// Execute rout test for a warband
+export function executeRoutTest(
+  gameState: GameState,
+  warbandIndex: number
+): RoutTestResult {
+  const warband = gameState.warbands[warbandIndex];
+
+  // Find leader for Leadership value
+  const leader = warband.warriors.find(w =>
+    w.type.toLowerCase().includes('captain') ||
+    w.type.toLowerCase().includes('leader') ||
+    w.type.toLowerCase().includes('chieftain') ||
+    w.type.toLowerCase().includes('magister')
+  ) || warband.warriors[0];
+
+  const leadershipValue = leader?.profile.Ld ?? 7;
+
+  const testResult = leadershipTest(leadershipValue);
+
+  const result: RoutTestResult = {
+    roll: testResult.roll,
+    needed: leadershipValue,
+    passed: testResult.success,
+    warbandIndex
+  };
+
+  if (!testResult.success) {
+    // Warband routs
+    warband.routFailed = true;
+    addLog(gameState, `${warband.name} fails rout test (rolled ${testResult.roll} vs Ld ${leadershipValue}) and flees!`);
+  } else {
+    addLog(gameState, `${warband.name} passes rout test (rolled ${testResult.roll} vs Ld ${leadershipValue})`);
+  }
+
+  return result;
 }

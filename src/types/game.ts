@@ -167,3 +167,121 @@ export type ScenarioTable = Record<number, string>;
 
 // Pre-battle sequence step
 export type PreBattleSequence = string[];
+
+// =====================================
+// COMBAT RESOLUTION TYPES
+// =====================================
+
+// Shooting modifiers for ranged attacks
+export interface ShootingModifiers {
+  cover: boolean;
+  longRange: boolean;
+  moved: boolean;
+  largeTarget: boolean;
+}
+
+// Combat resolution - tracks all rolls in an attack sequence
+export interface CombatResolution {
+  attackerId: string;
+  attackerName: string;
+  defenderId: string;
+  defenderName: string;
+  weapon: string;
+  weaponStrength: number;
+
+  // To Hit
+  toHitRoll: number;
+  toHitNeeded: number;
+  hit: boolean;
+  autoHit?: boolean; // For knocked down targets in melee
+
+  // Parry (melee only)
+  parryAttempted?: boolean;
+  parryRoll?: number;
+  parrySuccess?: boolean;
+
+  // To Wound
+  toWoundRoll?: number;
+  toWoundNeeded?: number;
+  wounded?: boolean;
+
+  // Critical Hit
+  criticalHit?: boolean;
+  criticalType?: 'vitalPart' | 'exposedSpot' | 'masterStrike';
+  criticalDescription?: string;
+
+  // Armor Save
+  armorSaveRoll?: number;
+  armorSaveNeeded?: number;
+  armorSaved?: boolean;
+  noArmorSave?: boolean; // When save is impossible or ignored by critical
+
+  // Injury
+  injuryRoll?: number;
+  injuryResult?: 'knockedDown' | 'stunned' | 'outOfAction';
+
+  // Final outcome
+  finalOutcome: 'miss' | 'parried' | 'noWound' | 'saved' | 'knockedDown' | 'stunned' | 'outOfAction';
+}
+
+// Shooting action with all context
+export interface ShootingAction {
+  shooterId: string;
+  targetId: string;
+  weapon: string;
+  modifiers: ShootingModifiers;
+  resolution: CombatResolution;
+}
+
+// Melee fighter entry for strike order
+export interface StrikeOrderEntry {
+  warriorId: string;
+  warriorName: string;
+  warbandIndex: number;
+  initiative: number;
+  charged: boolean;
+  stoodUp: boolean;
+  attacks: number;
+}
+
+// Melee round tracking
+export interface MeleeRound {
+  strikeOrder: StrikeOrderEntry[];
+  currentFighterIndex: number;
+  attacks: CombatResolution[][];  // Array of attack arrays per fighter
+  completed: boolean;
+}
+
+// Shooting target info
+export interface ShootingTarget {
+  targetId: string;
+  targetName: string;
+  targetStatus: WarriorGameStatus;
+  inCover: boolean;
+  longRange: boolean;
+  toHitNeeded: number;
+}
+
+// Melee target info
+export interface MeleeTarget {
+  targetId: string;
+  targetName: string;
+  targetStatus: WarriorGameStatus;
+  warbandIndex: number;
+}
+
+// Weapon profile for combat
+export interface WeaponProfile {
+  name: string;
+  strength: number | 'user' | 'user+1' | 'user+2' | 'user-1';
+  rules: string[];
+  range?: number; // For ranged weapons
+}
+
+// Rout test result
+export interface RoutTestResult {
+  roll: number;
+  needed: number;
+  passed: boolean;
+  warbandIndex: number;
+}
