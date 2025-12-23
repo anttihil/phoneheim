@@ -8,6 +8,13 @@ export type GamePhase = 'setup' | 'recovery' | 'movement' | 'shooting' | 'combat
 // Warrior status during game
 export type WarriorGameStatus = 'standing' | 'knockedDown' | 'stunned' | 'outOfAction' | 'fleeing';
 
+// Combat state for warriors
+export interface WarriorCombatState {
+  inCombat: boolean;
+  inCover: boolean;
+  engagedWith: string[]; // Array of enemy warrior IDs
+}
+
 // Warrior with game-specific state
 export interface GameWarrior extends Warrior {
   gameStatus: WarriorGameStatus;
@@ -16,9 +23,13 @@ export interface GameWarrior extends Warrior {
   hasMoved: boolean;
   hasShot: boolean;
   hasCharged: boolean;
+  hasRecovered: boolean; // Whether warrior has been processed in recovery phase
   isHidden: boolean;
   carriedWyrdstone: number;
   position: { x: number; y: number } | null;
+  combatState: WarriorCombatState;
+  halfMovement: boolean; // From standing up
+  strikesLast: boolean; // From standing up
 }
 
 // Warband with game-specific state
@@ -44,6 +55,26 @@ export interface WyrdstoneCounter {
   y: number;
 }
 
+// Recovery action types
+export type RecoveryActionType = 'rally' | 'recoverFromStunned' | 'standUp';
+
+// Game action for undo history
+export interface GameAction {
+  id: string;
+  type: RecoveryActionType | 'move' | 'shoot' | 'charge' | 'meleeAttack' | 'setCombatState' | 'setStatus';
+  timestamp: string;
+  turn: number;
+  phase: GamePhase;
+  player: 1 | 2;
+  warriorId: string;
+  warbandIndex: number;
+  targetId?: string;
+  targetWarbandIndex?: number;
+  previousState: Partial<GameWarrior>;
+  diceRolls?: { roll: number; needed?: number; success?: boolean }[];
+  description: string;
+}
+
 // Complete game state
 export interface GameState {
   id: string;
@@ -56,6 +87,7 @@ export interface GameState {
   wyrdstoneCounters: WyrdstoneCounter[];
   objectives: string[];
   log: GameLogEntry[];
+  actionHistory: GameAction[];
   startedAt: string;
   ended: boolean;
   winner: 1 | 2 | null;

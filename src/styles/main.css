@@ -413,3 +413,320 @@ th {
     font-size: 0.75rem;
   }
 }
+
+/* ================================
+   GAME PLAY STYLES
+   ================================ */
+
+/* Warrior Game Status */
+.warrior-game-status {
+  background-color: var(--surface-color);
+  border: 2px solid var(--border-color);
+  border-radius: 4px;
+  padding: 0.75rem;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.warrior-game-status:hover {
+  border-color: var(--secondary-color);
+}
+
+.warrior-game-status.selected {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px var(--secondary-color);
+  background-color: rgba(139, 69, 19, 0.2);
+}
+
+.warrior-game-status.can-act {
+  border-left: 4px solid var(--success-color);
+}
+
+.warrior-game-status.opponent {
+  cursor: default;
+  opacity: 0.9;
+}
+
+/* Wounds Display */
+.wounds-display {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+}
+
+/* Combat State Display */
+.combat-state-display {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  margin-top: 0.25rem;
+}
+
+.combat-badge {
+  display: inline-block;
+  padding: 0.15rem 0.4rem;
+  border-radius: 3px;
+  font-size: 0.7rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.combat-badge.in-combat {
+  background-color: var(--danger-color);
+  color: white;
+}
+
+.combat-badge.in-cover {
+  background-color: #2196f3;
+  color: white;
+}
+
+.combat-badge.half-move {
+  background-color: var(--warning-color);
+  color: black;
+}
+
+.combat-badge.strikes-last {
+  background-color: #9c27b0;
+  color: white;
+}
+
+/* Action Status */
+.action-status {
+  display: flex;
+  gap: 0.25rem;
+  margin-top: 0.25rem;
+}
+
+.acted-badge {
+  display: inline-block;
+  padding: 0.1rem 0.3rem;
+  border-radius: 3px;
+  font-size: 0.65rem;
+  background-color: var(--border-color);
+  color: var(--text-muted);
+}
+
+/* Status Badge */
+.status-badge {
+  display: inline-block;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+/* Recovery Phase */
+.recovery-actions {
+  border-left: 4px solid var(--warning-color);
+}
+
+.recovery-section {
+  margin-bottom: 1rem;
+}
+
+.recovery-section h4 {
+  color: var(--secondary-color);
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.recovery-warrior {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem;
+  background-color: var(--background-color);
+  border-radius: 4px;
+  margin-bottom: 0.25rem;
+}
+
+.recovery-info {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.recovery-complete {
+  color: var(--success-color);
+  font-weight: bold;
+  text-align: center;
+  padding: 0.5rem;
+}
+
+.rally-result {
+  padding: 0.5rem;
+  border-radius: 4px;
+  text-align: center;
+  margin-top: 0.5rem;
+  font-weight: bold;
+}
+
+.rally-result.success {
+  background-color: rgba(76, 175, 80, 0.2);
+  color: var(--success-color);
+}
+
+.rally-result.failure {
+  background-color: rgba(244, 67, 54, 0.2);
+  color: var(--danger-color);
+}
+
+/* Action Panel */
+.action-panel {
+  border-left: 4px solid var(--success-color);
+}
+
+.action-option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.target-hint {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  font-style: italic;
+}
+
+/* Game Controls */
+.game-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 1rem 0;
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 1rem;
+}
+
+/* Game Log */
+.game-log {
+  max-height: 200px;
+  overflow-y: auto;
+  font-size: 0.85rem;
+}
+
+.log-entry {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.25rem 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.log-entry:last-child {
+  border-bottom: none;
+}
+
+.log-time {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  min-width: 80px;
+}
+
+.log-message {
+  flex: 1;
+}
+
+/* Modal Overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.undo-modal {
+  max-width: 400px;
+  width: 100%;
+}
+
+.undo-action-desc {
+  color: var(--text-muted);
+  font-style: italic;
+  margin: 0.5rem 0;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+/* Game Area Layout */
+.game-area {
+  display: grid;
+  gap: 1rem;
+}
+
+/* Warriors in Game */
+.warriors-in-game {
+  display: grid;
+  gap: 0.5rem;
+}
+
+/* Recruit buttons */
+.recruit-btn {
+  background-color: var(--surface-color);
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.recruit-btn:hover:not(:disabled) {
+  background-color: var(--primary-color);
+  border-color: var(--secondary-color);
+}
+
+.recruit-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.recruit-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Small button variant */
+.btn-small {
+  padding: 0.4rem 0.8rem;
+  font-size: 0.85rem;
+}
+
+/* Validation messages */
+.error {
+  color: var(--danger-color);
+  font-size: 0.9rem;
+}
+
+.success {
+  color: var(--success-color);
+  font-size: 0.9rem;
+}
+
+/* Step Actions */
+.step-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color);
+}
