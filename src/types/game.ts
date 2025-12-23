@@ -21,6 +21,7 @@ export interface GameWarrior extends Warrior {
   woundsRemaining: number;
   hasActed: boolean;
   hasMoved: boolean;
+  hasRun: boolean; // Ran this turn (prevents shooting)
   hasShot: boolean;
   hasCharged: boolean;
   hasRecovered: boolean; // Whether warrior has been processed in recovery phase
@@ -61,7 +62,7 @@ export type RecoveryActionType = 'rally' | 'recoverFromStunned' | 'standUp';
 // Game action for undo history
 export interface GameAction {
   id: string;
-  type: RecoveryActionType | 'move' | 'shoot' | 'charge' | 'meleeAttack' | 'setCombatState' | 'setStatus';
+  type: RecoveryActionType | 'move' | 'run' | 'shoot' | 'charge' | 'meleeAttack' | 'setCombatState' | 'setStatus';
   timestamp: string;
   turn: number;
   phase: GamePhase;

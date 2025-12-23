@@ -51,6 +51,7 @@ function initWarbandForGame(warband: Warband, playerNumber: 1 | 2): GameWarband 
       woundsRemaining: w.profile.W,
       hasActed: false,
       hasMoved: false,
+      hasRun: false,
       hasShot: false,
       hasCharged: false,
       hasRecovered: false,
@@ -87,11 +88,24 @@ export function advancePhase(gameState: GameState): void {
   const phases: GamePhase[] = ['recovery', 'movement', 'shooting', 'combat'];
   const currentIndex = phases.indexOf(gameState.phase as GamePhase);
 
-  // From setup, go to recovery phase with player 1
+  // Setup phase: both players need to position their warriors
   if (gameState.phase === 'setup') {
-    gameState.phase = 'recovery';
-    gameState.currentPlayer = 1;
-    addLog(gameState, `Turn ${gameState.turn}, Recovery Phase - Player ${gameState.currentPlayer}`);
+    if (gameState.currentPlayer === 1) {
+      // Player 1 setup done, now Player 2
+      gameState.currentPlayer = 2;
+      // Reset hasActed flags for Player 2's warriors
+      for (const warrior of gameState.warbands[1].warriors) {
+        warrior.hasActed = false;
+      }
+      addLog(gameState, 'Setup Phase - Player 2');
+    } else {
+      // Both players done with setup, advance to recovery
+      gameState.phase = 'recovery';
+      gameState.currentPlayer = 1;
+      // Reset all warrior flags for the actual game
+      resetWarriorFlags(gameState);
+      addLog(gameState, `Turn ${gameState.turn}, Recovery Phase - Player ${gameState.currentPlayer}`);
+    }
     return;
   }
 
@@ -138,6 +152,7 @@ function resetWarriorFlags(gameState: GameState): void {
     for (const warrior of warband.warriors) {
       warrior.hasActed = false;
       warrior.hasMoved = false;
+      warrior.hasRun = false;
       warrior.hasShot = false;
       warrior.hasCharged = false;
       warrior.hasRecovered = false;
@@ -597,6 +612,10 @@ export function canWarriorAct(warrior: GameWarrior, phase: GamePhase): boolean {
   }
 
   switch (phase) {
+    case 'setup':
+      // Can position if standing and hasn't been positioned (marked as acted)
+      return warrior.gameStatus === 'standing' && !warrior.hasActed;
+
     case 'recovery':
       // Can act if fleeing, stunned, or knocked down and hasn't recovered
       return (
@@ -611,11 +630,12 @@ export function canWarriorAct(warrior: GameWarrior, phase: GamePhase): boolean {
       return warrior.gameStatus === 'standing' && !warrior.hasMoved;
 
     case 'shooting':
-      // Can shoot if standing, hasn't shot, didn't charge, has ranged weapon
+      // Can shoot if standing, hasn't shot, didn't charge, didn't run, has ranged weapon
       return (
         warrior.gameStatus === 'standing' &&
         !warrior.hasShot &&
         !warrior.hasCharged &&
+        !warrior.hasRun &&
         hasRangedWeapon(warrior)
       );
 
@@ -648,6 +668,10 @@ export function getAvailableActions(
   }
 
   switch (phase) {
+    case 'setup':
+      actions.push({ type: 'position', description: 'Mark Positioned', requiresTarget: false });
+      break;
+
     case 'recovery':
       if (warrior.gameStatus === 'fleeing') {
         actions.push({ type: 'rally', description: 'Rally (Leadership test)', requiresTarget: false });
@@ -767,6 +791,220 @@ export function markWarriorActed(
       warrior.hasActed = true;
       break;
   }
+}
+
+// =====================================
+// MOVEMENT PHASE ACTIONS
+// =====================================
+
+// Move warrior (normal movement)
+export function moveWarrior(
+  gameState: GameState,
+  warbandIndex: number,
+  warriorId: string
+): GameAction {
+  const warband = gameState.warbands[warbandIndex];
+  const warrior = warband.warriors.find(w => w.id === warriorId);
+
+  if (!warrior) {
+    throw new Error('Warrior not found');
+  }
+
+  if (warrior.gameStatus !== 'standing') {
+    throw new Error('Warrior must be standing to move');
+  }
+
+  if (warrior.hasMoved) {
+    throw new Error('Warrior has already moved this turn');
+  }
+
+  // Store previous state for undo
+  const previousState: Partial<GameWarrior> = {
+    hasMoved: warrior.hasMoved
+  };
+
+  // Create action record
+  const action: GameAction = {
+    id: generateActionId(),
+    type: 'move',
+    timestamp: new Date().toISOString(),
+    turn: gameState.turn,
+    phase: gameState.phase,
+    player: gameState.currentPlayer,
+    warriorId,
+    warbandIndex,
+    previousState,
+    description: `${warrior.name || warrior.type} moves`
+  };
+
+  // Apply state change
+  warrior.hasMoved = true;
+
+  // Record action
+  gameState.actionHistory.push(action);
+  addLog(gameState, action.description);
+
+  return action;
+}
+
+// Run warrior (double movement, no shooting)
+export function runWarrior(
+  gameState: GameState,
+  warbandIndex: number,
+  warriorId: string
+): GameAction {
+  const warband = gameState.warbands[warbandIndex];
+  const warrior = warband.warriors.find(w => w.id === warriorId);
+
+  if (!warrior) {
+    throw new Error('Warrior not found');
+  }
+
+  if (warrior.gameStatus !== 'standing') {
+    throw new Error('Warrior must be standing to run');
+  }
+
+  if (warrior.hasMoved) {
+    throw new Error('Warrior has already moved this turn');
+  }
+
+  // Store previous state for undo
+  const previousState: Partial<GameWarrior> = {
+    hasMoved: warrior.hasMoved,
+    hasRun: warrior.hasRun
+  };
+
+  // Create action record
+  const action: GameAction = {
+    id: generateActionId(),
+    type: 'run',
+    timestamp: new Date().toISOString(),
+    turn: gameState.turn,
+    phase: gameState.phase,
+    player: gameState.currentPlayer,
+    warriorId,
+    warbandIndex,
+    previousState,
+    description: `${warrior.name || warrior.type} runs (double movement, no shooting)`
+  };
+
+  // Apply state change
+  warrior.hasMoved = true;
+  warrior.hasRun = true;
+
+  // Record action
+  gameState.actionHistory.push(action);
+  addLog(gameState, action.description);
+
+  return action;
+}
+
+// Charge warrior (double movement into combat)
+export function chargeWarrior(
+  gameState: GameState,
+  warbandIndex: number,
+  warriorId: string,
+  targetWarbandIndex: number,
+  targetId: string
+): GameAction {
+  const warband = gameState.warbands[warbandIndex];
+  const targetWarband = gameState.warbands[targetWarbandIndex];
+  const warrior = warband.warriors.find(w => w.id === warriorId);
+  const target = targetWarband.warriors.find(w => w.id === targetId);
+
+  if (!warrior) {
+    throw new Error('Warrior not found');
+  }
+
+  if (!target) {
+    throw new Error('Target not found');
+  }
+
+  if (warrior.gameStatus !== 'standing') {
+    throw new Error('Warrior must be standing to charge');
+  }
+
+  if (warrior.hasMoved) {
+    throw new Error('Warrior has already moved this turn');
+  }
+
+  // Store previous state for undo
+  const previousState: Partial<GameWarrior> = {
+    hasMoved: warrior.hasMoved,
+    hasCharged: warrior.hasCharged,
+    combatState: { ...warrior.combatState }
+  };
+
+  // Create action record
+  const action: GameAction = {
+    id: generateActionId(),
+    type: 'charge',
+    timestamp: new Date().toISOString(),
+    turn: gameState.turn,
+    phase: gameState.phase,
+    player: gameState.currentPlayer,
+    warriorId,
+    warbandIndex,
+    targetId,
+    targetWarbandIndex,
+    previousState,
+    description: `${warrior.name || warrior.type} charges ${target.name || target.type}`
+  };
+
+  // Apply state change
+  warrior.hasMoved = true;
+  warrior.hasCharged = true;
+
+  // Engage warriors in combat
+  engageWarriors(gameState, warbandIndex, warriorId, targetWarbandIndex, targetId);
+
+  // Record action
+  gameState.actionHistory.push(action);
+  addLog(gameState, action.description);
+
+  return action;
+}
+
+// Mark warrior as positioned (setup phase)
+export function markWarriorPositioned(
+  gameState: GameState,
+  warbandIndex: number,
+  warriorId: string
+): GameAction {
+  const warband = gameState.warbands[warbandIndex];
+  const warrior = warband.warriors.find(w => w.id === warriorId);
+
+  if (!warrior) {
+    throw new Error('Warrior not found');
+  }
+
+  // Store previous state for undo
+  const previousState: Partial<GameWarrior> = {
+    hasActed: warrior.hasActed
+  };
+
+  // Create action record
+  const action: GameAction = {
+    id: generateActionId(),
+    type: 'setStatus',
+    timestamp: new Date().toISOString(),
+    turn: gameState.turn,
+    phase: gameState.phase,
+    player: gameState.currentPlayer,
+    warriorId,
+    warbandIndex,
+    previousState,
+    description: `${warrior.name || warrior.type} positioned`
+  };
+
+  // Apply state change - mark as acted to track positioning
+  warrior.hasActed = true;
+
+  // Record action
+  gameState.actionHistory.push(action);
+  addLog(gameState, action.description);
+
+  return action;
 }
 
 // =====================================

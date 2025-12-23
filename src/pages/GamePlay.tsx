@@ -12,12 +12,14 @@ export default function GamePlay() {
   const navigate = useNavigate();
   const [showDice, setShowDice] = createSignal(false);
   const [lastRallyResult, setLastRallyResult] = createSignal<{ success: boolean; roll: number; needed: number } | null>(null);
+  const [showAllWarriors, setShowAllWarriors] = createSignal(false);
 
   const game = () => gameState.activeGame;
   const currentWarband = () => gameStore.getCurrentPlayerWarband();
   const opponentWarband = () => gameStore.getOpponentWarband();
   const selectedWarriorId = () => gameState.selectedWarrior;
   const pendingUndo = () => gameState.pendingUndo;
+  const pendingAction = () => gameState.pendingAction;
 
   // Get selected warrior object
   const selectedWarrior = createMemo(() => {
@@ -47,6 +49,20 @@ export default function GamePlay() {
   // Check if warrior can act in current phase
   const canWarriorAct = (warrior: GameWarrior) => {
     return gameStore.checkWarriorCanAct(warrior);
+  };
+
+  // Filter warriors to show only those who can act (unless toggle is on)
+  const displayedWarriors = createMemo(() => {
+    const warriors = currentWarband()?.warriors ?? [];
+    if (showAllWarriors()) return warriors;
+    return warriors.filter(w => canWarriorAct(w) || w.gameStatus === 'outOfAction');
+  });
+
+  // Check if a target is valid for the pending action
+  const isValidTarget = (warriorId: string) => {
+    const action = pendingAction();
+    if (!action || !action.validTargets) return false;
+    return action.validTargets.includes(warriorId);
   };
 
   const handleSelectWarrior = (warriorId: string) => {
@@ -105,6 +121,53 @@ export default function GamePlay() {
     gameStore.setWarriorCover(warbandIndex, warriorId, !currentInCover);
   };
 
+  // Execute an action based on its type
+  const handleAction = (action: AvailableAction) => {
+    const warriorId = selectedWarriorId();
+    if (!warriorId) return;
+
+    if (action.requiresTarget) {
+      // Enter target selection mode
+      gameStore.setPendingAction(action);
+    } else {
+      // Execute immediately
+      switch (action.type) {
+        case 'move':
+          gameStore.moveWarrior(warriorId);
+          break;
+        case 'run':
+          gameStore.runWarrior(warriorId);
+          break;
+        case 'position':
+          gameStore.positionWarrior(warriorId);
+          break;
+        case 'rally':
+          handleRally(warriorId);
+          break;
+        case 'recoverFromStunned':
+          handleRecoverFromStunned(warriorId);
+          break;
+        case 'standUp':
+          handleStandUp(warriorId);
+          break;
+      }
+    }
+  };
+
+  // Handle clicking on an opponent warrior (for target selection)
+  const handleSelectTarget = (targetId: string) => {
+    const action = pendingAction();
+    if (!action) return;
+
+    // Execute the pending action with the target
+    gameStore.executePendingAction(targetId);
+  };
+
+  // Cancel target selection
+  const handleCancelTargetSelection = () => {
+    gameStore.clearPendingAction();
+  };
+
   return (
     <div class="page game-play">
       <Show when={!game()}>
@@ -120,6 +183,27 @@ export default function GamePlay() {
           turn={game()!.turn}
           currentPlayer={game()!.currentPlayer}
         />
+
+        {/* Setup Phase Actions */}
+        <Show when={game()!.phase === 'setup'}>
+          <Card title="Setup Phase" class="setup-actions">
+            <p>Position your warriors on the battlefield.</p>
+            <p>Click each warrior and mark them as positioned when ready.</p>
+            <p class="setup-hint">Player {game()!.currentPlayer}'s turn to position warriors.</p>
+          </Card>
+        </Show>
+
+        {/* Target Selection Banner */}
+        <Show when={pendingAction()}>
+          <Card class="target-selection-banner">
+            <div class="target-selection-info">
+              <span>Select a target for: <strong>{pendingAction()!.description}</strong></span>
+              <Button size="small" variant="secondary" onClick={handleCancelTargetSelection}>
+                Cancel
+              </Button>
+            </div>
+          </Card>
+        </Show>
 
         {/* Recovery Phase Actions */}
         <Show when={game()!.phase === 'recovery'}>
@@ -193,8 +277,17 @@ export default function GamePlay() {
 
         <div class="game-area">
           <Card title={`Your Warband: ${currentWarband()?.name}`}>
+            <div class="warband-header">
+              <Button
+                size="small"
+                variant="secondary"
+                onClick={() => setShowAllWarriors(!showAllWarriors())}
+              >
+                {showAllWarriors() ? 'Show Actionable Only' : 'Show All Warriors'}
+              </Button>
+            </div>
             <div class="warriors-in-game">
-              <For each={currentWarband()?.warriors}>
+              <For each={displayedWarriors()}>
                 {(warrior) => (
                   <div
                     class={`warrior-game-status ${selectedWarriorId() === warrior.id ? 'selected' : ''} ${canWarriorAct(warrior) ? 'can-act' : ''}`}
@@ -222,6 +315,7 @@ export default function GamePlay() {
                     <Show when={warrior.hasActed || warrior.hasMoved || warrior.hasShot}>
                       <div class="action-status">
                         <Show when={warrior.hasMoved}><span class="acted-badge">Moved</span></Show>
+                        <Show when={warrior.hasRun}><span class="acted-badge">Ran</span></Show>
                         <Show when={warrior.hasShot}><span class="acted-badge">Shot</span></Show>
                         <Show when={warrior.hasCharged}><span class="acted-badge">Charged</span></Show>
                       </div>
@@ -233,58 +327,76 @@ export default function GamePlay() {
           </Card>
 
           {/* Action Panel for Selected Warrior */}
-          <Show when={selectedWarrior() && availableActions().length > 0}>
+          <Show when={selectedWarrior() && availableActions().length > 0 && !pendingAction()}>
             <Card title={`Actions: ${selectedWarrior()!.name || selectedWarrior()!.type}`} class="action-panel">
               <For each={availableActions()}>
                 {(action) => (
                   <div class="action-option">
-                    <Button size="small" disabled={action.requiresTarget}>
+                    <Button
+                      size="small"
+                      onClick={() => handleAction(action)}
+                    >
                       {action.description}
                     </Button>
                     <Show when={action.requiresTarget}>
-                      <span class="target-hint">(Select target)</span>
+                      <span class="target-hint">(Select target after clicking)</span>
                     </Show>
                   </div>
                 )}
               </For>
 
-              {/* Cover toggle */}
-              <div class="action-option">
-                <Button
-                  size="small"
-                  variant="secondary"
-                  onClick={() => {
-                    const warrior = selectedWarrior()!;
-                    const result = gameStore.getWarriorById(warrior.id);
-                    if (result) {
-                      handleToggleCover(warrior.id, result.warbandIndex, warrior.combatState.inCover);
-                    }
-                  }}
-                >
-                  {selectedWarrior()!.combatState.inCover ? 'Leave Cover' : 'Take Cover'}
-                </Button>
-              </div>
+              {/* Cover toggle - only show in movement phase */}
+              <Show when={game()!.phase === 'movement'}>
+                <div class="action-option">
+                  <Button
+                    size="small"
+                    variant="secondary"
+                    onClick={() => {
+                      const warrior = selectedWarrior()!;
+                      const result = gameStore.getWarriorById(warrior.id);
+                      if (result) {
+                        handleToggleCover(warrior.id, result.warbandIndex, warrior.combatState.inCover);
+                      }
+                    }}
+                  >
+                    {selectedWarrior()!.combatState.inCover ? 'Leave Cover' : 'Take Cover'}
+                  </Button>
+                </div>
+              </Show>
             </Card>
           </Show>
 
-          <Card title={`Opponent: ${opponentWarband()?.name}`}>
-            <div class="warriors-in-game">
-              <For each={opponentWarband()?.warriors}>
-                {(warrior) => (
-                  <div class="warrior-game-status opponent">
-                    <WarriorCard warrior={warrior} compact />
-                    <StatusBadge status={warrior.gameStatus} />
-                    <Show when={warrior.combatState.inCombat}>
-                      <span class="combat-badge in-combat">In Combat</span>
-                    </Show>
-                    <Show when={warrior.combatState.inCover}>
-                      <span class="combat-badge in-cover">In Cover</span>
-                    </Show>
-                  </div>
-                )}
-              </For>
-            </div>
-          </Card>
+          {/* Show opponent warband when in target selection mode or when showAllWarriors is enabled */}
+          <Show when={pendingAction() || showAllWarriors()}>
+            <Card title={`Opponent: ${opponentWarband()?.name}`} class={pendingAction() ? 'target-selection-active' : ''}>
+              <Show when={pendingAction()}>
+                <p class="target-instruction">Click a valid target (highlighted) to execute action</p>
+              </Show>
+              <div class="warriors-in-game">
+                <For each={opponentWarband()?.warriors}>
+                  {(warrior) => (
+                    <div
+                      class={`warrior-game-status opponent ${isValidTarget(warrior.id) ? 'valid-target' : ''} ${pendingAction() && !isValidTarget(warrior.id) ? 'invalid-target' : ''}`}
+                      onClick={() => {
+                        if (pendingAction() && isValidTarget(warrior.id)) {
+                          handleSelectTarget(warrior.id);
+                        }
+                      }}
+                    >
+                      <WarriorCard warrior={warrior} compact />
+                      <StatusBadge status={warrior.gameStatus} />
+                      <Show when={warrior.combatState.inCombat}>
+                        <span class="combat-badge in-combat">In Combat</span>
+                      </Show>
+                      <Show when={warrior.combatState.inCover}>
+                        <span class="combat-badge in-cover">In Cover</span>
+                      </Show>
+                    </div>
+                  )}
+                </For>
+              </div>
+            </Card>
+          </Show>
         </div>
 
         <div class="game-controls">

@@ -29,6 +29,11 @@ import {
   markWarriorActed as markWarriorActedLogic,
   getWarriorsForPhase,
   findWarrior,
+  // Movement phase functions
+  moveWarrior as moveWarriorLogic,
+  runWarrior as runWarriorLogic,
+  chargeWarrior as chargeWarriorLogic,
+  markWarriorPositioned as markWarriorPositionedLogic,
   // Undo functions
   getLastUndoableAction,
   undoLastAction as undoLastActionLogic,
@@ -43,6 +48,7 @@ interface GameStoreState {
   selectedWarrior: string | null;
   selectedTarget: string | null;
   pendingUndo: boolean; // When true, waiting for user confirmation
+  pendingAction: AvailableAction | null; // Action waiting for target selection
 }
 
 // Create the store
@@ -51,7 +57,8 @@ const [state, setState] = createStore<GameStoreState>({
   isPlaying: false,
   selectedWarrior: null,
   selectedTarget: null,
-  pendingUndo: false
+  pendingUndo: false,
+  pendingAction: null
 });
 
 // Actions
@@ -256,6 +263,97 @@ function setWarriorCover(warbandIndex: number, warriorId: string, inCover: boole
 }
 
 // =====================================
+// MOVEMENT PHASE ACTIONS
+// =====================================
+
+function moveWarrior(warriorId: string): GameAction | null {
+  let action: GameAction | null = null;
+  setState(produce((s) => {
+    if (s.activeGame) {
+      const warbandIndex = s.activeGame.currentPlayer - 1;
+      action = moveWarriorLogic(s.activeGame, warbandIndex, warriorId);
+    }
+  }));
+  return action;
+}
+
+function runWarrior(warriorId: string): GameAction | null {
+  let action: GameAction | null = null;
+  setState(produce((s) => {
+    if (s.activeGame) {
+      const warbandIndex = s.activeGame.currentPlayer - 1;
+      action = runWarriorLogic(s.activeGame, warbandIndex, warriorId);
+    }
+  }));
+  return action;
+}
+
+function chargeWarrior(warriorId: string, targetId: string): GameAction | null {
+  let action: GameAction | null = null;
+  setState(produce((s) => {
+    if (s.activeGame) {
+      const warbandIndex = s.activeGame.currentPlayer - 1;
+      const targetWarbandIndex = warbandIndex === 0 ? 1 : 0;
+      action = chargeWarriorLogic(s.activeGame, warbandIndex, warriorId, targetWarbandIndex, targetId);
+    }
+  }));
+  return action;
+}
+
+function positionWarrior(warriorId: string): GameAction | null {
+  let action: GameAction | null = null;
+  setState(produce((s) => {
+    if (s.activeGame) {
+      const warbandIndex = s.activeGame.currentPlayer - 1;
+      action = markWarriorPositionedLogic(s.activeGame, warbandIndex, warriorId);
+    }
+  }));
+  return action;
+}
+
+// =====================================
+// PENDING ACTION MANAGEMENT
+// =====================================
+
+function setPendingAction(action: AvailableAction): void {
+  setState('pendingAction', action);
+}
+
+function clearPendingAction(): void {
+  setState('pendingAction', null);
+}
+
+function executePendingAction(targetId: string): GameAction | null {
+  const pendingAction = state.pendingAction;
+  const selectedWarriorId = state.selectedWarrior;
+
+  if (!pendingAction || !selectedWarriorId) {
+    return null;
+  }
+
+  let result: GameAction | null = null;
+
+  switch (pendingAction.type) {
+    case 'charge':
+      result = chargeWarrior(selectedWarriorId, targetId);
+      break;
+    // Add other target-required actions here as needed
+    // case 'shoot':
+    //   result = shootWarrior(selectedWarriorId, targetId);
+    //   break;
+  }
+
+  // Clear pending action after execution
+  setState('pendingAction', null);
+
+  return result;
+}
+
+function getPendingAction(): AvailableAction | null {
+  return state.pendingAction;
+}
+
+// =====================================
 // WARRIOR SELECTION ACTIONS
 // =====================================
 
@@ -377,6 +475,18 @@ export const gameStore = {
   engageWarriors,
   disengageWarrior,
   setWarriorCover,
+
+  // Movement Phase Actions
+  moveWarrior,
+  runWarrior,
+  chargeWarrior,
+  positionWarrior,
+
+  // Pending Action Management
+  setPendingAction,
+  clearPendingAction,
+  executePendingAction,
+  getPendingAction,
 
   // Warrior Action Tracking
   getActableWarriorsForPhase,
