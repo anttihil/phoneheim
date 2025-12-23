@@ -41,15 +41,22 @@ async function createTestWarband(page: Page, name: string, type: string = 'merce
 // Helper to start a game with two warbands
 async function startGame(page: Page): Promise<void> {
   await page.goto('/game/setup');
-  await page.waitForSelector('select', { timeout: 10000 });
 
-  // Select first warband
-  const wb1Select = page.locator('select').first();
-  await wb1Select.selectOption({ index: 1 });
+  // Wait for selects to appear and have options
+  const select1 = page.locator('select').nth(0);
+  const select2 = page.locator('select').nth(1);
 
-  // Select second warband
-  const wb2Select = page.locator('select').nth(1);
-  await wb2Select.selectOption({ index: 1 });
+  // Wait for first select to have warband options (more than just placeholder)
+  await expect(select1.locator('option')).toHaveCount(3, { timeout: 10000 });
+
+  // Select first available warband in select1
+  await select1.selectOption({ index: 1 });
+
+  // After selecting, select2 should still have options (the unselected warband)
+  await expect(select2.locator('option')).toHaveCount(2, { timeout: 10000 });
+
+  // Select the remaining warband in select2
+  await select2.selectOption({ index: 1 });
 
   // Start game
   await page.click('button:has-text("Start Game")');
@@ -68,10 +75,11 @@ test.describe('Recovery Phase Mechanics', () => {
 
     // Phase indicator should show Setup Phase initially
     const phaseIndicator = page.locator('.phase-indicator');
-    await expect(phaseIndicator).toContainText(/Setup Phase/i);
+    await expect(phaseIndicator).toContainText(/Setup/i);
 
-    // Advance to recovery phase (from setup)
-    await page.click('button:has-text("Next Phase")');
+    // Advance through both setup phases to recovery
+    await page.click('button:has-text("Next Phase")'); // Setup P1 -> Setup P2
+    await page.click('button:has-text("Next Phase")'); // Setup P2 -> Recovery P1
 
     // Should show recovery phase indicator
     await expect(phaseIndicator).toContainText(/Recovery/i);
@@ -220,8 +228,9 @@ test.describe('Game Phase Transitions', () => {
 
     const phaseIndicator = page.locator('.phase-indicator');
 
-    // Advance from setup to recovery P1
-    await page.click('button:has-text("Next Phase")');
+    // Advance through setup phases to recovery P1
+    await page.click('button:has-text("Next Phase")'); // Setup P1 -> Setup P2
+    await page.click('button:has-text("Next Phase")'); // Setup P2 -> Recovery P1
     await expect(phaseIndicator).toContainText(/Recovery/i);
     await expect(phaseIndicator).toContainText(/Player 1/i);
 
@@ -236,7 +245,8 @@ test.describe('Game Phase Transitions', () => {
 
     const phaseIndicator = page.locator('.phase-indicator');
 
-    // Setup → Recovery P1 → Recovery P2 → Movement P1
+    // Setup P1 → Setup P2 → Recovery P1 → Recovery P2 → Movement P1
+    await page.click('button:has-text("Next Phase")'); // Setup P2
     await page.click('button:has-text("Next Phase")'); // Recovery P1
     await page.click('button:has-text("Next Phase")'); // Recovery P2
     await page.click('button:has-text("Next Phase")'); // Movement P1
@@ -249,6 +259,11 @@ test.describe('Game Phase Transitions', () => {
     await startGame(page);
 
     const phaseIndicator = page.locator('.phase-indicator');
+
+    // Setup P2 (game starts in Setup P1)
+    await page.click('button:has-text("Next Phase")');
+    await expect(phaseIndicator).toContainText(/Setup/i);
+    await expect(phaseIndicator).toContainText(/Player 2/i);
 
     // Recovery P1
     await page.click('button:has-text("Next Phase")');
@@ -296,13 +311,13 @@ test.describe('Game Phase Transitions', () => {
 
     const phaseIndicator = page.locator('.phase-indicator');
 
-    // Complete all phases for turn 1 (8 clicks after setup)
-    // Recovery P1, Recovery P2, Movement P1, Movement P2, Shooting P1, Shooting P2, Combat P1, Combat P2
-    for (let i = 0; i < 8; i++) {
+    // Complete all phases for turn 1 (2 setup + 8 game phases = 10 clicks)
+    // Setup P2, Recovery P1, Recovery P2, Movement P1, Movement P2, Shooting P1, Shooting P2, Combat P1, Combat P2
+    for (let i = 0; i < 9; i++) {
       await page.click('button:has-text("Next Phase")');
     }
 
-    // Should still be turn 1, combat P2
+    // Should be turn 1, combat P2
     await expect(phaseIndicator).toContainText(/Turn 1/i);
     await expect(phaseIndicator).toContainText(/Combat/i);
     await expect(phaseIndicator).toContainText(/Player 2/i);
@@ -327,8 +342,11 @@ test.describe('Warband Display in Game', () => {
     // Should show "Your Warband" section
     await expect(page.locator('text=Your Warband')).toBeVisible();
 
-    // Should show "Opponent" section
-    await expect(page.locator('text=Opponent')).toBeVisible();
+    // Opponent is hidden by default, click to show all warriors
+    await page.click('button:has-text("Show All Warriors")');
+
+    // Should show "Opponent" section after toggling
+    await expect(page.locator('text=Opponent').first()).toBeVisible();
   });
 
   test('should show warrior cards for each warband', async ({ page }) => {

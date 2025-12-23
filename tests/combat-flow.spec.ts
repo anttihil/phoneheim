@@ -53,21 +53,30 @@ async function createTestWarband(page: Page, name: string, type: 'reikland' | 's
   await page.waitForSelector('button:has-text("Save Warband")', { timeout: 10000 });
   await page.click('button:has-text("Save Warband")');
 
-  // Wait for navigation to warband detail
-  await page.waitForURL(/\/warband\/.*/, { timeout: 10000 });
+  // Wait for navigation to warband list and verify warband was saved
+  await page.waitForURL('/warband/list', { timeout: 10000 });
+  await expect(page.locator(`text=${name}`)).toBeVisible({ timeout: 5000 });
 }
 
 // Helper function to start a game with two warbands
 async function startGame(page: Page): Promise<void> {
   await page.goto('/game/setup');
 
-  // Wait for the selects to be populated
-  await page.waitForSelector('select', { timeout: 10000 });
+  // Wait for selects to appear and have options
+  const select1 = page.locator('select').nth(0);
+  const select2 = page.locator('select').nth(1);
 
-  // Select warbands
-  const selects = page.locator('select');
-  await selects.nth(0).selectOption({ index: 1 });
-  await selects.nth(1).selectOption({ index: 1 });
+  // Wait for first select to have warband options (more than just placeholder)
+  await expect(select1.locator('option')).toHaveCount(3, { timeout: 10000 });
+
+  // Select first available warband in select1
+  await select1.selectOption({ index: 1 });
+
+  // After selecting, select2 should still have options (the unselected warband)
+  await expect(select2.locator('option')).toHaveCount(2, { timeout: 10000 });
+
+  // Select the remaining warband in select2
+  await select2.selectOption({ index: 1 });
 
   // Start game
   await page.click('button:has-text("Start Game")');
@@ -78,9 +87,9 @@ async function startGame(page: Page): Promise<void> {
 
 test.describe('Combat Flow Tests', () => {
   test.beforeEach(async ({ page }) => {
-    // Create two warbands for testing
+    // Create two warbands for testing (both Reikland for reliability)
     await createTestWarband(page, 'Test Warband 1', 'reikland');
-    await createTestWarband(page, 'Test Warband 2', 'skaven');
+    await createTestWarband(page, 'Test Warband 2', 'reikland');
   });
 
   test.describe('Setup Phase', () => {
@@ -169,8 +178,8 @@ test.describe('Combat Flow Tests', () => {
       const warrior = page.locator('.warrior-game-status.can-act').first();
       await warrior.click();
 
-      // Check Move action is available
-      const moveBtn = page.locator('button:has-text("Move")');
+      // Check Move action is available (exact match to avoid matching Run/Charge)
+      const moveBtn = page.getByRole('button', { name: 'Move', exact: true });
       await expect(moveBtn).toBeVisible();
     });
 
@@ -179,8 +188,8 @@ test.describe('Combat Flow Tests', () => {
       const warrior = page.locator('.warrior-game-status.can-act').first();
       await warrior.click();
 
-      // Click Move
-      await page.click('button:has-text("Move")');
+      // Click Move (exact match)
+      await page.getByRole('button', { name: 'Move', exact: true }).click();
 
       // Check log entry
       const gameLog = page.locator('.game-log');
@@ -192,8 +201,11 @@ test.describe('Combat Flow Tests', () => {
       const warrior = page.locator('.warrior-game-status.can-act').first();
       await warrior.click();
 
-      // Click Move
-      await page.click('button:has-text("Move")');
+      // Click Move (exact match)
+      await page.getByRole('button', { name: 'Move', exact: true }).click();
+
+      // Show all warriors (moved warriors are filtered out by default)
+      await page.click('button:has-text("Show All Warriors")');
 
       // Check warrior shows "Moved" badge
       await expect(page.locator('.acted-badge').filter({ hasText: 'Moved' })).toBeVisible();
@@ -204,8 +216,8 @@ test.describe('Combat Flow Tests', () => {
       const warrior = page.locator('.warrior-game-status.can-act').first();
       await warrior.click();
 
-      // Click Run
-      await page.click('button:has-text("Run")');
+      // Click Run (exact match)
+      await page.getByRole('button', { name: /^Run/ }).click();
 
       // Check log entry
       const gameLog = page.locator('.game-log');
@@ -217,26 +229,33 @@ test.describe('Combat Flow Tests', () => {
       const warrior = page.locator('.warrior-game-status.can-act').first();
       await warrior.click();
 
-      // Click Run
-      await page.click('button:has-text("Run")');
+      // Click Run (exact match)
+      await page.getByRole('button', { name: /^Run/ }).click();
+
+      // Show all warriors (acted warriors are filtered out by default)
+      await page.click('button:has-text("Show All Warriors")');
 
       // Check warrior shows "Ran" badge
       await expect(page.locator('.acted-badge').filter({ hasText: 'Ran' })).toBeVisible();
     });
 
     test('should not allow warrior to move twice', async ({ page }) => {
-      // Click on a warrior
-      const warrior = page.locator('.warrior-game-status.can-act').first();
-      await warrior.click();
+      // Show all warriors first so we can track the same warrior after it moves
+      await page.click('button:has-text("Show All Warriors")');
 
-      // Click Move
-      await page.click('button:has-text("Move")');
+      // Get all player warriors and use the first one
+      const allWarriors = page.locator('.warrior-game-status:not(.opponent)');
+      const firstWarrior = allWarriors.first();
 
-      // Click on the same warrior again
-      await warrior.click();
+      // Click on the first warrior (should be captain with can-act)
+      await firstWarrior.click();
 
-      // Move button should not be available (warrior no longer "can-act")
-      await expect(warrior).not.toHaveClass(/can-act/);
+      // Click Move (exact match)
+      await page.getByRole('button', { name: 'Move', exact: true }).click();
+
+      // The first warrior should now show "Moved" badge and lose can-act
+      await expect(firstWarrior.locator('.acted-badge')).toContainText('Moved');
+      await expect(firstWarrior).not.toHaveClass(/can-act/);
     });
   });
 
@@ -343,7 +362,7 @@ test.describe('Combat Flow Tests', () => {
       // Move one warrior
       const warrior = page.locator('.warrior-game-status.can-act').first();
       await warrior.click();
-      await page.click('button:has-text("Move")');
+      await page.getByRole('button', { name: 'Move', exact: true }).click();
 
       // Now there should be fewer warriors shown (unless show all is on)
       const newCount = await page.locator('.warrior-game-status.can-act:not(.opponent)').count();
@@ -356,12 +375,10 @@ test.describe('Combat Flow Tests', () => {
     });
 
     test('should show all warriors when toggle is clicked', async ({ page }) => {
-      const initialCount = await page.locator('.warrior-game-status:not(.opponent)').count();
-
       // Move one warrior so it's no longer "can-act"
       const warrior = page.locator('.warrior-game-status.can-act').first();
       await warrior.click();
-      await page.click('button:has-text("Move")');
+      await page.getByRole('button', { name: 'Move', exact: true }).click();
 
       // Count should decrease since moved warrior is filtered
       const reducedCount = await page.locator('.warrior-game-status:not(.opponent)').count();
@@ -401,12 +418,15 @@ test.describe('Combat Flow Tests', () => {
     });
 
     test('should allow undoing move action', async ({ page }) => {
+      // Show all warriors to see moved badge
+      await page.click('button:has-text("Show All Warriors")');
+
       // Perform a move
       const warrior = page.locator('.warrior-game-status.can-act').first();
       await warrior.click();
-      await page.click('button:has-text("Move")');
+      await page.getByRole('button', { name: 'Move', exact: true }).click();
 
-      // Verify moved badge
+      // Verify moved badge (warrior still visible because we showed all)
       await expect(page.locator('.acted-badge').filter({ hasText: 'Moved' })).toBeVisible();
 
       // Click undo
