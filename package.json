@@ -1,0 +1,19 @@
+{
+  "name": "phoneheim",
+  "version": "1.0.0",
+  "description": "Mordheim miniatures wargame companion app",
+  "type": "module",
+  "scripts": {
+    "start": "npx http-server -p 8080 -c-1",
+    "test": "npx playwright test",
+    "test:headed": "npx playwright test --headed",
+    "test:debug": "npx playwright test --debug",
+    "test:ui": "npx playwright test --ui"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.40.0"
+  },
+  "keywords": ["mordheim", "wargame", "companion", "tracker"],
+  "author": "",
+  "license": "MIT"
+}

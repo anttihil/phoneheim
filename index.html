@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Phoneheim - Mordheim Companion</title>
+  <link rel="stylesheet" href="src/styles/main.css">
+</head>
+<body>
+  <div id="app">
+    <!-- Header -->
+    <header class="app-header">
+      <h1>Phoneheim</h1>
+      <p class="subtitle">Mordheim Companion App</p>
+    </header>
+
+    <!-- Main Navigation -->
+    <nav id="main-menu" class="main-nav">
+      <button class="nav-btn" data-page="warband-create">Create Warband</button>
+      <button class="nav-btn" data-page="warband-list">My Warbands</button>
+      <button class="nav-btn" data-page="play-game">Play Game</button>
+      <button class="nav-btn" data-page="multiplayer">Multiplayer</button>
+      <button class="nav-btn" data-page="rules">Rules Reference</button>
+    </nav>
+
+    <!-- Page Container -->
+    <main id="page-container">
+      <!-- Pages loaded dynamically -->
+    </main>
+
+    <!-- Dice Roller Modal -->
+    <div id="dice-modal" class="modal hidden">
+      <div class="modal-content">
+        <h2 id="dice-title">Rolling...</h2>
+        <div id="dice-display" class="dice-display"></div>
+        <p id="dice-result"></p>
+        <button id="dice-close" class="btn">OK</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Data modules -->
+  <script type="module" src="src/data/characteristics.js"></script>
+  <script type="module" src="src/data/equipment.js"></script>
+  <script type="module" src="src/data/warbands.js"></script>
+  <script type="module" src="src/data/scenarios.js"></script>
+  <script type="module" src="src/data/skills.js"></script>
+  <script type="module" src="src/data/injuries.js"></script>
+  <script type="module" src="src/data/exploration.js"></script>
+  <script type="module" src="src/data/mutations.js"></script>
+
+  <!-- Logic modules -->
+  <script type="module" src="src/logic/gameRules.js"></script>
+  <script type="module" src="src/logic/warbandManager.js"></script>
+  <script type="module" src="src/logic/gameState.js"></script>
+  <script type="module" src="src/logic/storage.js"></script>
+  <script type="module" src="src/logic/webrtc.js"></script>
+
+  <!-- UI modules -->
+  <script type="module" src="src/ui/navigation.js"></script>
+  <script type="module" src="src/ui/warbandCreator.js"></script>
+  <script type="module" src="src/ui/gamePlay.js"></script>
+  <script type="module" src="src/ui/diceRoller.js"></script>
+
+  <!-- Main app -->
+  <script type="module" src="src/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,415 @@
+/* Phoneheim - Main Styles */
+
+:root {
+  --primary-color: #8b4513;
+  --secondary-color: #d4a574;
+  --background-color: #1a1a1a;
+  --surface-color: #2d2d2d;
+  --text-color: #e0e0e0;
+  --text-muted: #888;
+  --success-color: #4caf50;
+  --danger-color: #f44336;
+  --warning-color: #ff9800;
+  --border-color: #444;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+#app {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+/* Header */
+.app-header {
+  text-align: center;
+  padding: 1rem;
+  border-bottom: 2px solid var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.app-header h1 {
+  color: var(--secondary-color);
+  font-size: 2rem;
+}
+
+.app-header .subtitle {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* Navigation */
+.main-nav {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.nav-btn {
+  background-color: var(--surface-color);
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
+  padding: 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.nav-btn:hover {
+  background-color: var(--primary-color);
+  border-color: var(--secondary-color);
+}
+
+.nav-btn.active {
+  background-color: var(--primary-color);
+  border-color: var(--secondary-color);
+}
+
+/* Buttons */
+.btn {
+  background-color: var(--primary-color);
+  border: none;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.btn:hover {
+  background-color: var(--secondary-color);
+  color: var(--background-color);
+}
+
+.btn-secondary {
+  background-color: var(--surface-color);
+  border: 1px solid var(--border-color);
+}
+
+.btn-danger {
+  background-color: var(--danger-color);
+}
+
+.btn-success {
+  background-color: var(--success-color);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Forms */
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.25rem;
+  color: var(--text-muted);
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  background-color: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  color: var(--text-color);
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+select.form-control {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23888'%3E%3Cpath d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  padding-right: 2.5rem;
+}
+
+/* Cards */
+.card {
+  background-color: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.card-title {
+  font-size: 1.1rem;
+  color: var(--secondary-color);
+}
+
+/* Lists */
+.warrior-list {
+  list-style: none;
+}
+
+.warrior-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.warrior-item:last-child {
+  border-bottom: none;
+}
+
+.warrior-name {
+  font-weight: bold;
+}
+
+.warrior-type {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.warrior-cost {
+  color: var(--secondary-color);
+}
+
+/* Stats Display */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  gap: 2px;
+  text-align: center;
+  font-size: 0.85rem;
+}
+
+.stats-grid .stat-label {
+  background-color: var(--primary-color);
+  padding: 0.25rem;
+  font-weight: bold;
+}
+
+.stats-grid .stat-value {
+  background-color: var(--surface-color);
+  padding: 0.25rem;
+  border: 1px solid var(--border-color);
+}
+
+/* Status indicators */
+.status {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.status-standing { background-color: var(--success-color); }
+.status-knockedDown { background-color: var(--warning-color); color: black; }
+.status-stunned { background-color: var(--danger-color); }
+.status-outOfAction { background-color: #333; color: #666; }
+.status-fleeing { background-color: #9c27b0; }
+
+/* Modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  background-color: var(--surface-color);
+  padding: 2rem;
+  border-radius: 8px;
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+}
+
+/* Dice display */
+.dice-display {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.die {
+  width: 50px;
+  height: 50px;
+  background-color: white;
+  color: black;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.die.success {
+  background-color: var(--success-color);
+  color: white;
+}
+
+.die.fail {
+  background-color: var(--danger-color);
+  color: white;
+}
+
+/* Game Phase Indicator */
+.phase-indicator {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+/* Action Prompt */
+.action-prompt {
+  background-color: var(--surface-color);
+  border-left: 4px solid var(--secondary-color);
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.action-prompt h3 {
+  margin-bottom: 0.5rem;
+}
+
+.action-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 0.5rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+th {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+/* Treasury */
+.treasury {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.treasury-amount {
+  color: var(--secondary-color);
+  font-weight: bold;
+}
+
+/* Equipment list */
+.equipment-tag {
+  display: inline-block;
+  background-color: var(--background-color);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  margin: 0.1rem;
+}
+
+/* Utilities */
+.hidden { display: none !important; }
+.text-center { text-align: center; }
+.text-muted { color: var(--text-muted); }
+.mt-1 { margin-top: 0.5rem; }
+.mt-2 { margin-top: 1rem; }
+.mb-1 { margin-bottom: 0.5rem; }
+.mb-2 { margin-bottom: 1rem; }
+.flex { display: flex; }
+.flex-between { justify-content: space-between; }
+.flex-center { justify-content: center; align-items: center; }
+.gap-1 { gap: 0.5rem; }
+
+/* Step Progress */
+#step-progress {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.step-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: var(--border-color);
+}
+
+.step-dot.completed {
+  background-color: var(--success-color);
+}
+
+.step-dot.active {
+  background-color: var(--primary-color);
+  box-shadow: 0 0 0 3px var(--secondary-color);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .main-nav {
+    grid-template-columns: 1fr;
+  }
+
+  .stats-grid {
+    font-size: 0.75rem;
+  }
+}
