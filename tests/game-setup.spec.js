@@ -9,7 +9,7 @@ test.describe('Game Setup', () => {
 
   test('should display game setup page', async ({ page }) => {
     await page.click('[data-page="play-game"]');
-    await expect(page.locator('h2')).toContainText('Start a Game');
+    await expect(page.locator('#page-container h2')).toContainText('Start a Game');
   });
 
   test('should show warband selection dropdowns', async ({ page }) => {
@@ -96,7 +96,7 @@ test.describe('Rules Reference', () => {
   });
 
   test('should display rules reference page', async ({ page }) => {
-    await expect(page.locator('h2')).toContainText('Rules Reference');
+    await expect(page.locator('#page-container h2')).toContainText('Rules Reference');
   });
 
   test('should show navigation buttons for sections', async ({ page }) => {

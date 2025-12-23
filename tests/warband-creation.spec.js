@@ -17,7 +17,7 @@ test.describe('Warband Creation', () => {
 
   test('should navigate to warband creator', async ({ page }) => {
     await page.click('[data-page="warband-create"]');
-    await expect(page.locator('h2')).toContainText('Create New Warband');
+    await expect(page.locator('#page-container h2')).toContainText('Create New Warband');
   });
 
   test('should show warband type selection', async ({ page }) => {
