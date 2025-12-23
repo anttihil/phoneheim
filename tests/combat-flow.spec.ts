@@ -67,7 +67,7 @@ async function startGame(page: Page): Promise<void> {
   // Select warbands
   const selects = page.locator('select');
   await selects.nth(0).selectOption({ index: 1 });
-  await selects.nth(1).selectOption({ index: 2 });
+  await selects.nth(1).selectOption({ index: 1 });
 
   // Start game
   await page.click('button:has-text("Start Game")');
