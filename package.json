@@ -12,6 +12,8 @@
     "test:headed": "playwright test --headed",
     "test:debug": "playwright test --debug",
     "test:ui": "playwright test --ui",
+    "test:unit": "vitest",
+    "test:unit:run": "vitest run",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
@@ -22,7 +24,8 @@
     "@playwright/test": "^1.40.0",
     "typescript": "^5.7.2",
     "vite": "^6.0.5",
-    "vite-plugin-solid": "^2.11.0"
+    "vite-plugin-solid": "^2.11.0",
+    "vitest": "^2.1.0"
   },
   "keywords": ["mordheim", "wargame", "companion", "tracker"],
   "author": "",
