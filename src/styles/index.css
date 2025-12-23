@@ -1,0 +1,508 @@
+/* Phoneheim - SolidJS App Styles */
+/* Import base styles */
+@import './main.css';
+
+/* Page containers */
+.page {
+  padding: 0;
+}
+
+.page h2 {
+  color: var(--secondary-color);
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+/* Loading state */
+.loading {
+  text-align: center;
+  padding: 2rem;
+  color: var(--text-muted);
+}
+
+/* Button full width modifier */
+.btn-full-width {
+  width: 100%;
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Rules tables */
+.rules-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.rules-table th,
+.rules-table td {
+  padding: 0.5rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.rules-table th {
+  background-color: var(--primary-color);
+  color: white;
+  font-weight: bold;
+}
+
+.rules-table tr:hover {
+  background-color: rgba(139, 69, 19, 0.1);
+}
+
+/* Skills list */
+.skills-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.skill-item {
+  padding: 0.5rem;
+  border-left: 3px solid var(--primary-color);
+  padding-left: 1rem;
+}
+
+.skill-item h4 {
+  color: var(--secondary-color);
+  margin-bottom: 0.25rem;
+}
+
+.skill-item p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* Multiplayer page */
+.mode-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.connection-code {
+  margin: 1rem 0;
+}
+
+.offer-code,
+.answer-code {
+  display: block;
+  background-color: var(--background-color);
+  padding: 1rem;
+  border-radius: 4px;
+  word-break: break-all;
+  font-family: monospace;
+  font-size: 0.8rem;
+  margin: 0.5rem 0;
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+.join-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+/* Warband Creator - Step Navigation */
+.step-nav {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.step-nav .btn {
+  flex: 1;
+}
+
+.step-content {
+  min-height: 300px;
+}
+
+/* Warband type selection */
+.type-select {
+  margin-bottom: 1rem;
+}
+
+.type-info {
+  background-color: var(--background-color);
+  padding: 1rem;
+  border-radius: 4px;
+  margin-top: 0.5rem;
+}
+
+.type-info h4 {
+  color: var(--secondary-color);
+  margin-bottom: 0.5rem;
+}
+
+.type-info p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* Warrior type grid */
+.warrior-types {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.warrior-type-card {
+  background-color: var(--background-color);
+  padding: 0.75rem;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid var(--border-color);
+}
+
+.warrior-type-card:hover {
+  border-color: var(--primary-color);
+}
+
+.warrior-type-info {
+  flex: 1;
+}
+
+.warrior-type-info h4 {
+  margin-bottom: 0.25rem;
+}
+
+.warrior-type-info p {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.warrior-count {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.warrior-count button {
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Warband Summary */
+.summary-section {
+  margin-bottom: 1rem;
+}
+
+.summary-section h4 {
+  color: var(--secondary-color);
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.25rem;
+}
+
+/* Warband List */
+.warband-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.warband-card {
+  background-color: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  padding: 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.warband-card:hover {
+  border-color: var(--primary-color);
+  transform: translateY(-2px);
+}
+
+.warband-card h3 {
+  color: var(--secondary-color);
+  margin-bottom: 0.5rem;
+}
+
+.warband-meta {
+  display: flex;
+  justify-content: space-between;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* Warband Detail */
+.warband-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.warband-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.roster-section {
+  margin-top: 1rem;
+}
+
+.roster-section h3 {
+  color: var(--secondary-color);
+  margin-bottom: 0.75rem;
+}
+
+/* Warrior Card */
+.warrior-card {
+  background-color: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  padding: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.warrior-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.warrior-card-header h4 {
+  color: var(--secondary-color);
+}
+
+.warrior-details {
+  margin-top: 0.5rem;
+}
+
+.equipment-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  margin-top: 0.5rem;
+}
+
+/* Game Setup */
+.setup-section {
+  margin-bottom: 1.5rem;
+}
+
+.setup-section h3 {
+  color: var(--secondary-color);
+  margin-bottom: 0.75rem;
+}
+
+.scenario-select {
+  margin-bottom: 1rem;
+}
+
+.scenario-info {
+  background-color: var(--background-color);
+  padding: 1rem;
+  border-radius: 4px;
+  margin-top: 0.5rem;
+}
+
+.warband-select-grid {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.warband-option {
+  padding: 0.75rem;
+  background-color: var(--background-color);
+  border: 2px solid var(--border-color);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.warband-option:hover,
+.warband-option.selected {
+  border-color: var(--primary-color);
+}
+
+.warband-option.selected {
+  background-color: rgba(139, 69, 19, 0.2);
+}
+
+/* Game Play */
+.game-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.turn-indicator {
+  font-size: 1.2rem;
+  color: var(--secondary-color);
+}
+
+.game-controls {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.warriors-section {
+  margin-top: 1rem;
+}
+
+.warriors-section h3 {
+  margin-bottom: 0.75rem;
+}
+
+.phase-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+/* Aftermath */
+.aftermath-section {
+  margin-bottom: 1.5rem;
+}
+
+.aftermath-section h3 {
+  color: var(--secondary-color);
+  margin-bottom: 0.75rem;
+}
+
+.casualty-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.casualty-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  background-color: var(--background-color);
+  border-radius: 4px;
+}
+
+.exploration-result {
+  padding: 1rem;
+  background-color: var(--background-color);
+  border-radius: 4px;
+  text-align: center;
+}
+
+.exploration-result h4 {
+  color: var(--secondary-color);
+  margin-bottom: 0.5rem;
+}
+
+/* Empty states */
+.empty-state {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--text-muted);
+}
+
+.empty-state h3 {
+  margin-bottom: 0.5rem;
+  color: var(--text-color);
+}
+
+.empty-state p {
+  margin-bottom: 1rem;
+}
+
+/* Error message */
+.error {
+  color: var(--danger-color);
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+/* Success message */
+.success {
+  color: var(--success-color);
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+/* Home page */
+.home-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.home-card {
+  background-color: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  padding: 1.5rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+  color: inherit;
+}
+
+.home-card:hover {
+  border-color: var(--primary-color);
+  transform: translateY(-2px);
+}
+
+.home-card h3 {
+  color: var(--secondary-color);
+  margin-bottom: 0.5rem;
+}
+
+.home-card p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* Links as buttons (for router links) */
+a.btn,
+a.nav-btn {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .tabs {
+    flex-direction: column;
+  }
+
+  .game-header {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .warband-header {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .warband-actions {
+    width: 100%;
+    justify-content: stretch;
+  }
+
+  .warband-actions .btn {
+    flex: 1;
+  }
+}

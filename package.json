@@ -1,17 +1,28 @@
 {
   "name": "phoneheim",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Mordheim miniatures wargame companion app",
   "type": "module",
   "scripts": {
-    "start": "npx http-server -p 8080 -c-1",
-    "test": "npx playwright test",
-    "test:headed": "npx playwright test --headed",
-    "test:debug": "npx playwright test --debug",
-    "test:ui": "npx playwright test --ui"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "start": "vite",
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:debug": "playwright test --debug",
+    "test:ui": "playwright test --ui",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "solid-js": "^1.9.3",
+    "@solidjs/router": "^0.15.2"
   },
   "devDependencies": {
-    "@playwright/test": "^1.40.0"
+    "@playwright/test": "^1.40.0",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.5",
+    "vite-plugin-solid": "^2.11.0"
   },
   "keywords": ["mordheim", "wargame", "companion", "tracker"],
   "author": "",
