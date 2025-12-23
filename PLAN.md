@@ -1,9 +1,7 @@
-
-
 # Task
 Write a web app for Phoneheim. Phoneheim is a free app to help tracking the game state of a miniatures wargame, Mordheim, and to act as a rules reference.
 
-#Requirements
+# Requirements
 1) Warband creation tool
 - follow the warband tables to allow the player to create a warband
 - the created warband should be saved to the indexeddb
@@ -22,10 +20,9 @@ Write a web app for Phoneheim. Phoneheim is a free app to help tracking the game
 
 # Plan
 Execute this plan step-by-step.
-1) Extract text from all the pdf files in this repository. Write the text into .txt files.
-2) Extract gameplay logic and data from the .txt files. Write them into suitable file formats.
-3) Based on your understanding of the game rules, expand the above requirements into more specific feature requirements. Write those requirements into a file. 
-4) TDD Loop: write a Playwright UI code to match a single feature requirement, then write the actual code that passes the test. 
+1) Extract gameplay logic and data from the .txt files. Write the game logic requirements into suitable files.
+2) Based on your understanding of the game rules, expand the above requirements into more specific feature requirements. Write those requirements into a file. 
+3) TDD Loop: write a Playwright UI code to match a single feature requirement, then write the actual code that passes the test. 
 
 # Tech features and stack
 1) No server, only in browser.
@@ -34,3 +31,5 @@ Execute this plan step-by-step.
 3) enable WebRTC communication so that players taking part in the game can scan a QR code to join the game (instead of relying on a signaling server)
 4) allow collaborative play so allow phones/web users in the WebRTC session will record the game state and wargame state => allow users to play from their own phones
 5) minimize external dependencies 
+
+*IMPORTANT* Use the Chromium browser to test the web app. To test WebRTC, you can use two browser instances or tabs. 
