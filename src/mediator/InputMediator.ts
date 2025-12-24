@@ -5,12 +5,16 @@
 // - Validates turn ownership before processing
 // - Notifies listeners when screen changes
 // - Provides clean API for UI to submit events
+// - Integrates with NetworkAdapter for multiplayer
+// - Integrates with LocalAdapter for AI/single-player
 
 import { GameEngine, ProcessResult } from '../engine';
 import type { GameEvent, EventType } from '../engine/types/events';
 import type { ScreenCommand } from '../engine/types/screens';
 import type { Warband } from '../types/warband';
 import type { GameState } from '../types/game';
+import { NetworkAdapter } from './NetworkAdapter';
+import { LocalAdapter } from './LocalAdapter';
 
 // Callback type for screen command listeners
 export type ScreenCommandListener = (screen: ScreenCommand) => void;
@@ -36,6 +40,11 @@ export class InputMediator {
   private errorListeners: Set<ErrorListener> = new Set();
   private localPlayer: PlayerIdentity | null = null;
   private turnValidationEnabled: boolean = true;
+
+  // Network and local adapters
+  private networkAdapter: NetworkAdapter | null = null;
+  private localAdapter: LocalAdapter | null = null;
+  private isMultiplayer: boolean = false;
 
   constructor(engine?: GameEngine) {
     this.engine = engine ?? new GameEngine();
@@ -136,6 +145,17 @@ export class InputMediator {
     // Notify listeners
     if (result.success) {
       this.notifyScreenListeners(result.screenCommand);
+
+      // Broadcast state to network if connected
+      if (this.networkAdapter && this.networkAdapter.isConnected()) {
+        const state = this.engine.getState();
+        if (state) {
+          this.networkAdapter.broadcastState(state, this.engine.getHistory());
+        }
+      }
+
+      // Check if it's now AI's turn
+      this.checkAITurn();
     } else if (result.error) {
       this.notifyErrorListeners(result.error);
     }
@@ -300,6 +320,163 @@ export class InputMediator {
       state: serialized.state,
       history: serialized.history
     };
+  }
+
+  // =====================================
+  // NETWORK ADAPTER INTEGRATION
+  // =====================================
+
+  /**
+   * Connect a network adapter for multiplayer games.
+   */
+  connect(adapter: NetworkAdapter): void {
+    this.networkAdapter = adapter;
+    this.isMultiplayer = true;
+
+    // Subscribe to remote state updates
+    adapter.onRemoteState((state, history) => {
+      this.handleRemoteState(state, history);
+    });
+
+    // Subscribe to remote events (for spectators)
+    adapter.onRemoteEvent((event) => {
+      this.handleRemoteEvent(event);
+    });
+
+    // Provide state when requested
+    adapter.setStateProvider(() => {
+      const state = this.engine.getState();
+      if (!state) return null;
+      return {
+        state,
+        history: this.engine.getHistory()
+      };
+    });
+  }
+
+  /**
+   * Disconnect from the network adapter.
+   */
+  disconnect(): void {
+    if (this.networkAdapter) {
+      this.networkAdapter.disconnect();
+      this.networkAdapter = null;
+    }
+    this.isMultiplayer = false;
+  }
+
+  /**
+   * Get the network adapter.
+   */
+  getNetworkAdapter(): NetworkAdapter | null {
+    return this.networkAdapter;
+  }
+
+  /**
+   * Check if in multiplayer mode.
+   */
+  isInMultiplayerMode(): boolean {
+    return this.isMultiplayer;
+  }
+
+  /**
+   * Handle incoming remote state from opponent.
+   * Used when it's the opponent's turn and they've made moves.
+   */
+  private handleRemoteState(state: GameState, history: GameEvent[]): void {
+    // Load the remote state
+    this.engine.loadGame(state, history);
+
+    // Notify UI of the new screen
+    const screen = this.engine.getCurrentScreen();
+    this.notifyScreenListeners(screen);
+
+    // Check if it's now AI's turn (if AI is enabled)
+    this.checkAITurn();
+  }
+
+  /**
+   * Handle incoming remote event (for spectators).
+   */
+  private handleRemoteEvent(event: GameEvent): void {
+    // Process the event locally to build up state
+    const result = this.engine.processEvent(event);
+    if (result.success) {
+      this.notifyScreenListeners(result.screenCommand);
+    }
+  }
+
+  // =====================================
+  // LOCAL ADAPTER INTEGRATION (AI)
+  // =====================================
+
+  /**
+   * Enable AI opponent.
+   */
+  enableAI(adapter?: LocalAdapter, playerNumber: 1 | 2 = 2): void {
+    this.localAdapter = adapter ?? new LocalAdapter();
+    this.localAdapter.enableAI({ thinkingDelay: 1000, strategy: 'random' }, playerNumber);
+
+    // Set up the event submitter
+    this.localAdapter.setEventSubmitter((event) => {
+      // Temporarily switch to AI player to submit event
+      const savedPlayer = this.localPlayer;
+      this.localPlayer = {
+        playerId: `ai_player${playerNumber}`,
+        playerNumber
+      };
+
+      this.submitEvent(event as EventSubmission);
+
+      // Restore original player
+      this.localPlayer = savedPlayer;
+    });
+
+    // Check if it's AI's turn right now
+    this.checkAITurn();
+  }
+
+  /**
+   * Disable AI opponent.
+   */
+  disableAI(): void {
+    if (this.localAdapter) {
+      this.localAdapter.disableAI();
+      this.localAdapter = null;
+    }
+  }
+
+  /**
+   * Get the local adapter.
+   */
+  getLocalAdapter(): LocalAdapter | null {
+    return this.localAdapter;
+  }
+
+  /**
+   * Check if AI is enabled.
+   */
+  isAIEnabled(): boolean {
+    return this.localAdapter?.isAIEnabled() ?? false;
+  }
+
+  /**
+   * Check if it's the AI's turn and trigger AI decision if so.
+   */
+  private checkAITurn(): void {
+    if (!this.localAdapter || !this.localAdapter.isAIEnabled()) {
+      return;
+    }
+
+    const state = this.engine.getState();
+    if (!state) return;
+
+    const aiPlayerNumber = this.localAdapter.getAIPlayerNumber();
+    if (state.currentPlayer === aiPlayerNumber) {
+      // It's AI's turn
+      const screen = this.engine.getCurrentScreen();
+      this.localAdapter.onAITurn(screen, state);
+    }
   }
 
   // =====================================
