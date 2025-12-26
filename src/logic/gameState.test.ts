@@ -1,5 +1,5 @@
 // Unit tests for Game State actions
-import { describe, it, expect, beforeEach, vi } from 'vitest';
+import { describe, it, expect, beforeEach, vi, afterEach } from 'vitest';
 import {
   createGameState,
   runWarrior,
@@ -22,6 +22,7 @@ import {
   engageWarriors
 } from './gameState';
 import * as gameRules from './gameRules';
+import * as combatRules from '../engine/rules/combat';
 import type { GameState } from '../types';
 import type { Warband } from '../types/warband';
 
@@ -280,7 +281,7 @@ describe('Climbing Actions', () => {
   describe('climbWarrior - successful climbs', () => {
     it('marks warrior as moved on successful climb up', () => {
       // Mock a successful climb test
-      vi.spyOn(gameRules, 'rollClimbingTest').mockReturnValue({ roll: 3, passed: true });
+      vi.spyOn(combatRules, 'rollClimbingTest').mockReturnValue({ roll: 3, success: true });
 
       const warriorId = gameState.warbands[0].warriors[0].id;
       const result = climbWarrior(gameState, 0, warriorId, { height: 3, direction: 'up' });
@@ -291,7 +292,7 @@ describe('Climbing Actions', () => {
     });
 
     it('marks warrior as moved on successful climb down', () => {
-      vi.spyOn(gameRules, 'rollClimbingTest').mockReturnValue({ roll: 2, passed: true });
+      vi.spyOn(combatRules, 'rollClimbingTest').mockReturnValue({ roll: 2, success: true });
 
       const warriorId = gameState.warbands[0].warriors[0].id;
       const result = climbWarrior(gameState, 0, warriorId, { height: 2, direction: 'down' });
@@ -303,7 +304,7 @@ describe('Climbing Actions', () => {
 
   describe('climbWarrior - failed climbs', () => {
     it('fails climb up without falling', () => {
-      vi.spyOn(gameRules, 'rollClimbingTest').mockReturnValue({ roll: 5, passed: false });
+      vi.spyOn(combatRules, 'rollClimbingTest').mockReturnValue({ roll: 5, success: false });
 
       const warriorId = gameState.warbands[0].warriors[0].id;
       const result = climbWarrior(gameState, 0, warriorId, { height: 3, direction: 'up' });
@@ -314,7 +315,7 @@ describe('Climbing Actions', () => {
     });
 
     it('fails climb down and marks as fell', () => {
-      vi.spyOn(gameRules, 'rollClimbingTest').mockReturnValue({ roll: 6, passed: false });
+      vi.spyOn(combatRules, 'rollClimbingTest').mockReturnValue({ roll: 6, success: false });
 
       const warriorId = gameState.warbands[0].warriors[0].id;
       const result = climbWarrior(gameState, 0, warriorId, { height: 4, direction: 'down' });
@@ -369,7 +370,7 @@ describe('Jumping Actions', () => {
 
   describe('jumpDownWarrior - successful jumps', () => {
     it('allows successful jump with passing tests', () => {
-      vi.spyOn(gameRules, 'rollJumpTest').mockReturnValue({
+      vi.spyOn(combatRules, 'rollJumpTest').mockReturnValue({
         success: true,
         tests: [{ roll: 2, success: true }]
       });
@@ -382,7 +383,7 @@ describe('Jumping Actions', () => {
     });
 
     it('sets divingChargeBonus on successful diving charge', () => {
-      vi.spyOn(gameRules, 'rollJumpTest').mockReturnValue({
+      vi.spyOn(combatRules, 'rollJumpTest').mockReturnValue({
         success: true,
         tests: [{ roll: 2, success: true }]
       });
@@ -396,7 +397,7 @@ describe('Jumping Actions', () => {
 
   describe('jumpDownWarrior - failed jumps', () => {
     it('sets hasFallen on failed jump', () => {
-      vi.spyOn(gameRules, 'rollJumpTest').mockReturnValue({
+      vi.spyOn(combatRules, 'rollJumpTest').mockReturnValue({
         success: false,
         tests: [{ roll: 5, success: false }]
       });
@@ -446,11 +447,11 @@ describe('Falling Damage', () => {
   describe('applyFalling', () => {
     it('applies falling damage and sets hasFallen flag', () => {
       // Mock falling damage and wound roll
-      vi.spyOn(gameRules, 'calculateFallingDamage').mockReturnValue({ hits: 1, strength: 4 });
-      vi.spyOn(gameRules, 'rollToWound').mockReturnValue({
+      vi.spyOn(combatRules, 'calculateFallingDamage').mockReturnValue({ hits: 1, strength: 4 });
+      vi.spyOn(combatRules, 'rollToWound').mockReturnValue({
         roll: 2,
         needed: 4,
-        wounded: false
+        success: false
       });
 
       const warriorId = gameState.warbands[0].warriors[0].id;
@@ -464,13 +465,13 @@ describe('Falling Damage', () => {
 
     it('applies wounds from falling damage', () => {
       // Mock falling that wounds
-      vi.spyOn(gameRules, 'calculateFallingDamage').mockReturnValue({ hits: 2, strength: 4 });
-      vi.spyOn(gameRules, 'rollToWound').mockReturnValue({
+      vi.spyOn(combatRules, 'calculateFallingDamage').mockReturnValue({ hits: 2, strength: 4 });
+      vi.spyOn(combatRules, 'rollToWound').mockReturnValue({
         roll: 4,
         needed: 4,
-        wounded: true
+        success: true
       });
-      vi.spyOn(gameRules, 'rollInjury').mockReturnValue({
+      vi.spyOn(combatRules, 'rollInjury').mockReturnValue({
         roll: 2,
         result: 'knockedDown'
       });
@@ -519,7 +520,7 @@ describe('Edge Fall Check', () => {
     });
 
     it('warrior passes test and does not fall', () => {
-      vi.spyOn(gameRules, 'characteristicTest').mockReturnValue({ roll: 2, passed: true });
+      vi.spyOn(combatRules, 'characteristicTest').mockReturnValue({ roll: 2, success: true });
 
       const warriorId = gameState.warbands[0].warriors[0].id;
       setWarriorStatus(gameState, 0, warriorId, 'knockedDown');
@@ -532,12 +533,12 @@ describe('Edge Fall Check', () => {
     });
 
     it('warrior fails test and falls', () => {
-      vi.spyOn(gameRules, 'characteristicTest').mockReturnValue({ roll: 5, passed: false });
-      vi.spyOn(gameRules, 'calculateFallingDamage').mockReturnValue({ hits: 1, strength: 4 });
-      vi.spyOn(gameRules, 'rollToWound').mockReturnValue({
+      vi.spyOn(combatRules, 'characteristicTest').mockReturnValue({ roll: 5, success: false });
+      vi.spyOn(combatRules, 'calculateFallingDamage').mockReturnValue({ hits: 1, strength: 4 });
+      vi.spyOn(combatRules, 'rollToWound').mockReturnValue({
         roll: 6,
         needed: 4,
-        wounded: false
+        success: false
       });
 
       const warriorId = gameState.warbands[0].warriors[0].id;
