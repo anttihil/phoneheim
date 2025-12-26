@@ -24,6 +24,8 @@ export interface GameWarrior extends Warrior {
   hasRun: boolean; // Ran this turn (prevents shooting)
   hasShot: boolean;
   hasCharged: boolean;
+  hasFailedCharge: boolean; // Failed a charge this turn (prevents shooting, but can cast spells)
+  hasFallen: boolean; // Fell this turn (cannot move or hide)
   hasRecovered: boolean; // Whether warrior has been processed in recovery phase
   isHidden: boolean;
   carriedWyrdstone: number;
@@ -31,6 +33,7 @@ export interface GameWarrior extends Warrior {
   combatState: WarriorCombatState;
   halfMovement: boolean; // From standing up
   strikesLast: boolean; // From standing up
+  divingChargeBonus: boolean; // Has +1 S and +1 to hit from diving charge
 }
 
 // Warband with game-specific state
@@ -62,7 +65,7 @@ export type RecoveryActionType = 'rally' | 'recoverFromStunned' | 'standUp';
 // Game action for undo history
 export interface GameAction {
   id: string;
-  type: RecoveryActionType | 'move' | 'run' | 'shoot' | 'charge' | 'meleeAttack' | 'setCombatState' | 'setStatus';
+  type: RecoveryActionType | 'move' | 'run' | 'shoot' | 'charge' | 'failedCharge' | 'climb' | 'jumpDown' | 'jumpGap' | 'fall' | 'hide' | 'reveal' | 'meleeAttack' | 'setCombatState' | 'setStatus';
   timestamp: string;
   turn: number;
   phase: GamePhase;

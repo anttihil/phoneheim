@@ -19,7 +19,11 @@ import {
   canWeaponParry,
   weaponCausesConcussion,
   attemptParryWithReroll,
-  getWeaponAccuracyBonus
+  getWeaponAccuracyBonus,
+  rollClimbingTest,
+  rollJumpTest,
+  calculateFallingDamage,
+  characteristicTest
 } from './gameRules';
 import type {
   GameState,
@@ -79,6 +83,8 @@ function initWarbandForGame(warband: Warband, playerNumber: 1 | 2): GameWarband 
       hasRun: false,
       hasShot: false,
       hasCharged: false,
+      hasFailedCharge: false,
+      hasFallen: false,
       hasRecovered: false,
       isHidden: false,
       carriedWyrdstone: 0,
@@ -89,7 +95,8 @@ function initWarbandForGame(warband: Warband, playerNumber: 1 | 2): GameWarband 
         engagedWith: []
       },
       halfMovement: false,
-      strikesLast: false
+      strikesLast: false,
+      divingChargeBonus: false
     })),
     outOfActionCount: 0,
     routFailed: false
@@ -180,10 +187,13 @@ function resetWarriorFlags(gameState: GameState): void {
       warrior.hasRun = false;
       warrior.hasShot = false;
       warrior.hasCharged = false;
+      warrior.hasFailedCharge = false;
+      warrior.hasFallen = false;
       warrior.hasRecovered = false;
       // Reset turn-specific modifiers from previous turn
       warrior.halfMovement = false;
       warrior.strikesLast = false;
+      warrior.divingChargeBonus = false;
     }
   }
 }
@@ -823,10 +833,16 @@ export function markWarriorActed(
 // =====================================
 
 // Move warrior (normal movement)
+// Move options
+export interface MoveOptions {
+  disengageFromDowned?: boolean; // If true, will disengage from knocked down/stunned enemies
+}
+
 export function moveWarrior(
   gameState: GameState,
   warbandIndex: number,
-  warriorId: string
+  warriorId: string,
+  options: MoveOptions = {}
 ): GameAction {
   const warband = gameState.warbands[warbandIndex];
   const warrior = warband.warriors.find(w => w.id === warriorId);
@@ -843,9 +859,23 @@ export function moveWarrior(
     throw new Error('Warrior has already moved this turn');
   }
 
+  // Check combat restrictions
+  if (warrior.combatState.inCombat) {
+    const combatCheck = canMoveInCombat(gameState, warbandIndex, warriorId);
+    if (!combatCheck.canMove) {
+      throw new Error(combatCheck.reason || 'Cannot move while in combat');
+    }
+
+    // Disengage from downed enemies if requested
+    if (options.disengageFromDowned) {
+      disengageFromCombat(gameState, warbandIndex, warriorId);
+    }
+  }
+
   // Store previous state for undo
   const previousState: Partial<GameWarrior> = {
-    hasMoved: warrior.hasMoved
+    hasMoved: warrior.hasMoved,
+    combatState: { ...warrior.combatState }
   };
 
   // Create action record
@@ -859,7 +889,9 @@ export function moveWarrior(
     warriorId,
     warbandIndex,
     previousState,
-    description: `${warrior.name || warrior.type} moves`
+    description: options.disengageFromDowned
+      ? `${warrior.name || warrior.type} moves away from downed enemies`
+      : `${warrior.name || warrior.type} moves`
   };
 
   // Apply state change
@@ -872,11 +904,17 @@ export function moveWarrior(
   return action;
 }
 
+// Run options for running validation
+export interface RunOptions {
+  hasEnemiesNearby?: boolean; // Are non-hidden standing enemies within 8"?
+}
+
 // Run warrior (double movement, no shooting)
 export function runWarrior(
   gameState: GameState,
   warbandIndex: number,
-  warriorId: string
+  warriorId: string,
+  options: RunOptions = {}
 ): GameAction {
   const warband = gameState.warbands[warbandIndex];
   const warrior = warband.warriors.find(w => w.id === warriorId);
@@ -891,6 +929,11 @@ export function runWarrior(
 
   if (warrior.hasMoved) {
     throw new Error('Warrior has already moved this turn');
+  }
+
+  // Check running restriction: cannot run if enemies within 8"
+  if (options.hasEnemiesNearby) {
+    throw new Error('Cannot run when standing enemies are within 8 inches');
   }
 
   // Store previous state for undo
@@ -924,13 +967,638 @@ export function runWarrior(
   return action;
 }
 
+// Climb options
+export interface ClimbOptions {
+  height: number; // Height to climb in inches
+  direction: 'up' | 'down';
+}
+
+// Climb result
+export interface ClimbResult {
+  action: GameAction;
+  success: boolean;
+  fell?: boolean; // If climbing down failed, warrior fell
+}
+
+// Climb warrior (requires Initiative test)
+export function climbWarrior(
+  gameState: GameState,
+  warbandIndex: number,
+  warriorId: string,
+  options: ClimbOptions
+): ClimbResult {
+  const warband = gameState.warbands[warbandIndex];
+  const warrior = warband.warriors.find(w => w.id === warriorId);
+
+  if (!warrior) {
+    throw new Error('Warrior not found');
+  }
+
+  if (warrior.gameStatus !== 'standing') {
+    throw new Error('Warrior must be standing to climb');
+  }
+
+  if (warrior.hasMoved) {
+    throw new Error('Warrior has already moved this turn');
+  }
+
+  // Cannot climb more than movement value
+  if (options.height > warrior.profile.M) {
+    throw new Error(`Cannot climb more than ${warrior.profile.M} inches (movement value)`);
+  }
+
+  if (options.height <= 0) {
+    throw new Error('Climb height must be positive');
+  }
+
+  // Store previous state for undo
+  const previousState: Partial<GameWarrior> = {
+    hasMoved: warrior.hasMoved,
+    gameStatus: warrior.gameStatus,
+    woundsRemaining: warrior.woundsRemaining
+  };
+
+  // Roll climbing test
+  const climbTest = rollClimbingTest(warrior.profile.I);
+
+  if (climbTest.passed) {
+    // Successful climb
+    const action: GameAction = {
+      id: generateActionId(),
+      type: 'climb',
+      timestamp: new Date().toISOString(),
+      turn: gameState.turn,
+      phase: gameState.phase,
+      player: gameState.currentPlayer,
+      warriorId,
+      warbandIndex,
+      previousState,
+      diceRolls: [{ roll: climbTest.roll, needed: warrior.profile.I, success: true }],
+      description: `${warrior.name || warrior.type} climbs ${options.direction} ${options.height}" (Initiative test: ${climbTest.roll} vs ${warrior.profile.I} - passed)`
+    };
+
+    // Apply state change
+    warrior.hasMoved = true;
+
+    // Record action
+    gameState.actionHistory.push(action);
+    addLog(gameState, action.description);
+
+    return { action, success: true };
+  } else {
+    // Failed climb
+    if (options.direction === 'up') {
+      // Fail climbing up: cannot move, stays at base
+      const action: GameAction = {
+        id: generateActionId(),
+        type: 'climb',
+        timestamp: new Date().toISOString(),
+        turn: gameState.turn,
+        phase: gameState.phase,
+        player: gameState.currentPlayer,
+        warriorId,
+        warbandIndex,
+        previousState,
+        diceRolls: [{ roll: climbTest.roll, needed: warrior.profile.I, success: false }],
+        description: `${warrior.name || warrior.type} fails to climb up (Initiative test: ${climbTest.roll} vs ${warrior.profile.I} - failed)`
+      };
+
+      // Apply state change - warrior cannot move further
+      warrior.hasMoved = true;
+
+      // Record action
+      gameState.actionHistory.push(action);
+      addLog(gameState, action.description);
+
+      return { action, success: false };
+    } else {
+      // Fail climbing down: fall from starting height
+      const action: GameAction = {
+        id: generateActionId(),
+        type: 'climb',
+        timestamp: new Date().toISOString(),
+        turn: gameState.turn,
+        phase: gameState.phase,
+        player: gameState.currentPlayer,
+        warriorId,
+        warbandIndex,
+        previousState,
+        diceRolls: [{ roll: climbTest.roll, needed: warrior.profile.I, success: false }],
+        description: `${warrior.name || warrior.type} fails to climb down and falls ${options.height}" (Initiative test: ${climbTest.roll} vs ${warrior.profile.I} - failed)`
+      };
+
+      // Apply state change - warrior fell and cannot move
+      warrior.hasMoved = true;
+
+      // Record action
+      gameState.actionHistory.push(action);
+      addLog(gameState, action.description);
+
+      // Note: Falling damage should be applied separately using applyFalling()
+      return { action, success: false, fell: true };
+    }
+  }
+}
+
+// Jump down result
+export interface JumpDownResult {
+  action: GameAction;
+  success: boolean;
+  testsPassed: number;
+  testsFailed: number;
+}
+
+// Jump down from height (max 6", Initiative test per 2")
+export function jumpDownWarrior(
+  gameState: GameState,
+  warbandIndex: number,
+  warriorId: string,
+  height: number,
+  isDivingCharge: boolean = false
+): JumpDownResult {
+  const warband = gameState.warbands[warbandIndex];
+  const warrior = warband.warriors.find(w => w.id === warriorId);
+
+  if (!warrior) {
+    throw new Error('Warrior not found');
+  }
+
+  if (warrior.gameStatus !== 'standing') {
+    throw new Error('Warrior must be standing to jump');
+  }
+
+  if (height <= 0) {
+    throw new Error('Jump height must be positive');
+  }
+
+  if (height > 6) {
+    throw new Error('Cannot jump down more than 6 inches');
+  }
+
+  // Store previous state for undo
+  const previousState: Partial<GameWarrior> = {
+    hasMoved: warrior.hasMoved,
+    hasFallen: warrior.hasFallen,
+    divingChargeBonus: warrior.divingChargeBonus,
+    woundsRemaining: warrior.woundsRemaining
+  };
+
+  // Roll Initiative tests (1 per full 2")
+  const jumpTest = rollJumpTest(warrior.profile.I, height);
+  const testsPassed = jumpTest.tests.filter(t => t.success).length;
+  const testsFailed = jumpTest.tests.filter(t => !t.success).length;
+
+  if (jumpTest.success) {
+    // Successful jump
+    const action: GameAction = {
+      id: generateActionId(),
+      type: 'jumpDown',
+      timestamp: new Date().toISOString(),
+      turn: gameState.turn,
+      phase: gameState.phase,
+      player: gameState.currentPlayer,
+      warriorId,
+      warbandIndex,
+      previousState,
+      diceRolls: jumpTest.tests.map(t => ({ roll: t.roll, needed: warrior.profile.I, success: t.success })),
+      description: `${warrior.name || warrior.type} jumps down ${height}" successfully${isDivingCharge ? ' (diving charge: +1 S, +1 to hit)' : ''}`
+    };
+
+    // Apply diving charge bonus if applicable
+    if (isDivingCharge) {
+      warrior.divingChargeBonus = true;
+    }
+
+    // Record action
+    gameState.actionHistory.push(action);
+    addLog(gameState, action.description);
+
+    return { action, success: true, testsPassed, testsFailed };
+  } else {
+    // Failed jump - warrior falls and takes damage
+    const action: GameAction = {
+      id: generateActionId(),
+      type: 'jumpDown',
+      timestamp: new Date().toISOString(),
+      turn: gameState.turn,
+      phase: gameState.phase,
+      player: gameState.currentPlayer,
+      warriorId,
+      warbandIndex,
+      previousState,
+      diceRolls: jumpTest.tests.map(t => ({ roll: t.roll, needed: warrior.profile.I, success: t.success })),
+      description: `${warrior.name || warrior.type} fails to land safely from ${height}" jump`
+    };
+
+    // Apply state change - warrior fell
+    warrior.hasMoved = true;
+    warrior.hasFallen = true;
+
+    // Record action
+    gameState.actionHistory.push(action);
+    addLog(gameState, action.description);
+
+    // Note: Falling damage should be applied separately using applyFalling()
+    return { action, success: false, testsPassed, testsFailed };
+  }
+}
+
+// Apply falling damage result
+export interface FallingDamageResult {
+  action: GameAction;
+  hits: number;
+  strength: number;
+  woundsDealt: number;
+  finalStatus: 'standing' | 'knockedDown' | 'stunned' | 'outOfAction';
+}
+
+// Apply falling damage to a warrior
+export function applyFalling(
+  gameState: GameState,
+  warbandIndex: number,
+  warriorId: string,
+  heightInInches: number
+): FallingDamageResult {
+  const warband = gameState.warbands[warbandIndex];
+  const warrior = warband.warriors.find(w => w.id === warriorId);
+
+  if (!warrior) {
+    throw new Error('Warrior not found');
+  }
+
+  // Store previous state for undo
+  const previousState: Partial<GameWarrior> = {
+    hasMoved: warrior.hasMoved,
+    hasFallen: warrior.hasFallen,
+    woundsRemaining: warrior.woundsRemaining,
+    gameStatus: warrior.gameStatus
+  };
+
+  // Calculate falling damage: D3 hits at S = height, no armor saves
+  const fallingDamage = calculateFallingDamage(heightInInches);
+  let woundsDealt = 0;
+
+  // Apply each hit
+  for (let i = 0; i < fallingDamage.hits; i++) {
+    const woundRoll = rollToWound(fallingDamage.strength, warrior.profile.T);
+    if (woundRoll.wounded) {
+      // No armor save for falling damage
+      woundsDealt++;
+      warrior.woundsRemaining--;
+
+      if (warrior.woundsRemaining <= 0) {
+        // Roll injury
+        const injuryResult = rollInjury();
+        if (injuryResult.result === 'knockedDown') {
+          warrior.gameStatus = 'knockedDown';
+        } else if (injuryResult.result === 'stunned') {
+          warrior.gameStatus = 'stunned';
+        } else {
+          warrior.gameStatus = 'outOfAction';
+          warband.outOfActionCount++;
+        }
+        break;
+      }
+    }
+  }
+
+  // Warrior fell - cannot move or hide
+  warrior.hasMoved = true;
+  warrior.hasFallen = true;
+
+  const action: GameAction = {
+    id: generateActionId(),
+    type: 'fall',
+    timestamp: new Date().toISOString(),
+    turn: gameState.turn,
+    phase: gameState.phase,
+    player: gameState.currentPlayer,
+    warriorId,
+    warbandIndex,
+    previousState,
+    description: `${warrior.name || warrior.type} takes falling damage from ${heightInInches}" (${fallingDamage.hits} hits at S${fallingDamage.strength}, ${woundsDealt} wound(s))`
+  };
+
+  // Record action
+  gameState.actionHistory.push(action);
+  addLog(gameState, action.description);
+
+  return {
+    action,
+    hits: fallingDamage.hits,
+    strength: fallingDamage.strength,
+    woundsDealt,
+    finalStatus: warrior.gameStatus
+  };
+}
+
+// Edge fall check result
+export interface EdgeFallCheckResult {
+  testRequired: boolean;
+  testPassed?: boolean;
+  testRoll?: number;
+  fell: boolean;
+  fallDamage?: FallingDamageResult;
+}
+
+// Check if knocked down/stunned warrior near edge falls
+// Call this after injury result when warrior is knocked down or stunned
+export function checkEdgeFall(
+  gameState: GameState,
+  warbandIndex: number,
+  warriorId: string,
+  isNearEdge: boolean,
+  edgeHeight: number
+): EdgeFallCheckResult {
+  if (!isNearEdge) {
+    return { testRequired: false, fell: false };
+  }
+
+  const warband = gameState.warbands[warbandIndex];
+  const warrior = warband.warriors.find(w => w.id === warriorId);
+
+  if (!warrior) {
+    throw new Error('Warrior not found');
+  }
+
+  // Must be knocked down or stunned to need this check
+  if (warrior.gameStatus !== 'knockedDown' && warrior.gameStatus !== 'stunned') {
+    return { testRequired: false, fell: false };
+  }
+
+  // Roll Initiative test
+  const test = characteristicTest(warrior.profile.I);
+
+  if (test.passed) {
+    // Passed - warrior catches themselves, no fall
+    addLog(gameState, `${warrior.name || warrior.type} passes Initiative test and avoids falling off edge`);
+    return {
+      testRequired: true,
+      testPassed: true,
+      testRoll: test.roll,
+      fell: false
+    };
+  } else {
+    // Failed - warrior falls
+    addLog(gameState, `${warrior.name || warrior.type} fails Initiative test and falls ${edgeHeight}" from the edge`);
+
+    // Apply falling damage
+    const fallDamage = applyFalling(gameState, warbandIndex, warriorId, edgeHeight);
+
+    return {
+      testRequired: true,
+      testPassed: false,
+      testRoll: test.roll,
+      fell: true,
+      fallDamage
+    };
+  }
+}
+
+// =====================================
+// HIDING MECHANICS
+// =====================================
+
+// Check if warrior can hide
+export function canWarriorHide(warrior: GameWarrior): { canHide: boolean; reason?: string } {
+  if (warrior.gameStatus !== 'standing') {
+    return { canHide: false, reason: 'Warrior must be standing to hide' };
+  }
+
+  if (warrior.hasRun) {
+    return { canHide: false, reason: 'Cannot hide after running' };
+  }
+
+  if (warrior.hasCharged) {
+    return { canHide: false, reason: 'Cannot hide after charging' };
+  }
+
+  if (warrior.hasFailedCharge) {
+    return { canHide: false, reason: 'Cannot hide after failing a charge' };
+  }
+
+  if (warrior.hasFallen) {
+    return { canHide: false, reason: 'Cannot hide after falling' };
+  }
+
+  if (warrior.combatState.inCombat) {
+    return { canHide: false, reason: 'Cannot hide while in combat' };
+  }
+
+  return { canHide: true };
+}
+
+// Hide warrior behind cover
+export function hideWarrior(
+  gameState: GameState,
+  warbandIndex: number,
+  warriorId: string
+): GameAction {
+  const warband = gameState.warbands[warbandIndex];
+  const warrior = warband.warriors.find(w => w.id === warriorId);
+
+  if (!warrior) {
+    throw new Error('Warrior not found');
+  }
+
+  const canHide = canWarriorHide(warrior);
+  if (!canHide.canHide) {
+    throw new Error(canHide.reason);
+  }
+
+  // Store previous state for undo
+  const previousState: Partial<GameWarrior> = {
+    isHidden: warrior.isHidden
+  };
+
+  // Create action record
+  const action: GameAction = {
+    id: generateActionId(),
+    type: 'hide',
+    timestamp: new Date().toISOString(),
+    turn: gameState.turn,
+    phase: gameState.phase,
+    player: gameState.currentPlayer,
+    warriorId,
+    warbandIndex,
+    previousState,
+    description: `${warrior.name || warrior.type} hides`
+  };
+
+  // Apply state change
+  warrior.isHidden = true;
+
+  // Record action
+  gameState.actionHistory.push(action);
+  addLog(gameState, action.description);
+
+  return action;
+}
+
+// Reveal hidden warrior
+export function revealWarrior(
+  gameState: GameState,
+  warbandIndex: number,
+  warriorId: string,
+  reason: string = 'detected'
+): GameAction {
+  const warband = gameState.warbands[warbandIndex];
+  const warrior = warband.warriors.find(w => w.id === warriorId);
+
+  if (!warrior) {
+    throw new Error('Warrior not found');
+  }
+
+  if (!warrior.isHidden) {
+    throw new Error('Warrior is not hidden');
+  }
+
+  // Store previous state for undo
+  const previousState: Partial<GameWarrior> = {
+    isHidden: warrior.isHidden
+  };
+
+  // Create action record
+  const action: GameAction = {
+    id: generateActionId(),
+    type: 'reveal',
+    timestamp: new Date().toISOString(),
+    turn: gameState.turn,
+    phase: gameState.phase,
+    player: gameState.currentPlayer,
+    warriorId,
+    warbandIndex,
+    previousState,
+    description: `${warrior.name || warrior.type} is revealed (${reason})`
+  };
+
+  // Apply state change
+  warrior.isHidden = false;
+
+  // Record action
+  gameState.actionHistory.push(action);
+  addLog(gameState, action.description);
+
+  return action;
+}
+
+// Get detection range for a warrior (based on Initiative)
+export function getDetectionRange(warrior: GameWarrior): number {
+  return warrior.profile.I;
+}
+
+// Check hidden warriors for detection at start of movement phase
+// Returns list of warriors that should be revealed
+export function checkHiddenWarriorsForDetection(
+  gameState: GameState,
+  detectingWarbandIndex: number,
+  hiddenWarriorsNearby: Array<{ warriorId: string; warbandIndex: number }>
+): Array<{ warriorId: string; warbandIndex: number }> {
+  // This is a simplified version - in actual use, the UI would prompt the player
+  // to confirm which hidden warriors are within detection range of their warriors
+  // The hiddenWarriorsNearby array is populated based on player confirmation
+  return hiddenWarriorsNearby;
+}
+
+// =====================================
+// COMBAT MOVEMENT RESTRICTIONS
+// =====================================
+
+// Check if a warrior in combat can move away
+// Warriors can only move if all engaged enemies are knocked down or stunned
+export function canMoveInCombat(
+  gameState: GameState,
+  warbandIndex: number,
+  warriorId: string
+): { canMove: boolean; reason?: string } {
+  const warband = gameState.warbands[warbandIndex];
+  const warrior = warband.warriors.find(w => w.id === warriorId);
+
+  if (!warrior) {
+    return { canMove: false, reason: 'Warrior not found' };
+  }
+
+  // If not in combat, can always move
+  if (!warrior.combatState.inCombat || warrior.combatState.engagedWith.length === 0) {
+    return { canMove: true };
+  }
+
+  // Check each engaged enemy
+  const opponentIndex = warbandIndex === 0 ? 1 : 0;
+  const opponents = gameState.warbands[opponentIndex].warriors;
+
+  for (const enemyId of warrior.combatState.engagedWith) {
+    const enemy = opponents.find(w => w.id === enemyId);
+    if (!enemy) continue;
+
+    // If any enemy is standing, cannot move away
+    if (enemy.gameStatus === 'standing') {
+      return {
+        canMove: false,
+        reason: 'Cannot move while engaged with standing enemies'
+      };
+    }
+  }
+
+  // All engaged enemies are knocked down or stunned - can move away
+  return { canMove: true };
+}
+
+// Disengage warrior from all enemies in combat
+// Should only be called when canMoveInCombat returns true
+export function disengageFromCombat(
+  gameState: GameState,
+  warbandIndex: number,
+  warriorId: string
+): void {
+  const warband = gameState.warbands[warbandIndex];
+  const warrior = warband.warriors.find(w => w.id === warriorId);
+
+  if (!warrior) {
+    throw new Error('Warrior not found');
+  }
+
+  if (!warrior.combatState.inCombat) {
+    return; // Nothing to disengage from
+  }
+
+  // Get opponent warband
+  const opponentIndex = warbandIndex === 0 ? 1 : 0;
+  const opponents = gameState.warbands[opponentIndex].warriors;
+
+  // Remove this warrior from all engaged enemies' engagedWith lists
+  for (const enemyId of warrior.combatState.engagedWith) {
+    const enemy = opponents.find(w => w.id === enemyId);
+    if (!enemy) continue;
+
+    enemy.combatState.engagedWith = enemy.combatState.engagedWith.filter(id => id !== warriorId);
+    if (enemy.combatState.engagedWith.length === 0) {
+      enemy.combatState.inCombat = false;
+    }
+  }
+
+  // Clear warrior's combat state
+  warrior.combatState.inCombat = false;
+  warrior.combatState.engagedWith = [];
+}
+
+// Charge options for charge validation
+export interface ChargeOptions {
+  reachedTarget?: boolean; // Did the warrior reach the target? (default: true for backwards compatibility)
+  interceptedBy?: {
+    warriorId: string;
+    warbandIndex: number;
+  }; // If set, charge is intercepted by this warrior instead of reaching original target
+}
+
 // Charge warrior (double movement into combat)
 export function chargeWarrior(
   gameState: GameState,
   warbandIndex: number,
   warriorId: string,
   targetWarbandIndex: number,
-  targetId: string
+  targetId: string,
+  options: ChargeOptions = {}
 ): GameAction {
   const warband = gameState.warbands[warbandIndex];
   const targetWarband = gameState.warbands[targetWarbandIndex];
@@ -953,41 +1621,115 @@ export function chargeWarrior(
     throw new Error('Warrior has already moved this turn');
   }
 
+  // Default to successful charge for backwards compatibility
+  const reachedTarget = options.reachedTarget !== false;
+
   // Store previous state for undo
   const previousState: Partial<GameWarrior> = {
     hasMoved: warrior.hasMoved,
     hasCharged: warrior.hasCharged,
+    hasFailedCharge: warrior.hasFailedCharge,
     combatState: { ...warrior.combatState }
   };
 
-  // Create action record
-  const action: GameAction = {
-    id: generateActionId(),
-    type: 'charge',
-    timestamp: new Date().toISOString(),
-    turn: gameState.turn,
-    phase: gameState.phase,
-    player: gameState.currentPlayer,
-    warriorId,
-    warbandIndex,
-    targetId,
-    targetWarbandIndex,
-    previousState,
-    description: `${warrior.name || warrior.type} charges ${target.name || target.type}`
-  };
+  if (reachedTarget) {
+    // Check for interception
+    const intercepted = options.interceptedBy;
 
-  // Apply state change
-  warrior.hasMoved = true;
-  warrior.hasCharged = true;
+    if (intercepted) {
+      // Charge was intercepted - engage with interceptor instead of original target
+      const interceptorWarband = gameState.warbands[intercepted.warbandIndex];
+      const interceptor = interceptorWarband.warriors.find(w => w.id === intercepted.warriorId);
 
-  // Engage warriors in combat
-  engageWarriors(gameState, warbandIndex, warriorId, targetWarbandIndex, targetId);
+      if (!interceptor) {
+        throw new Error('Interceptor not found');
+      }
 
-  // Record action
-  gameState.actionHistory.push(action);
-  addLog(gameState, action.description);
+      const action: GameAction = {
+        id: generateActionId(),
+        type: 'charge',
+        timestamp: new Date().toISOString(),
+        turn: gameState.turn,
+        phase: gameState.phase,
+        player: gameState.currentPlayer,
+        warriorId,
+        warbandIndex,
+        targetId: intercepted.warriorId, // Record the interceptor as the actual target
+        targetWarbandIndex: intercepted.warbandIndex,
+        previousState,
+        description: `${warrior.name || warrior.type} charges ${target.name || target.type} but is intercepted by ${interceptor.name || interceptor.type}`
+      };
 
-  return action;
+      // Apply state change - charger still counts as having charged (strikes first)
+      warrior.hasMoved = true;
+      warrior.hasCharged = true;
+
+      // Engage with interceptor, not original target
+      engageWarriors(gameState, warbandIndex, warriorId, intercepted.warbandIndex, intercepted.warriorId);
+
+      // Record action
+      gameState.actionHistory.push(action);
+      addLog(gameState, action.description);
+
+      return action;
+    }
+
+    // Normal successful charge - engage in combat with original target
+    const action: GameAction = {
+      id: generateActionId(),
+      type: 'charge',
+      timestamp: new Date().toISOString(),
+      turn: gameState.turn,
+      phase: gameState.phase,
+      player: gameState.currentPlayer,
+      warriorId,
+      warbandIndex,
+      targetId,
+      targetWarbandIndex,
+      previousState,
+      description: `${warrior.name || warrior.type} charges ${target.name || target.type}`
+    };
+
+    // Apply state change
+    warrior.hasMoved = true;
+    warrior.hasCharged = true;
+
+    // Engage warriors in combat
+    engageWarriors(gameState, warbandIndex, warriorId, targetWarbandIndex, targetId);
+
+    // Record action
+    gameState.actionHistory.push(action);
+    addLog(gameState, action.description);
+
+    return action;
+  } else {
+    // Failed charge - move normal distance toward target, cannot shoot
+    const action: GameAction = {
+      id: generateActionId(),
+      type: 'failedCharge',
+      timestamp: new Date().toISOString(),
+      turn: gameState.turn,
+      phase: gameState.phase,
+      player: gameState.currentPlayer,
+      warriorId,
+      warbandIndex,
+      targetId,
+      targetWarbandIndex,
+      previousState,
+      description: `${warrior.name || warrior.type} fails to reach ${target.name || target.type} (moves normal distance)`
+    };
+
+    // Apply state change for failed charge
+    warrior.hasMoved = true;
+    warrior.hasFailedCharge = true;
+    // Note: hasCharged remains false as warrior didn't engage
+
+    // Record action
+    gameState.actionHistory.push(action);
+    addLog(gameState, action.description);
+
+    return action;
+  }
 }
 
 // Mark warrior as positioned (setup phase)
@@ -1112,8 +1854,8 @@ export function canWarriorShoot(gameState: GameState, warrior: GameWarrior): boo
   // Cannot shoot if already shot
   if (warrior.hasShot) return false;
 
-  // Cannot shoot if ran or charged
-  if (warrior.hasRun || warrior.hasCharged) return false;
+  // Cannot shoot if ran, charged, or failed a charge
+  if (warrior.hasRun || warrior.hasCharged || warrior.hasFailedCharge) return false;
 
   // Cannot shoot if in combat
   if (warrior.combatState.inCombat) return false;
@@ -1228,8 +1970,15 @@ export function executeShot(
 
   // Store previous state
   const previousState: Partial<GameWarrior> = {
-    hasShot: shooter.hasShot
+    hasShot: shooter.hasShot,
+    isHidden: shooter.isHidden
   };
+
+  // Shooting reveals hidden warriors
+  if (shooter.isHidden) {
+    shooter.isHidden = false;
+    addLog(gameState, `${shooter.name || shooter.type} is revealed (shooting)`);
+  }
 
   // Roll to hit
   const accuracyBonus = getWeaponAccuracyBonus(weaponKey);
