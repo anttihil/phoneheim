@@ -365,9 +365,14 @@ export class GameEngine {
     // Clear pending rout test
     this.pendingRoutTest = null;
 
-    // If in combat phase, advance to next fighter after acknowledging attack result
+    // If in combat phase, check if current fighter has used all attacks
     if (this.state!.phase === 'combat' && this.strikeOrder.length > 0) {
-      this.currentFighterIndex++;
+      const currentFighter = this.strikeOrder[this.currentFighterIndex];
+      if (currentFighter && currentFighter.attacksUsed >= currentFighter.attacks) {
+        // All attacks used, advance to next fighter
+        this.currentFighterIndex++;
+      }
+      // If attacks remain, stay on current fighter (player can attack again)
     }
 
     return this.successResult(true);
@@ -394,6 +399,11 @@ export class GameEngine {
 
     const currentFighter = this.strikeOrder[this.currentFighterIndex];
 
+    // Validate fighter has attacks remaining
+    if (currentFighter.attacksUsed >= currentFighter.attacks) {
+      return this.errorResult('No attacks remaining for this warrior');
+    }
+
     // Validate target is in the fighter's engaged enemies
     const targets = getMeleeTargetsLogic(this.state!, currentFighter.warriorId);
     const validTarget = targets.find(t => t.targetId === targetId);
@@ -409,6 +419,9 @@ export class GameEngine {
       weaponKey
     );
 
+    // Increment attacks used
+    currentFighter.attacksUsed++;
+
     // Store resolution for display
     this.pendingResolution = result.resolution;
 
@@ -420,9 +433,7 @@ export class GameEngine {
       }
     }
 
-    // Advance to next fighter (we'll do this after acknowledging the resolution)
-    // Note: Actual advancement happens when ACKNOWLEDGE is processed
-    // For now, we just mark that this attack happened
+    // Fighter advancement happens in handleAcknowledge after all attacks are used
 
     return this.successResult(true);
   }

@@ -465,8 +465,8 @@ export default function GamePlay() {
             </div>
           </Card>
 
-          {/* Action Panel for Selected Warrior */}
-          <Show when={selectedWarrior() && availableActions().length > 0 && !pendingAction()}>
+          {/* Action Panel for Selected Warrior - hidden during combat phase (CombatPanel handles combat) */}
+          <Show when={selectedWarrior() && availableActions().length > 0 && !pendingAction() && game()?.phase !== 'combat'}>
             <Card title={`Actions: ${selectedWarrior()!.name || selectedWarrior()!.type}`} class="action-panel">
               <For each={availableActions()}>
                 {(action) => (
@@ -515,8 +515,11 @@ export default function GamePlay() {
                 <For each={opponentWarband()?.warriors}>
                   {(warrior) => (
                     <div
-                      class={`warrior-game-status opponent ${isValidTarget(warrior.id) ? 'valid-target' : ''} ${pendingAction() && !isValidTarget(warrior.id) ? 'invalid-target' : ''}`}
+                      class={`warrior-game-status opponent ${isValidTarget(warrior.id) ? 'valid-target' : ''} ${pendingAction() && !isValidTarget(warrior.id) ? 'invalid-target' : ''} ${game()?.phase === 'combat' ? 'read-only' : ''}`}
                       onClick={() => {
+                        // Don't allow clicking opponent warriors during combat phase
+                        if (game()?.phase === 'combat') return;
+
                         if (pendingAction() && isValidTarget(warrior.id)) {
                           handleSelectTarget(warrior.id);
                         }

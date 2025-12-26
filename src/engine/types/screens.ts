@@ -155,6 +155,8 @@ export interface CombatPhaseData {
   meleeTargets: WarriorView[]; // Valid melee targets for current fighter
   selectedTarget: WarriorView | null;
   allFightersComplete: boolean;
+  attacksRemaining: number; // How many attacks the current fighter has left
+  attacksTotal: number; // Total attacks for current fighter
 }
 
 export interface CombatResolutionData {

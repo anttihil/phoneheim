@@ -2170,7 +2170,8 @@ export function buildStrikeOrder(gameState: GameState): StrikeOrderEntry[] {
           initiative: warrior.profile.I,
           charged: warrior.hasCharged,
           stoodUp: warrior.strikesLast,
-          attacks: warrior.profile.A
+          attacks: warrior.profile.A,
+          attacksUsed: 0
         });
       }
     }

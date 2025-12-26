@@ -121,7 +121,16 @@ function startGame(warband1: Warband, warband2: Warband, scenarioKey: string): G
 function advancePhase(): void {
   setState(produce((s) => {
     if (s.activeGame) {
+      // Check if we're leaving combat phase (end of turn)
+      const wasInCombat = s.activeGame.phase === 'combat';
+
       advanceGamePhase(s.activeGame);
+
+      // Reset strike order when combat phase ends (new turn starting)
+      if (wasInCombat && s.activeGame.phase === 'recovery') {
+        s.strikeOrder = [];
+        s.currentFighterIndex = 0;
+      }
     }
   }));
 }
@@ -494,6 +503,17 @@ function getMeleeTargets(attackerId: string): MeleeTarget[] {
 }
 
 function executeMeleeAttack(attackerId: string, defenderId: string, weaponKey: string = 'sword'): { action: GameAction; resolution: CombatResolution } | null {
+  // Check if current fighter has attacks remaining
+  const currentFighter = getCurrentFighter();
+  if (!currentFighter) {
+    console.warn('No current fighter');
+    return null;
+  }
+  if (currentFighter.attacksUsed >= currentFighter.attacks) {
+    console.warn('No attacks remaining for this warrior');
+    return null;
+  }
+
   let result: { action: GameAction; resolution: CombatResolution } | null = null;
 
   setState(produce((s) => {
@@ -503,6 +523,11 @@ function executeMeleeAttack(attackerId: string, defenderId: string, weaponKey: s
       // Store resolution for display
       s.currentResolution = result.resolution;
       s.showResolutionModal = true;
+
+      // Increment attacks used for current fighter
+      if (s.currentFighterIndex < s.strikeOrder.length) {
+        s.strikeOrder[s.currentFighterIndex].attacksUsed++;
+      }
 
       // Check if rout test needed after combat
       for (let i = 0; i < 2; i++) {
@@ -533,6 +558,12 @@ function isCombatPhaseComplete(): boolean {
 function closeResolutionModal(): void {
   setState('showResolutionModal', false);
   setState('currentResolution', null);
+
+  // Check if current fighter has used all attacks - if so, advance to next fighter
+  const fighter = getCurrentFighter();
+  if (fighter && fighter.attacksUsed >= fighter.attacks) {
+    nextFighter();
+  }
 }
 
 function getCurrentResolution(): CombatResolution | null {

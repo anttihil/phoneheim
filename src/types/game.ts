@@ -245,6 +245,7 @@ export interface StrikeOrderEntry {
   charged: boolean;
   stoodUp: boolean;
   attacks: number;
+  attacksUsed: number; // Tracks how many attacks have been made this round
 }
 
 // Melee round tracking

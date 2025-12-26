@@ -28,6 +28,12 @@ export default function CombatPanel(props: CombatPanelProps) {
     return props.currentFighter.warbandIndex === props.currentPlayerIndex;
   });
 
+  // Check if current fighter has attacks remaining
+  const hasAttacksRemaining = createMemo(() => {
+    if (!props.currentFighter) return false;
+    return props.currentFighter.attacksUsed < props.currentFighter.attacks;
+  });
+
   return (
     <Card title="Combat Phase" class="combat-panel">
       <div class="combat-content">
@@ -49,7 +55,7 @@ export default function CombatPanel(props: CombatPanelProps) {
                   </Show>
                   <span class="fighter-name">{fighter.warriorName}</span>
                   <span class="fighter-stats">
-                    I:{fighter.initiative} A:{fighter.attacks}
+                    I:{fighter.initiative} A:{fighter.attacks - fighter.attacksUsed}/{fighter.attacks}
                   </span>
                   <span class={`player-badge player-${fighter.warbandIndex + 1}`}>
                     P{fighter.warbandIndex + 1}
@@ -69,7 +75,7 @@ export default function CombatPanel(props: CombatPanelProps) {
             <h4>
               {props.currentFighter!.warriorName}'s Turn
               <span class="attacks-remaining">
-                ({props.currentFighter!.attacks} attack{props.currentFighter!.attacks > 1 ? 's' : ''})
+                ({props.currentFighter!.attacks - props.currentFighter!.attacksUsed} attack{(props.currentFighter!.attacks - props.currentFighter!.attacksUsed) !== 1 ? 's' : ''} remaining)
               </span>
             </h4>
 
@@ -102,6 +108,7 @@ export default function CombatPanel(props: CombatPanelProps) {
                               <Button
                                 size="small"
                                 onClick={() => props.onAttack(target.targetId, weapon)}
+                                disabled={!hasAttacksRemaining()}
                               >
                                 Attack ({weapon})
                               </Button>
@@ -112,6 +119,7 @@ export default function CombatPanel(props: CombatPanelProps) {
                           <Button
                             size="small"
                             onClick={() => props.onAttack(target.targetId, availableWeapons()[0] || 'sword')}
+                            disabled={!hasAttacksRemaining()}
                           >
                             Attack
                           </Button>
