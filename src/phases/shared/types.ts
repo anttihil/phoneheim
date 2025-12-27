@@ -8,8 +8,8 @@ import type {
   CombatResolution,
   StrikeOrderEntry
 } from '../../types/game';
-import type { GameEvent, EventType } from '../types/events';
-import type { ScreenCommand } from '../types/screens';
+import type { GameEvent, EventType } from '../../engine/types/events';
+import type { ScreenCommand } from '../../engine/types/screens';
 
 // =====================================
 // AVAILABLE ACTION TYPES

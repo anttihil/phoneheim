@@ -1,7 +1,7 @@
 // Rout Test Modal - Shows rout test trigger and result
 
 import { Show, createSignal } from 'solid-js';
-import { Button, Card } from '../common';
+import { Button, Card } from '../../components/common';
 import type { RoutTestResult, GameWarband } from '../../types';
 
 export interface RoutTestModalProps {

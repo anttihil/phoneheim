@@ -15,15 +15,15 @@ import type {
   SelectTargetEvent,
   ConfirmMeleeEvent,
   AcknowledgeEvent
-} from '../types/events';
+} from '../../engine/types/events';
 import type {
   ScreenCommand,
   CombatPhaseScreen,
   CombatResolutionScreen,
   WarriorView
-} from '../types/screens';
-import type { PhaseModule, PhaseContext, PhaseResult, AvailableAction } from './types';
-import { successResult, errorResult } from './types';
+} from '../../engine/types/screens';
+import type { PhaseModule, PhaseContext, PhaseResult, AvailableAction } from '../shared/types';
+import { successResult, errorResult } from '../shared/types';
 import {
   toWarriorView,
   toWarbandView,
@@ -31,8 +31,8 @@ import {
   getOpponentWarband,
   findWarrior,
   findWarriorView
-} from './viewModels';
-import { generateActionId, addLog } from './stateUtils';
+} from '../shared/viewModels';
+import { generateActionId, addLog } from '../shared/stateUtils';
 import {
   rollToHitMelee,
   rollToWound,
@@ -46,7 +46,7 @@ import {
   canWeaponParry,
   weaponCausesConcussion,
   attemptParryWithReroll
-} from '../rules/combat';
+} from '../../engine/rules/combat';
 
 // =====================================
 // COMBAT PHASE MODULE

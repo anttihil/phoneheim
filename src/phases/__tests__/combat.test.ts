@@ -1,9 +1,9 @@
 import { describe, it, expect, beforeEach } from 'vitest';
-import { buildStrikeOrder, getMeleeTargets, getCombatAvailableActions } from '../combat';
-import { createPhaseContext } from '../types';
-import { createTestGameState, resetIdCounter, getWarrior } from '../../__tests__/testHelpers';
-import type { GameState } from '../../../types/game';
-import type { PhaseContext } from '../types';
+import { buildStrikeOrder, getMeleeTargets, getCombatAvailableActions } from '../combat/logic';
+import { createPhaseContext } from '../shared/types';
+import { createTestGameState, resetIdCounter, getWarrior } from '../../engine/__tests__/testHelpers';
+import type { GameState } from '../../types/game';
+import type { PhaseContext } from '../shared/types';
 
 describe('Combat Phase Utilities', () => {
   let state: GameState;

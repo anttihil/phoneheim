@@ -1,8 +1,8 @@
 // Combat Panel Component - UI for combat phase actions
 
 import { Show, For, createMemo } from 'solid-js';
-import { Button, Card } from '../common';
-import type { StrikeOrderEntry, MeleeTarget, GameWarrior } from '../../types';
+import { Button, Card } from '../../components/common';
+import type { StrikeOrderEntry, MeleeTarget } from '../../types';
 
 export interface CombatPanelProps {
   strikeOrder: StrikeOrderEntry[];

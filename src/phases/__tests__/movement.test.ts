@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeEach } from 'vitest';
-import { getMovementActableWarriors, getValidChargeTargets, getMovementAvailableActions } from '../movement';
-import { createTestGameState, resetIdCounter, getWarrior } from '../../__tests__/testHelpers';
-import type { GameState } from '../../../types/game';
+import { getMovementActableWarriors, getValidChargeTargets, getMovementAvailableActions } from '../movement/logic';
+import { createTestGameState, resetIdCounter, getWarrior } from '../../engine/__tests__/testHelpers';
+import type { GameState } from '../../types/game';
 
 describe('Movement Phase Utilities', () => {
   let state: GameState;

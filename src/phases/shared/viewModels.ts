@@ -2,7 +2,7 @@
 // Shared utilities for converting game state to UI view models
 
 import type { GameState, GameWarrior, GameWarband } from '../../types/game';
-import type { WarriorView, WarbandView } from '../types/screens';
+import type { WarriorView, WarbandView } from '../../engine/types/screens';
 
 /**
  * Convert a GameWarrior to a WarriorView for UI display

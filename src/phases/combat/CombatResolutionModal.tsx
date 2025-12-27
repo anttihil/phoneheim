@@ -1,7 +1,7 @@
 // Combat Resolution Modal - Shows step-by-step dice results
 
 import { Show } from 'solid-js';
-import { Button, Card } from '../common';
+import { Button, Card } from '../../components/common';
 import type { CombatResolutionData } from '../../engine/types/screens';
 
 export interface CombatResolutionModalProps {

@@ -2,14 +2,11 @@
 // Replaces the monolithic GameEngine with delegation to phase modules
 
 import type { Warband } from '../types/warband';
-import type { GameState, GameWarrior, ShootingModifiers } from '../types/game';
+import type { GameState } from '../types/game';
 import type { GameEvent, UndoEvent } from './types/events';
 import type { ScreenCommand } from './types/screens';
 import type { IGameEngine, ProcessResult, SerializedGame } from './types/engine';
-import {
-  createGameState,
-  isRoutTestRequired
-} from '../logic/gameState';
+import { createGameState } from '../logic/gameState';
 import {
   getNextState,
   isNewTurn,
@@ -18,13 +15,13 @@ import {
   resetPlayerActedFlags,
   getPhaseName
 } from './shared/stateMachine';
-import type { PhaseModule, PhaseContext, PhaseRegistry } from './phases/types';
-import { createPhaseContext, createPhaseRegistry } from './phases/types';
-import { setupPhase } from './phases/setup';
-import { recoveryPhase } from './phases/recovery';
-import { movementPhase } from './phases/movement';
-import { shootingPhase } from './phases/shooting';
-import { combatPhase } from './phases/combat';
+import type { PhaseContext, PhaseRegistry } from '../phases/shared/types';
+import { createPhaseContext, createPhaseRegistry } from '../phases/shared/types';
+import { setupPhase } from '../phases/setup';
+import { recoveryPhase } from '../phases/recovery';
+import { movementPhase } from '../phases/movement';
+import { shootingPhase } from '../phases/shooting';
+import { combatPhase } from '../phases/combat';
 
 // Re-export types for convenience
 export type { ProcessResult, SerializedGame };

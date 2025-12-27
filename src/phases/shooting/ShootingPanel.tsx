@@ -1,7 +1,7 @@
 // Shooting Panel Component - UI for shooting phase actions
 
 import { Show, For, createMemo } from 'solid-js';
-import { Button, Card } from '../common';
+import { Button, Card } from '../../components/common';
 import type { GameWarrior, ShootingTarget, ShootingModifiers } from '../../types';
 
 export interface ShootingPanelProps {
