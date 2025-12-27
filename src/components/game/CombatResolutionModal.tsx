@@ -2,17 +2,17 @@
 
 import { Show } from 'solid-js';
 import { Button, Card } from '../common';
-import type { CombatResolution } from '../../types';
+import type { CombatResolutionData } from '../../engine/types/screens';
 
 export interface CombatResolutionModalProps {
   isOpen: boolean;
-  resolution: CombatResolution | null;
+  resolution: CombatResolutionData | null;
   onClose: () => void;
 }
 
 export default function CombatResolutionModal(props: CombatResolutionModalProps) {
   // Get outcome display text
-  const getOutcomeText = (outcome: CombatResolution['finalOutcome']): string => {
+  const getOutcomeText = (outcome: CombatResolutionData['outcome']): string => {
     switch (outcome) {
       case 'miss': return 'MISSED!';
       case 'parried': return 'PARRIED!';
@@ -26,7 +26,7 @@ export default function CombatResolutionModal(props: CombatResolutionModalProps)
   };
 
   // Get outcome class for styling
-  const getOutcomeClass = (outcome: CombatResolution['finalOutcome']): string => {
+  const getOutcomeClass = (outcome: CombatResolutionData['outcome']): string => {
     switch (outcome) {
       case 'miss':
       case 'parried':
@@ -55,84 +55,79 @@ export default function CombatResolutionModal(props: CombatResolutionModalProps)
               <span class="defender-name">{props.resolution!.defenderName}</span>
             </div>
             <div class="weapon-info">
-              Weapon: {props.resolution!.weapon} (S{props.resolution!.weaponStrength})
+              Weapon: {props.resolution!.weapon}
             </div>
 
             {/* To Hit */}
-            <div class="resolution-step">
-              <span class="step-icon">D6</span>
-              <span class="step-label">TO HIT:</span>
-              <Show when={props.resolution!.autoHit}>
-                <span class="step-result auto-hit">AUTO-HIT (target down)</span>
-              </Show>
-              <Show when={!props.resolution!.autoHit}>
+            <Show when={props.resolution!.rolls.toHit}>
+              <div class="resolution-step">
+                <span class="step-icon">D6</span>
+                <span class="step-label">TO HIT:</span>
                 <span class="step-roll">
-                  Rolled [{props.resolution!.toHitRoll}]
+                  Rolled [{props.resolution!.rolls.toHit!.roll}]
                 </span>
-                <span class="step-needed">Need {props.resolution!.toHitNeeded}+</span>
-                <span class={`step-result ${props.resolution!.hit ? 'success' : 'fail'}`}>
-                  {props.resolution!.hit ? 'HIT!' : 'MISS'}
+                <span class="step-needed">Need {props.resolution!.rolls.toHit!.needed}+</span>
+                <span class={`step-result ${props.resolution!.rolls.toHit!.success ? 'success' : 'fail'}`}>
+                  {props.resolution!.rolls.toHit!.success ? 'HIT!' : 'MISS'}
                 </span>
-              </Show>
-            </div>
+              </div>
+            </Show>
 
             {/* Parry (if attempted) */}
-            <Show when={props.resolution!.parryAttempted}>
+            <Show when={props.resolution!.rolls.parry}>
               <div class="resolution-step parry-step">
                 <span class="step-icon">P</span>
                 <span class="step-label">PARRY:</span>
                 <span class="step-roll">
-                  Rolled [{props.resolution!.parryRoll}] vs [{props.resolution!.toHitRoll}]
+                  Rolled [{props.resolution!.rolls.parry!.roll}] vs [{props.resolution!.rolls.parry!.opponentRoll}]
                 </span>
-                <span class={`step-result ${props.resolution!.parrySuccess ? 'success' : 'fail'}`}>
-                  {props.resolution!.parrySuccess ? 'PARRIED!' : 'Failed'}
+                <span class={`step-result ${props.resolution!.rolls.parry!.success ? 'success' : 'fail'}`}>
+                  {props.resolution!.rolls.parry!.success ? 'PARRIED!' : 'Failed'}
                 </span>
               </div>
             </Show>
 
             {/* To Wound (if hit) */}
-            <Show when={props.resolution!.hit && !props.resolution!.parrySuccess}>
+            <Show when={props.resolution!.rolls.toWound}>
               <div class="resolution-step">
                 <span class="step-icon">W</span>
                 <span class="step-label">TO WOUND:</span>
                 <span class="step-roll">
-                  Rolled [{props.resolution!.toWoundRoll}]
+                  Rolled [{props.resolution!.rolls.toWound!.roll}]
                 </span>
-                <span class="step-needed">Need {props.resolution!.toWoundNeeded}+</span>
-                <span class={`step-result ${props.resolution!.wounded ? 'success' : 'fail'}`}>
-                  {props.resolution!.wounded ? 'WOUNDED!' : 'No wound'}
+                <span class="step-needed">Need {props.resolution!.rolls.toWound!.needed}+</span>
+                <span class={`step-result ${props.resolution!.rolls.toWound!.success ? 'success' : 'fail'}`}>
+                  {props.resolution!.rolls.toWound!.success ? 'WOUNDED!' : 'No wound'}
                 </span>
-                <Show when={props.resolution!.criticalHit}>
-                  <span class="critical-hit">CRITICAL HIT!</span>
-                </Show>
               </div>
             </Show>
 
             {/* Critical Hit Details */}
-            <Show when={props.resolution!.criticalHit && props.resolution!.criticalDescription}>
+            <Show when={props.resolution!.rolls.critical}>
               <div class="resolution-step critical-step">
                 <span class="step-icon">!</span>
                 <span class="step-label">CRITICAL:</span>
-                <span class="critical-type">{props.resolution!.criticalDescription}</span>
+                <span class="critical-type">{props.resolution!.rolls.critical!.description}</span>
+                <span class="critical-hit">CRITICAL HIT!</span>
               </div>
             </Show>
 
             {/* Armor Save (if wounded) */}
-            <Show when={props.resolution!.wounded && !props.resolution!.noArmorSave && props.resolution!.armorSaveRoll !== undefined}>
+            <Show when={props.resolution!.rolls.armorSave && !props.resolution!.rolls.armorSave.noSave}>
               <div class="resolution-step">
                 <span class="step-icon">A</span>
                 <span class="step-label">ARMOR SAVE:</span>
                 <span class="step-roll">
-                  Rolled [{props.resolution!.armorSaveRoll}]
+                  Rolled [{props.resolution!.rolls.armorSave!.roll}]
                 </span>
-                <span class="step-needed">Need {props.resolution!.armorSaveNeeded}+</span>
-                <span class={`step-result ${props.resolution!.armorSaved ? 'success' : 'fail'}`}>
-                  {props.resolution!.armorSaved ? 'SAVED!' : 'Failed'}
+                <span class="step-needed">Need {props.resolution!.rolls.armorSave!.needed}+</span>
+                <span class={`step-result ${props.resolution!.rolls.armorSave!.success ? 'success' : 'fail'}`}>
+                  {props.resolution!.rolls.armorSave!.success ? 'SAVED!' : 'Failed'}
                 </span>
               </div>
             </Show>
 
-            <Show when={props.resolution!.noArmorSave}>
+            <Show when={props.resolution!.rolls.armorSave?.noSave}>
               <div class="resolution-step">
                 <span class="step-icon">A</span>
                 <span class="step-label">ARMOR SAVE:</span>
@@ -141,30 +136,30 @@ export default function CombatResolutionModal(props: CombatResolutionModalProps)
             </Show>
 
             {/* Injury Roll */}
-            <Show when={props.resolution!.injuryRoll !== undefined}>
+            <Show when={props.resolution!.rolls.injury}>
               <div class="resolution-step">
                 <span class="step-icon">I</span>
                 <span class="step-label">INJURY:</span>
                 <span class="step-roll">
-                  Rolled [{props.resolution!.injuryRoll}]
+                  Rolled [{props.resolution!.rolls.injury!.roll}]
                 </span>
-                <span class={`step-result injury-${props.resolution!.injuryResult}`}>
-                  {props.resolution!.injuryResult === 'knockedDown' && 'Knocked Down (1-2)'}
-                  {props.resolution!.injuryResult === 'stunned' && 'Stunned (3-4)'}
-                  {props.resolution!.injuryResult === 'outOfAction' && 'OUT OF ACTION (5-6)'}
+                <span class={`step-result injury-${props.resolution!.rolls.injury!.result}`}>
+                  {props.resolution!.rolls.injury!.result === 'knockedDown' && 'Knocked Down (1-2)'}
+                  {props.resolution!.rolls.injury!.result === 'stunned' && 'Stunned (3-4)'}
+                  {props.resolution!.rolls.injury!.result === 'outOfAction' && 'OUT OF ACTION (5-6)'}
                 </span>
               </div>
             </Show>
 
             {/* Final Outcome */}
-            <div class={`resolution-outcome ${getOutcomeClass(props.resolution!.finalOutcome)}`}>
+            <div class={`resolution-outcome ${getOutcomeClass(props.resolution!.outcome)}`}>
               <span class="outcome-label">Result:</span>
-              <span class="outcome-text">{getOutcomeText(props.resolution!.finalOutcome)}</span>
+              <span class="outcome-text">{getOutcomeText(props.resolution!.outcome)}</span>
               <span class="outcome-target">
                 {props.resolution!.defenderName}
-                {props.resolution!.finalOutcome === 'knockedDown' && ' is knocked down!'}
-                {props.resolution!.finalOutcome === 'stunned' && ' is stunned!'}
-                {props.resolution!.finalOutcome === 'outOfAction' && ' is out of action!'}
+                {props.resolution!.outcome === 'knockedDown' && ' is knocked down!'}
+                {props.resolution!.outcome === 'stunned' && ' is stunned!'}
+                {props.resolution!.outcome === 'outOfAction' && ' is out of action!'}
               </span>
             </div>
 

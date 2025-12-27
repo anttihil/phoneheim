@@ -16,8 +16,7 @@ import {
   RoutTestModal
 } from '../components/game';
 import { WarriorCard } from '../components/warband';
-import type { ScreenCommand } from '../engine/types/screens';
-import type { CombatResolution } from '../types/game';
+import type { ScreenCommand, CombatResolutionData } from '../engine/types/screens';
 
 // =====================================
 // SCREEN-SPECIFIC COMPONENTS
@@ -372,7 +371,7 @@ function CombatPhaseScreen(props: { data: any }) {
     <Card title="Combat Phase">
       <Show when={props.data.currentFighter}>
         <div class="current-fighter">
-          <h4>Current Fighter: {props.data.currentFighter.name}</h4>
+          <h4>Current Fighter: {props.data.currentFighter.name || props.data.currentFighter.type}</h4>
           <Show when={props.data.meleeTargets?.length > 0}>
             <div class="melee-targets">
               <h5>Attack:</h5>
@@ -398,8 +397,8 @@ function CombatPhaseScreen(props: { data: any }) {
           <For each={props.data.strikeOrder}>
             {(entry: any, index) => (
               <div class={`strike-entry ${index() === props.data.currentFighterIndex ? 'current' : ''}`}>
-                {index() + 1}. {entry.name}
-                <Show when={entry.hasStruck}>
+                {index() + 1}. {entry.warriorName}
+                <Show when={entry.attacksUsed >= entry.attacks}>
                   <span class="struck-badge">Done</span>
                 </Show>
               </div>
@@ -575,7 +574,7 @@ export default function GamePlayNew() {
           <Match when={screenType() === 'COMBAT_RESOLUTION'}>
             <CombatResolutionModal
               isOpen={true}
-              resolution={screen()!.data as unknown as CombatResolution}
+              resolution={screen()!.data as CombatResolutionData}
               onClose={handleAcknowledge}
             />
           </Match>
