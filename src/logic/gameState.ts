@@ -1,6 +1,5 @@
 // Game State Management
 
-import { SCENARIOS } from "../data/scenarios";
 import { leadershipTest } from "../engine/rules/combat";
 import type { GameState, GameWarband, Warband, RoutTestResult } from "../types";
 
@@ -29,79 +28,6 @@ export function addLog(gameState: GameState, message: string): void {
     message,
     timestamp: new Date().toISOString(),
   });
-}
-
-// Generate game ID
-function generateGameId(): string {
-  return (
-    "game_" + Date.now().toString(36) + Math.random().toString(36).substr(2)
-  );
-}
-
-// Create a new game state
-export function createGameState(
-  warband1: Warband,
-  warband2: Warband,
-  scenarioKey: string
-): GameState {
-  const scenario = SCENARIOS[scenarioKey];
-
-  return {
-    id: generateGameId(),
-    scenario: scenarioKey,
-    scenarioData: scenario,
-    turn: 1,
-    currentPlayer: 1,
-    phase: "setup",
-    warbands: [
-      initWarbandForGame(warband1, 1),
-      initWarbandForGame(warband2, 2),
-    ],
-    wyrdstoneCounters: [],
-    objectives: [],
-    log: [],
-    actionHistory: [],
-    startedAt: new Date().toISOString(),
-    ended: false,
-    winner: null,
-  };
-}
-
-// Initialize warband for game
-function initWarbandForGame(
-  warband: Warband,
-  playerNumber: 1 | 2
-): GameWarband {
-  return {
-    ...warband,
-    player: playerNumber,
-    warriors: warband.warriors.map((w) => ({
-      ...w,
-      gameStatus: "standing" as const,
-      woundsRemaining: w.profile.W,
-      hasActed: false,
-      hasMoved: false,
-      hasRun: false,
-      hasShot: false,
-      hasCharged: false,
-      hasFailedCharge: false,
-      hasFallen: false,
-      hasRecovered: false,
-      isHidden: false,
-      carriedWyrdstone: 0,
-      position: null,
-      combatState: {
-        inCombat: false,
-        inCover: false,
-        engagedWith: [],
-      },
-      halfMovement: false,
-      strikesLast: false,
-      divingChargeBonus: false,
-    })),
-    outOfActionCount: 0,
-    routFailed: false,
-  };
 }
 
 // Check if rout test is required

@@ -1,27 +1,34 @@
 // PhaseCoordinator - Thin orchestrator for the modular phase architecture
 // Replaces the monolithic GameEngine with delegation to phase modules
 
-import type { Warband } from '../types/warband';
-import type { GameState } from '../types/game';
-import type { GameEvent, UndoEvent } from './types/events';
-import type { ScreenCommand } from './types/screens';
-import type { IGameEngine, ProcessResult, SerializedGame } from './types/engine';
-import { createGameState } from '../logic/gameState';
+import type { Warband } from "../types/warband";
+import type { GameState, GameWarband } from "../types/game";
+import type { GameEvent, UndoEvent } from "./types/events";
+import type { ScreenCommand } from "./types/screens";
+import type {
+  IGameEngine,
+  ProcessResult,
+  SerializedGame,
+} from "./types/engine";
 import {
   getNextState,
   isNewTurn,
   isLeavingSetup,
   resetWarriorFlags,
   resetPlayerActedFlags,
-  getPhaseName
-} from './shared/stateMachine';
-import type { PhaseContext, PhaseRegistry } from '../phases/shared/types';
-import { createPhaseContext, createPhaseRegistry } from '../phases/shared/types';
-import { setupPhase } from '../phases/setup';
-import { recoveryPhase } from '../phases/recovery';
-import { movementPhase } from '../phases/movement';
-import { shootingPhase } from '../phases/shooting';
-import { combatPhase } from '../phases/combat';
+  getPhaseName,
+} from "./shared/stateMachine";
+import type { PhaseContext, PhaseRegistry } from "../phases/shared/types";
+import {
+  createPhaseContext,
+  createPhaseRegistry,
+} from "../phases/shared/types";
+import { setupPhase } from "../phases/setup";
+import { recoveryPhase } from "../phases/recovery";
+import { movementPhase } from "../phases/movement";
+import { shootingPhase } from "../phases/shooting";
+import { combatPhase } from "../phases/combat";
+import { SCENARIOS } from "@/data/scenarios";
 
 // Re-export types for convenience
 export type { ProcessResult, SerializedGame };
@@ -48,7 +55,7 @@ export class PhaseCoordinator implements IGameEngine {
       recoveryPhase,
       movementPhase,
       shootingPhase,
-      combatPhase
+      combatPhase,
     ]);
   }
 
@@ -62,9 +69,78 @@ export class PhaseCoordinator implements IGameEngine {
     this.initialWarband2 = JSON.parse(JSON.stringify(warband2));
     this.initialScenario = scenario;
 
-    this.state = createGameState(warband1, warband2, scenario);
+    this.state = this.createGameState(warband1, warband2, scenario);
     this.history = [];
     this.context = createPhaseContext();
+  }
+
+  // Create a new game state
+  private createGameState(
+    warband1: Warband,
+    warband2: Warband,
+    scenarioKey: string
+  ): GameState {
+    const scenario = SCENARIOS[scenarioKey];
+
+    return {
+      id:
+        "game_" +
+        Date.now().toString(36) +
+        Math.random().toString(36).substr(2),
+      scenario: scenarioKey,
+      scenarioData: scenario,
+      turn: 1,
+      currentPlayer: 1,
+      phase: "setup",
+      warbands: [
+        this.initWarbandForGame(warband1, 1),
+        this.initWarbandForGame(warband2, 2),
+      ],
+      wyrdstoneCounters: [],
+      objectives: [],
+      log: [],
+      actionHistory: [],
+      startedAt: new Date().toISOString(),
+      ended: false,
+      winner: null,
+    };
+  }
+
+  // Initialize warband for game
+  private initWarbandForGame(
+    warband: Warband,
+    playerNumber: 1 | 2
+  ): GameWarband {
+    return {
+      ...warband,
+      player: playerNumber,
+      warriors: warband.warriors.map((w) => ({
+        ...w,
+        gameStatus: "standing" as const,
+        woundsRemaining: w.profile.W,
+        hasActed: false,
+        hasMoved: false,
+        hasRun: false,
+        hasShot: false,
+        hasCharged: false,
+        hasFailedCharge: false,
+        hasFallen: false,
+        hasRecovered: false,
+        isHidden: false,
+        carriedWyrdstone: 0,
+        position: null,
+        combatState: {
+          inCombat: false,
+          inCover: false,
+          engagedWith: [],
+        },
+        halfMovement: false,
+        strikesLast: false,
+        divingChargeBonus: false,
+      })),
+      outOfActionCount: 0,
+      routFailed: false,
+    };
   }
 
   loadGame(state: GameState, history: GameEvent[]): void {
@@ -79,15 +155,15 @@ export class PhaseCoordinator implements IGameEngine {
 
   processEvent(event: GameEvent): ProcessResult {
     if (!this.state) {
-      return this.errorResult('No active game');
+      return this.errorResult("No active game");
     }
 
     // Handle meta-events (UNDO, ADVANCE_PHASE)
-    if (event.type === 'UNDO') {
+    if (event.type === "UNDO") {
       return this.handleUndo(event as UndoEvent);
     }
 
-    if (event.type === 'ADVANCE_PHASE') {
+    if (event.type === "ADVANCE_PHASE") {
       return this.handleAdvancePhase();
     }
 
@@ -115,7 +191,7 @@ export class PhaseCoordinator implements IGameEngine {
       success: result.success,
       error: result.error,
       stateChanged: result.stateChanged,
-      screenCommand
+      screenCommand,
     };
   }
 
@@ -128,7 +204,7 @@ export class PhaseCoordinator implements IGameEngine {
     const currentState = {
       turn: state.turn,
       phase: state.phase,
-      currentPlayer: state.currentPlayer
+      currentPlayer: state.currentPlayer,
     };
 
     // Get current phase module and call onExit
@@ -138,11 +214,11 @@ export class PhaseCoordinator implements IGameEngine {
     // Handle setup phase player transition
     const nextState = getNextState(currentState);
 
-    if (state.phase === 'setup' && nextState.phase === 'setup') {
+    if (state.phase === "setup" && nextState.phase === "setup") {
       // Player 1 setup done, now Player 2
       state.currentPlayer = nextState.currentPlayer;
       resetPlayerActedFlags(state, 1);
-      this.addLog('Setup Phase - Player 2');
+      this.addLog("Setup Phase - Player 2");
       this.resetContextForPhaseChange();
 
       return this.successResult(true);
@@ -153,7 +229,9 @@ export class PhaseCoordinator implements IGameEngine {
       state.phase = nextState.phase;
       state.currentPlayer = nextState.currentPlayer;
       resetWarriorFlags(state);
-      this.addLog(`Turn ${state.turn}, Recovery Phase - Player ${state.currentPlayer}`);
+      this.addLog(
+        `Turn ${state.turn}, Recovery Phase - Player ${state.currentPlayer}`
+      );
       this.resetContextForPhaseChange();
       this.callOnEnter(nextState.phase);
 
@@ -166,7 +244,9 @@ export class PhaseCoordinator implements IGameEngine {
       state.phase = nextState.phase;
       state.currentPlayer = nextState.currentPlayer;
       resetWarriorFlags(state);
-      this.addLog(`Turn ${state.turn}, Recovery Phase - Player ${state.currentPlayer}`);
+      this.addLog(
+        `Turn ${state.turn}, Recovery Phase - Player ${state.currentPlayer}`
+      );
       this.resetContextForPhaseChange();
       this.callOnEnter(nextState.phase);
 
@@ -176,7 +256,11 @@ export class PhaseCoordinator implements IGameEngine {
     // Regular phase/player transition
     state.phase = nextState.phase;
     state.currentPlayer = nextState.currentPlayer;
-    this.addLog(`Turn ${state.turn}, ${getPhaseName(state.phase)} - Player ${state.currentPlayer}`);
+    this.addLog(
+      `Turn ${state.turn}, ${getPhaseName(state.phase)} - Player ${
+        state.currentPlayer
+      }`
+    );
     this.resetContextForPhaseChange();
     this.callOnEnter(nextState.phase);
 
@@ -186,12 +270,12 @@ export class PhaseCoordinator implements IGameEngine {
   private resetContextForPhaseChange(): void {
     this.context.selectedWarriorId = null;
     this.context.selectedTargetId = null;
-    this.context.subState = 'main';
+    this.context.subState = "main";
     this.context.pendingResolution = null;
     this.context.pendingRoutTest = null;
   }
 
-  private callOnEnter(phase: GameState['phase']): void {
+  private callOnEnter(phase: GameState["phase"]): void {
     const phaseModule = this.phases.get(phase);
     if (phaseModule?.onEnter) {
       const updates = phaseModule.onEnter(this.state!, this.context);
@@ -208,21 +292,25 @@ export class PhaseCoordinator implements IGameEngine {
   private handleUndo(event: UndoEvent): ProcessResult {
     const { toEventId } = event.payload;
 
-    if (!this.initialWarband1 || !this.initialWarband2 || !this.initialScenario) {
-      return this.errorResult('Cannot undo: no initial state available');
+    if (
+      !this.initialWarband1 ||
+      !this.initialWarband2 ||
+      !this.initialScenario
+    ) {
+      return this.errorResult("Cannot undo: no initial state available");
     }
 
     // Find target event
-    const targetIndex = this.history.findIndex(e => e.id === toEventId);
+    const targetIndex = this.history.findIndex((e) => e.id === toEventId);
     if (targetIndex === -1) {
-      return this.errorResult('Cannot undo: target event not found');
+      return this.errorResult("Cannot undo: target event not found");
     }
 
     // Get events to replay
     const eventsToReplay = this.history.slice(0, targetIndex + 1);
 
     // Reset to initial state
-    this.state = createGameState(
+    this.state = this.createGameState(
       JSON.parse(JSON.stringify(this.initialWarband1)),
       JSON.parse(JSON.stringify(this.initialWarband2)),
       this.initialScenario
@@ -243,22 +331,26 @@ export class PhaseCoordinator implements IGameEngine {
 
   undoToEvent(eventId: string): ProcessResult {
     const undoEvent: UndoEvent = {
-      id: crypto.randomUUID?.() ?? `${Date.now()}-${Math.random().toString(36).slice(2)}`,
+      id:
+        crypto.randomUUID?.() ??
+        `${Date.now()}-${Math.random().toString(36).slice(2)}`,
       timestamp: new Date().toISOString(),
-      playerId: 'system',
-      type: 'UNDO',
-      payload: { toEventId: eventId }
+      playerId: "system",
+      type: "UNDO",
+      payload: { toEventId: eventId },
     };
     return this.processEvent(undoEvent);
   }
 
   undoLastEvents(count: number): ProcessResult {
     if (count <= 0) {
-      return this.errorResult('Count must be positive');
+      return this.errorResult("Count must be positive");
     }
 
     if (this.history.length < count) {
-      return this.errorResult(`Cannot undo ${count} events: only ${this.history.length} in history`);
+      return this.errorResult(
+        `Cannot undo ${count} events: only ${this.history.length} in history`
+      );
     }
 
     if (this.history.length === count) {
@@ -271,11 +363,15 @@ export class PhaseCoordinator implements IGameEngine {
   }
 
   resetToInitialState(): ProcessResult {
-    if (!this.initialWarband1 || !this.initialWarband2 || !this.initialScenario) {
-      return this.errorResult('Cannot reset: no initial state available');
+    if (
+      !this.initialWarband1 ||
+      !this.initialWarband2 ||
+      !this.initialScenario
+    ) {
+      return this.errorResult("Cannot reset: no initial state available");
     }
 
-    this.state = createGameState(
+    this.state = this.createGameState(
       JSON.parse(JSON.stringify(this.initialWarband1)),
       JSON.parse(JSON.stringify(this.initialWarband2)),
       this.initialScenario
@@ -292,7 +388,7 @@ export class PhaseCoordinator implements IGameEngine {
 
   getCurrentScreen(): ScreenCommand {
     if (!this.state) {
-      return this.buildErrorScreen('No active game');
+      return this.buildErrorScreen("No active game");
     }
 
     // Check for game over
@@ -313,37 +409,41 @@ export class PhaseCoordinator implements IGameEngine {
     const state = this.state!;
 
     return {
-      screen: 'GAME_OVER',
+      screen: "GAME_OVER",
       data: {
         winner: state.winner,
-        winnerName: state.winner
-          ? state.warbands[state.winner - 1].name
-          : null,
-        reason: (state.endReason as 'rout' | 'objective' | 'elimination' | 'voluntary' | 'draw') ?? 'draw',
+        winnerName: state.winner ? state.warbands[state.winner - 1].name : null,
+        reason:
+          (state.endReason as
+            | "rout"
+            | "objective"
+            | "elimination"
+            | "voluntary"
+            | "draw") ?? "draw",
         gameLog: state.log,
         statistics: {
           turns: state.turn,
           warband1OutOfAction: state.warbands[0].outOfActionCount,
-          warband2OutOfAction: state.warbands[1].outOfActionCount
-        }
+          warband2OutOfAction: state.warbands[1].outOfActionCount,
+        },
       },
       availableEvents: [],
       turn: state.turn,
       phase: state.phase,
       currentPlayer: state.currentPlayer,
-      gameId: state.id
+      gameId: state.id,
     };
   }
 
   private buildErrorScreen(message: string): ScreenCommand {
     return {
-      screen: 'ERROR',
+      screen: "ERROR",
       data: { message },
       availableEvents: [],
       turn: 0,
-      phase: 'setup',
+      phase: "setup",
       currentPlayer: 1,
-      gameId: ''
+      gameId: "",
     };
   }
 
@@ -370,7 +470,7 @@ export class PhaseCoordinator implements IGameEngine {
   serialize(): SerializedGame {
     return {
       state: this.state!,
-      history: [...this.history]
+      history: [...this.history],
     };
   }
 
@@ -386,7 +486,7 @@ export class PhaseCoordinator implements IGameEngine {
       phase: this.state.phase,
       player: this.state.currentPlayer,
       message,
-      timestamp: new Date().toISOString()
+      timestamp: new Date().toISOString(),
     });
   }
 
@@ -394,7 +494,7 @@ export class PhaseCoordinator implements IGameEngine {
     return {
       success: true,
       stateChanged,
-      screenCommand: this.getCurrentScreen()
+      screenCommand: this.getCurrentScreen(),
     };
   }
 
@@ -403,7 +503,7 @@ export class PhaseCoordinator implements IGameEngine {
       success: false,
       error,
       stateChanged: false,
-      screenCommand: this.getCurrentScreen()
+      screenCommand: this.getCurrentScreen(),
     };
   }
 }
