@@ -154,11 +154,10 @@ test.describe('Combat Flow Tests', () => {
   test.describe('Movement Actions', () => {
     test.beforeEach(async ({ page }) => {
       await startGame(page);
-      // Skip setup phases to get to movement
-      await page.click('button:has-text("Next Phase")'); // Player 1 Setup
-      await page.click('button:has-text("Next Phase")'); // Player 2 Setup
-      await page.click('button:has-text("Next Phase")'); // Recovery P1
-      await page.click('button:has-text("Next Phase")'); // Recovery P2
+      // Skip setup phases to get to movement (new turn structure: P1 completes all phases)
+      await page.click('button:has-text("Next Phase")'); // Setup P1 -> Setup P2
+      await page.click('button:has-text("Next Phase")'); // Setup P2 -> Recovery P1
+      await page.click('button:has-text("Next Phase")'); // Recovery P1 -> Movement P1
     });
 
     test('should be in movement phase', async ({ page }) => {
@@ -247,11 +246,10 @@ test.describe('Combat Flow Tests', () => {
   test.describe('Charge Action', () => {
     test.beforeEach(async ({ page }) => {
       await startGame(page);
-      // Skip to movement phase
-      await page.click('button:has-text("Next Phase")'); // Player 1 Setup
-      await page.click('button:has-text("Next Phase")'); // Player 2 Setup
-      await page.click('button:has-text("Next Phase")'); // Recovery P1
-      await page.click('button:has-text("Next Phase")'); // Recovery P2
+      // Skip to movement phase (new turn structure: P1 completes all phases)
+      await page.click('button:has-text("Next Phase")'); // Setup P1 -> Setup P2
+      await page.click('button:has-text("Next Phase")'); // Setup P2 -> Recovery P1
+      await page.click('button:has-text("Next Phase")'); // Recovery P1 -> Movement P1
     });
 
     test('should show movement phase with warriors', async ({ page }) => {
@@ -312,11 +310,10 @@ test.describe('Combat Flow Tests', () => {
   test.describe('Game Phase Progression', () => {
     test.beforeEach(async ({ page }) => {
       await startGame(page);
-      // Skip to movement phase
-      await page.click('button:has-text("Next Phase")'); // Player 1 Setup
-      await page.click('button:has-text("Next Phase")'); // Player 2 Setup
-      await page.click('button:has-text("Next Phase")'); // Recovery P1
-      await page.click('button:has-text("Next Phase")'); // Recovery P2
+      // Skip to movement phase (new turn structure: P1 completes all phases)
+      await page.click('button:has-text("Next Phase")'); // Setup P1 -> Setup P2
+      await page.click('button:has-text("Next Phase")'); // Setup P2 -> Recovery P1
+      await page.click('button:has-text("Next Phase")'); // Recovery P1 -> Movement P1
     });
 
     test('should show actable warriors in movement phase', async ({ page }) => {
@@ -342,18 +339,18 @@ test.describe('Combat Flow Tests', () => {
     test('should advance to next phase', async ({ page }) => {
       const phaseIndicator = page.locator('.phase-indicator');
       await expect(phaseIndicator).toContainText('Movement');
+      await expect(phaseIndicator).toContainText('Player 1');
 
-      // Advance to Player 2 movement
+      // Advance to Shooting (same player in new turn structure)
       await page.click('button:has-text("Next Phase")');
-      await expect(phaseIndicator).toContainText('Player 2');
+      await expect(phaseIndicator).toContainText('Shooting');
+      await expect(phaseIndicator).toContainText('Player 1');
     });
 
     test('should show shooting phase after movement', async ({ page }) => {
       const phaseIndicator = page.locator('.phase-indicator');
 
-      // Movement P1 -> Movement P2
-      await page.click('button:has-text("Next Phase")');
-      // Movement P2 -> Shooting P1
+      // Movement P1 -> Shooting P1 (new structure: same player advances phases)
       await page.click('button:has-text("Next Phase")');
 
       await expect(phaseIndicator).toContainText('Shooting');
@@ -364,11 +361,10 @@ test.describe('Combat Flow Tests', () => {
   test.describe('Undo Actions', () => {
     test.beforeEach(async ({ page }) => {
       await startGame(page);
-      // Skip to movement phase
-      await page.click('button:has-text("Next Phase")'); // Player 1 Setup
-      await page.click('button:has-text("Next Phase")'); // Player 2 Setup
-      await page.click('button:has-text("Next Phase")'); // Recovery P1
-      await page.click('button:has-text("Next Phase")'); // Recovery P2
+      // Skip to movement phase (new turn structure: P1 completes all phases)
+      await page.click('button:has-text("Next Phase")'); // Setup P1 -> Setup P2
+      await page.click('button:has-text("Next Phase")'); // Setup P2 -> Recovery P1
+      await page.click('button:has-text("Next Phase")'); // Recovery P1 -> Movement P1
     });
 
     test('should have undo button visible', async ({ page }) => {

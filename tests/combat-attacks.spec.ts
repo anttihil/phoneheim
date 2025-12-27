@@ -85,16 +85,14 @@ async function startGame(page: Page): Promise<void> {
   await page.waitForURL('/game/play', { timeout: 10000 });
 }
 
-// Helper to skip to combat phase
+// Helper to skip to combat phase (Player 1)
+// New turn structure: P1 completes all phases, then P2 completes all phases
 async function skipToCombatPhase(page: Page): Promise<void> {
-  await page.click('button:has-text("Next Phase")'); // Player 1 Setup
-  await page.click('button:has-text("Next Phase")'); // Player 2 Setup
-  await page.click('button:has-text("Next Phase")'); // Recovery P1
-  await page.click('button:has-text("Next Phase")'); // Recovery P2
-  await page.click('button:has-text("Next Phase")'); // Movement P1
-  await page.click('button:has-text("Next Phase")'); // Movement P2
-  await page.click('button:has-text("Next Phase")'); // Shooting P1
-  await page.click('button:has-text("Next Phase")'); // Shooting P2
+  await page.click('button:has-text("Next Phase")'); // Setup P1 -> Setup P2
+  await page.click('button:has-text("Next Phase")'); // Setup P2 -> Recovery P1
+  await page.click('button:has-text("Next Phase")'); // Recovery P1 -> Movement P1
+  await page.click('button:has-text("Next Phase")'); // Movement P1 -> Shooting P1
+  await page.click('button:has-text("Next Phase")'); // Shooting P1 -> Combat P1
   // Now in Combat P1
 }
 
@@ -123,29 +121,34 @@ test.describe('Combat Phase Tests', () => {
     await expect(page.locator('.card-title:has-text("Combat Phase")')).toBeVisible();
   });
 
-  test('should advance from combat P1 to combat P2', async ({ page }) => {
+  test('should advance from combat P1 to recovery P2', async ({ page }) => {
     await startGame(page);
     await skipToCombatPhase(page);
 
     const phaseIndicator = page.locator('.phase-indicator');
     await expect(phaseIndicator).toContainText('Player 1');
 
-    // Advance to Player 2
+    // Advance to Player 2's Recovery (new turn structure)
     await page.click('button:has-text("Next Phase")');
 
-    await expect(phaseIndicator).toContainText('Combat');
+    await expect(phaseIndicator).toContainText('Recovery');
     await expect(phaseIndicator).toContainText('Player 2');
   });
 
-  test('should advance to next turn after combat phase', async ({ page }) => {
+  test('should advance to next turn after P2 combat phase', async ({ page }) => {
     await startGame(page);
     await skipToCombatPhase(page);
 
     const phaseIndicator = page.locator('.phase-indicator');
 
-    // Combat P1 -> Combat P2
+    // Combat P1 -> Recovery P2
     await page.click('button:has-text("Next Phase")');
-
+    // Recovery P2 -> Movement P2
+    await page.click('button:has-text("Next Phase")');
+    // Movement P2 -> Shooting P2
+    await page.click('button:has-text("Next Phase")');
+    // Shooting P2 -> Combat P2
+    await page.click('button:has-text("Next Phase")');
     // Combat P2 -> Recovery P1 (Turn 2)
     await page.click('button:has-text("Next Phase")');
 
@@ -186,20 +189,22 @@ test.describe('Combat Phase Tests', () => {
     await expect(phaseIndicator).toContainText('Setup');
     await expect(phaseIndicator).toContainText('Player 2');
 
+    // P1 phases (new structure: one player completes all phases)
     await page.click('button:has-text("Next Phase")');
     await expect(phaseIndicator).toContainText('Recovery');
+    await expect(phaseIndicator).toContainText('Player 1');
 
-    await page.click('button:has-text("Next Phase")');
     await page.click('button:has-text("Next Phase")');
     await expect(phaseIndicator).toContainText('Movement');
+    await expect(phaseIndicator).toContainText('Player 1');
 
-    await page.click('button:has-text("Next Phase")');
     await page.click('button:has-text("Next Phase")');
     await expect(phaseIndicator).toContainText('Shooting');
+    await expect(phaseIndicator).toContainText('Player 1');
 
     await page.click('button:has-text("Next Phase")');
-    await page.click('button:has-text("Next Phase")');
     await expect(phaseIndicator).toContainText('Combat');
+    await expect(phaseIndicator).toContainText('Player 1');
   });
 
   test('should allow ending game from combat phase', async ({ page }) => {

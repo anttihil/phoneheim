@@ -17,6 +17,7 @@ export {
   getNextState,
   isNewTurn,
   isLeavingSetup,
+  isPlayerSwitching,
   resetWarriorFlags,
   resetPlayerActedFlags,
   isPhaseComplete,
@@ -32,6 +33,7 @@ import {
   getNextState,
   isNewTurn,
   isLeavingSetup,
+  isPlayerSwitching,
   resetWarriorFlags,
   resetPlayerActedFlags,
   getPhaseName
@@ -107,8 +109,8 @@ export function getOpposingWarband(gameState: GameState): GameWarband {
 }
 
 // Advance to next phase using state machine
-// Mordheim turn structure: Each phase has both players act before moving to next phase
-// Flow: Recovery (P1→P2) → Movement (P1→P2) → Shooting (P1→P2) → Combat (P1→P2) → Next Turn
+// Mordheim turn structure: Each player completes all phases before the other player acts
+// Flow: Setup (P1→P2) → P1: Recovery→Movement→Shooting→Combat → P2: Recovery→Movement→Shooting→Combat → Next Turn
 export function advancePhase(gameState: GameState): void {
   const currentState = {
     turn: gameState.turn,
@@ -136,7 +138,7 @@ export function advancePhase(gameState: GameState): void {
     return;
   }
 
-  // Handle new turn
+  // Handle new turn (P2 Combat → P1 Recovery of next turn)
   if (isNewTurn(currentState, nextState)) {
     gameState.turn = nextState.turn;
     gameState.phase = nextState.phase;
@@ -146,7 +148,16 @@ export function advancePhase(gameState: GameState): void {
     return;
   }
 
-  // Regular phase/player transition
+  // Handle mid-turn player switch (P1 Combat → P2 Recovery)
+  if (isPlayerSwitching(currentState, nextState)) {
+    gameState.phase = nextState.phase;
+    gameState.currentPlayer = nextState.currentPlayer;
+    resetWarriorFlags(gameState);
+    addLog(gameState, `Turn ${gameState.turn}, Recovery Phase - Player ${gameState.currentPlayer}`);
+    return;
+  }
+
+  // Regular phase transition (same player, next phase)
   gameState.phase = nextState.phase;
   gameState.currentPlayer = nextState.currentPlayer;
   addLog(gameState, `Turn ${gameState.turn}, ${getPhaseName(gameState.phase)} - Player ${gameState.currentPlayer}`);

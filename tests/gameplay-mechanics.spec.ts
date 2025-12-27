@@ -203,8 +203,8 @@ test.describe('Game Controls', () => {
 });
 
 test.describe('Game Phase Transitions', () => {
-  // Mordheim turn structure: Each phase has both players act before moving to next phase
-  // Flow: Recovery (P1→P2) → Movement (P1→P2) → Shooting (P1→P2) → Combat (P1→P2) → Next Turn
+  // Mordheim turn structure: Each player completes all phases before the other player acts
+  // Flow: Setup (P1→P2) → P1: Recovery→Movement→Shooting→Combat → P2: Recovery→Movement→Shooting→Combat → Next Turn
 
   test.beforeEach(async ({ page }) => {
     await createTestWarband(page, 'Phase Test 1');
@@ -219,7 +219,7 @@ test.describe('Game Phase Transitions', () => {
     await expect(phaseIndicator).toContainText(/Setup/i);
   });
 
-  test('should alternate players within recovery phase', async ({ page }) => {
+  test('should advance P1 through all phases before switching to P2', async ({ page }) => {
     await startGame(page);
 
     const phaseIndicator = page.locator('.phase-indicator');
@@ -230,25 +230,27 @@ test.describe('Game Phase Transitions', () => {
     await expect(phaseIndicator).toContainText(/Recovery/i);
     await expect(phaseIndicator).toContainText(/Player 1/i);
 
-    // Advance to recovery P2 (same phase, different player)
+    // P1 advances to Movement (same player, next phase)
     await page.click('button:has-text("Next Phase")');
-    await expect(phaseIndicator).toContainText(/Recovery/i);
-    await expect(phaseIndicator).toContainText(/Player 2/i);
+    await expect(phaseIndicator).toContainText(/Movement/i);
+    await expect(phaseIndicator).toContainText(/Player 1/i);
   });
 
-  test('should advance to movement after both players complete recovery', async ({ page }) => {
+  test('should switch to P2 after P1 completes combat', async ({ page }) => {
     await startGame(page);
 
     const phaseIndicator = page.locator('.phase-indicator');
 
-    // Setup P1 → Setup P2 → Recovery P1 → Recovery P2 → Movement P1
+    // Setup P1 → Setup P2 → Recovery P1 → Movement P1 → Shooting P1 → Combat P1 → Recovery P2
     await page.click('button:has-text("Next Phase")'); // Setup P2
     await page.click('button:has-text("Next Phase")'); // Recovery P1
-    await page.click('button:has-text("Next Phase")'); // Recovery P2
     await page.click('button:has-text("Next Phase")'); // Movement P1
+    await page.click('button:has-text("Next Phase")'); // Shooting P1
+    await page.click('button:has-text("Next Phase")'); // Combat P1
+    await page.click('button:has-text("Next Phase")'); // Recovery P2
 
-    await expect(phaseIndicator).toContainText(/Movement/i);
-    await expect(phaseIndicator).toContainText(/Player 1/i);
+    await expect(phaseIndicator).toContainText(/Recovery/i);
+    await expect(phaseIndicator).toContainText(/Player 2/i);
   });
 
   test('should advance through all phases correctly', async ({ page }) => {
@@ -261,54 +263,48 @@ test.describe('Game Phase Transitions', () => {
     await expect(phaseIndicator).toContainText(/Setup/i);
     await expect(phaseIndicator).toContainText(/Player 2/i);
 
-    // Recovery P1
+    // P1 phases: Recovery → Movement → Shooting → Combat
     await page.click('button:has-text("Next Phase")');
     await expect(phaseIndicator).toContainText(/Recovery/i);
     await expect(phaseIndicator).toContainText(/Player 1/i);
 
-    // Recovery P2
-    await page.click('button:has-text("Next Phase")');
-    await expect(phaseIndicator).toContainText(/Recovery/i);
-    await expect(phaseIndicator).toContainText(/Player 2/i);
-
-    // Movement P1
     await page.click('button:has-text("Next Phase")');
     await expect(phaseIndicator).toContainText(/Movement/i);
     await expect(phaseIndicator).toContainText(/Player 1/i);
 
-    // Movement P2
-    await page.click('button:has-text("Next Phase")');
-    await expect(phaseIndicator).toContainText(/Movement/i);
-    await expect(phaseIndicator).toContainText(/Player 2/i);
-
-    // Shooting P1
     await page.click('button:has-text("Next Phase")');
     await expect(phaseIndicator).toContainText(/Shooting/i);
     await expect(phaseIndicator).toContainText(/Player 1/i);
 
-    // Shooting P2
-    await page.click('button:has-text("Next Phase")');
-    await expect(phaseIndicator).toContainText(/Shooting/i);
-    await expect(phaseIndicator).toContainText(/Player 2/i);
-
-    // Combat P1
     await page.click('button:has-text("Next Phase")');
     await expect(phaseIndicator).toContainText(/Combat/i);
     await expect(phaseIndicator).toContainText(/Player 1/i);
 
-    // Combat P2
+    // P2 phases: Recovery → Movement → Shooting → Combat
+    await page.click('button:has-text("Next Phase")');
+    await expect(phaseIndicator).toContainText(/Recovery/i);
+    await expect(phaseIndicator).toContainText(/Player 2/i);
+
+    await page.click('button:has-text("Next Phase")');
+    await expect(phaseIndicator).toContainText(/Movement/i);
+    await expect(phaseIndicator).toContainText(/Player 2/i);
+
+    await page.click('button:has-text("Next Phase")');
+    await expect(phaseIndicator).toContainText(/Shooting/i);
+    await expect(phaseIndicator).toContainText(/Player 2/i);
+
     await page.click('button:has-text("Next Phase")');
     await expect(phaseIndicator).toContainText(/Combat/i);
     await expect(phaseIndicator).toContainText(/Player 2/i);
   });
 
-  test('should increment turn after combat phase completes for both players', async ({ page }) => {
+  test('should increment turn after P2 completes combat phase', async ({ page }) => {
     await startGame(page);
 
     const phaseIndicator = page.locator('.phase-indicator');
 
     // Complete all phases for turn 1 (2 setup + 8 game phases = 10 clicks)
-    // Setup P2, Recovery P1, Recovery P2, Movement P1, Movement P2, Shooting P1, Shooting P2, Combat P1, Combat P2
+    // Setup P2, P1: Recovery→Movement→Shooting→Combat, P2: Recovery→Movement→Shooting→Combat
     for (let i = 0; i < 9; i++) {
       await page.click('button:has-text("Next Phase")');
     }

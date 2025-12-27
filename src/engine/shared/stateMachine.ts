@@ -43,8 +43,8 @@ export function getPhaseName(phase: GamePhase): string {
 /**
  * Get the next state after advancing from the current state
  *
- * Mordheim turn structure: Each phase has both players act before moving to next phase
- * Flow: Setup (P1→P2) → Recovery (P1→P2) → Movement (P1→P2) → Shooting (P1→P2) → Combat (P1→P2) → Next Turn
+ * Mordheim turn structure: Each player completes all phases before the other player acts
+ * Flow: Setup (P1→P2) → P1: Recovery→Movement→Shooting→Combat → P2: Recovery→Movement→Shooting→Combat → Next Turn
  */
 export function getNextState(current: TurnState): TurnState {
   // Setup phase: both players need to position their warriors
@@ -57,7 +57,7 @@ export function getNextState(current: TurnState): TurnState {
         currentPlayer: 2
       };
     } else {
-      // Both players done with setup, advance to recovery
+      // Both players done with setup, Player 1 starts Recovery
       return {
         turn: current.turn,
         phase: 'recovery',
@@ -68,31 +68,30 @@ export function getNextState(current: TurnState): TurnState {
 
   const currentIndex = GAME_PHASES.indexOf(current.phase as GamePhase);
 
-  // Within a phase: alternate between players
-  if (current.currentPlayer === 1) {
-    // Player 1 finished, now Player 2's turn in same phase
+  // Not at Combat → advance to next phase, same player
+  if (currentIndex < GAME_PHASES.length - 1) {
     return {
       turn: current.turn,
-      phase: current.phase,
+      phase: GAME_PHASES[currentIndex + 1],
+      currentPlayer: current.currentPlayer
+    };
+  }
+
+  // At Combat phase
+  if (current.currentPlayer === 1) {
+    // P1 done with all phases → P2 starts from Recovery
+    return {
+      turn: current.turn,
+      phase: 'recovery',
       currentPlayer: 2
     };
   } else {
-    // Player 2 finished, move to next phase with Player 1
-    if (currentIndex < GAME_PHASES.length - 1) {
-      // Move to next phase
-      return {
-        turn: current.turn,
-        phase: GAME_PHASES[currentIndex + 1],
-        currentPlayer: 1
-      };
-    } else {
-      // End of combat phase = end of turn
-      return {
-        turn: current.turn + 1,
-        phase: 'recovery',
-        currentPlayer: 1
-      };
-    }
+    // P2 done with all phases → new turn, P1 starts from Recovery
+    return {
+      turn: current.turn + 1,
+      phase: 'recovery',
+      currentPlayer: 1
+    };
   }
 }
 
@@ -108,6 +107,16 @@ export function isNewTurn(current: TurnState, next: TurnState): boolean {
  */
 export function isLeavingSetup(current: TurnState, next: TurnState): boolean {
   return current.phase === 'setup' && next.phase !== 'setup';
+}
+
+/**
+ * Check if switching players mid-turn (P1 Combat → P2 Recovery)
+ */
+export function isPlayerSwitching(current: TurnState, next: TurnState): boolean {
+  return current.currentPlayer !== next.currentPlayer &&
+         current.phase === 'combat' &&
+         next.phase === 'recovery' &&
+         current.turn === next.turn;
 }
 
 // =====================================
