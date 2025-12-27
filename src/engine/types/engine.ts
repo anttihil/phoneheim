@@ -1,7 +1,4 @@
-// IGameEngine - Common interface for game engines
-//
-// This interface allows GameEngine and PhaseCoordinator to be used
-// interchangeably, enabling incremental migration.
+// IGameEngine - Interface for game engine implementations
 
 import type { Warband } from '../../types/warband';
 import type { GameState } from '../../types/game';
@@ -28,8 +25,7 @@ export interface SerializedGame {
 }
 
 /**
- * Common interface for game engines.
- * Both GameEngine and PhaseCoordinator implement this interface.
+ * Interface for game engine implementations.
  */
 export interface IGameEngine {
   /**

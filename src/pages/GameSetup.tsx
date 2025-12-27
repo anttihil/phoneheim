@@ -3,7 +3,7 @@
 import { createSignal, onMount, For, Show } from 'solid-js';
 import { useNavigate } from '@solidjs/router';
 import { warbandStore, warbandState } from '../stores/warbandStore';
-import { gameStore } from '../stores/gameStore';
+import { uiStore } from '../stores/uiStore';
 import { SCENARIOS } from '../data/scenarios';
 import { Card, Button, FormControl } from '../components/common';
 
@@ -28,7 +28,7 @@ export default function GameSetup() {
       return;
     }
 
-    gameStore.startGame(wb1, wb2, scenarioKey());
+    uiStore.startGame(wb1, wb2, scenarioKey());
     navigate('/game/play');
   };
 
@@ -59,12 +59,10 @@ export default function GameSetup() {
             onChange={setWarband2Id}
             options={[
               { value: '', label: '-- Select Warband --' },
-              ...warbandState.warbands
-                .filter(w => w.id !== warband1Id())
-                .map(w => ({
-                  value: w.id!,
-                  label: `${w.name} (${w.typeName})`
-                }))
+              ...warbandState.warbands.map(w => ({
+                value: w.id!,
+                label: `${w.name} (${w.typeName})`
+              }))
             ]}
           />
         </div>
@@ -73,6 +71,7 @@ export default function GameSetup() {
       <Card title="Select Scenario">
         <FormControl
           type="select"
+          label="Scenario"
           value={scenarioKey()}
           onChange={setScenarioKey}
           options={Object.entries(SCENARIOS).map(([key, scenario]) => ({
@@ -82,8 +81,7 @@ export default function GameSetup() {
         />
 
         <Show when={scenarioKey()}>
-          <div class="scenario-info">
-            <h4>{SCENARIOS[scenarioKey()]?.name}</h4>
+          <div class="scenario-description">
             <p>{SCENARIOS[scenarioKey()]?.description}</p>
           </div>
         </Show>
@@ -91,12 +89,17 @@ export default function GameSetup() {
 
       <div class="setup-actions">
         <Button
-          variant="success"
           onClick={handleStart}
           disabled={!canStart()}
-          fullWidth
         >
           Start Game
+        </Button>
+
+        <Button
+          variant="secondary"
+          onClick={() => navigate('/')}
+        >
+          Cancel
         </Button>
       </div>
     </div>

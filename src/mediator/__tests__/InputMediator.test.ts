@@ -2,7 +2,7 @@
 
 import { describe, it, expect, beforeEach, vi } from 'vitest';
 import { InputMediator, createMediator } from '../InputMediator';
-import { GameEngine } from '../../engine';
+import { PhaseCoordinator } from '../../engine';
 import {
   createTestWarband,
   resetIdCounter
@@ -488,7 +488,7 @@ describe('InputMediator', () => {
     });
 
     it('should use provided engine', () => {
-      const engine = new GameEngine();
+      const engine = new PhaseCoordinator();
       const mediator = createMediator(engine);
 
       expect(mediator.getEngine()).toBe(engine);

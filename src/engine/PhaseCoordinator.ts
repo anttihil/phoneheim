@@ -17,7 +17,7 @@ import {
   resetWarriorFlags,
   resetPlayerActedFlags,
   getPhaseName
-} from './handlers/stateMachine';
+} from './shared/stateMachine';
 import type { PhaseModule, PhaseContext, PhaseRegistry } from './phases/types';
 import { createPhaseContext, createPhaseRegistry } from './phases/types';
 import { setupPhase } from './phases/setup';
@@ -373,8 +373,7 @@ export class PhaseCoordinator implements IGameEngine {
   serialize(): SerializedGame {
     return {
       state: this.state!,
-      history: [...this.history],
-      context: { ...this.context }
+      history: [...this.history]
     };
   }
 

@@ -100,6 +100,8 @@ export function toGameWarrior(warrior: Warrior): GameWarrior {
     hasRun: false,
     hasShot: false,
     hasCharged: false,
+    hasFailedCharge: false,
+    hasFallen: false,
     hasRecovered: false,
     isHidden: false,
     carriedWyrdstone: 0,
@@ -110,7 +112,8 @@ export function toGameWarrior(warrior: Warrior): GameWarrior {
       engagedWith: []
     },
     halfMovement: false,
-    strikesLast: false
+    strikesLast: false,
+    divingChargeBonus: false
   };
 }
 

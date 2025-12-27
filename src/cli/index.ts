@@ -6,7 +6,8 @@
 // - Automated game simulations
 // - JSON-based input/output for integration
 
-import { GameEngine } from '../engine';
+import { PhaseCoordinator } from '../engine';
+import type { IGameEngine } from '../engine/types/engine';
 import type { GameEvent } from '../engine/types/events';
 import type { ScreenCommand } from '../engine/types/screens';
 import type { Warband } from '../types/warband';
@@ -35,11 +36,11 @@ const DEFAULT_OPTIONS: CLIOptions = {
  * GameCLI provides a command-line interface to the game engine.
  */
 export class GameCLI {
-  private engine: GameEngine;
+  private engine: IGameEngine;
   private options: CLIOptions;
 
   constructor(options: Partial<CLIOptions> = {}) {
-    this.engine = new GameEngine();
+    this.engine = new PhaseCoordinator();
     this.options = { ...DEFAULT_OPTIONS, ...options };
   }
 

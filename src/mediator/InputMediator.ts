@@ -8,7 +8,7 @@
 // - Integrates with NetworkAdapter for multiplayer
 // - Integrates with LocalAdapter for AI/single-player
 
-import { GameEngine } from '../engine';
+import { PhaseCoordinator } from '../engine';
 import type { IGameEngine, ProcessResult } from '../engine/types/engine';
 import type { GameEvent, EventType } from '../engine/types/events';
 import type { ScreenCommand } from '../engine/types/screens';
@@ -48,7 +48,7 @@ export class InputMediator {
   private isMultiplayer: boolean = false;
 
   constructor(engine?: IGameEngine) {
-    this.engine = engine ?? new GameEngine();
+    this.engine = engine ?? new PhaseCoordinator();
   }
 
   // =====================================
@@ -279,7 +279,7 @@ export class InputMediator {
   /**
    * Get the underlying engine (for advanced use cases).
    */
-  getEngine(): GameEngine {
+  getEngine(): IGameEngine {
     return this.engine;
   }
 

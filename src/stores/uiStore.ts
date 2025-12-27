@@ -37,6 +37,8 @@ export interface UIStoreState {
   lastError: string | null;
   // Whether it's local player's turn
   isMyTurn: boolean;
+  // Whether in hotseat mode (local player controls both sides)
+  isHotseatMode: boolean;
 }
 
 // Create the reactive store
@@ -48,7 +50,8 @@ const [state, setState] = createStore<UIStoreState>({
   localPlayer: null,
   isPlaying: false,
   lastError: null,
-  isMyTurn: false
+  isMyTurn: false,
+  isHotseatMode: false
 });
 
 // Signal for screen updates (for fine-grained reactivity)
@@ -86,8 +89,10 @@ function updateScreen(screen: ScreenCommand): void {
     setState('availableEvents', [...screen.availableEvents]);
     setState('lastError', null);
 
-    // Update isMyTurn based on current player
-    if (mediator && state.localPlayer) {
+    // Update isMyTurn based on current player (always true in hotseat mode)
+    if (state.isHotseatMode) {
+      setState('isMyTurn', true);
+    } else if (mediator && state.localPlayer) {
       setState('isMyTurn', screen.currentPlayer === state.localPlayer.playerNumber);
     }
 
@@ -103,6 +108,7 @@ function startGame(
   warband1: Warband,
   warband2: Warband,
   scenarioKey: string,
+  mode: 'hotseat' | 'multiplayer' = 'hotseat',
   localPlayerNumber: 1 | 2 = 1
 ): ScreenCommand {
   const m = initializeMediator();
@@ -112,6 +118,12 @@ function startGame(
     playerNumber: localPlayerNumber
   };
 
+  // In hotseat mode, disable turn validation so both players can be controlled
+  const isHotseat = mode === 'hotseat';
+  if (isHotseat) {
+    m.setTurnValidation(false);
+  }
+
   const screen = m.createGame(warband1, warband2, scenarioKey, localPlayer);
 
   batch(() => {
@@ -120,7 +132,9 @@ function startGame(
     setState('availableEvents', [...screen.availableEvents]);
     setState('isPlaying', true);
     setState('localPlayer', localPlayer);
-    setState('isMyTurn', screen.currentPlayer === localPlayerNumber);
+    setState('isHotseatMode', isHotseat);
+    // In hotseat mode, it's always "your turn" since you control both players
+    setState('isMyTurn', isHotseat || screen.currentPlayer === localPlayerNumber);
     setState('lastError', null);
   });
 
@@ -167,6 +181,7 @@ function endGame(): void {
     setState('isPlaying', false);
     setState('localPlayer', null);
     setState('isMyTurn', false);
+    setState('isHotseatMode', false);
     setState('lastError', null);
     setState('connectionStatus', 'disconnected');
   });

@@ -5,7 +5,8 @@
 // - Be used for testing game mechanics
 // - Serve as example implementation for external bots/agents
 
-import { GameEngine } from '../engine';
+import { PhaseCoordinator } from '../engine';
+import type { IGameEngine } from '../engine/types/engine';
 import type { GameEvent } from '../engine/types/events';
 import type { ScreenCommand } from '../engine/types/screens';
 import type { GameState } from '../types/game';
@@ -375,7 +376,7 @@ export async function runBotGame(
   bot1Config: Partial<BotConfig> = {},
   bot2Config: Partial<BotConfig> = {}
 ): Promise<GameResult> {
-  const engine = new GameEngine();
+  const engine: IGameEngine = new PhaseCoordinator();
   engine.createGame(warband1, warband2, scenario);
 
   const bot1 = new SimpleBot({ ...bot1Config, playerNumber: 1 });

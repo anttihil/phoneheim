@@ -1,7 +1,7 @@
 // Dice Roller Component
 
 import { createSignal, Show } from 'solid-js';
-import { rollD6, roll2D6, rollD66, rollD3 } from '../../logic/gameRules';
+import { rollD6, roll2D6, rollD66, rollD3 } from '../../engine/rules/combat';
 import { Button, Modal } from '../common';
 
 export type DiceType = 'D6' | 'D3' | '2D6' | 'D66';

@@ -2,7 +2,7 @@
 
 import { For, Show } from 'solid-js';
 import type { GamePhase } from '../../types';
-import { TURN_PHASES } from '../../logic/gameRules';
+import { TURN_PHASES } from '../../engine/rules/combat';
 
 export interface PhaseIndicatorProps {
   currentPhase: GamePhase;

@@ -1,8 +1,10 @@
 // Game Engine - Public exports
 
-// Engines
-export { GameEngine } from './GameEngine';
+// Engine
 export { PhaseCoordinator } from './PhaseCoordinator';
+
+// Shared utilities
+export * from './shared';
 
 // Types
 export type { IGameEngine, ProcessResult, SerializedGame } from './types/engine';

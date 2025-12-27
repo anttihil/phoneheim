@@ -17,6 +17,7 @@ import {
 } from '../components/game';
 import { WarriorCard } from '../components/warband';
 import type { ScreenCommand } from '../engine/types/screens';
+import type { CombatResolution } from '../types/game';
 
 // =====================================
 // SCREEN-SPECIFIC COMPONENTS
@@ -524,8 +525,8 @@ export default function GamePlayNew() {
           currentPlayer={screen()!.currentPlayer ?? 1}
         />
 
-        {/* Turn indicator */}
-        <Show when={!isMyTurn()}>
+        {/* Turn indicator - only show in multiplayer mode */}
+        <Show when={!isMyTurn() && !uiState.isHotseatMode}>
           <Card class="waiting-indicator">
             <p>Waiting for opponent...</p>
           </Card>
@@ -574,7 +575,7 @@ export default function GamePlayNew() {
           <Match when={screenType() === 'COMBAT_RESOLUTION'}>
             <CombatResolutionModal
               isOpen={true}
-              resolution={screen()!.data}
+              resolution={screen()!.data as unknown as CombatResolution}
               onClose={handleAcknowledge}
             />
           </Match>

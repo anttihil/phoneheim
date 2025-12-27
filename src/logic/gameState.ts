@@ -1,7 +1,7 @@
 // Game State Management
 
 import { SCENARIOS } from '../data/scenarios';
-import { leadershipTest } from './gameRules';
+import { leadershipTest } from '../engine/rules/combat';
 import type {
   GameState,
   GameWarband,
@@ -13,66 +13,7 @@ import type {
   RoutTestResult
 } from '../types';
 
-// Re-export recovery handler functions for backward compatibility
-export {
-  getWarriorsNeedingRecovery,
-  isRecoveryPhaseComplete,
-  rallyWarrior,
-  recoverFromStunned,
-  standUpWarrior
-} from '../engine/handlers/recovery';
-export type { RallyResult } from '../engine/handlers/types';
-
-// Re-export movement handler functions for backward compatibility
-export {
-  engageWarriors,
-  disengageWarrior,
-  canMoveInCombat,
-  disengageFromCombat,
-  moveWarrior,
-  runWarrior,
-  climbWarrior,
-  jumpDownWarrior,
-  applyFalling,
-  checkEdgeFall,
-  canWarriorHide,
-  hideWarrior,
-  revealWarrior,
-  getDetectionRange,
-  checkHiddenWarriorsForDetection,
-  chargeWarrior,
-  markWarriorPositioned
-} from '../engine/handlers/movement';
-export type {
-  MoveOptions,
-  RunOptions,
-  ClimbOptions,
-  ClimbResult,
-  JumpDownResult,
-  FallingDamageResult,
-  EdgeFallCheckResult,
-  ChargeOptions,
-  CanMoveInCombatResult
-} from '../engine/handlers/types';
-
-// Re-export shooting handler functions for backward compatibility
-export {
-  canWarriorShoot,
-  getShootingTargets,
-  executeShot,
-  getWarriorArmorSave
-} from '../engine/handlers/shooting';
-export type { ShootingResult } from '../engine/handlers/types';
-
-// Re-export combat handler functions for backward compatibility
-export {
-  buildStrikeOrder,
-  getMeleeTargets,
-  executeMeleeAttack
-} from '../engine/handlers/combat';
-export type { MeleeResult } from '../engine/handlers/types';
-
-// Re-export state machine functions for backward compatibility
+// Re-export state machine functions
 export {
   getNextState,
   isNewTurn,
@@ -84,8 +25,8 @@ export {
   getActableWarriorCount,
   getPhaseName,
   GAME_PHASES
-} from '../engine/handlers/stateMachine';
-export type { TurnState } from '../engine/handlers/stateMachine';
+} from '../engine/shared/stateMachine';
+export type { TurnState } from '../engine/shared/stateMachine';
 
 // Import state machine functions for use in advancePhase
 import {
@@ -95,7 +36,7 @@ import {
   resetWarriorFlags,
   resetPlayerActedFlags,
   getPhaseName
-} from '../engine/handlers/stateMachine';
+} from '../engine/shared/stateMachine';
 
 // Create a new game state
 export function createGameState(warband1: Warband, warband2: Warband, scenarioKey: string): GameState {
@@ -328,11 +269,6 @@ export function exportGameState(gameState: GameState): string {
 export function importGameState(json: string): GameState {
   return JSON.parse(json);
 }
-
-// =====================================
-// RECOVERY PHASE MECHANICS
-// =====================================
-// (Moved to engine/handlers/recovery.ts - re-exported above)
 
 // =====================================
 // COMBAT STATE MANAGEMENT
@@ -599,10 +535,6 @@ export function markWarriorActed(
   }
 }
 
-// Movement phase functions moved to engine/handlers/movement.ts
-
-
-
 // =====================================
 // UNDO FUNCTIONALITY
 // =====================================
@@ -670,10 +602,6 @@ export function findWarrior(gameState: GameState, warriorId: string): { warrior:
   }
   return null;
 }
-
-// Shooting phase functions moved to engine/handlers/shooting.ts
-
-// Combat phase functions moved to engine/handlers/combat.ts
 
 // =====================================
 // ROUT TEST FUNCTIONS

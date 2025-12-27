@@ -11,7 +11,7 @@ const WarbandCreator = lazy(() => import('./pages/WarbandCreator'));
 const WarbandList = lazy(() => import('./pages/WarbandList'));
 const WarbandDetail = lazy(() => import('./pages/WarbandDetail'));
 const GameSetup = lazy(() => import('./pages/GameSetup'));
-const GamePlay = lazy(() => import('./pages/GamePlay'));
+const GamePlay = lazy(() => import('./pages/GamePlayNew'));
 const Aftermath = lazy(() => import('./pages/Aftermath'));
 const Multiplayer = lazy(() => import('./pages/Multiplayer'));
 const RulesReference = lazy(() => import('./pages/RulesReference'));
