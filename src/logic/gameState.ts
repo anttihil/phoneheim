@@ -3,22 +3,6 @@
 import { leadershipTest } from "../engine/rules/combat";
 import type { GameState, GameWarband, Warband, RoutTestResult } from "../types";
 
-// Re-export state machine functions
-export {
-  getNextState,
-  isNewTurn,
-  isLeavingSetup,
-  isPlayerSwitching,
-  resetWarriorFlags,
-  resetPlayerActedFlags,
-  isPhaseComplete,
-  canAdvancePhase,
-  getActableWarriorCount,
-  getPhaseName,
-  GAME_PHASES,
-} from "../engine/shared/stateMachine";
-export type { TurnState } from "../engine/shared/stateMachine";
-
 // Add to game log
 export function addLog(gameState: GameState, message: string): void {
   gameState.log.push({
