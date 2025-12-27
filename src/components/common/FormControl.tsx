@@ -1,6 +1,6 @@
 // Form Control Component
 
-import { JSX, For, Show } from 'solid-js';
+import { JSX, For, Show, createEffect } from 'solid-js';
 
 export interface SelectOption {
   value: string;
@@ -41,7 +41,19 @@ export default function FormControl(props: FormControlProps) {
       {props.type === 'select' ? (
         <select
           id={inputId()}
-          value={props.value}
+          ref={(el) => {
+            // Use effect to sync value after options are rendered
+            // This fixes the issue where value is lost when options change dynamically
+            createEffect(() => {
+              const val = String(props.value);
+              // Access options to track reactivity
+              props.options;
+              // Set value directly on DOM element to ensure it persists through option changes
+              if (el.value !== val) {
+                el.value = val;
+              }
+            });
+          }}
           onChange={handleChange}
           disabled={props.disabled}
           required={props.required}

@@ -40,8 +40,8 @@ test.describe('Game Setup', () => {
   test('should show scenario info when selected', async ({ page }) => {
     await page.goto('/game/setup');
 
-    // Scenario info should be shown
-    await expect(page.locator('.scenario-info')).toBeVisible();
+    // Scenario description should be shown
+    await expect(page.locator('.scenario-description')).toBeVisible();
   });
 
 });

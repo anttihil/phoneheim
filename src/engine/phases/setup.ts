@@ -4,10 +4,30 @@
 import type { GameState, GameWarrior } from '../../types/game';
 import type { GameEvent, EventType, SelectWarriorEvent, ConfirmPositionEvent } from '../types/events';
 import type { ScreenCommand, GameSetupScreen } from '../types/screens';
-import type { PhaseModule, PhaseContext, PhaseResult } from './types';
+import type { PhaseModule, PhaseContext, PhaseResult, AvailableAction } from './types';
 import { successResult, errorResult } from './types';
 import { toWarriorView, toWarbandView, getCurrentWarband, getOpponentWarband, findWarrior, findWarriorView } from './viewModels';
 import { generateActionId, addLog, canWarriorAct } from './stateUtils';
+
+// =====================================
+// SETUP PHASE UTILITIES
+// =====================================
+
+/**
+ * Get warriors that can still be positioned during setup
+ */
+export function getSetupActableWarriors(state: GameState): GameWarrior[] {
+  const warband = getCurrentWarband(state);
+  return warband.warriors.filter(w => canWarriorAct(w, 'setup'));
+}
+
+/**
+ * Get available actions for a warrior during setup phase
+ */
+export function getSetupAvailableActions(warrior: GameWarrior): AvailableAction[] {
+  if (!canWarriorAct(warrior, 'setup')) return [];
+  return [{ type: 'position', description: 'Mark Positioned', requiresTarget: false }];
+}
 
 // =====================================
 // SETUP PHASE MODULE
@@ -45,9 +65,7 @@ export const setupPhase: PhaseModule = {
     const opponentWarband = getOpponentWarband(state);
 
     // Warriors that still need to be positioned
-    const warriorsToPosition = currentWarband.warriors.filter(w =>
-      canWarriorAct(w, 'setup')
-    );
+    const warriorsToPosition = getSetupActableWarriors(state);
 
     const screen: GameSetupScreen = {
       screen: 'GAME_SETUP',

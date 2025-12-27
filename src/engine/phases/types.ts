@@ -12,6 +12,24 @@ import type { GameEvent, EventType } from '../types/events';
 import type { ScreenCommand } from '../types/screens';
 
 // =====================================
+// AVAILABLE ACTION TYPES
+// =====================================
+
+/**
+ * Represents an action available to a warrior in a given phase
+ */
+export interface AvailableAction {
+  /** Action type identifier (e.g., 'move', 'charge', 'shoot') */
+  type: string;
+  /** Human-readable description of the action */
+  description: string;
+  /** Whether this action requires selecting a target */
+  requiresTarget: boolean;
+  /** Valid target warrior IDs (only present if requiresTarget is true) */
+  validTargets?: string[];
+}
+
+// =====================================
 // SUB-STATE TYPES
 // =====================================
 

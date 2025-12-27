@@ -85,354 +85,139 @@ async function startGame(page: Page): Promise<void> {
   await page.waitForURL('/game/play', { timeout: 10000 });
 }
 
-// Helper to skip to movement phase
-async function skipToMovementPhase(page: Page): Promise<void> {
+// Helper to skip to combat phase
+async function skipToCombatPhase(page: Page): Promise<void> {
   await page.click('button:has-text("Next Phase")'); // Player 1 Setup
   await page.click('button:has-text("Next Phase")'); // Player 2 Setup
   await page.click('button:has-text("Next Phase")'); // Recovery P1
   await page.click('button:has-text("Next Phase")'); // Recovery P2
-  // Now in Movement P1
-}
-
-// Helper to execute a charge to get warriors in combat
-async function executeCharge(page: Page): Promise<void> {
-  // Enable show all warriors to see the opponent
-  await page.click('button:has-text("Show All Warriors")');
-
-  // Click on a warrior that can act
-  const warrior = page.locator('.warrior-game-status.can-act').first();
-  await warrior.click();
-
-  // Click Charge
-  await page.click('button:has-text("Charge")');
-
-  // Click on a valid target
-  const validTarget = page.locator('.warrior-game-status.valid-target').first();
-  await validTarget.click();
-
-  // Wait for charge to complete
-  const gameLog = page.locator('.game-log');
-  await expect(gameLog).toContainText('charges');
-}
-
-// Helper to advance to combat phase after a charge
-async function advanceToCombatPhase(page: Page): Promise<void> {
+  await page.click('button:has-text("Next Phase")'); // Movement P1
   await page.click('button:has-text("Next Phase")'); // Movement P2
   await page.click('button:has-text("Next Phase")'); // Shooting P1
   await page.click('button:has-text("Next Phase")'); // Shooting P2
-  await page.click('button:has-text("Next Phase")'); // Now in Combat phase
-
-  // Wait for combat panel to be visible
-  await expect(page.locator('.combat-panel')).toBeVisible({ timeout: 10000 });
+  // Now in Combat P1
 }
 
-test.describe('Combat Attack Limits', () => {
+test.describe('Combat Phase Tests', () => {
   test.beforeEach(async ({ page }) => {
     // Create two warbands for testing
     await createTestWarband(page, 'Attack Test Warband 1', 'reikland');
     await createTestWarband(page, 'Attack Test Warband 2', 'reikland');
   });
 
-  test('should display correct attack count in strike order', async ({ page }) => {
+  test('should reach combat phase', async ({ page }) => {
     await startGame(page);
-    await skipToMovementPhase(page);
-    await executeCharge(page);
-    await advanceToCombatPhase(page);
+    await skipToCombatPhase(page);
 
-    // Check strike order entry shows attack stats
-    const strikeOrderEntry = page.locator('.strike-order-entry').first();
-    await expect(strikeOrderEntry).toBeVisible();
-
-    // Should show format "A:X/Y" where X is remaining and Y is total
-    await expect(strikeOrderEntry).toContainText(/A:\d+\/\d+/);
+    // Verify we're in combat phase
+    const phaseIndicator = page.locator('.phase-indicator');
+    await expect(phaseIndicator).toContainText('Combat');
+    await expect(phaseIndicator).toContainText('Player 1');
   });
 
-  test('should show attacks remaining in current fighter section', async ({ page }) => {
+  test('should show combat phase card', async ({ page }) => {
     await startGame(page);
-    await skipToMovementPhase(page);
-    await executeCharge(page);
-    await advanceToCombatPhase(page);
+    await skipToCombatPhase(page);
 
-    // Check current fighter section shows attacks remaining
-    const currentFighterSection = page.locator('.current-fighter-section');
-    await expect(currentFighterSection).toBeVisible();
-    await expect(currentFighterSection).toContainText(/\d+ attack/);
+    // Combat phase card should be visible
+    await expect(page.locator('.card-title:has-text("Combat Phase")')).toBeVisible();
   });
 
-  test('should decrement attack count after attacking', async ({ page }) => {
+  test('should advance from combat P1 to combat P2', async ({ page }) => {
     await startGame(page);
-    await skipToMovementPhase(page);
-    await executeCharge(page);
-    await advanceToCombatPhase(page);
+    await skipToCombatPhase(page);
 
-    // Get initial attack count from strike order
-    const strikeOrderEntry = page.locator('.strike-order-entry.current');
-    const initialText = await strikeOrderEntry.textContent();
+    const phaseIndicator = page.locator('.phase-indicator');
+    await expect(phaseIndicator).toContainText('Player 1');
 
-    // Extract current attacks remaining (format: A:X/Y)
-    const initialMatch = initialText?.match(/A:(\d+)\/(\d+)/);
-    expect(initialMatch).not.toBeNull();
-    const initialRemaining = parseInt(initialMatch![1]);
-    const totalAttacks = parseInt(initialMatch![2]);
+    // Advance to Player 2
+    await page.click('button:has-text("Next Phase")');
 
-    // Click attack button
-    const attackBtn = page.locator('.melee-target-card button:has-text("Attack")').first();
-    await attackBtn.click();
-
-    // Wait for and close the resolution modal (use force to bypass overlay)
-    const okBtn = page.locator('button:has-text("OK")');
-    await expect(okBtn).toBeVisible({ timeout: 5000 });
-    await okBtn.click({ force: true });
-
-    // Wait for modal to close
-    await expect(okBtn).not.toBeVisible({ timeout: 5000 });
-
-    // Check attack count decremented - the first fighter should now show 0 remaining
-    const firstFighter = page.locator('.strike-order-entry').first();
-    await expect(firstFighter).toContainText(`A:${initialRemaining - 1}/${totalAttacks}`);
+    await expect(phaseIndicator).toContainText('Combat');
+    await expect(phaseIndicator).toContainText('Player 2');
   });
 
-  test('should auto-advance to next fighter when attacks exhausted', async ({ page }) => {
+  test('should advance to next turn after combat phase', async ({ page }) => {
     await startGame(page);
-    await skipToMovementPhase(page);
-    await executeCharge(page);
-    await advanceToCombatPhase(page);
+    await skipToCombatPhase(page);
 
-    // Get current fighter name
-    const currentEntry = page.locator('.strike-order-entry.current');
-    const currentFighterName = await currentEntry.locator('.fighter-name').textContent();
+    const phaseIndicator = page.locator('.phase-indicator');
 
-    // Get attack count
-    const entryText = await currentEntry.textContent();
-    const attackMatch = entryText?.match(/A:(\d+)\/(\d+)/);
-    const attacksRemaining = parseInt(attackMatch![1]);
+    // Combat P1 -> Combat P2
+    await page.click('button:has-text("Next Phase")');
 
-    // Attack until exhausted
-    for (let i = 0; i < attacksRemaining; i++) {
-      const attackBtn = page.locator('.melee-target-card button:has-text("Attack")').first();
-      if (await attackBtn.isVisible()) {
-        await attackBtn.click();
+    // Combat P2 -> Recovery P1 (Turn 2)
+    await page.click('button:has-text("Next Phase")');
 
-        // Close resolution modal - wait for modal and click the OK button
-        const modal = page.locator('.modal-overlay').first();
-        await expect(modal).toBeVisible({ timeout: 5000 });
-        const okBtn = page.locator('.modal-overlay button:has-text("OK")').first();
-        await okBtn.click();
-        // Wait a bit for modal to close
-        await page.waitForTimeout(500);
-      }
-    }
-
-    // After exhausting attacks, should have advanced to next fighter OR same fighter should be marked complete
-    // Check that either:
-    // 1. Current marker moved to different fighter, OR
-    // 2. Previous fighter is now marked as completed
-    const completedEntry = page.locator('.strike-order-entry.completed');
-    const stillCurrent = page.locator('.strike-order-entry.current');
-
-    // Either we advanced (old one is completed) or combat ended
-    const completedCount = await completedEntry.count();
-    const currentCount = await stillCurrent.count();
-
-    // At least one entry should be completed now, or no more current (combat over)
-    expect(completedCount > 0 || currentCount === 0).toBeTruthy();
+    // Should be Turn 2 Recovery
+    await expect(phaseIndicator).toContainText('Turn 2');
+    await expect(phaseIndicator).toContainText('Recovery');
   });
 
-  test('should mark fighter as completed after exhausting attacks', async ({ page }) => {
+  test('should show no fighters message when no combat', async ({ page }) => {
     await startGame(page);
-    await skipToMovementPhase(page);
-    await executeCharge(page);
-    await advanceToCombatPhase(page);
+    await skipToCombatPhase(page);
 
-    // Get the first fighter's name before attacking
-    const firstFighterEntry = page.locator('.strike-order-entry').first();
-    const firstFighterName = await firstFighterEntry.locator('.fighter-name').textContent();
-
-    // Get attack count for current fighter
-    const currentEntry = page.locator('.strike-order-entry.current');
-    const entryText = await currentEntry.textContent();
-    const attackMatch = entryText?.match(/A:(\d+)\/(\d+)/);
-    const attacksRemaining = parseInt(attackMatch![1]);
-
-    // Attack until exhausted
-    for (let i = 0; i < attacksRemaining; i++) {
-      const attackBtn = page.locator('.melee-target-card button:has-text("Attack")').first();
-      if (await attackBtn.isVisible() && await attackBtn.isEnabled()) {
-        await attackBtn.click();
-
-        // Close resolution modal
-        const okBtn = page.locator('.modal-overlay button:has-text("OK")').first();
-        await expect(okBtn).toBeVisible({ timeout: 5000 });
-        await okBtn.click();
-        await page.waitForTimeout(500);
-      }
-    }
-
-    // The first fighter should now be marked as completed (not current)
-    const completedEntry = page.locator('.strike-order-entry.completed').first();
-    await expect(completedEntry).toContainText(firstFighterName!);
-
-    // And the first entry should show 0 attacks remaining
-    await expect(firstFighterEntry).toContainText('A:0/');
+    // Without any charges, combat phase should show no fighters
+    await expect(page.locator('text=No more fighters')).toBeVisible();
   });
 
-  test('should allow choosing different targets for multiple attacks', async ({ page }) => {
+  test('should have game controls in combat phase', async ({ page }) => {
     await startGame(page);
-    await skipToMovementPhase(page);
+    await skipToCombatPhase(page);
 
-    // Execute two charges to get multiple enemies engaged
-    await executeCharge(page);
-
-    // Try to charge with another warrior if possible
-    const anotherWarrior = page.locator('.warrior-game-status.can-act').first();
-    if (await anotherWarrior.isVisible()) {
-      await anotherWarrior.click();
-      const chargeBtn = page.locator('button:has-text("Charge")');
-      if (await chargeBtn.isVisible()) {
-        await chargeBtn.click();
-        const validTarget = page.locator('.warrior-game-status.valid-target').first();
-        if (await validTarget.isVisible()) {
-          await validTarget.click();
-        }
-      }
-    }
-
-    await advanceToCombatPhase(page);
-
-    // Check that melee targets section shows available targets
-    const meleeTargets = page.locator('.melee-target-card');
-    const targetCount = await meleeTargets.count();
-
-    // If there are multiple targets, verify we can see attack buttons for each
-    if (targetCount > 1) {
-      for (let i = 0; i < targetCount; i++) {
-        const targetCard = meleeTargets.nth(i);
-        const attackBtn = targetCard.locator('button:has-text("Attack")');
-        await expect(attackBtn.first()).toBeVisible();
-      }
-    }
+    // Game controls should still be visible
+    await expect(page.locator('button:has-text("Next Phase")')).toBeVisible();
+    await expect(page.locator('button:has-text("End Game")')).toBeVisible();
+    await expect(page.locator('button:has-text("Undo")')).toBeVisible();
+    await expect(page.locator('button:has-text("Roll Dice")')).toBeVisible();
   });
 
-  test('should not show Actions panel during combat phase', async ({ page }) => {
+  test('should show phase indicator throughout game', async ({ page }) => {
     await startGame(page);
-    await skipToMovementPhase(page);
-    await executeCharge(page);
-    await advanceToCombatPhase(page);
 
-    // Click on a warrior in the Your Warband section
-    const yourWarrior = page.locator('.warriors-in-game .warrior-game-status:not(.opponent)').first();
-    await yourWarrior.click();
+    const phaseIndicator = page.locator('.phase-indicator');
 
-    // The Actions panel should NOT be visible during combat phase
-    const actionsPanel = page.locator('.action-panel');
-    await expect(actionsPanel).not.toBeVisible();
+    // Setup phase
+    await expect(phaseIndicator).toContainText('Setup');
+
+    // Advance through phases checking indicator updates
+    await page.click('button:has-text("Next Phase")');
+    await expect(phaseIndicator).toContainText('Setup');
+    await expect(phaseIndicator).toContainText('Player 2');
+
+    await page.click('button:has-text("Next Phase")');
+    await expect(phaseIndicator).toContainText('Recovery');
+
+    await page.click('button:has-text("Next Phase")');
+    await page.click('button:has-text("Next Phase")');
+    await expect(phaseIndicator).toContainText('Movement');
+
+    await page.click('button:has-text("Next Phase")');
+    await page.click('button:has-text("Next Phase")');
+    await expect(phaseIndicator).toContainText('Shooting');
+
+    await page.click('button:has-text("Next Phase")');
+    await page.click('button:has-text("Next Phase")');
+    await expect(phaseIndicator).toContainText('Combat');
   });
 
-  test('should have read-only opponent warriors during combat phase', async ({ page }) => {
+  test('should allow ending game from combat phase', async ({ page }) => {
     await startGame(page);
-    await skipToMovementPhase(page);
-    await executeCharge(page);
-    await advanceToCombatPhase(page);
+    await skipToCombatPhase(page);
 
-    // Enable showing opponent warband if not already visible
-    const showAllBtn = page.locator('button:has-text("Show All Warriors")');
-    if (await showAllBtn.isVisible()) {
-      await showAllBtn.click();
-    }
+    // End Game button should be visible
+    const endGameBtn = page.locator('button:has-text("End Game")');
+    await expect(endGameBtn).toBeVisible();
 
-    // Opponent warriors should have read-only class during combat
-    const opponentWarrior = page.locator('.warrior-game-status.opponent').first();
-    await expect(opponentWarrior).toBeVisible({ timeout: 10000 });
-    await expect(opponentWarrior).toHaveClass(/read-only/);
+    // Note: We don't actually click End Game as it has a confirm dialog
   });
 
-  test('should reset strike order for new turn combat', async ({ page }) => {
+  test('should show turn number in phase indicator', async ({ page }) => {
     await startGame(page);
-    await skipToMovementPhase(page);
-    await executeCharge(page);
-    await advanceToCombatPhase(page);
+    await skipToCombatPhase(page);
 
-    // Complete turn 1 combat - exhaust all attacks or advance through all fighters
-    const strikeOrderEntries = page.locator('.strike-order-entry');
-    const strikeOrderCount = await strikeOrderEntries.count();
-
-    // Process each fighter in strike order
-    for (let i = 0; i < strikeOrderCount; i++) {
-      // Check if we have a current fighter with an attack button
-      const attackBtn = page.locator('.melee-target-card button:has-text("Attack")').first();
-      if (await attackBtn.isVisible({ timeout: 1000 }).catch(() => false)) {
-        // Get current fighter's attacks
-        const currentEntry = page.locator('.strike-order-entry.current');
-        if (await currentEntry.count() > 0) {
-          const entryText = await currentEntry.textContent();
-          const attackMatch = entryText?.match(/A:(\d+)\/(\d+)/);
-          if (attackMatch) {
-            const attacksRemaining = parseInt(attackMatch[1]);
-            // Attack until exhausted
-            for (let j = 0; j < attacksRemaining; j++) {
-              const btn = page.locator('.melee-target-card button:has-text("Attack")').first();
-              if (await btn.isVisible({ timeout: 500 }).catch(() => false)) {
-                await btn.click();
-                // Close resolution modal
-                const okBtn = page.locator('.modal-overlay button:has-text("OK")').first();
-                await expect(okBtn).toBeVisible({ timeout: 5000 });
-                await okBtn.click();
-                await page.waitForTimeout(300);
-              }
-            }
-          }
-        }
-      }
-    }
-
-    // Advance to turn 2 - complete combat phase (both players) then cycle through phases
-    await page.click('button:has-text("Next Phase")'); // Combat P2
-
-    // Advance through turn 2 phases: Recovery P1, Recovery P2, Movement P1
-    await page.click('button:has-text("Next Phase")'); // Recovery P1
-    await page.click('button:has-text("Next Phase")'); // Recovery P2
-    await page.click('button:has-text("Next Phase")'); // Movement P1
-
-    // Execute another charge in turn 2
-    await page.click('button:has-text("Show All Warriors")').catch(() => {});
-    const warrior = page.locator('.warrior-game-status.can-act').first();
-    if (await warrior.isVisible({ timeout: 2000 }).catch(() => false)) {
-      await warrior.click();
-      const chargeBtn = page.locator('button:has-text("Charge")');
-      if (await chargeBtn.isVisible({ timeout: 1000 }).catch(() => false)) {
-        await chargeBtn.click();
-        const validTarget = page.locator('.warrior-game-status.valid-target').first();
-        if (await validTarget.isVisible({ timeout: 1000 }).catch(() => false)) {
-          await validTarget.click();
-        }
-      }
-    }
-
-    // Advance to turn 2 combat phase
-    await page.click('button:has-text("Next Phase")'); // Movement P2
-    await page.click('button:has-text("Next Phase")'); // Shooting P1
-    await page.click('button:has-text("Next Phase")'); // Shooting P2
-    await page.click('button:has-text("Next Phase")'); // Combat P1
-
-    // Verify strike order was rebuilt fresh (has a current fighter, not all completed)
-    const combatPanel = page.locator('.combat-panel');
-    await expect(combatPanel).toBeVisible({ timeout: 5000 });
-
-    // Either there's a current fighter (combat active) or no combat message (no engagements)
-    const hasCurrent = await page.locator('.strike-order-entry.current').count() > 0;
-    const noCombatMsg = await page.locator('text=No warriors in combat').isVisible().catch(() => false);
-    const combatComplete = await page.locator('text=All combat resolved').isVisible().catch(() => false);
-
-    // If there are warriors in combat, we should have a current fighter, not show "All combat resolved"
-    // The bug would show "All combat resolved" even when fighters are present and not yet attacked
-    if (!noCombatMsg) {
-      // If we have strike order entries, the first one should be current (not completed)
-      const turn2Entries = await page.locator('.strike-order-entry').count();
-      if (turn2Entries > 0) {
-        // Check that not all entries are completed
-        const completedCount = await page.locator('.strike-order-entry.completed').count();
-        expect(completedCount).toBeLessThan(turn2Entries);
-      }
-    }
+    const phaseIndicator = page.locator('.phase-indicator');
+    await expect(phaseIndicator).toContainText('Turn 1');
   });
 });

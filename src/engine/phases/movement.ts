@@ -10,7 +10,7 @@ import type {
   ConfirmChargeEvent
 } from '../types/events';
 import type { ScreenCommand, MovementPhaseScreen } from '../types/screens';
-import type { PhaseModule, PhaseContext, PhaseResult } from './types';
+import type { PhaseModule, PhaseContext, PhaseResult, AvailableAction } from './types';
 import { successResult, errorResult } from './types';
 import {
   toWarriorView,
@@ -21,6 +21,53 @@ import {
   findWarriorView
 } from './viewModels';
 import { generateActionId, addLog, canWarriorAct } from './stateUtils';
+
+// =====================================
+// MOVEMENT PHASE UTILITIES
+// =====================================
+
+/**
+ * Get warriors that can move during movement phase
+ */
+export function getMovementActableWarriors(state: GameState): GameWarrior[] {
+  const warband = getCurrentWarband(state);
+  return warband.warriors.filter(w => canWarriorAct(w, 'movement'));
+}
+
+/**
+ * Get valid charge targets from opponent warband
+ * Warriors that are standing or knocked down can be charged
+ */
+export function getValidChargeTargets(state: GameState): GameWarrior[] {
+  const opponentWarband = getOpponentWarband(state);
+  return opponentWarband.warriors.filter(w =>
+    w.gameStatus === 'standing' || w.gameStatus === 'knockedDown'
+  );
+}
+
+/**
+ * Get available movement actions for a warrior
+ */
+export function getMovementAvailableActions(warrior: GameWarrior, state: GameState): AvailableAction[] {
+  if (!canWarriorAct(warrior, 'movement')) return [];
+
+  const actions: AvailableAction[] = [
+    { type: 'move', description: 'Move', requiresTarget: false },
+    { type: 'run', description: 'Run (double movement, no shooting)', requiresTarget: false }
+  ];
+
+  const chargeTargets = getValidChargeTargets(state);
+  if (chargeTargets.length > 0) {
+    actions.push({
+      type: 'charge',
+      description: 'Charge (double movement into combat)',
+      requiresTarget: true,
+      validTargets: chargeTargets.map(w => w.id)
+    });
+  }
+
+  return actions;
+}
 
 // =====================================
 // MOVEMENT PHASE MODULE
@@ -62,9 +109,7 @@ export const movementPhase: PhaseModule = {
     const warbandIndex = state.currentPlayer - 1;
 
     // Warriors who can still move
-    const actableWarriors = currentWarband.warriors.filter(w =>
-      canWarriorAct(w, 'movement')
-    );
+    const actableWarriors = getMovementActableWarriors(state);
 
     // Determine available actions for selected warrior
     let chargeTargets: GameWarrior[] = [];
@@ -78,9 +123,7 @@ export const movementPhase: PhaseModule = {
         canMove = true;
         canRun = true;
         // Get valid charge targets from opponent warband
-        chargeTargets = opponentWarband.warriors.filter(w =>
-          w.gameStatus === 'standing' || w.gameStatus === 'knockedDown'
-        );
+        chargeTargets = getValidChargeTargets(state);
         canCharge = chargeTargets.length > 0;
       }
     }

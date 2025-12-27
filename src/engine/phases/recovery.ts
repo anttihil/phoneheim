@@ -9,7 +9,7 @@ import type {
   RecoveryActionEvent
 } from '../types/events';
 import type { ScreenCommand, RecoveryPhaseScreen } from '../types/screens';
-import type { PhaseModule, PhaseContext, PhaseResult } from './types';
+import type { PhaseModule, PhaseContext, PhaseResult, AvailableAction } from './types';
 import { successResult, errorResult } from './types';
 import { toWarriorView, toWarbandView, getCurrentWarband, findWarrior, findWarriorView } from './viewModels';
 import { generateActionId, addLog, canWarriorAct } from './stateUtils';
@@ -51,15 +51,7 @@ export const recoveryPhase: PhaseModule = {
     const warbandIndex = state.currentPlayer - 1;
 
     // Get warriors needing recovery
-    const fleeingWarriors = currentWarband.warriors.filter(
-      w => w.gameStatus === 'fleeing' && !w.hasRecovered
-    );
-    const stunnedWarriors = currentWarband.warriors.filter(
-      w => w.gameStatus === 'stunned' && !w.hasRecovered
-    );
-    const knockedDownWarriors = currentWarband.warriors.filter(
-      w => w.gameStatus === 'knockedDown' && !w.hasRecovered
-    );
+    const { fleeing, stunned, knockedDown } = getWarriorsNeedingRecovery(currentWarband);
     const completedRecoveries = currentWarband.warriors
       .filter(w => w.hasRecovered)
       .map(w => w.id);
@@ -69,9 +61,9 @@ export const recoveryPhase: PhaseModule = {
       data: {
         currentPlayer: state.currentPlayer,
         warband: toWarbandView(currentWarband),
-        fleeingWarriors: fleeingWarriors.map(w => toWarriorView(w, warbandIndex)),
-        stunnedWarriors: stunnedWarriors.map(w => toWarriorView(w, warbandIndex)),
-        knockedDownWarriors: knockedDownWarriors.map(w => toWarriorView(w, warbandIndex)),
+        fleeingWarriors: fleeing.map(w => toWarriorView(w, warbandIndex)),
+        stunnedWarriors: stunned.map(w => toWarriorView(w, warbandIndex)),
+        knockedDownWarriors: knockedDown.map(w => toWarriorView(w, warbandIndex)),
         completedRecoveries,
         selectedWarrior: context.selectedWarriorId
           ? findWarriorView(state, context.selectedWarriorId)
@@ -343,6 +335,27 @@ function standUpWarrior(
 // =====================================
 // QUERY HELPERS
 // =====================================
+
+/**
+ * Get available recovery actions for a warrior
+ */
+export function getRecoveryAvailableActions(warrior: GameWarrior): AvailableAction[] {
+  const actions: AvailableAction[] = [];
+
+  if (warrior.hasRecovered) return actions;
+
+  if (warrior.gameStatus === 'fleeing') {
+    actions.push({ type: 'rally', description: 'Rally (Leadership test)', requiresTarget: false });
+  }
+  if (warrior.gameStatus === 'stunned') {
+    actions.push({ type: 'recoverFromStunned', description: 'Recover (becomes knocked down)', requiresTarget: false });
+  }
+  if (warrior.gameStatus === 'knockedDown' && !warrior.combatState.inCombat) {
+    actions.push({ type: 'standUp', description: 'Stand up (half move, strikes last)', requiresTarget: false });
+  }
+
+  return actions;
+}
 
 /**
  * Get warriors that need recovery actions in the recovery phase

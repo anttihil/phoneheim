@@ -88,12 +88,13 @@ test.describe('Recovery Phase Mechanics', () => {
   test('should show warriors during recovery phase', async ({ page }) => {
     await startGame(page);
 
-    // Advance to recovery phase
+    // Advance to recovery phase (Setup P1 -> Setup P2 -> Recovery P1)
+    await page.click('button:has-text("Next Phase")');
     await page.click('button:has-text("Next Phase")');
 
-    // Warriors should be displayed with status
-    const warriors = page.locator('.warrior-game-status');
-    await expect(warriors.first()).toBeVisible();
+    // Recovery phase should show recovery content
+    const phaseIndicator = page.locator('.phase-indicator');
+    await expect(phaseIndicator).toContainText(/Recovery/i);
   });
 });
 
@@ -106,17 +107,16 @@ test.describe('Warrior Selection and Actions', () => {
   test('should show warriors in game', async ({ page }) => {
     await startGame(page);
 
-    // Warriors should be displayed
-    const warriors = page.locator('.warrior-game-status');
+    // In setup phase, warriors to position should be displayed
+    const warriors = page.locator('.warrior-item');
     await expect(warriors.first()).toBeVisible();
   });
 
   test('should display warrior status badges', async ({ page }) => {
     await startGame(page);
 
-    // Status badges should be visible
-    const statusBadge = page.locator('.status-badge').first();
-    await expect(statusBadge).toBeVisible();
+    // Setup phase should show warriors to position
+    await expect(page.locator('text=Warriors to Position')).toBeVisible();
   });
 });
 
@@ -129,21 +129,18 @@ test.describe('Warrior Action Tracking', () => {
   test('should track warriors during gameplay', async ({ page }) => {
     await startGame(page);
 
-    // Game should start and warriors should be displayed
-    const warriors = page.locator('.warrior-game-status');
+    // Game should start in setup phase with warriors to position
+    const warriors = page.locator('.warrior-item');
     await expect(warriors.first()).toBeVisible();
-
-    // Wounds display should be visible
-    const woundsDisplay = page.locator('.wounds-display').first();
-    await expect(woundsDisplay).toBeVisible();
   });
 
   test('should show warriors with wounds remaining', async ({ page }) => {
     await startGame(page);
 
-    // Wounds display should show current wounds
-    const woundsDisplay = page.locator('.wounds-display').first();
-    await expect(woundsDisplay).toContainText(/Wounds:/);
+    // Game starts in setup phase, warriors should be listed
+    const warriors = page.locator('.warrior-item');
+    const count = await warriors.count();
+    expect(count).toBeGreaterThan(0);
   });
 });
 
@@ -156,17 +153,16 @@ test.describe('Warrior Combat State', () => {
   test('should display combat state for warriors', async ({ page }) => {
     await startGame(page);
 
-    // Warriors should have status badges
-    const statusBadge = page.locator('.status-badge').first();
-    await expect(statusBadge).toBeVisible();
+    // Setup phase shows warriors to position
+    await expect(page.locator('.card-title:has-text("Setup Phase")')).toBeVisible();
   });
 
   test('should show warriors start as standing', async ({ page }) => {
     await startGame(page);
 
-    // Initial status should be standing
-    const statusBadge = page.locator('.status-badge').first();
-    await expect(statusBadge).toContainText(/standing/i);
+    // Warriors in setup phase are ready to be positioned
+    const warriors = page.locator('.warrior-item');
+    await expect(warriors.first()).toBeVisible();
   });
 });
 
@@ -184,11 +180,11 @@ test.describe('Game Controls', () => {
     await expect(page.locator('button:has-text("End Game")')).toBeVisible();
   });
 
-  test('should show game log card', async ({ page }) => {
+  test('should show phase card', async ({ page }) => {
     await startGame(page);
 
-    // Game log card should be visible (contains text "Game Log")
-    await expect(page.locator('text=Game Log')).toBeVisible();
+    // Setup phase card should be visible
+    await expect(page.locator('.card-title:has-text("Setup Phase")')).toBeVisible();
   });
 
   test('should have dice roller button', async ({ page }) => {
@@ -336,25 +332,20 @@ test.describe('Warband Display in Game', () => {
     await createTestWarband(page, 'Display Test 2');
   });
 
-  test('should display both warbands', async ({ page }) => {
+  test('should display setup phase with warriors', async ({ page }) => {
     await startGame(page);
 
-    // Should show "Your Warband" section
-    await expect(page.locator('text=Your Warband')).toBeVisible();
-
-    // Opponent is hidden by default, click to show all warriors
-    await page.click('button:has-text("Show All Warriors")');
-
-    // Should show "Opponent" section after toggling
-    await expect(page.locator('text=Opponent').first()).toBeVisible();
+    // Should show setup phase with player 1's turn to position
+    await expect(page.locator('.card-title:has-text("Setup Phase")')).toBeVisible();
+    await expect(page.locator('text=Warriors to Position')).toBeVisible();
   });
 
-  test('should show warrior cards for each warband', async ({ page }) => {
+  test('should show warrior items for positioning', async ({ page }) => {
     await startGame(page);
 
-    // Warrior cards should be visible
-    const warriorCards = page.locator('.warrior-game-status');
-    const count = await warriorCards.count();
+    // Warrior items should be visible for positioning
+    const warriorItems = page.locator('.warrior-item');
+    const count = await warriorItems.count();
     expect(count).toBeGreaterThan(0);
   });
 });

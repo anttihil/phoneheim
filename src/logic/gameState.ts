@@ -6,7 +6,6 @@ import type {
   GameState,
   GameWarband,
   GameWarrior,
-  GamePhase,
   GameAction,
   Warband,
   WarriorCombatState,
@@ -233,28 +232,6 @@ export function getStandingWarriors(warband: GameWarband): GameWarrior[] {
   return warband.warriors.filter(w => w.gameStatus === 'standing');
 }
 
-// Get warriors that can act
-export function getActableWarriors(warband: GameWarband, phase: GamePhase): GameWarrior[] {
-  return warband.warriors.filter(w => {
-    if (w.gameStatus !== 'standing') return false;
-    if (w.hasActed) return false;
-
-    switch (phase) {
-      case 'movement':
-        return !w.hasMoved;
-      case 'shooting':
-        return !w.hasShot && !w.hasCharged && hasRangedWeapon(w);
-      default:
-        return true;
-    }
-  });
-}
-
-// Check if warrior has ranged weapon
-function hasRangedWeapon(warrior: GameWarrior): boolean {
-  return warrior.equipment?.ranged?.length > 0;
-}
-
 // Generate game ID
 function generateGameId(): string {
   return 'game_' + Date.now().toString(36) + Math.random().toString(36).substr(2);
@@ -343,199 +320,6 @@ export function setWarriorCover(
 }
 
 // =====================================
-// WARRIOR ACTION TRACKING
-// =====================================
-
-// Check if warrior can perform an action in current phase
-export function canWarriorAct(warrior: GameWarrior, phase: GamePhase): boolean {
-  // Out of action warriors cannot act
-  if (warrior.gameStatus === 'outOfAction') {
-    return false;
-  }
-
-  switch (phase) {
-    case 'setup':
-      // Can position if standing and hasn't been positioned (marked as acted)
-      return warrior.gameStatus === 'standing' && !warrior.hasActed;
-
-    case 'recovery':
-      // Can act if fleeing, stunned, or knocked down and hasn't recovered
-      return (
-        (warrior.gameStatus === 'fleeing' ||
-          warrior.gameStatus === 'stunned' ||
-          warrior.gameStatus === 'knockedDown') &&
-        !warrior.hasRecovered
-      );
-
-    case 'movement':
-      // Can move if standing and hasn't moved
-      return warrior.gameStatus === 'standing' && !warrior.hasMoved;
-
-    case 'shooting':
-      // Can shoot if standing, hasn't shot, didn't charge, didn't run, has ranged weapon
-      return (
-        warrior.gameStatus === 'standing' &&
-        !warrior.hasShot &&
-        !warrior.hasCharged &&
-        !warrior.hasRun &&
-        hasRangedWeapon(warrior)
-      );
-
-    case 'combat':
-      // Can fight if engaged in combat
-      return warrior.combatState.inCombat && warrior.gameStatus === 'standing';
-
-    default:
-      return false;
-  }
-}
-
-// Get available actions for a warrior in current phase
-export interface AvailableAction {
-  type: string;
-  description: string;
-  requiresTarget: boolean;
-  validTargets?: string[];
-}
-
-export function getAvailableActions(
-  warrior: GameWarrior,
-  phase: GamePhase,
-  gameState: GameState
-): AvailableAction[] {
-  const actions: AvailableAction[] = [];
-
-  if (!canWarriorAct(warrior, phase)) {
-    return actions;
-  }
-
-  switch (phase) {
-    case 'setup':
-      actions.push({ type: 'position', description: 'Mark Positioned', requiresTarget: false });
-      break;
-
-    case 'recovery':
-      if (warrior.gameStatus === 'fleeing') {
-        actions.push({ type: 'rally', description: 'Rally (Leadership test)', requiresTarget: false });
-      }
-      if (warrior.gameStatus === 'stunned') {
-        actions.push({ type: 'recoverFromStunned', description: 'Recover (becomes knocked down)', requiresTarget: false });
-      }
-      if (warrior.gameStatus === 'knockedDown') {
-        if (!warrior.combatState.inCombat) {
-          actions.push({ type: 'standUp', description: 'Stand up (half move, strikes last)', requiresTarget: false });
-        }
-      }
-      break;
-
-    case 'movement':
-      actions.push({ type: 'move', description: 'Move', requiresTarget: false });
-      actions.push({ type: 'run', description: 'Run (double movement, no shooting)', requiresTarget: false });
-      // Charge requires targets
-      const chargeTargets = getValidChargeTargets(warrior, gameState);
-      if (chargeTargets.length > 0) {
-        actions.push({
-          type: 'charge',
-          description: 'Charge (double movement into combat)',
-          requiresTarget: true,
-          validTargets: chargeTargets
-        });
-      }
-      break;
-
-    case 'shooting':
-      const shootingTargets = getValidShootingTargets(warrior, gameState);
-      if (shootingTargets.length > 0) {
-        actions.push({
-          type: 'shoot',
-          description: 'Shoot',
-          requiresTarget: true,
-          validTargets: shootingTargets
-        });
-      }
-      break;
-
-    case 'combat':
-      if (warrior.combatState.engagedWith.length > 0) {
-        actions.push({
-          type: 'fight',
-          description: 'Fight in combat',
-          requiresTarget: true,
-          validTargets: warrior.combatState.engagedWith
-        });
-      }
-      break;
-  }
-
-  return actions;
-}
-
-// Get valid charge targets for a warrior
-function getValidChargeTargets(warrior: GameWarrior, gameState: GameState): string[] {
-  const targets: string[] = [];
-  const currentPlayerIndex = gameState.currentPlayer - 1;
-  const opponentIndex = currentPlayerIndex === 0 ? 1 : 0;
-  const opponentWarband = gameState.warbands[opponentIndex];
-
-  for (const enemy of opponentWarband.warriors) {
-    if (enemy.gameStatus === 'standing' || enemy.gameStatus === 'knockedDown') {
-      // In a real implementation, would check distance and line of sight
-      targets.push(enemy.id);
-    }
-  }
-
-  return targets;
-}
-
-// Get valid shooting targets for a warrior
-function getValidShootingTargets(warrior: GameWarrior, gameState: GameState): string[] {
-  const targets: string[] = [];
-  const currentPlayerIndex = gameState.currentPlayer - 1;
-  const opponentIndex = currentPlayerIndex === 0 ? 1 : 0;
-  const opponentWarband = gameState.warbands[opponentIndex];
-
-  for (const enemy of opponentWarband.warriors) {
-    // Cannot shoot at hidden enemies, can shoot at all visible enemies
-    if (enemy.gameStatus !== 'outOfAction' && !enemy.isHidden) {
-      targets.push(enemy.id);
-    }
-  }
-
-  return targets;
-}
-
-// Mark warrior as having acted
-export function markWarriorActed(
-  gameState: GameState,
-  warbandIndex: number,
-  warriorId: string,
-  actionType: 'moved' | 'shot' | 'charged' | 'acted'
-): void {
-  const warband = gameState.warbands[warbandIndex];
-  const warrior = warband.warriors.find(w => w.id === warriorId);
-
-  if (!warrior) {
-    throw new Error('Warrior not found');
-  }
-
-  switch (actionType) {
-    case 'moved':
-      warrior.hasMoved = true;
-      break;
-    case 'shot':
-      warrior.hasShot = true;
-      break;
-    case 'charged':
-      warrior.hasCharged = true;
-      warrior.hasMoved = true;
-      break;
-    case 'acted':
-      warrior.hasActed = true;
-      break;
-  }
-}
-
-// =====================================
 // UNDO FUNCTIONALITY
 // =====================================
 
@@ -583,14 +367,6 @@ function generateActionId(): string {
 // =====================================
 // WARRIOR SELECTION HELPERS
 // =====================================
-
-// Get all warriors that can act in the current phase
-export function getWarriorsForPhase(gameState: GameState): GameWarrior[] {
-  const warband = getCurrentWarband(gameState);
-  const phase = gameState.phase;
-
-  return warband.warriors.filter(warrior => canWarriorAct(warrior, phase));
-}
 
 // Find warrior by ID across all warbands
 export function findWarrior(gameState: GameState, warriorId: string): { warrior: GameWarrior; warbandIndex: number } | null {

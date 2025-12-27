@@ -22,7 +22,7 @@ import type {
   ShootingPhaseScreen,
   CombatResolutionScreen
 } from '../types/screens';
-import type { PhaseModule, PhaseContext, PhaseResult } from './types';
+import type { PhaseModule, PhaseContext, PhaseResult, AvailableAction } from './types';
 import { successResult, errorResult } from './types';
 import {
   toWarriorView,
@@ -47,6 +47,46 @@ import {
   getWeaponEnemyArmorBonus,
   getWeaponAccuracyBonus
 } from '../rules/combat';
+
+// =====================================
+// SHOOTING PHASE UTILITIES
+// =====================================
+
+/**
+ * Get warriors that can shoot during shooting phase
+ */
+export function getShootingActableWarriors(state: GameState): GameWarrior[] {
+  const warband = getCurrentWarband(state);
+  return warband.warriors.filter(w => canWarriorAct(w, 'shooting'));
+}
+
+/**
+ * Get valid shooting targets from opponent warband
+ * Warriors that are not out of action and not hidden can be shot
+ */
+export function getValidShootingTargets(state: GameState): GameWarrior[] {
+  const opponentWarband = getOpponentWarband(state);
+  return opponentWarband.warriors.filter(w =>
+    w.gameStatus !== 'outOfAction' && !w.isHidden
+  );
+}
+
+/**
+ * Get available shooting actions for a warrior
+ */
+export function getShootingAvailableActions(warrior: GameWarrior, state: GameState): AvailableAction[] {
+  if (!canWarriorAct(warrior, 'shooting')) return [];
+
+  const targets = getValidShootingTargets(state);
+  if (targets.length === 0) return [];
+
+  return [{
+    type: 'shoot',
+    description: 'Shoot',
+    requiresTarget: true,
+    validTargets: targets.map(w => w.id)
+  }];
+}
 
 // =====================================
 // SHOOTING PHASE MODULE
@@ -110,9 +150,7 @@ export const shootingPhase: PhaseModule = {
     const opponentWarband = getOpponentWarband(state);
     const warbandIndex = state.currentPlayer - 1;
 
-    const actableWarriors = currentWarband.warriors.filter(w =>
-      canWarriorAct(w, 'shooting')
-    );
+    const actableWarriors = getShootingActableWarriors(state);
 
     const screen: ShootingPhaseScreen = {
       screen: 'SHOOTING_PHASE',

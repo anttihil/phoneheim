@@ -45,10 +45,12 @@ export default function GameSetup() {
             onChange={setWarband1Id}
             options={[
               { value: '', label: '-- Select Warband --' },
-              ...warbandState.warbands.map(w => ({
-                value: w.id!,
-                label: `${w.name} (${w.typeName})`
-              }))
+              ...warbandState.warbands
+                .filter(w => w.id !== warband2Id())
+                .map(w => ({
+                  value: w.id!,
+                  label: `${w.name} (${w.typeName})`
+                }))
             ]}
           />
 
@@ -59,10 +61,12 @@ export default function GameSetup() {
             onChange={setWarband2Id}
             options={[
               { value: '', label: '-- Select Warband --' },
-              ...warbandState.warbands.map(w => ({
-                value: w.id!,
-                label: `${w.name} (${w.typeName})`
-              }))
+              ...warbandState.warbands
+                .filter(w => w.id !== warband1Id())
+                .map(w => ({
+                  value: w.id!,
+                  label: `${w.name} (${w.typeName})`
+                }))
             ]}
           />
         </div>

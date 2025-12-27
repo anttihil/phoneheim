@@ -22,7 +22,7 @@ import type {
   CombatResolutionScreen,
   WarriorView
 } from '../types/screens';
-import type { PhaseModule, PhaseContext, PhaseResult } from './types';
+import type { PhaseModule, PhaseContext, PhaseResult, AvailableAction } from './types';
 import { successResult, errorResult } from './types';
 import {
   toWarriorView,
@@ -426,13 +426,40 @@ function buildResolutionScreen(
 }
 
 // =====================================
-// COMBAT QUERIES
+// COMBAT PHASE UTILITIES
 // =====================================
+
+/**
+ * Get available combat actions for a warrior
+ * Only the current fighter in strike order can act
+ */
+export function getCombatAvailableActions(
+  warrior: GameWarrior,
+  state: GameState,
+  context: PhaseContext
+): AvailableAction[] {
+  // Only current fighter in strike order can act
+  if (context.currentFighterIndex >= context.strikeOrder.length) return [];
+
+  const currentFighter = context.strikeOrder[context.currentFighterIndex];
+  if (currentFighter.warriorId !== warrior.id) return [];
+  if (currentFighter.attacksUsed >= currentFighter.attacks) return [];
+
+  const targets = getMeleeTargets(state, warrior.id);
+  if (targets.length === 0) return [];
+
+  return [{
+    type: 'fight',
+    description: 'Fight in combat',
+    requiresTarget: true,
+    validTargets: targets.map(t => t.targetId)
+  }];
+}
 
 /**
  * Build strike order for combat phase
  */
-function buildStrikeOrder(gameState: GameState): StrikeOrderEntry[] {
+export function buildStrikeOrder(gameState: GameState): StrikeOrderEntry[] {
   const entries: StrikeOrderEntry[] = [];
 
   // Collect all warriors in combat from both warbands
@@ -480,7 +507,7 @@ function buildStrikeOrder(gameState: GameState): StrikeOrderEntry[] {
 /**
  * Get melee targets for a warrior
  */
-function getMeleeTargets(gameState: GameState, attackerId: string): MeleeTarget[] {
+export function getMeleeTargets(gameState: GameState, attackerId: string): MeleeTarget[] {
   const attackerResult = findWarrior(gameState, attackerId);
   if (!attackerResult) return [];
 
