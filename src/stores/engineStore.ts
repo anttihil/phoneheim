@@ -1,18 +1,22 @@
-// Engine Store - SolidJS state management backed by GameEngine
+// Engine Store - SolidJS state management backed by GameEngine or PhaseCoordinator
 //
-// This store wraps the GameEngine and InputMediator to provide
+// This store wraps the engine and InputMediator to provide
 // reactive state updates for SolidJS components.
 //
-// Migration strategy: Components can gradually switch from gameStore
-// to engineStore. Both can coexist during migration.
+// Engine Selection: Uses USE_PHASE_COORDINATOR feature flag to choose between:
+// - GameEngine (legacy, default)
+// - PhaseCoordinator (new modular architecture)
 
 import { createStore, reconcile } from 'solid-js/store';
 import { createSignal, batch } from 'solid-js';
 import { InputMediator, createMediator, type PlayerIdentity } from '../mediator';
+import { GameEngine, PhaseCoordinator } from '../engine';
+import type { IGameEngine } from '../engine/types/engine';
 import type { ScreenCommand } from '../engine/types/screens';
 import type { GameEvent } from '../engine/types/events';
 import type { GameState, ShootingModifiers } from '../types/game';
 import type { Warband } from '../types/warband';
+import { USE_PHASE_COORDINATOR } from '../config/features';
 
 // Store state interface - derived from screen commands
 interface EngineStoreState {
@@ -40,10 +44,21 @@ const [updateTrigger, setUpdateTrigger] = createSignal(0);
 // The mediator instance (created on first game start)
 let mediator: InputMediator | null = null;
 
+// Create the appropriate engine based on feature flag
+function createEngine(): IGameEngine {
+  if (USE_PHASE_COORDINATOR) {
+    console.log('[engineStore] Using PhaseCoordinator (new modular architecture)');
+    return new PhaseCoordinator();
+  }
+  console.log('[engineStore] Using GameEngine (legacy)');
+  return new GameEngine();
+}
+
 // Get or create mediator
 function getMediator(): InputMediator {
   if (!mediator) {
-    mediator = createMediator();
+    const engine = createEngine();
+    mediator = createMediator(engine);
 
     // Subscribe to screen updates
     mediator.onScreenCommand((screen) => {

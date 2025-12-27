@@ -5,6 +5,7 @@ import type { Warband } from '../types/warband';
 import type { GameState, GameWarrior, ShootingModifiers } from '../types/game';
 import type { GameEvent, UndoEvent } from './types/events';
 import type { ScreenCommand } from './types/screens';
+import type { IGameEngine, ProcessResult, SerializedGame } from './types/engine';
 import {
   createGameState,
   isRoutTestRequired
@@ -25,25 +26,14 @@ import { movementPhase } from './phases/movement';
 import { shootingPhase } from './phases/shooting';
 import { combatPhase } from './phases/combat';
 
-// Result of processing an event
-export interface ProcessResult {
-  success: boolean;
-  error?: string;
-  stateChanged: boolean;
-  screenCommand: ScreenCommand;
-}
-
-// Serialized game for save/load
-export interface SerializedGame {
-  state: GameState;
-  history: GameEvent[];
-  context: PhaseContext;
-}
+// Re-export types for convenience
+export type { ProcessResult, SerializedGame };
 
 /**
  * PhaseCoordinator - Orchestrates game flow by delegating to phase modules
+ * Implements IGameEngine for compatibility with InputMediator
  */
-export class PhaseCoordinator {
+export class PhaseCoordinator implements IGameEngine {
   private state: GameState | null = null;
   private history: GameEvent[] = [];
   private context: PhaseContext;

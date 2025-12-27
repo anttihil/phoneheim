@@ -8,7 +8,8 @@
 // - Integrates with NetworkAdapter for multiplayer
 // - Integrates with LocalAdapter for AI/single-player
 
-import { GameEngine, ProcessResult } from '../engine';
+import { GameEngine } from '../engine';
+import type { IGameEngine, ProcessResult } from '../engine/types/engine';
 import type { GameEvent, EventType } from '../engine/types/events';
 import type { ScreenCommand } from '../engine/types/screens';
 import type { Warband } from '../types/warband';
@@ -35,7 +36,7 @@ export interface PlayerIdentity {
 }
 
 export class InputMediator {
-  private engine: GameEngine;
+  private engine: IGameEngine;
   private screenListeners: Set<ScreenCommandListener> = new Set();
   private errorListeners: Set<ErrorListener> = new Set();
   private localPlayer: PlayerIdentity | null = null;
@@ -46,7 +47,7 @@ export class InputMediator {
   private localAdapter: LocalAdapter | null = null;
   private isMultiplayer: boolean = false;
 
-  constructor(engine?: GameEngine) {
+  constructor(engine?: IGameEngine) {
     this.engine = engine ?? new GameEngine();
   }
 
@@ -536,6 +537,6 @@ export class InputMediator {
 }
 
 // Factory function for convenience
-export function createMediator(engine?: GameEngine): InputMediator {
+export function createMediator(engine?: IGameEngine): InputMediator {
   return new InputMediator(engine);
 }

@@ -17,6 +17,7 @@ import type {
 } from './types/events';
 import type { ScreenCommand, WarriorView, WarbandView } from './types/screens';
 import type { CombatResolution, StrikeOrderEntry } from '../types/game';
+import type { IGameEngine } from './types/engine';
 import {
   createGameState,
   advancePhase as advanceGamePhase,
@@ -55,7 +56,7 @@ export interface SerializedGame {
   shootingModifiers: ShootingModifiers;
 }
 
-export class GameEngine {
+export class GameEngine implements IGameEngine {
   private state: GameState | null = null;
   private history: GameEvent[] = [];
   private selectedWarriorId: string | null = null;
