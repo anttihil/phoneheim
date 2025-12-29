@@ -7,7 +7,7 @@
 // - Spectator event streaming
 
 import * as webrtc from '../services/webrtc';
-import type { GameEvent } from '../engine/types/events';
+import type { GameEvent } from '../phases/types/events';
 import type { GameState } from '../types/game';
 
 // Message types for game synchronization

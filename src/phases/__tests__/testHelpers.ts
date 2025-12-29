@@ -1,4 +1,4 @@
-// Test helpers for engine unit tests
+// Test helpers for phase unit tests
 
 import type { Warband, Warrior, Profile } from '../../types/warband';
 import type { GameState, GameWarrior, GameWarband, GamePhase } from '../../types/game';

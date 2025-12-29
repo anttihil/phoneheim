@@ -14,8 +14,8 @@ import { createStore, reconcile } from 'solid-js/store';
 import { createSignal, createMemo, batch } from 'solid-js';
 import { InputMediator, createMediator, type PlayerIdentity } from '../mediator';
 import { NetworkAdapter, getNetworkAdapter, type ConnectionStatus } from '../mediator/NetworkAdapter';
-import type { ScreenCommand, ScreenType } from '../engine/types/screens';
-import type { GameEvent, EventType } from '../engine/types/events';
+import type { ScreenCommand, ScreenType } from '../phases/types/screens';
+import type { GameEvent, EventType } from '../phases/types/events';
 import type { GameState } from '../types/game';
 import type { Warband } from '../types/warband';
 

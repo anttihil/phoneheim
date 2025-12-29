@@ -4,6 +4,12 @@
 // Shared exports
 export * from './shared';
 
+// Type exports (from moved engine/types/)
+export * from './types';
+
+// PhaseCoordinator (main engine implementation)
+export { PhaseCoordinator } from './PhaseCoordinator';
+
 // Phase module exports
 export { setupPhase, getSetupActableWarriors, getSetupAvailableActions, SetupScreen } from './setup';
 export { recoveryPhase, getWarriorsNeedingRecovery, isRecoveryPhaseComplete, getRecoveryAvailableActions, RecoveryScreen, RoutTestModal } from './recovery';

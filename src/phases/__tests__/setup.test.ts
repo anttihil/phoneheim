@@ -1,6 +1,6 @@
 import { describe, it, expect, beforeEach } from 'vitest';
 import { getSetupActableWarriors, getSetupAvailableActions } from '../setup/logic';
-import { createTestGameState, resetIdCounter, getWarrior } from '../../engine/__tests__/testHelpers';
+import { createTestGameState, resetIdCounter, getWarrior } from './testHelpers';
 import type { GameState } from '../../types/game';
 
 describe('Setup Phase Utilities', () => {

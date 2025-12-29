@@ -18,16 +18,16 @@ import {
   resetPlayerActedFlags,
   getPhaseName,
 } from "./shared/stateMachine";
-import type { PhaseContext, PhaseRegistry } from "../phases/shared/types";
+import type { PhaseContext, PhaseRegistry } from "./shared/types";
 import {
   createPhaseContext,
   createPhaseRegistry,
-} from "../phases/shared/types";
-import { setupPhase } from "../phases/setup";
-import { recoveryPhase } from "../phases/recovery";
-import { movementPhase } from "../phases/movement";
-import { shootingPhase } from "../phases/shooting";
-import { combatPhase } from "../phases/combat";
+} from "./shared/types";
+import { setupPhase } from "./setup";
+import { recoveryPhase } from "./recovery";
+import { movementPhase } from "./movement";
+import { shootingPhase } from "./shooting";
+import { combatPhase } from "./combat";
 import { SCENARIOS } from "@/data/scenarios";
 
 // Re-export types for convenience

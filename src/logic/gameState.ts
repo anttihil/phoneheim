@@ -1,6 +1,6 @@
 // Game State Management
 
-import { leadershipTest } from "../engine/rules/combat";
+import { leadershipTest } from "../phases/shared/rules";
 import type { GameState, GameWarband, Warband, RoutTestResult } from "../types";
 
 // Add to game log

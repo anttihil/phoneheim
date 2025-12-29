@@ -2,8 +2,8 @@
 // Handles initial warrior positioning during game setup
 
 import type { GameState, GameWarrior } from '../../types/game';
-import type { GameEvent, EventType, SelectWarriorEvent, ConfirmPositionEvent } from '../../engine/types/events';
-import type { ScreenCommand, GameSetupScreen } from '../../engine/types/screens';
+import type { GameEvent, EventType, SelectWarriorEvent, ConfirmPositionEvent } from '../types/events';
+import type { ScreenCommand, GameSetupScreen } from '../types/screens';
 import type { PhaseModule, PhaseContext, PhaseResult, AvailableAction } from '../shared/types';
 import { successResult, errorResult } from '../shared/types';
 import { toWarriorView, toWarbandView, getCurrentWarband, getOpponentWarband, findWarrior, findWarriorView } from '../shared/viewModels';

@@ -16,12 +16,12 @@ import type {
   SetModifierEvent,
   ConfirmShotEvent,
   AcknowledgeEvent
-} from '../../engine/types/events';
+} from '../types/events';
 import type {
   ScreenCommand,
   ShootingPhaseScreen,
   CombatResolutionScreen
-} from '../../engine/types/screens';
+} from '../types/screens';
 import type { PhaseModule, PhaseContext, PhaseResult, AvailableAction } from '../shared/types';
 import { successResult, errorResult } from '../shared/types';
 import {
@@ -35,18 +35,20 @@ import {
 import { generateActionId, addLog, canWarriorAct } from '../shared/stateUtils';
 import { RANGED_WEAPONS } from '../../data/equipment';
 import {
-  rollToHitShooting,
   rollToWound,
   rollArmorSave,
   rollInjury,
   rollCriticalHit,
-  calculateShootingModifiers,
   calculateArmorSaveModifier,
   getWeaponStrength,
   getWeaponArmorModifier,
   getWeaponEnemyArmorBonus,
+} from '../shared/rules';
+import {
+  rollToHitShooting,
+  calculateShootingModifiers,
   getWeaponAccuracyBonus
-} from '../../engine/rules/combat';
+} from './rules';
 
 // =====================================
 // SHOOTING PHASE UTILITIES

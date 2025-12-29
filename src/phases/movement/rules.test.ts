@@ -12,7 +12,7 @@ import {
   isValidClimbHeight,
   getRunningEnemyProximity,
   validateRunAttempt
-} from './movement';
+} from './rules';
 
 describe('Terrain Movement Modifiers', () => {
   describe('getTerrainMovementModifier', () => {

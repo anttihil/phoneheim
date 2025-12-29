@@ -2,12 +2,12 @@
 
 import { describe, it, expect, beforeEach, vi } from 'vitest';
 import { InputMediator, createMediator } from '../InputMediator';
-import { PhaseCoordinator } from '../../engine';
+import { PhaseCoordinator } from '../../phases/PhaseCoordinator';
 import {
   createTestWarband,
   resetIdCounter
-} from '../../engine/__tests__/testHelpers';
-import type { ScreenCommand } from '../../engine/types/screens';
+} from '../../phases/__tests__/testHelpers';
+import type { ScreenCommand } from '../../phases/types/screens';
 
 describe('InputMediator', () => {
   let mediator: InputMediator;

@@ -1,6 +1,6 @@
 import { describe, it, expect, beforeEach } from 'vitest';
 import { getShootingActableWarriors, getValidShootingTargets, getShootingAvailableActions } from '../shooting/logic';
-import { createTestGameState, resetIdCounter, getWarrior, createTestWarrior, createTestWarband, toGameWarband } from '../../engine/__tests__/testHelpers';
+import { createTestGameState, resetIdCounter, getWarrior, createTestWarrior, createTestWarband, toGameWarband } from './testHelpers';
 import type { GameState } from '../../types/game';
 
 describe('Shooting Phase Utilities', () => {

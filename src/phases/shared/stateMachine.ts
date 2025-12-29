@@ -1,7 +1,7 @@
 // State Machine for Turn/Phase Management
 // Handles transitions between game phases and turns
 
-import type { GameState, GamePhase, GameWarrior } from '../../types/game';
+import type { GameState, GamePhase } from '../../types/game';
 
 // =====================================
 // STATE TYPES

@@ -6,13 +6,13 @@ import {
   createNetworkAdapter,
   getNetworkAdapter
 } from '../NetworkAdapter';
-import type { GameEvent } from '../../engine/types/events';
+import type { GameEvent } from '../../phases/types/events';
 import type { GameState } from '../../types/game';
 import {
   createTestGameState,
   createTestWarband,
   resetIdCounter
-} from '../../engine/__tests__/testHelpers';
+} from '../../phases/__tests__/testHelpers';
 
 // Mock the webrtc module
 vi.mock('../../services/webrtc', () => ({

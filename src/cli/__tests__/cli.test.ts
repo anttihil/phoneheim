@@ -6,8 +6,8 @@ import {
   createTestWarband,
   createTestGameState,
   resetIdCounter
-} from '../../engine/__tests__/testHelpers';
-import type { GameEvent } from '../../engine/types/events';
+} from '../../phases/__tests__/testHelpers';
+import type { GameEvent } from '../../phases/types/events';
 
 describe('GameCLI', () => {
   let cli: GameCLI;

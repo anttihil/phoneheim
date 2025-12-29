@@ -5,8 +5,8 @@
 // - AI opponent integration (future)
 // - Headless operation for testing and bots
 
-import type { GameEvent } from '../engine/types/events';
-import type { ScreenCommand } from '../engine/types/screens';
+import type { GameEvent } from '../phases/types/events';
+import type { ScreenCommand } from '../phases/types/screens';
 import type { GameState } from '../types/game';
 
 // AI decision callback type

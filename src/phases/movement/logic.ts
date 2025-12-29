@@ -8,8 +8,8 @@ import type {
   SelectWarriorEvent,
   ConfirmMoveEvent,
   ConfirmChargeEvent
-} from '../../engine/types/events';
-import type { ScreenCommand, MovementPhaseScreen } from '../../engine/types/screens';
+} from '../types/events';
+import type { ScreenCommand, MovementPhaseScreen } from '../types/screens';
 import type { PhaseModule, PhaseContext, PhaseResult, AvailableAction } from '../shared/types';
 import { successResult, errorResult } from '../shared/types';
 import {

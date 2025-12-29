@@ -8,10 +8,10 @@
 // - Integrates with NetworkAdapter for multiplayer
 // - Integrates with LocalAdapter for AI/single-player
 
-import { PhaseCoordinator } from '../engine';
-import type { IGameEngine, ProcessResult } from '../engine/types/engine';
-import type { GameEvent, EventType } from '../engine/types/events';
-import type { ScreenCommand } from '../engine/types/screens';
+import { PhaseCoordinator } from '../phases/PhaseCoordinator';
+import type { IGameEngine, ProcessResult } from '../phases/types/engine';
+import type { GameEvent, EventType } from '../phases/types/events';
+import type { ScreenCommand } from '../phases/types/screens';
 import type { Warband } from '../types/warband';
 import type { GameState } from '../types/game';
 import { NetworkAdapter } from './NetworkAdapter';

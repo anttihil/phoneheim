@@ -6,10 +6,10 @@
 // - Automated game simulations
 // - JSON-based input/output for integration
 
-import { PhaseCoordinator } from '../engine';
-import type { IGameEngine } from '../engine/types/engine';
-import type { GameEvent } from '../engine/types/events';
-import type { ScreenCommand } from '../engine/types/screens';
+import { PhaseCoordinator } from '../phases/PhaseCoordinator';
+import type { IGameEngine } from '../phases/types/engine';
+import type { GameEvent } from '../phases/types/events';
+import type { ScreenCommand } from '../phases/types/screens';
 import type { Warband } from '../types/warband';
 import type { GameState } from '../types/game';
 

@@ -1,6 +1,6 @@
 import { describe, it, expect, beforeEach } from 'vitest';
 import { getWarriorsNeedingRecovery, getRecoveryAvailableActions, isRecoveryPhaseComplete } from '../recovery/logic';
-import { createTestGameState, resetIdCounter, getWarrior, createTestWarband, toGameWarband } from '../../engine/__tests__/testHelpers';
+import { createTestGameState, resetIdCounter, getWarrior, createTestWarband, toGameWarband } from './testHelpers';
 import type { GameState, GameWarband } from '../../types/game';
 
 describe('Recovery Phase Utilities', () => {

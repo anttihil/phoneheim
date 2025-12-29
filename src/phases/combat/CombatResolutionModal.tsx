@@ -2,7 +2,7 @@
 
 import { Show } from 'solid-js';
 import { Button, Card } from '../../components/common';
-import type { CombatResolutionData } from '../../engine/types/screens';
+import type { CombatResolutionData } from '../types/screens';
 
 export interface CombatResolutionModalProps {
   isOpen: boolean;

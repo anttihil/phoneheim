@@ -9,7 +9,7 @@ import { useNavigate } from '@solidjs/router';
 import { uiStore, uiState } from '../stores/uiStore';
 import { Card, Button } from '../components/common';
 import { PhaseIndicator, DiceRoller } from '../components/game';
-import type { CombatResolutionData } from '../engine/types/screens';
+import type { CombatResolutionData } from '../phases/types/screens';
 
 // Phase screens from co-located phase modules
 import { SetupScreen } from '../phases/setup';

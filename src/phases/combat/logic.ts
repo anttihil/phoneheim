@@ -15,13 +15,13 @@ import type {
   SelectTargetEvent,
   ConfirmMeleeEvent,
   AcknowledgeEvent
-} from '../../engine/types/events';
+} from '../types/events';
 import type {
   ScreenCommand,
   CombatPhaseScreen,
   CombatResolutionScreen,
   WarriorView
-} from '../../engine/types/screens';
+} from '../types/screens';
 import type { PhaseModule, PhaseContext, PhaseResult, AvailableAction } from '../shared/types';
 import { successResult, errorResult } from '../shared/types';
 import {
@@ -34,7 +34,6 @@ import {
 } from '../shared/viewModels';
 import { generateActionId, addLog } from '../shared/stateUtils';
 import {
-  rollToHitMelee,
   rollToWound,
   rollArmorSave,
   rollInjury,
@@ -43,10 +42,13 @@ import {
   getWeaponStrength,
   getWeaponArmorModifier,
   getWeaponEnemyArmorBonus,
+} from '../shared/rules';
+import {
+  rollToHitMelee,
   canWeaponParry,
   weaponCausesConcussion,
   attemptParryWithReroll
-} from '../../engine/rules/combat';
+} from './rules';
 
 // =====================================
 // COMBAT PHASE MODULE

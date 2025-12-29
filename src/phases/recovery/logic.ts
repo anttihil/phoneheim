@@ -7,13 +7,13 @@ import type {
   EventType,
   SelectWarriorEvent,
   RecoveryActionEvent
-} from '../../engine/types/events';
-import type { ScreenCommand, RecoveryPhaseScreen } from '../../engine/types/screens';
+} from '../types/events';
+import type { ScreenCommand, RecoveryPhaseScreen } from '../types/screens';
 import type { PhaseModule, PhaseContext, PhaseResult, AvailableAction } from '../shared/types';
 import { successResult, errorResult } from '../shared/types';
 import { toWarriorView, toWarbandView, getCurrentWarband, findWarrior, findWarriorView } from '../shared/viewModels';
 import { generateActionId, addLog, canWarriorAct } from '../shared/stateUtils';
-import { leadershipTest } from '../../engine/rules/combat';
+import { leadershipTest } from '../shared/rules';
 
 // =====================================
 // RECOVERY PHASE MODULE
